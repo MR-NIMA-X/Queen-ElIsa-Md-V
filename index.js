@@ -260,7 +260,7 @@ ElinaBotMd.sendContact = async (jid, kon, quoted = '', opts = {}) => {
         }
         await console.log('👸💬   Queen Elisa Connecting your Whatsapp ...')
         await console.log('👸💬   Automatically joining support group ...')
-        await console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...', update)
+        return await console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...', update)
         
     })
 
