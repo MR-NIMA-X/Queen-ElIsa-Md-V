@@ -2591,8 +2591,14 @@ case 'xxxxantilink': {
                               }
                               case 'attp2' :{
                               if (!text) return reply ('Need some word \n ex - attp Mr nima')
-                              const Stik = `https://api.akuari.my.id/other/attp3?text=${text}`
+                              const Stik = `https://my-shinz.herokuapp.com/api/maker/attp?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
+                               
+                              }
+                              case 'ttp' :{
+                              if (!text) return reply ('Need some word \n ex - attp Mr nima')
+                              //const Stik = `https://my-shinz.herokuapp.com/api/maker/attp?text=${text}`
+                               await ElisaBotMd.sendMedia(m.chat, `https://my-shinz.herokuapp.com/api/maker/ttp?text=${text}` , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
                               }
                               case 'tts' :{
@@ -2603,12 +2609,23 @@ case 'xxxxantilink': {
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: voice } , mimetype: 'audio/mpeg',ptt:true }, { quoted: m })
                               }
                               break
+                              case 'short' :{
+                              if (!isUrl(args[0])) return reply('*👸💬 Please Give Me a Correct Link*\n_Example - .short https://youtube.com/c/NIMAOFC')
+                              const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/linkshort/cuttly?link=${text}`)
+                              m.reply(nima.result)
+                              }
+                              //https://my-shinz.herokuapp.com/api/linkshort/cuttly?link=https://api-alpis.herokuapp.com
+                              case 'short2' :{
+                              if (!isUrl(args[0])) return reply('*👸💬 Please Give Me a Correct Link*\n_Example - .short2 https://youtu.be/hbwvPcnuTlY_')
+                              const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/linkshort/tinyurlwithalias?link=${args[0]}&alias=${args[1]}`)
+                              m.reply(nima.result)
+                              }
                               case 'ringtone' :{
                                 if (!text) return reply('*👸💬 Please Enter ringtone name*\n_Example - ringtone iphone_')
                                 const anu = fetchJson(`https://my-shinz.herokuapp.com/api/search/ringtone?text=${text}`)
                                 const search = anu.result
                                 let sections = []   
-  for (let i of search) {
+  for (let i of anu.result) {
   const list = {title: `👸💬 sᴇʟᴇᴄᴛ ʏᴏᴜʀ ʀɪɴɢᴛᴏɴᴇ`,
   rows: [
 	    {
@@ -2618,7 +2635,8 @@ case 'xxxxantilink': {
 	    ]
      }
      sections.push(list)   
-     } //.catch((err) => reply('*👸💬 Error*'))
+     }
+      //.catch((err) => reply('*👸💬 Error*'))
   const sendm =  ElisaBotMd.sendMessage(
       m.chat, 
       {
@@ -4946,6 +4964,32 @@ if (global.LANG == 'SI') NEED = '*කරුනාකර මට ඉමෝජි�
    const img = imoji.result.image[0].image
    await ElisaBotMd.sendMessage(m.chat, { image: { url: img },  caption: `${global.cap}`}, { quoted: m })
    
+
+}
+break
+case 'pemoji2' :{
+if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command}👸`)
+                          await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
+
+await ElisaBotMd.sendMessage(m.chat, { image: { url:` https://my-shinz.herokuapp.com/api/emoji/whatsapp?emoji=${encodeURIComponent(text)} `},  caption: `${global.cap}`}, { quoted: m })
+   
+
+}
+break
+case 'pemoji3' :{
+if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command}👸`)
+                          await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
+
+await ElisaBotMd.sendMessage(m.chat, { image: { url: `https://my-shinz.herokuapp.com/api/emoji/samsung?emoji=${encodeURIComponent(text)}` },  caption: `${global.cap}`}, { quoted: m })
+   
+
+}
+break
+case 'emostick' :{
+if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command}👸`)
+                          await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
+
+await ElisaBotMd.sendMedia(m.chat, `https://my-shinz.herokuapp.com/api/emoji/skype?emoji=${encodeURIComponent(text)}` , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
 
 }
 break
