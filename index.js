@@ -258,14 +258,13 @@ ElinaBotMd.sendContact = async (jid, kon, quoted = '', opts = {}) => {
             else if (reason === DisconnectReason.timedOut) { console.log("💃 Connection TimedOut, Reconnecting..."); startElinaBotMd(); }
             else ElinaBotMd.end(`💃 Unknown DisconnectReason: ${reason}|${connection}`)
         }
-       // await console.log('👸💬   Queen Elisa Connecting your Whatsapp ...')
-      //  await console.log('👸💬   Automatically joining support group ...')
-
-console.log(`${chalk.green.bold('𝐐𝐮𝐞𝐞𝐧')}${chalk.blue.bold('𝐄𝐥𝐢𝐬𝐚')}
+        
+        //await console.log('👸💬   Queen Elisa Connecting your Whatsapp ...')
+        //await console.log('👸💬   Automatically joining support group ...')
+        console.log(`${chalk.green.bold('𝐐𝐮𝐞𝐞𝐧')}${chalk.blue.bold('𝐄𝐥𝐢𝐬𝐚')}
 ${chalk.white.bold('Version:')} ${chalk.red.bold('2.1.0')}
-${chalk.blue.italic('ℹ️ Connecting Whatsapp .')}
-`)
-console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...', update)
+${chalk.blue.italic('ℹ️ Connecting Whatsapp .')}👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...`, update)
+        
         
     })
 
@@ -296,7 +295,18 @@ console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...', update)
             }), options)
             ElinaBotMd.relayMessage(jid, template.message, { messageId: template.key.id })
     }
-
+//FIX LIST MASSAGE 🦄
+ElinaBotMd.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
+        let sections = sects
+        var listMes = {
+        text: text,
+        footer: footer,
+        title: title,
+        buttonText: butText,
+        sections
+        }
+        ElisaBotMd.sendMessage(jid, listMes, { quoted: quoted })
+        }
     /**
      * 
      * @param {*} jid 
