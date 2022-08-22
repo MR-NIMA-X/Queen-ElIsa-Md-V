@@ -2586,11 +2586,11 @@ case 'xxxxantilink': {
                               case 'attp' : case 'attp2' :{
                                if (!text) return reply ('Need some word \n ex - attp Mr nima')
                                const Stik = `https://api.akuari.my.id/other/attp?text=${text}`
-                               await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰',  m, {asSticker: true}).catch((err) => reply('ᴄᴀɴɴᴏᴛ ᴍᴀᴋᴇ ᴀᴛᴛᴘ sᴛɪᴄᴋᴇʀ'))
+                               await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                               // await ElisaBotMd.sendVideoAsSticker(m.chat, Stik, m, { packname: global.packname, author: global.author })
                                if (command == 'attp2'){
                                const Stik = `https://api.akuari.my.id/other/attp3?text=${text}`
-                               await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰',  m, {asSticker: true}).catch((err) => reply('ᴄᴀɴɴᴏᴛ ᴍᴀᴋᴇ ᴀᴛᴛᴘ sᴛɪᴄᴋᴇʀ'))
+                               await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                //await ElisaBotMd.sendVideoAsSticker(m.chat, Stik, m, { packname: global.packname, author: global.author })
                                }
                               }
