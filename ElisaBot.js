@@ -2599,7 +2599,8 @@ case 'xxxxantilink': {
                               if (!text) return reply('Need word')
                               const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/soundoftext?text=${text}&lang=en-US`).catch((err) => reply('Error 🙂'))
                               const voice = nima.result
-                              await ElisaBotMd.sendMessage(m.chat, {audio: voice, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+                              //await ElisaBotMd.sendMessage(m.chat, {audio: voice, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+                              await ElisaBotMd.sendMessage(m.chat, { audio: { url: voice } , mimetype: 'audio/mpeg',ptt:true }, { quoted: m })
                               }
                               break
                               case 'ebinary': {
@@ -2904,16 +2905,16 @@ case 'xxxxantilink': {
                        
                           if (!text) return reply ('*👸💬 Please Give me a some words*\nExample - _.img2 car_')
                           const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/search/googleimage?text=${text}`)
-                          img1 = nima.restart[0].url
-                          img2 = nima.restart[1].url
-                          img3 = nima.restart[2].url
-                          img4 = nima.restart[3].url
-                          img5 = nima.restart[4].url
-                          img6 = nima.restart[5].url
-                          img7 = nima.restart[6].url
-                          img8 = nima.restart[7].url
-                          img9 = nima.restart[8].url
-                          img10 = nima.restart[9].url
+                          img1 = nima.result[0].url
+                          img2 = nima.result[1].url
+                          img3 = nima.result[2].url
+                          img4 = nima.result[3].url
+                          img5 = nima.result[4].url
+                          img6 = nima.result[5].url
+                          img7 = nima.result[6].url
+                          img8 = nima.result[7].url
+                          img9 = nima.result[8].url
+                          img10 = nima.result[9].url
                           
                           await ElisaBotMd.sendMessage(m.chat, { image: { url: img1 }})
                           await ElisaBotMd.sendMessage(m.chat, { image: { url: img2 }})
