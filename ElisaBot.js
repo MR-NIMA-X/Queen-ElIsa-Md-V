@@ -2587,12 +2587,13 @@ case 'xxxxantilink': {
                                if (!text) return reply ('Need some word \n ex - attp Mr nima')
                                const Stik = `https://api.akuari.my.id/other/attp?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
-                              // await ElisaBotMd.sendVideoAsSticker(m.chat, Stik, m, { packname: global.packname, author: global.author })
-                               if (command == 'attp2'){
-                               const Stik = `https://api.akuari.my.id/other/attp3?text=${text}`
+                               
+                              }
+                              case 'attp2' :{
+                              if (!text) return reply ('Need some word \n ex - attp Mr nima')
+                              const Stik = `https://api.akuari.my.id/other/attp3?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
-                               //await ElisaBotMd.sendVideoAsSticker(m.chat, Stik, m, { packname: global.packname, author: global.author })
-                               }
+                               
                               }
                               break
                               case 'ebinary': {
@@ -3750,355 +3751,347 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                               }
                               break
                               case 'logo' :{ 
- await ElisaBotMd.sendMessage(from, { react: { text: `👆`, key: m.key }})        	                	
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `Hi ${pushname}`,
-                    description: `╔═════════════════════☐
+ await ElisaBotMd.sendMessage(from, { react: { text: `👆`, key: m.key }})     
+  
+     	const desmsg = description: `╔═════════════════════☐
 
       *_𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝙻𝚘𝚐𝚘 𝙻𝚒𝚜𝚝_*
 
 *▣ ʀᴇǫᴜᴇsᴛᴇʀ -*  ${m.pushName}
 *▣ ʟᴏɢᴏ ᴛᴇxᴛ -* ${text}
 
-☐═════════════════════╝`,
-                    buttonText: "SELECT LOGO",
-                    footerText: `${global.botnma}`,
-                    listType: "SINGLE_SELECT",
-                    sections: [{ 
-                    "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
-                                   "rows": [
-                                   {
-										"title": "CANDY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `candy ${text}`
-										},
-									{
-										"title": "CHRISTMAS STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `christmas ${text}`
-										},
-									{
-										"title": "DEEPSEA STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `deepsea ${text}`
-									},
-									{
-										"title": "SCIFI STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `scifi ${text}`
-									},
-									{
-										"title": "RAINBOW STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `rainbow ${text}`
-									},
-									{
-											"title": "WATERPIPE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `waterpipe ${text}`
-										},
+☐═════════════════════╝`
+     let sections = [{
+
+         "title": "ʙᴏᴛ ʟɪsᴛ ᴍᴇɴᴜ ᴄʟɪᴄᴋ ᴀɴᴅ sᴇʟᴇᴄᴛ ʏᴏᴜʀ ᴏᴡɴ",
+                                                  "rows": [
+                                                  {
+			"title": "CANDY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `candy ${text}`
+			},
+		{
+			"title": "CHRISTMAS STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `christmas ${text}`
+			},
+		{
+			"title": "DEEPSEA STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `deepsea ${text}`
+		},
+		{
+			"title": "SCIFI STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `scifi ${text}`
+		},
+		{
+			"title": "RAINBOW STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `rainbow ${text}`
+		},
+		{
+				"title": "WATERPIPE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `waterpipe ${text}`
+			},
          	                            {
-											"title": "SPOOKEY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `spooky ${text}`
-										},
-										{
-											"title": "PENCIL STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `pencil ${text}`
-										},		
-										{
-											"title": "CIRCUITE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `circuit ${text}`
-										},
-										{
-											"title": "DESCOVERY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `discovery ${text}`
-										},	
-										{
-											"title": "FICTION STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `fiction ${text}`
-										},
-										{
-											"title": "DEMON STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `demon ${text}`
-										},
-										{
-											"title": "TRANSFORMER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `transformer ${text}`
-										},
-										{
-											"title": "BERRY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `berry ${text}`
-										},
-										{
-											"title": "THUNDER  STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `thunder ${text}`
-										},
-										{
-											"title": "MAGMA STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `magma ${text}`
-										},
-										{
-											"title": "3-D STONE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `3dstone ${text}`
-										},
-										{
-											"title": "NEONLIGHT STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `neonlight ${text}`
-										},
-										{
-											"title": "GLITCH STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `glitch ${text}`
-										},
-										{
-											"title": "HARRYPOTTER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `harrypotter ${text}`
-										},
-										{
-											"title": "BROKENGLASS STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `brokenglass ${text}`
-										},
-										{
-											"title": "PAPERCUT STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `papercut ${text}`
-										},
-										{
-											"title": "WATERCOLOR STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `watercolor ${text}`
-										},
-										{
-											"title": "MULTICOLOR STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `multicolor ${text}`
-										},
-										{
-											"title": "NEON DEVIL STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `neondevil ${text}`
-										},
-										{
-											"title": "UNDERWATER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `underwater ${text}`
-										},
-										{
-											"title": "GRAFFITIBIKE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `graffitibike ${text}`
-										},
-										{
-											"title": "SNOW STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `snow ${text}`
-										},
-										{
-											"title": "CLOUD STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `cloud ${text}`
-										},
-										{
-											"title": "HONEY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `honey ${text}`
-										},
-										{
-											"title": "ICE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `ice ${text}`
-										},
-										{
-											"title": "BISCUIT STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `biscuit ${text}`
-										},
-										{
-											"title": "WOOD STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `wood ${text}`
-										},
-										{
-											"title": "CHOCOLATE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `chocolate ${text}`
-										},
-										{
-											"title": "STRAWBERRY STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `strawberry ${text}`
-										},
-										{
-											"title": "MATRIXS STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `matrix ${text}`
-										},
-										{
-											"title": "BLOOD STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `blood ${text}`
-										},
-										{
-											"title": "DROPWATER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `dropwater ${text}`
-										},
-										{
-											"title": "TOXIC STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `toxic ${text}`
-										},
-										{
-											"title": "LAVA STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `lava ${text}`
-										},
-										{
-											"title": "ROCK STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `rock ${text}`
-										},
-										{
-											"title": "BLOODGLAS STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `bloodglas ${text}`
-										},
-										{
-											"title": "HALLOWEN STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `hallowen ${text}`
-										},
-										{
-											"title": "DARKGOLD STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `darkgold ${text}`
-										},
-										{
-											"title": "JOKER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `joker ${text}`
-										},
-										{
-											"title": "WICKER STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `wicker ${text}`
-										},
-										{
-											"title": "FIREWORK STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `firework ${text}`
-										},
-										{
-											"title": "SKELETON STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `skeleton ${text}`
-										},
-										{
-											"title": "BLACKPINK STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `blackpink ${text}`
-										},
-										{
-											"title": "SAND STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `sand ${text}`
-										},
-										{
-											"title": "GLUE STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `glue ${text}`
-										}, ///
-										{
-											"title": "3D BOX STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `3dbox ${text}`
-										},
-										{
-											"title": "GLITCH STYLE - 2",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `glitch2 ${text}`
-										},
-										{
-											"title": "GLITCH STYLE - 3",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `glitch3 ${text}`
-										},
-										{
-											"title": "GREEN NEON STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `greenneon ${text}`
-										},
-										{
-											"title": "3D NEON STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `3dneon ${text}`
-										},
-										{
-											"title": "BOKEH STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `bokeh ${text}`
-										},
-										{
-											"title": "BEAR STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `bear ${text}`
-										},
-										{
-											"title": "CHRISTMAS STYLE - 2",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `sparklechristmas ${text}`
-										},
-										{
-											"title": "CHRISTMAS STYLE - 3",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `3dchristmas ${text}`
-										},
-										{
-											"title": "RAINBOW STYLE - 3",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `rainbow2 ${text}`
-										},
-										{
-											"title": "FRUIT JUICE STYLE",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `fruitjuice ${text}`
-										},
-										
-										///
-										{
-											"title": "1917 STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `1917 ${text}`
-										},
-										{
-											"title": "LEAVES STYLE ",
-										"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
-										"rowId": `leaves ${text}`
-										}
-								]
-								
-								}
-							],
-				  listType: 1
-                }
-            }), {})
-            ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
+				"title": "SPOOKEY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `spooky ${text}`
+			},
+			{
+				"title": "PENCIL STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `pencil ${text}`
+			},		
+			{
+				"title": "CIRCUITE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `circuit ${text}`
+			},
+			{
+				"title": "DESCOVERY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `discovery ${text}`
+			},	
+			{
+				"title": "FICTION STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `fiction ${text}`
+			},
+			{
+				"title": "DEMON STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `demon ${text}`
+			},
+			{
+				"title": "TRANSFORMER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `transformer ${text}`
+			},
+			{
+				"title": "BERRY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `berry ${text}`
+			},
+			{
+				"title": "THUNDER  STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `thunder ${text}`
+			},
+			{
+				"title": "MAGMA STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `magma ${text}`
+			},
+			{
+				"title": "3-D STONE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `3dstone ${text}`
+			},
+			{
+				"title": "NEONLIGHT STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `neonlight ${text}`
+			},
+			{
+				"title": "GLITCH STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `glitch ${text}`
+			},
+			{
+				"title": "HARRYPOTTER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `harrypotter ${text}`
+			},
+			{
+				"title": "BROKENGLASS STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `brokenglass ${text}`
+			},
+			{
+				"title": "PAPERCUT STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `papercut ${text}`
+			},
+			{
+				"title": "WATERCOLOR STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `watercolor ${text}`
+			},
+			{
+				"title": "MULTICOLOR STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `multicolor ${text}`
+			},
+			{
+				"title": "NEON DEVIL STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `neondevil ${text}`
+			},
+			{
+				"title": "UNDERWATER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `underwater ${text}`
+			},
+			{
+				"title": "GRAFFITIBIKE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `graffitibike ${text}`
+			},
+			{
+				"title": "SNOW STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `snow ${text}`
+			},
+			{
+				"title": "CLOUD STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `cloud ${text}`
+			},
+			{
+				"title": "HONEY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `honey ${text}`
+			},
+			{
+				"title": "ICE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `ice ${text}`
+			},
+			{
+				"title": "BISCUIT STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `biscuit ${text}`
+			},
+			{
+				"title": "WOOD STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `wood ${text}`
+			},
+			{
+				"title": "CHOCOLATE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `chocolate ${text}`
+			},
+			{
+				"title": "STRAWBERRY STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `strawberry ${text}`
+			},
+			{
+				"title": "MATRIXS STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `matrix ${text}`
+			},
+			{
+				"title": "BLOOD STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `blood ${text}`
+			},
+			{
+				"title": "DROPWATER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `dropwater ${text}`
+			},
+			{
+				"title": "TOXIC STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `toxic ${text}`
+			},
+			{
+				"title": "LAVA STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `lava ${text}`
+			},
+			{
+				"title": "ROCK STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `rock ${text}`
+			},
+			{
+				"title": "BLOODGLAS STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `bloodglas ${text}`
+			},
+			{
+				"title": "HALLOWEN STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `hallowen ${text}`
+			},
+			{
+				"title": "DARKGOLD STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `darkgold ${text}`
+			},
+			{
+				"title": "JOKER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `joker ${text}`
+			},
+			{
+				"title": "WICKER STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `wicker ${text}`
+			},
+			{
+				"title": "FIREWORK STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `firework ${text}`
+			},
+			{
+				"title": "SKELETON STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `skeleton ${text}`
+			},
+			{
+				"title": "BLACKPINK STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `blackpink ${text}`
+			},
+			{
+				"title": "SAND STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `sand ${text}`
+			},
+			{
+				"title": "GLUE STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `glue ${text}`
+			}, ///
+			{
+				"title": "3D BOX STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `3dbox ${text}`
+			},
+			{
+				"title": "GLITCH STYLE - 2",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `glitch2 ${text}`
+			},
+			{
+				"title": "GLITCH STYLE - 3",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `glitch3 ${text}`
+			},
+			{
+				"title": "GREEN NEON STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `greenneon ${text}`
+			},
+			{
+				"title": "3D NEON STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `3dneon ${text}`
+			},
+			{
+				"title": "BOKEH STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `bokeh ${text}`
+			},
+			{
+				"title": "BEAR STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `bear ${text}`
+			},
+			{
+				"title": "CHRISTMAS STYLE - 2",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `sparklechristmas ${text}`
+			},
+			{
+				"title": "CHRISTMAS STYLE - 3",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `3dchristmas ${text}`
+			},
+			{
+				"title": "RAINBOW STYLE - 3",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `rainbow2 ${text}`
+			},
+			{
+				"title": "FRUIT JUICE STYLE",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `fruitjuice ${text}`
+			},
+			
+			///
+			{
+				"title": "1917 STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `1917 ${text}`
+			},
+			{
+				"title": "LEAVES STYLE ",
+			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
+			"rowId": `leaves ${text}`
+			}
+
+     ]
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+ 	   	                	
+  }
             break
                               case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
 case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': case 'wolflogo' :
