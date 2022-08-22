@@ -1,8 +1,6 @@
 //═══════════════════════════════════════════════════════//
-//                𝙴𝙻𝙸𝙽𝙰 𝙱𝙾𝚃 𝙼𝙳 𝙱𝚈 𝙳𝙰𝚁𝙺 𝙼𝙰𝙺𝙴 (𝙼𝚁 𝙽𝙸𝙼𝙰)
-//                              
-//𝙰𝙳𝙾𝙿𝚃𝙴𝙳 𝙵𝚁𝙾𝙼  𝚂𝙲𝚁𝙸𝙿𝚃 𝙾𝙵 𝙲𝙷𝙴𝙴𝙼𝚂𝙱𝙾𝚃 𝚅2 𝙱𝚈 𝙳𝙶𝚇𝚎𝚘𝚗 
-//
+//                  QUEEN ELISA WHATSAPP BOT 
+//                           [ script tuna ]
 //════════════════════════════//
 
 require('./settings')
@@ -94,7 +92,92 @@ async function startElinaBotMd() {
             console.log(err)
         }
     })
-    
+  //GROUP UPDATE\\
+    ElinaBotMd.ev.on('group-participants.update', async (anu) => {
+        if (anu.id == '120363043491784571@g.us') return
+        if (global.SEND_WELCOME == 'false') return
+        console.log(anu)
+        try {
+            let metadata = await ElinaBotMd.groupMetadata(anu.id)
+            let participants = anu.participants
+            for (let num of participants) {
+                // Get Profile Picture User
+                try {
+                    ppuser = await ElinaBotMd.profilePictureUrl(num, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+
+                // Get Profile Picture Group
+                try {
+                    ppgroup = await ElinaBotMd.profilePictureUrl(anu.id, 'image')
+                } catch {
+                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+
+                if (anu.action == 'add') {
+                var buffer = await getBuffer(ppuser)
+                let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                he = `Welcome To ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
+                let link = `https://youtu.be/cvj3054O5NU`
+let buttons = [
+{buttonId: `halo`, buttonText: {displayText: 'WELCOME'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./lib/tes.xlsx'),
+mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+jpegThumbnail:buffer,
+mentions: [num],
+fileName: `Welcome To ${metadata.subject}`,
+fileLength: 99999999999999,
+caption: `${he} \n ${global.welcome}`,
+footer: `© DARK MAKER`,
+buttons: buttons,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title: `Don't forget to smile today`,
+body: `SUBSCRIBE NIMA OFC`,
+mediaType:2,
+thumbnail: buffer,
+sourceUrl: link,
+mediaUrl: link,
+}}
+}
+ElinaBotMd.sendMessage(anu.id, buttonMessage, {quoted:fgclink})
+                } else if (anu.action == 'remove') {
+                    let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                    he = `He/She is gone bro ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
+                    let link = `https://youtu.be/cvj3054O5NU`
+let buttons = [
+{buttonId: `halo`, buttonText: {displayText: 'BYE'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./lib/tes.xlsx'),
+mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+jpegThumbnail:buffer,
+mentions: [num],
+fileName: `He/She is gone bro ${metadata.subject}`,
+fileLength: 99999999999999,
+caption: he,
+footer: `© DARK MAKER`,
+buttons: buttons,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title: `BYE DONT COME BACK HERE OKAY`,
+body: `SUBSCRIBE NIMA OFC`,
+mediaType:2,
+thumbnail: buffer,
+sourceUrl: link,
+mediaUrl: link,
+}}
+}
+ElinaBotMd.sendMessage(anu.id, buttonMessage, {quoted:fgclink})
+                }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    })
 	
     //Setting\\
     ElinaBotMd.decodeJid = (jid) => {
