@@ -3753,7 +3753,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                               case 'logo' :{ 
  await ElisaBotMd.sendMessage(from, { react: { text: `👆`, key: m.key }})     
   
-     	const desmsg = description: `╔═════════════════════☐
+     	const desmsg = `╔═════════════════════☐
 
       *_𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝙻𝚘𝚐𝚘 𝙻𝚒𝚜𝚝_*
 
