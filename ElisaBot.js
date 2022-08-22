@@ -2915,16 +2915,16 @@ case 'xxxxantilink': {
                           img9 = nima.restart[8].url
                           img10 = nima.restart[9].url
                           
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img1 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img2 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img3 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img4 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img5 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img6 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img7 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img8 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img9 })
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img10 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img1 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img2 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img3 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img4 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img5 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img6 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img7 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img8 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img9 }})
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img10 }})
                             
                           }
                           case 'gimage': case 'img': {  
