@@ -4087,8 +4087,10 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
 			"description": `\nMr ${m.pushName} ${global.botnma} is Ready to make your logo`,
 			"rowId": `leaves ${text}`
 			}
-
-     ]
+	     ]
+      }
+   ]
+			
      await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
  	   	                	
   }
