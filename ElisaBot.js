@@ -2595,6 +2595,12 @@ case 'xxxxantilink': {
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
                               }
+                              case 'tts' :{
+                              if (!text) return reply('Need word')
+                              const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/soundoftext?text=${text}&lang=en-US`).catch((err) => reply('Error 🙂'))
+                              const voice = nima.result
+                              await ElisaBotMd.sendMessage(m.chat, {audio: voice, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+                              }
                               break
                               case 'ebinary': {
                               if (!m.quoted.text && !text) throw `Send/reply text with caption ${prefix + command}`
@@ -2893,6 +2899,34 @@ case 'xxxxantilink': {
                                   })
                                   }
                                   break
+                          case 'img2' :{
+                          await ElisaBotMd.sendMessage(from, { react: { text: `🦄`, key: m.key }})
+                       
+                          if (!text) return reply ('*👸💬 Please Give me a some words*\nExample - _.img2 car_')
+                          const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/search/googleimage?text=${text}`)
+                          img1 = nima.restart[0].url
+                          img2 = nima.restart[1].url
+                          img3 = nima.restart[2].url
+                          img4 = nima.restart[3].url
+                          img5 = nima.restart[4].url
+                          img6 = nima.restart[5].url
+                          img7 = nima.restart[6].url
+                          img8 = nima.restart[7].url
+                          img9 = nima.restart[8].url
+                          img10 = nima.restart[9].url
+                          
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img1 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img2 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img3 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img4 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img5 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img6 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img7 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img8 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img9 })
+                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img10 })
+                            
+                          }
                           case 'gimage': case 'img': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔍`, key: m.key }})
                           if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} ml nana`
@@ -2915,7 +2949,7 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                           })*/
                           const buttons = [
-                    {buttonId: `gimage`, buttonText: {displayText: '❯ NEXT IMAGE ❯'}, type: 1},
+                    {buttonId: `gimage ${text}`, buttonText: {displayText: '❯ NEXT IMAGE ❯'}, type: 1},
                      
                 ]
             const buttonMessage = {
@@ -2947,8 +2981,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                                   views = search.all[0].views
                                       const footer = global.botnma
                 const buttons = [
-                    {buttonId: `ytmp3 ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audytmp3  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `audioselecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `selecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
