@@ -2603,6 +2603,38 @@ case 'xxxxantilink': {
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: voice } , mimetype: 'audio/mpeg',ptt:true }, { quoted: m })
                               }
                               break
+                              case 'ringtone' :{
+                                if (!text) return reply('*👸💬 Please Enter ringtone name*\n_Example - ringtone iphone_')
+                                const anu = fetchJson(`https://my-shinz.herokuapp.com/api/search/ringtone?text=${text}`)
+                                const search = anu.result
+                                let sections = []   
+  for (let i of search) {
+  const list = {title: `👸💬 sᴇʟᴇᴄᴛ ʏᴏᴜʀ ʀɪɴɢᴛᴏɴᴇ`,
+  rows: [
+	    {
+	     title: i.title, 
+	     rowId: `dltone ${i.audio}`    
+	    }, 
+	    ]
+     }
+     sections.push(list)   
+     } //.catch((err) => reply('*👸💬 Error*'))
+  const sendm =  ElisaBotMd.sendMessage(
+      m.chat, 
+      {
+       text: `Queen Elisa Ring Tone Downloader`,
+       footer: `${global.botnma}`,
+       title: "RINGTONS",
+       buttonText: "sᴇʟᴇᴄᴛ",
+       sections
+      }, { quoted : m })    
+                              }
+                              break
+                              case 'dltone' : {
+                              //await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                              await ElisaBotMd.sendMessage(m.chat, { audio: { url: text } , mimetype: 'audio/mpeg' }, { quoted: m })
+                               
+                              }
                               case 'ebinary': {
                               if (!m.quoted.text && !text) throw `Send/reply text with caption ${prefix + command}`
                               let { eBinary } = require('./lib/binary')
@@ -5712,7 +5744,7 @@ break
             break 
                   
                               
-                          case 'ringtone': {
+                          case 'ringtone2': {
                           if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} black rover`
                           let { ringtone } = require('./lib/scraper')
                           let anu = await ringtone(text)
