@@ -89,7 +89,7 @@ async function startElinaBotMd() {
         if (!ElinaBotMd.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(ElinaBotMd, mek, store)
-        require("./pastpaper")(ElinaBotMd, m, chatUpdate, store)
+        require("./ElisaBot")(ElinaBotMd, m, chatUpdate, store)
         } catch (err) {
             console.log(err)
         }
