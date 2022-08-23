@@ -4713,26 +4713,26 @@ case 'qwolf' : case 'qninja' : case 'qreto' : {
 
   text1 = q.split("|")[0]
   text2 = q.split("|")[1]
-      const link 
-   if (/qsteel/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/steel-text-effect-66.html'
-   if (/qavenger/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/create-logo-3d-style-avengers-online-427.html'
-   if (/qpolugon/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/create-logo-avatar-online-style-polygon-logo-320.html'
-   if (/qhsteel/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/heated-steel-lettering-effect-65.html'
-   if (/qwood/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/create-3d-wood-text-effects-online-free-705.html'
-   if (/qlovely/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/lovely-floral-ornamental-banner-online-603.html'
-   if (/qmetalic/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/create-metallic-cover-online-297.html' 
-   if (/qneon/.test(command)) link = 'https://api.akuari.my.id/ephoto/scraper-2?text=Bot&text2=Ari&link=https://en.ephoto360.com/neon-text-effect-online-78.html'
-   if (/qpubg/.test(command)) link = 'https://api.akuari.my.id/photooxy/scraper2?text1=Bot&text2=Ari&link=https://photooxy.com/battlegrounds/make-wallpaper-battlegrounds-logo-text-146.html' 
-   if (/qfire/.test(command)) link = 'https://api.akuari.my.id/photooxy/scraper2?text1=Bot&text2=Ari&link=https://photooxy.com/fps-game-effect/create-battlefield-4-rising-effect-152.html' 
-   if (/qhorr/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=Bot&text2=Ari&link=https://textpro.me/create-a-cinematic-horror-text-effect-1045.html'
-   if (/qhalowin/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=Bot&text2=ELISA&link=https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html' 
-   if (/qvideogame/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=Bot&text2=ELISA&link=https://textpro.me/video-game-classic-8-bit-text-effect-1037.html' 
-   if (/qwolf/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=QUEEN&text2=ELISA&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html'
-   if (/qninja/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=QUEEN&text2=ELISA&link=https://textpro.me/create-ninja-logo-online-935.html'
-   if (/qreto/.test(command)) link = 'https://api.akuari.my.id/textpro/scraper-2?text=QUEEN&text2=ELISA&link=https://textpro.me/create-3d-retro-text-effect-online-free-1065.html'
-   //if (/candy/.test(command)) link = 
+   var link 
+   if (/qsteel/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/steel-text-effect-66.html`
+   if (/qavenger/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-3d-style-avengers-online-427.html`
+   if (/qpolugon/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-avatar-online-style-polygon-logo-320.html`
+   if (/qhsteel/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/heated-steel-lettering-effect-65.html`
+   if (/qwood/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-3d-wood-text-effects-online-free-705.html`
+   if (/qlovely/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/lovely-floral-ornamental-banner-online-603.html`
+   if (/qmetalic/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-metallic-cover-online-297.html` 
+   if (/qneon/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/neon-text-effect-online-78.html`
+   if (/qpubg/.test(command)) link = `https://api.akuari.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/battlegrounds/make-wallpaper-battlegrounds-logo-text-146.html` 
+   if (/qfire/.test(command)) link = `https://api.akuari.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/fps-game-effect/create-battlefield-4-rising-effect-152.html` 
+   if (/qhorr/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-cinematic-horror-text-effect-1045.html`
+   if (/qhalowin/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html` 
+   if (/qvideogame/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/video-game-classic-8-bit-text-effect-1037.html` 
+   if (/qwolf/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html`
+   if (/qninja/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-ninja-logo-online-935.html`
+   if (/qreto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-1065.html`
+    //if (/candy/.test(command)) link = 
    const nima = await fetchJson(link)
-   const data = nima.result
+   const data = nima.respon
    await ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
    
                   }
