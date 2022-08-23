@@ -2589,6 +2589,7 @@ case 'xxxxantilink': {
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
                               }
+                              break
                               case 'attp2' :{
                               if (!text) return reply ('Need some word \n ex - attp Mr nima')
                               const Stik = `https://my-shinz.herokuapp.com/api/maker/attp?text=${text}`
@@ -2622,7 +2623,7 @@ case 'xxxxantilink': {
                               const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/linkshort/tinyurlwithalias?link=${args[0]}&alias=${args[1]}`)
                               m.reply(nima.result)
                               }
-                              case 'ringtone' :{
+                            /*  case 'ringtone' :{
                                 if (!text) return reply('*👸💬 Please Enter ringtone name*\n_Example - ringtone iphone_')
                                 const anu = fetchJson(`https://my-shinz.herokuapp.com/api/search/ringtone?text=${text}`)
                                 const search = anu.result
@@ -2649,7 +2650,7 @@ case 'xxxxantilink': {
        sections
       }, { quoted : m })    
                               }
-                              break
+                              break*/
                               case 'dltone' : {
                               //await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: text } , mimetype: 'audio/mpeg' }, { quoted: m })
@@ -4707,59 +4708,35 @@ maker.photooxy("https://photooxy.com/other-design/create-dark-metal-text-with-sp
   .catch((err) => console.log(err));
   
 break
-/*case 'muid' :
-let radio = "e0723d60-fc0d-421f-bf8f-a9b9b61e4be6" //
-maker.ephoto("https://en.ephoto360.com/black-white-pubg-logo-for-esports-gaming-610.html",[`${q}`,], radio)
- .then((data) => ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
- 
- case 'sad' :
- const radio = "e0723d60-fc0d-421f-bf8f-a9b9b61e4be6" //
-maker.ephoto("https://en.ephoto360.com/write-text-on-wet-glass-online-589.html",[`${text}`], radio)
- .then((data) => ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
- 
- case 'summersand' :
-const radio = "e0723d60-fc0d-421f-bf8f-a9b9b61e4be6" //
-maker.ephoto("https://en.ephoto360.com/create-a-summery-sand-writing-text-effect-577.html",[`${q}`,], radio)
- .then((data) => ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
- 
- case 'impress' :
-const radio = "e0723d60-fc0d-421f-bf8f-a9b9b61e4be6" //
-maker.ephoto("https://en.ephoto360.com/metallic-text-effect-with-impressive-font-307.html",[`${q}`,], radio)
- .then((data) => ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
+case 'qsteel': case 'qavenger' : case 'qpolugon' : case 'qhsteel' : case 'qwood' : case 'qlovely' : case 'qmetalic' : case 'qneon' : case 'qpubg' : case 'qfire' : case 'qhorr' : case 'qhalowin' : case 'qvideogame' :
+case 'qwolf' : case 'qninja' : case 'qreto' : {
 
-case 'greenfire' :
-const radio = "e0723d60-fc0d-421f-bf8f-a9b9b61e4be6" //
-maker.ephoto("https://en.ephoto360.com/create-word-green-flares-140.html",[`${text}`], radio)
- .then((data) => ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
-  */                                                       /* case '3dchristmas': case '3ddeepsea': case 'americanflag': case '3dscifi': case '3drainbow': case '3dwaterpipe': case 'halloweenskeleton': case 'sketch': case 'bluecircuit': case 'space': case 'metallic': case 'fiction': case 'greenhorror': case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dcrackedstone': case '3dneonlight': case 'impressiveglitch': case 'naturalleaves': case 'fireworksparkle': case 'matrix': case 'dropwater':  case 'harrypotter': case 'foggywindow': case 'neondevils': case 'christmasholiday': case '3dgradient': case 'blackpink': case 'gluetext': {
-                                  if (!text) throw `Example : ${prefix + command} text`
-                                  replay(mess.wait)
-                                  ElisaBotMd.sendMessage(m.chat, { image: { url: api('zenz', '/textpro/' + command, { text: text }, 'apikey') }, caption: `Text Pro ${command}` }, { quoted: m})
-                          }
-                              break
-                          case 'shadow': case 'romantic': case 'smoke': case 'burnpapper': case 'naruto': case 'lovemsg': case 'grassmsg': case 'lovetext': case 'coffecup': case 'butterfly': case 'harrypotter': case 'retrolol': {
-                                  if (!text) throw 'where is the text?'
-                                  replay(mess.wait)
-                                  ElisaBotMd.sendMessage(m.chat, { image: { url: api('zenz', '/photooxy/' + command, { text: text }, 'apikey') }, caption: `Photo Oxy ${command}` }, { quoted: m })
-                              }
-                              break
-                              case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'neon': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
-                                  if (!text) throw 'No Query Text'
-                                  replay(mess.wait)
-                                  ElisaBotMd.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto/' + command, { text: text }, 'apikey') }, caption: `Ephoto ${command}` }, { quoted: m })
-                              }
-                              break*/
-                              
+  text1 = q.split("|")[0]
+  text2 = q.split("|")[1]
+      const link 
+   if (/qsteel/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/steel-text-effect-66.html`
+   if (/qavenger/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-3d-style-avengers-online-427.html`
+   if (/qpolugon/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-avatar-online-style-polygon-logo-320.html`
+   if (/qhsteel/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/heated-steel-lettering-effect-65.html`
+   if (/qwood/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-3d-wood-text-effects-online-free-705.html`
+   if (/qlovely/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/lovely-floral-ornamental-banner-online-603.html`
+   if (/qmetalic/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-metallic-cover-online-297.html` 
+   if (/qneon/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/neon-text-effect-online-78.html`
+   if (/qpubg/.test(command)) link = `https://api.aku${text2}.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/battlegrounds/make-wallpaper-battlegrounds-logo-text-146.html` 
+   if (/qfire/.test(command)) link = `https://api.aku${text2}.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/fps-game-effect/create-battlefield-4-rising-effect-152.html` 
+   if (/qhorr/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-cinematic-horror-text-effect-1045.html`
+   if (/qhalowin/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html` 
+   if (/qvideogame/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/video-game-classic-8-bit-text-effect-1037.html` 
+   if (/qwolf/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html`
+   if (/qninja/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-ninja-logo-online-935.html`
+   if (/qreto/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-1065.html`
+    //if (/candy/.test(command)) link = 
+   const nima = await fetchJson(link)
+   const data = nima.result
+   await ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+   
+                  }
+                  break            
                               case 'keberuntungan11111': case 'luck211111': {
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} Dika, 7, 7, 2005`
                                   let [nama, tgl, bln, thn] = text.split`,`
@@ -5810,7 +5787,7 @@ break
             break 
                   
                               
-                          case 'ringtone2': {
+                          case 'ringtone': {
                           if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} black rover`
                           let { ringtone } = require('./lib/scraper')
                           let anu = await ringtone(text)
@@ -6363,6 +6340,10 @@ ${biography}
 │ ${prefix}tovideo
 │ ${prefix}togif
 │ ${prefix}attp
+│ ${prefix}attp2
+│ ${prefix}attp3
+│ ${prefix}ttp
+│ ${prefix}tts
 │ ${prefix}unvoice
 ╰─────────────⦁
   
