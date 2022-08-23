@@ -4733,7 +4733,7 @@ case 'qwolf' : case 'qninja' : case 'qreto' : {
    if (/qreto/.test(command)) link = `https://api.aku${text2}.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-1065.html`
     //if (/candy/.test(command)) link = 
    const nima = await fetchJson(link)
-   const data = nima.result
+   const data = nima.respon
    await ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
    
                   }
