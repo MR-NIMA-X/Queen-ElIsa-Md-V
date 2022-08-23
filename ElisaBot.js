@@ -4713,7 +4713,8 @@ case 'qwolf' : case 'qninja' : case 'qreto' : {
 
   text1 = q.split("|")[0]
   text2 = q.split("|")[1]
-      const link 
+  
+   let link 
    if (/qsteel/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/steel-text-effect-66.html`
    if (/qavenger/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-3d-style-avengers-online-427.html`
    if (/qpolugon/.test(command)) link = `https://api.aku${text2}.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-avatar-online-style-polygon-logo-320.html`
