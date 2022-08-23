@@ -261,9 +261,7 @@ ElisaBotMd.sendContact = async (jid, kon, quoted = '', opts = {}) => {
         
         //await console.log('👸💬   Queen Elisa Connecting your Whatsapp ...')
         //await console.log('👸💬   Automatically joining support group ...')
-        console.log(`${chalk.green.bold('𝐐𝐮𝐞𝐞𝐧')}${chalk.blue.bold('𝐄𝐥𝐢𝐬𝐚')}
-${chalk.white.bold('Version:')} ${chalk.red.bold('2.1.0')}
-${chalk.blue.italic('ℹ️ Connecting Whatsapp .')}👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...`)
+        console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...',update)
         
         
     })
