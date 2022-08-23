@@ -4973,7 +4973,7 @@ case 'pemoji2' :{
 if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command}👸`)
                           await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
 
-await ElisaBotMd.sendMessage(m.chat, { image: { url:` https://my-shinz.herokuapp.com/api/emoji/google?emoji=${encodeURIComponent(text)} `},  caption: `${global.cap}`}, { quoted: m })
+await ElisaBotMd.sendMessage(m.chat, { image: { url:`https://my-shinz.herokuapp.com/api/emoji/facebook?emoji=${encodeURIComponent(text)} `},  caption: `${global.cap}`}, { quoted: m })
    
 
 }
@@ -5005,8 +5005,11 @@ if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර*'
                               
                               
 if (!quoted) return reply(MAX)
-if (!text) return reply (MDAX)                       
- const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${quoted.msg}lang=${text}`)
+if (!text) return reply (MDAX) 
+const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
+//if (!wokwol.quoted)                       
+ const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${wokwol.quoted}lang=${text}`)
+ if (nima.stetus == 'false') return reply('error')
  const msg = nima.result
  reply(msg)
  m.reply(msg)
