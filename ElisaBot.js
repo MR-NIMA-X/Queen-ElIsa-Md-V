@@ -2583,7 +2583,7 @@ case 'xxxxantilink': {
                                   }
                               }
                               break
-                              case 'attp' : case 'attp2' :{
+                              case 'attp' :{
                                if (!text) return reply ('Need some word \n ex - attp Mr nima')
                                const Stik = `https://api.akuari.my.id/other/attp?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
@@ -2595,12 +2595,14 @@ case 'xxxxantilink': {
                                await ElisaBotMd.sendMedia(m.chat, Stik , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
                               }
+                              break
                               case 'ttp' :{
                               if (!text) return reply ('Need some word \n ex - attp Mr nima')
                               //const Stik = `https://my-shinz.herokuapp.com/api/maker/attp?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, `https://my-shinz.herokuapp.com/api/maker/ttp?text=${text}` , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
                               }
+                              break
                               case 'tts' :{
                               if (!text) return reply('Need word')
                               const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/soundoftext?text=${text}&lang=en-US`).catch((err) => reply('Error 🙂'))
@@ -3032,8 +3034,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                                   views = search.all[0].views
                                       const footer = global.botnma
                 const buttons = [
-                    {buttonId: `audioselecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `selecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `selecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
@@ -4971,7 +4973,7 @@ case 'pemoji2' :{
 if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command}👸`)
                           await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
 
-await ElisaBotMd.sendMessage(m.chat, { image: { url:` https://my-shinz.herokuapp.com/api/emoji/whatsapp?emoji=${encodeURIComponent(text)} `},  caption: `${global.cap}`}, { quoted: m })
+await ElisaBotMd.sendMessage(m.chat, { image: { url:` https://my-shinz.herokuapp.com/api/emoji/google?emoji=${encodeURIComponent(text)} `},  caption: `${global.cap}`}, { quoted: m })
    
 
 }
@@ -4991,6 +4993,23 @@ if (!text) return reply(`*👸💬 Please Give me a imoji*\nExample - .${command
 
 await ElisaBotMd.sendMedia(m.chat, `https://my-shinz.herokuapp.com/api/emoji/skype?emoji=${encodeURIComponent(text)}` , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
 
+}
+break
+case 'trt' :{
+var MAX = ''
+if (global.LANG == 'EN') MAX= '*👸💬 Please reply massage*'
+if (global.LANG == 'SI') MAX= '*👸💬 කරුනාකර පනිවිඩයට රිප්ලයි කරන්න*'
+var MDAX = ''
+if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a language*\n _example - .trt en_'
+if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර*'
+                              
+                              
+if (!quoted) return reply(MAX)
+if (!text) return reply (MDAX)                       
+ const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${quoted.msg}lang=${text}`)
+ const msg = nima.result
+ reply(msg)
+ m.reply(msg)
 }
 break
 /*case 'animestory' : {  
