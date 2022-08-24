@@ -4986,14 +4986,40 @@ if (global.LANG == 'SI') NimaLang = 'si'
 //if (!quoted) return reply(MAX)
 if (!text) return reply (MDAX) 
 text1 = q.split(";")[0]
-text2 = q.split(";")[1]
+text2 = q.split(";")[1]|| NimaLang
 //const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
 //if (!wokwol.quoted)                       
- const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}lang=${text2}`)
+ const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
  //if (nima.stetus == 'false') return reply('error')
  const msg = nima.result
  await ElisaBotMd.sendText(m.chat, `${nima.result}`)
- await ElisaBotMd.sendText(m.chat,msg)
+ await ElisaBotMd.sendText(m.chat,nima.message)
+ //m.reply(nima.result)
+// m.reply(msg)
+}
+break
+case 'trt2' :{
+var MAX = ''
+if (global.LANG == 'EN') MAX= '*👸💬 Please reply massage*'
+if (global.LANG == 'SI') MAX= '*👸💬 කරුනාකර පනිවිඩයට රිප්ලයි කරන්න*'
+var MDAX = ''
+if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a language*\n _example - .trt en_'
+if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර*'
+var NimaLang = ''
+if (global.LANG == 'EN') NimaLang = 'en'
+if (global.LANG == 'SI') NimaLang = 'si'                           
+                              
+//if (!quoted) return reply(MAX)
+if (!text) return reply (MDAX) 
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]|| NimaLang
+//const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
+//if (!wokwol.quoted)                       
+ const nima = await axios.get(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
+ //if (nima.stetus == 'false') return reply('error')
+ const msg = nima.result
+ await ElisaBotMd.sendText(m.chat, `${nima.result}`)
+ await ElisaBotMd.sendText(m.chat,nima.message)
  //m.reply(nima.result)
 // m.reply(msg)
 }
