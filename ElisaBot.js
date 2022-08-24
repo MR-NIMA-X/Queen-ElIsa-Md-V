@@ -4992,7 +4992,7 @@ text1 = q.split("|")[0]
  const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}lang=${text2}`)
  if (nima.stetus == 'false') return reply('error')
  const msg = nima.result
- await ElisaBitMd.sendText(m.chat,msg)
+ await ElisaBotMd.sendText(m.chat,msg)
  reply(msg)
 // m.reply(msg)
 }
