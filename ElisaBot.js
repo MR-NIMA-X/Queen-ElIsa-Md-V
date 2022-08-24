@@ -5091,7 +5091,7 @@ var MDAX = ''
 if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a text and select language*\n _example - .trt ආයුබෝවන්;en_\n\n*✨ Translete language codes ✨*'+'```'+Tssst+'```'
 if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර වචනයක් සමග භාශාව තෝරන්න*\nඋදාහරණ - .trt good morning;si\n\n*✨ පරිවර්තනය අවශ්‍ය බාශා කෙටිනාම ✨*'+'```'+Tssst+'```'
 var NimaLang = ''
-if (global.LANG == 'EN') NimaLang = '*👸💬 Sorry can\'t translete become a error !*''
+if (global.LANG == 'EN') NimaLang = '*👸💬 Sorry can\'t translete become a error !*'
 if (global.LANG == 'SI') NimaLang = '*👸💬 කනගාටුයි පරිවර්තනය සිදුකළ නොහැක !*'                           
                               
 //if (!quoted) return reply(MAX)
