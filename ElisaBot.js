@@ -4985,15 +4985,16 @@ if (global.LANG == 'SI') NimaLang = 'si'
                               
 //if (!quoted) return reply(MAX)
 if (!text) return reply (MDAX) 
-text1 = q.split("|")[0]
-  text2 = q.split("|")[1]|| NimaLang
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]
 //const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
 //if (!wokwol.quoted)                       
  const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}lang=${text2}`)
- if (nima.stetus == 'false') return reply('error')
+ //if (nima.stetus == 'false') return reply('error')
  const msg = nima.result
+ aaait ElisaBotMd.sendText(m.chat, `${nima.result}`)
  await ElisaBotMd.sendText(m.chat,msg)
- reply(msg)
+ m.reply(nima.result)
 // m.reply(msg)
 }
 break
