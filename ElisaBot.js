@@ -4740,7 +4740,7 @@ const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
    if (/reto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-106a5.html`
    const nima = await fetchJson(link)
    const data = nima.respon
-   const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
+   //const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
    await ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
    await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
        
