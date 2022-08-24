@@ -3839,6 +3839,11 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                               }
                               break
                               case 'logo' :{ 
+var MAX = ''
+if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක් ලබාදෙන්න ...```\n_උදාහරණ .logo MR NIMA_'
+if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo MR NIMA_'
+if (!text) return reply (MAX)
+                              
  await ElisaBotMd.sendMessage(from, { react: { text: `👆`, key: m.key }})     
   
      	const desmsg = `╔═════════════════════☐
@@ -4179,7 +4184,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
       }
    ]
 			
-     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `*🎨 LOGO PACK 1*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
  	   	                	
   }
             break
@@ -4709,7 +4714,7 @@ maker.photooxy("https://photooxy.com/other-design/create-dark-metal-text-with-sp
   
 break
 case 'qsteel': case 'qavenger' : case 'qpolugon' : case 'qhsteel' : case 'qwood' : case 'qlovely' : case 'qmetalic' : case 'qneon' : case 'qpubg' : case 'qfire' : case 'qhorr' : case 'qhalowin' : case 'qvideogame' :
-case 'qwolf' : case 'qninja' : case 'qreto' : {
+case 'qwolf' : case 'qninja' : case 'qreto' :  {
 
   text1 = q.split("|")[0]
   text2 = q.split("|")[1]
@@ -4729,14 +4734,182 @@ case 'qwolf' : case 'qninja' : case 'qreto' : {
    if (/qvideogame/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/video-game-classic-8-bit-text-effect-1037.html` 
    if (/qwolf/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html`
    if (/qninja/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-ninja-logo-online-935.html`
-   if (/qreto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-1065.html`
-    //if (/candy/.test(command)) link = 
+   if (/reto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-106a5.html`
    const nima = await fetchJson(link)
    const data = nima.respon
+   const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
    await ElisaBotMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
-   
+   await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
+       
                   }
-                  break            
+                  break
+case 'tlc' : case 'tls' : case 'tlm' : case 'tle' : case 'tlb': case 'mountain' :{
+
+   var link 
+   if (/tlc/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-cobra?text=${text1}&text_2=${text2}`
+   if (/tls/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-singa?text=${text1}&text_2=${text2}`
+   if (/tlm/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-macan?text=${text1}&text_2=${text2}`
+   if (/tle/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-elang?text=${text1}&text_2=${text2}`
+   if (/tlb/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-banteng?text=${text1}&text_2=${text2}`
+   if (/mountain/.test(command)) link = `https://api.akuari.my.id/ephoto/mountain?text=${text1}&text_2=${text2}`
+   
+   const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
+   await ElisaBotMd.sendMessage(m.chat, { image: { url: link }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+   await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
+     
+}
+break
+case 'logo3' :{
+var MAX = ''
+if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක් ලබාදෙන්න ...```\n_උදාහරණ .logo3 MR | NIMA_'
+if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo3 MR | NIMA_'
+if (!text && !text.includes('|')) return reply (MAX)
+                              
+ await ElisaBotMd.sendMessage(from, { react: { text: `3️⃣`, key: m.key }})     
+  
+     	const desmsg = `╔═════════════════════☐
+
+      *_𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝙻𝚘𝚐𝚘 𝙻𝚒𝚜𝚝_*
+
+*▣ ʀᴇǫᴜᴇsᴛᴇʀ -*  ${m.pushName}
+*▣ ʟᴏɢᴏ ᴛᴇxᴛ -* ${text}
+*▣ ᴛᴏᴛᴀʟ ʟᴏɢᴏs -* *30*
+
+☐═════════════════════╝`    
+     
+     let sections = [{
+
+            "rows": [{
+			"title": "Steel style",
+				"rowId": `test1 ${text}`
+			},
+	     	{
+			"title": "avenger style",
+			"rowId": `qavenger ${text}`
+			},
+			{
+			"title": "polygon style ",
+			"rowId": `qpolugon ${text}`
+			},
+			{
+			"title": "fire steel style ",
+			"rowId": `qhsteel ${text}`
+			},
+			{
+			"title": "wood style ",
+			"rowId": `qwood ${text}`
+			},
+			{
+			"title": "ornamental style ",
+			"rowId": `qlovely ${text}`
+			},
+			{
+			"title": "matalic style ",
+			"rowId": `qmetalic ${text}`
+			},
+			{
+			"title": "neon style ",
+			"rowId": `qneon ${text}`
+			},
+			{
+			"title": "pubg style ",
+			"rowId": `qpubg ${text}`
+			},
+			{
+			"title": "fire game style ",
+			"rowId": `qfire ${text}`
+			},
+			{
+			"title": "horror style ",
+			"rowId": `qhorr ${text}`
+			},
+			{
+			"title": "haloween style",
+			"rowId": `qhalowin ${text}`
+			},
+			{
+			"title": "video game style",
+			"rowId": `qvideogame ${text}`
+			},
+			{
+			"title": "wolf style ",
+			"rowId": `qwolf ${text}`
+			},
+			{
+			"title": "ninja style ",
+			"rowId": `qninja ${text}`
+			},
+			{
+			"title": "3d reto style ",
+			"rowId": `qreto ${text}`
+			},
+			{
+			"title": "bear style",
+			"rowId": `bear ${text}`
+			},
+			{
+			"title": "lion style ",
+			"rowId": `lion ${text}`
+			},
+			{
+			"title": "3dspace style ",
+			"rowId": `3dspace ${text}`
+			},
+			{
+			"title": "glitch style ",
+			"rowId": `glitch3 ${text}`
+			},
+			{
+			"title": "glitch style - 2 ",
+			"rowId": `glitch2 ${text}`
+			},
+			{
+			"title": "pron hub style ",
+			"rowId": `pronhub2 ${text}`
+			},
+			{
+			"title": "grafiti style ",
+			"rowId": `grafiti ${text}`
+			},
+			{
+			"title": "giltch style 3 ",
+			"rowId": `glitch3 ${text}`
+			},
+			{
+			"title": "team logo style - 1 ",
+			"rowId": `tlc ${text}`
+			},
+			{
+			"title": "team logo style - 2 ",
+			"rowId": `tls ${text}`
+			},
+			{
+			"title": "team logo style - 3 ",
+			"rowId": `tlm ${text}`
+			},
+			{
+			"title": "team logo style - 4 ",
+			"rowId": `tle ${text}`
+			},
+			{
+			"title": "team logo style - 5 ",
+			"rowId": `tlb ${text}`
+			},
+			{
+			"title": "mountain style ",
+			"rowId": `mountain ${text}`
+			},
+			{
+			"title": "✨ ǫᴜᴇᴇɴ ᴇʟɪsᴀ ✨",
+			"rowId": `about`
+			}
+          ]
+        }
+     ]
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `*🎨 LOGO PACK 3*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+ 
+}
+break
                               case 'keberuntungan11111': case 'luck211111': {
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} Dika, 7, 7, 2005`
                                   let [nama, tgl, bln, thn] = text.split`,`
@@ -5083,13 +5256,15 @@ Welsh - cy
 Xhosa - xh
 Yiddish - yi
 Yoruba - yo
-Zulu - zu`
+Zulu - zu
+
+© ǫᴜᴇᴇɴ ᴇʟɪsᴀ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ`
 var MAX = ''
-if (global.LANG == 'EN') MAX= '*👸💬 Please reply massage*'
-if (global.LANG == 'SI') MAX= '*👸💬 කරුනාකර පනිවිඩයට රිප්ලයි කරන්න*'
+if (global.LANG == 'EN') MAX= '```✨ Transleteing ...```'
+if (global.LANG == 'SI') MAX= '```✨ පරිවර්තනය කරමින් ...```'
 var MDAX = ''
-if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a text and select language*\n _example - .trt ආයුබෝවන්;en_\n\n*✨ Translete language codes ✨*'+'```'+Tssst+'```'
-if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර වචනයක් සමග භාශාව තෝරන්න*\nඋදාහරණ - .trt good morning;si\n\n*✨ පරිවර්තනය අවශ්‍ය බාශා කෙටිනාම ✨*'+'```'+Tssst+'```'
+if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a text and select language*\n _example - .trt ආයුබෝවන්;en_\n\n*✨ Translete language codes ✨*\n\n'+'```'+Tssst+'```'
+if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර වචනයක් සමග භාශාව තෝරන්න*\nඋදාහරණ - .trt good morning;si\n\n*✨ පරිවර්තනය අවශ්‍ය බාශා කෙටිනාම ✨*\n\n'+'```'+Tssst+'```'
 var NimaLang = ''
 if (global.LANG == 'EN') NimaLang = '*👸💬 Sorry can\'t translete become a error !*'
 if (global.LANG == 'SI') NimaLang = '*👸💬 කනගාටුයි පරිවර්තනය සිදුකළ නොහැක !*'                           
@@ -5101,9 +5276,9 @@ text2 = q.split(";")[1]
 //const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
 //if (!wokwol.quoted)                       
  const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
- if (nima.stetus == 'false') return reply(NimaLang)
+ if (nima.stetus === 'false') return reply(NimaLang)
  const msg = nima.result
- await ElisaBotMd.sendText(m.chat,`*💃 Queen Elisa Translete 💃*\n\n_✨ Transleting your words ✨_${text}`)
+ await ElisaBotMd.sendText(m.chat,`${MAX}`)
  await ElisaBotMd.sendText(m.chat, `${nima.result}`)
  //m.reply(nima.result)
 // m.reply(msg)
@@ -5229,23 +5404,13 @@ break
 /// TEXT LOGO 2
 case 'logo2' :{
 
+if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක් ලබාදෙන්න ...```\n_උදාහරණ .logo MR NIMA_'
+if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo MR NIMA_'
+if (!text) return reply (MAX)
+
 await ElisaBotMd.sendMessage(from, { react: { text: `✌️`, key: m.key }})             	
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `Hi ${pushname}`,
-                    description: `╔═════════════════════☐
-
-     *_𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝙻𝚘𝚐𝚘 𝙻𝚒𝚜𝚝 2_*
-
-*▣ ʀᴇǫᴜᴇsᴛᴇʀ -*  _${m.pushName}_
-*▣ ʟᴏɢᴏ ᴛᴇxᴛ -* _${text}_
-*▣ ᴀᴠᴀʟᴀʙʟᴇ ʟᴏɢᴏᴇs -* _44_
-
-☐═════════════════════╝`,
-                    buttonText: "SELECT LOGO",
-                    footerText: `${global.botnma}`,
-                    listType: "SINGLE_SELECT",
-                    sections: [{ 
+               
+               sections: [{ 
                     "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 - 2 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
                                    "rows": [
                                    {
@@ -5468,14 +5633,20 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"description": `Mr ${m.pushName} ${global.botnma} is Ready to make your logo`,
 										"rowId": `darkgold ${text}`
 										}		
-								]
+							      	]
 								
 								}
-							],
-				  listType: 1
-                }
-            }), {})
-            ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
+							]
+     await ElisaBotMd.sendListMsg(m.chat, `╔═════════════════════☐
+
+     *_𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝙻𝚘𝚐𝚘 𝙻𝚒𝚜𝚝 2_*
+
+*▣ ʀᴇǫᴜᴇsᴛᴇʀ -*  _${m.pushName}_
+*▣ ʟᴏɢᴏ ᴛᴇxᴛ -* _${text}_
+*▣ ᴀᴠᴀʟᴀʙʟᴇ ʟᴏɢᴏᴇs -* _44_
+
+☐═════════════════════╝`, `*🎨 LOGO PACK 2*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+ 
             }
             break
 
