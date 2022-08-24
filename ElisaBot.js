@@ -4979,17 +4979,22 @@ if (global.LANG == 'SI') MAX= '*👸💬 කරුනාකර පනිවි�
 var MDAX = ''
 if (global.LANG == 'EN') MDAX= '*👸💬 Please give me a language*\n _example - .trt en_'
 if (global.LANG == 'SI') MDAX= '*👸💬 කරූනාකර*'
+var NimaLang = ''
+if (global.LANG == 'EN') NimaLang = 'en'
+if (global.LANG == 'SI') NimaLang = 'si'                           
                               
-                              
-if (!quoted) return reply(MAX)
+//if (!quoted) return reply(MAX)
 if (!text) return reply (MDAX) 
-const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
+text1 = q.split("|")[0]
+  text2 = q.split("|")[1]|| NimaLang
+//const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
 //if (!wokwol.quoted)                       
- const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${wokwol.quoted}lang=${text}`)
+ const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}lang=${text2}`)
  if (nima.stetus == 'false') return reply('error')
  const msg = nima.result
+ await ElisaBitMd.sendText(m.chat,msg)
  reply(msg)
- m.reply(msg)
+// m.reply(msg)
 }
 break
 /*case 'animestory' : {  
