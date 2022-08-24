@@ -456,6 +456,7 @@ const reply3 = (teks) => {
 				  if (!m.isGroup && global.INBOX_BLOCK == 'on') {  
 				  if (!isCreator) {
 				  await ElisaBotMd.sendText (m.chat, global.INBOX_BLOCK_MSG )
+				  await new Promise(r => setTimeout(r, 5000))
 				  return await ElisaBotMd.updateBlockStatus(m.sender, 'block')
 				  }
 				  }	
@@ -4749,7 +4750,8 @@ const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
 case 'tlc' : case 'tls' : case 'tlm' : case 'tle' : case 'tlb': case 'mountain' :{
     
    const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
-
+   text1 = q.split("|")[0]
+   text2 = q.split("|")[1]
    var link 
    if (/tlc/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-cobra?text=${text1}&text_2=${text2}`
    if (/tls/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-singa?text=${text1}&text_2=${text2}`
@@ -5282,7 +5284,7 @@ text2 = q.split(";")[1]
  const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
  if (nima.stetus === 'false') return reply(NimaLang)
  const msg = nima.result
- await ElisaBotMd.sendText(m.chat,`${MAX}`)
+ //await ElisaBotMd.sendText(m.chat,`${MAX}`)
  await ElisaBotMd.sendText(m.chat, `${nima.result}`)
  //m.reply(nima.result)
 // m.reply(msg)
@@ -5414,7 +5416,7 @@ if (!text) return reply (MAX)
 
 await ElisaBotMd.sendMessage(from, { react: { text: `2️⃣️`, key: m.key }})             	
                
-               sections: [{ 
+               const sections: [{ 
                     "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 - 2 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
                                    "rows": [
                                    {
