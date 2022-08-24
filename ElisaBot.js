@@ -3844,7 +3844,7 @@ if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක
 if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo MR NIMA_'
 if (!text) return reply (MAX)
                               
- await ElisaBotMd.sendMessage(from, { react: { text: `👆`, key: m.key }})     
+ await ElisaBotMd.sendMessage(from, { react: { text: `1️⃣`, key: m.key }})     
   
      	const desmsg = `╔═════════════════════☐
 
@@ -4184,7 +4184,7 @@ if (!text) return reply (MAX)
       }
    ]
 			
-     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `*🎨 LOGO PACK 1*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 LOGO PACK 2*`, `MAKE LOGO`, sections, m)
  	   	                	
   }
             break
@@ -4716,6 +4716,9 @@ break
 case 'qsteel': case 'qavenger' : case 'qpolugon' : case 'qhsteel' : case 'qwood' : case 'qlovely' : case 'qmetalic' : case 'qneon' : case 'qpubg' : case 'qfire' : case 'qhorr' : case 'qhalowin' : case 'qvideogame' :
 case 'qwolf' : case 'qninja' : case 'qreto' :  {
 
+const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
+
+
   text1 = q.split("|")[0]
   text2 = q.split("|")[1]
    var link 
@@ -4744,6 +4747,8 @@ case 'qwolf' : case 'qninja' : case 'qreto' :  {
                   }
                   break
 case 'tlc' : case 'tls' : case 'tlm' : case 'tle' : case 'tlb': case 'mountain' :{
+    
+   const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
 
    var link 
    if (/tlc/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-cobra?text=${text1}&text_2=${text2}`
@@ -4753,7 +4758,6 @@ case 'tlc' : case 'tls' : case 'tlm' : case 'tle' : case 'tlb': case 'mountain' 
    if (/tlb/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-banteng?text=${text1}&text_2=${text2}`
    if (/mountain/.test(command)) link = `https://api.akuari.my.id/ephoto/mountain?text=${text1}&text_2=${text2}`
    
-   const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )          
    await ElisaBotMd.sendMessage(m.chat, { image: { url: link }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
    await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
      
@@ -4781,7 +4785,7 @@ if (!text && !text.includes('|')) return reply (MAX)
 
             "rows": [{
 			"title": "Steel style",
-				"rowId": `test1 ${text}`
+				"rowId": `qsteel ${text}`
 			},
 	     	{
 			"title": "avenger style",
@@ -4906,7 +4910,7 @@ if (!text && !text.includes('|')) return reply (MAX)
           ]
         }
      ]
-     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `*🎨 LOGO PACK 3*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 LOGO PACK 3*`, `MAKE LOGO`, sections, m)
  
 }
 break
@@ -5408,7 +5412,7 @@ if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක
 if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo MR NIMA_'
 if (!text) return reply (MAX)
 
-await ElisaBotMd.sendMessage(from, { react: { text: `✌️`, key: m.key }})             	
+await ElisaBotMd.sendMessage(from, { react: { text: 2️⃣️`, key: m.key }})             	
                
                sections: [{ 
                     "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 - 2 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
@@ -5645,7 +5649,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `✌️`, key: m.key }})
 *▣ ʟᴏɢᴏ ᴛᴇxᴛ -* _${text}_
 *▣ ᴀᴠᴀʟᴀʙʟᴇ ʟᴏɢᴏᴇs -* _44_
 
-☐═════════════════════╝`, `*🎨 LOGO PACK 2*`, `${global.ownernma}`, `MAKE LOGO`, sections, m)
+☐═════════════════════╝`, `${global.botnma}`, `*🎨 LOGO PACK 2*`, `MAKE LOGO`, sections, m)
  
             }
             break
