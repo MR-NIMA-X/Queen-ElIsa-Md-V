@@ -5412,7 +5412,7 @@ if (global.LANG == 'SI') MAX= '```👸💬 කරුනාකර වචනයක
 if (global.LANG == 'EN') MAX= '```👸💬 Please give me a some words ...```\n_example .logo MR NIMA_'
 if (!text) return reply (MAX)
 
-await ElisaBotMd.sendMessage(from, { react: { text: 2️⃣️`, key: m.key }})             	
+await ElisaBotMd.sendMessage(from, { react: { text: `2️⃣️`, key: m.key }})             	
                
                sections: [{ 
                     "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 - 2 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
