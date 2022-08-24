@@ -5416,7 +5416,7 @@ if (!text) return reply (MAX)
 
 await ElisaBotMd.sendMessage(from, { react: { text: `2️⃣️`, key: m.key }})             	
                
-               const sections: [{ 
+               let sections = [{ 
                     "title": `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅2 𝙻𝙾𝙶𝙾 𝙻𝙸𝚂𝚃 - 2 𝚂𝙴𝙻𝙴𝙲𝚃 𝚈𝙾𝚄𝚁 𝙻𝙾𝙶𝙾 `,
                                    "rows": [
                                    {
