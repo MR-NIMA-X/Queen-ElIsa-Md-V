@@ -6833,14 +6833,7 @@ const templateMessage = {
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
                  
-                                 message = await prepareWAMessageMedia({ image : { url: global.alivelogo} }, { upload:   ElisaBotMd.waUploadToServer })
-                                  template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                                      templateMessage: {
-                                          hydratedTemplate: {
-                                              imageMessage: message.imageMessage,
-                                              hydratedContentText: "```👸 QUEEN ELISA BOT  IS ONLINE 👸```\n\n\n*🕵️‍♂️ Devoloper :*  _DARK MAKER_\n*🌐 Browser :* _Safary_\n\n🧚 _Click_ *MENU* _button for Get menu_\n\n🧚‍♀ _Type_ *.yt < your text >* _for Download song & Video_\n\n\n```THANK FOR USING QUEEN ELISA 💃♥️```" ,
-                                              hydratedFooterText: global.botnma ,
-                                              hydratedButtons: [{
+                                 const buttons = [{
                                                   urlButton: {
                                                       displayText: 'ɢɪᴛʜᴜʙ',
                                                       url: `https://github.com/DarkMakerofc/Queen-Elisa-Md-V2`
@@ -6867,11 +6860,16 @@ const templateMessage = {
                                                       }
                                                   
                                               }]
-                                          }
-                                      }
-                                  }), { userJid: m.chat, quoted: m })
-                                   return await ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                          }    
+                                          let buttonMessage = {
+                    image: { url: global.alive },
+                    caption:'Queen Elisa V2.1.0 is online' ,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+ 
               
                           await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
                  
