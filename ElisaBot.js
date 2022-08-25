@@ -5031,22 +5031,22 @@ case 'stelegram' :{
     await ElisaBotMd.sendText(m.chat , '*Loading...*' )
     const sticker =  await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
   //  await ElisaBotMd.sendText(m.chat, util.format(sticker))
-    const stik = sticker.result.url
-    const img = stik[1]
-    const img2 = stik[2]
-    const img3 = stik[3]
-    const img4 = stik[4]
-    const img5 = stik[5]
-    const img6 = stik[6]
-    const img7 = stik[7]
-    const img8 = stik[8]
-    const img9 = stik[9]
-    const img10 = stik[10]
-    const img11 = stik[11]
-    const img12 = stik[12]
-    const img13 = stik[15]
-    const img14 = stik[15]
-    const img15 = stik[15]
+    const stik = sticker.result
+    const img = stik[1].url
+    const img2 = stik[2].url
+    const img3 = stik[3].url
+    const img4 = stik[4].url
+    const img5 = stik[5].url
+    const img6 = stik[6].url
+    const img7 = stik[7].url
+    const img8 = stik[8].url
+    const img9 = stik[9].url
+    const img10 = stik[10].url
+    const img11 = stik[11].url
+    const img12 = stik[12].url
+    const img13 = stik[13].url
+    const img14 = stik[14].url
+    const img15 = stik[15].url
     
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img2 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
