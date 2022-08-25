@@ -762,13 +762,16 @@ switch(command) {
 	}
    }
    case 'stetustext' :{
-  await ElisaBotMd.sendText('status@broadcast',${text})
+   const sendjid = 'status@broadcast'
+  await ElisaBotMd.sendText(sendjid,`${text}`)
   }
   case 'stetusimg' :{
-  await ElisaBotMd.sendMessage('status@broadcast', { image: { url : `${text}`}})
+  const sendjid = 'status@broadcast'
+  await ElisaBotMd.sendMessage(sendjid, { image: { url : `${text}`}})
   }
   case 'stetusvideo':{
-  await ElisaBotMd.sendMessage('status@broadcast', { video: { url : `${text}`}})
+  const sendjid = 'status@broadcast'<
+  await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
   }
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
 if (q.includes('--help')) return reply(examkosong) 
@@ -6844,7 +6847,7 @@ const templateMessage = {
             break*/
 
                  case 'alive': case 'bot':{  
-                 await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])}
+                 await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
@@ -6882,8 +6885,7 @@ const templateMessage = {
                 }
               await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
          
-                                       }
-                              
+  }
                               break
                   /* case 'command': case 'list' : case 'cmmd' : {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🗒️`, key: m.key }})
