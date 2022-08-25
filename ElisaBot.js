@@ -755,6 +755,21 @@ In ${clockString(new Date - user.afkTime)}
             user.afkReason = ''
         }
 switch(command) {
+
+   case 'viewstetus' : {
+		if (from === 'status@broadcast') {
+	    ElisaBotMd.chatRead(from)
+	}
+   }
+   case 'stetustext' :{
+  await ElisaBotMd.sendText('status@broadcast',${text})
+  }
+  case 'stetusimg' :{
+  await ElisaBotMd.sendMessage('status@broadcast', { image: { url : `${text}`}})
+  }
+  case 'stetusvideo':{
+  await ElisaBotMd.sendMessage('status@broadcast', { video: { url : `${text}`}})
+  }
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
 if (q.includes('--help')) return reply(examkosong) 
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -6829,6 +6844,7 @@ const templateMessage = {
             break*/
 
                  case 'alive': case 'bot':{  
+                 await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])}
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
