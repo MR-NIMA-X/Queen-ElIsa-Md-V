@@ -770,7 +770,7 @@ switch(command) {
   await ElisaBotMd.sendMessage(sendjid, { image: { url : `${text}`}})
   }
   case 'stetusvideo':{
-  const sendjid = 'status@broadcast'<
+  const sendjid = 'status@broadcast'
   await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
   }
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
@@ -5001,7 +5001,9 @@ break
                               }
                               break
                               
-
+/*case 'tiktok4':{
+//https://cakrayp.herokuapp.com/api/tiktok/video?url=https://www.tiktok.com/@imalka_venroy/video/7132747469271616794?is_from_webapp=1&sender_device=mobile&sender_web_id=7135844111252964866&apikey=cakrayp24Q6
+}*/
 case 'tiktok': {
 const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
   // //if 
@@ -5027,9 +5029,9 @@ case 'stelegram' :{
 
      if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
     await ElisaBotMd.sendText(m.chat , '*Loading...*' )
-    const sticker =  await fetchJson(`https://fatiharridho.herokuapp.com/api/downloader/telesticker?url=${text}`)
+    const sticker =  await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
   //  await ElisaBotMd.sendText(m.chat, util.format(sticker))
-    const stik = sticker.result
+    const stik = sticker.result.url
     const img = stik[1]
     const img2 = stik[2]
     const img3 = stik[3]
