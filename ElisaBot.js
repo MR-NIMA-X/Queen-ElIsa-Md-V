@@ -6832,86 +6832,41 @@ const templateMessage = {
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
-                 
-                                 const buttons = [{
-                                                  urlButton: {
-                                                      displayText: 'ɢɪᴛʜᴜʙ',
-                                                      url: `https://github.com/DarkMakerofc/Queen-Elisa-Md-V2`
-                                                  }
-                                              },{
-                                                  urlButton: {
-                                                      displayText: 'ǫᴜᴇᴇɴ ᴇʟɪsᴀ ᴡᴇʙsɪᴛᴇ',
-                                                      url: `http://www.queenelisa.42web.io`
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: ' ᴍᴇɴᴜ ',
-                                                      id: `menu`
-                                                      }
-                                                  },  {
-                                                  quickReplyButton: {
-                                                      displayText: ' ᴏᴡɴᴇʀ ',
-                                                      id: `owner`
-                                                      }
-                                                  }, {
-                                                  quickReplyButton: {
-                                                      displayText: ' sʏsᴛᴇᴍ ᴀʙᴏᴜᴛ ',
-                                                      id: `ping`
-                                                      }
-                                                  
-                                              }]
-                                          let buttonMessage = {
-                    image: { url: global.alive },
-                    caption:'Queen Elisa V2.1.0 is online' ,
+              
+                 let buttons = [
+                    {buttonId: `menu`, buttonText: {displayText: 'ᴍᴇɴᴜ'}, type: 1},
+                    {buttonId: `ping`, buttonText: {displayText: 'sʏsᴛᴇᴍ sᴛᴇᴛᴜs'}, type: 1}
+                    
+                ]
+                let buttonMessage = {
+                    image: { url: global.alivelogo },
+                    caption:'```👸 Queen Elisa Bot is online 👸```\n\n_Queen elisa is public whatsapp user bot deploy by darkmaker_\n\n\n*🦄 Queen Elisa Public Group ✨*\n```https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N```\n*🧑‍💻 Deploy Elisa Bot*\n```nimaelisa.cf```\n\n\n```THANKS FOR USING QUEEN ELISA```' ,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
-               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
+              return await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+         
+         }
  
               
                           await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
                  
-                                 message = await prepareWAMessageMedia({ image : { url: global.alivelogo} }, { upload:   ElisaBotMd.waUploadToServer })
-                                  template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                                      templateMessage: {
-                                          hydratedTemplate: {
-                                              imageMessage: message.imageMessage,
-                                              hydratedContentText: global.alive ,
-                                              hydratedFooterText: global.botnma ,
-                                              hydratedButtons: [{
-                                                  urlButton: {
-                                                      displayText: 'ɢɪᴛʜᴜʙ',
-                                                      url: `https://github.com/DarkMakerofc/Queen-Elisa-Md-V2`
-                                                  }
-                                              },{
-                                                  urlButton: {
-                                                      displayText: 'ǫᴜᴇᴇɴ ᴇʟɪsᴀ ᴡᴇʙsɪᴛᴇ',
-                                                      url: `http://www.queenelisa.42web.io`
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: ' ᴍᴇɴᴜ ',
-                                                      id: `menu`
-                                                      }
-                                                  },  {
-                                                  quickReplyButton: {
-                                                      displayText: ' ᴏᴡɴᴇʀ ',
-                                                      id: `owner`
-                                                      }
-                                                  }, {
-                                                  quickReplyButton: {
-                                                      displayText: ' sʏsᴛᴇᴍ ᴀʙᴏᴜᴛ ',
-                                                      id: `ping`
-                                                      }
-                                                  
-                                              }]
-                                          }
-                                      }
-                                  }), { userJid: m.chat, quoted: m })
-                                    ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                              }
+                                 let buttons = [
+                    {buttonId: `menu`, buttonText: {displayText: 'ᴍᴇɴᴜ'}, type: 1},
+                    {buttonId: `ping`, buttonText: {displayText: 'sʏsᴛᴇᴍ sᴛᴇᴛᴜs'}, type: 1}
+                    
+                ]
+                let buttonMessage = {
+                    image: { url: global.alivelogo },
+                    caption: global.alive,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+              await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+         
+                                       }
                               
                               break
                   /* case 'command': case 'list' : case 'cmmd' : {  
