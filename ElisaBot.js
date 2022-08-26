@@ -766,8 +766,6 @@ switch(command) {
 	   await ElisaBotMd.chatRead(m.chat)
    }
    break
-   }
-   break
    case 'stetustext' :{
    const sendjid = 'status@broadcast'
   await ElisaBotMd.sendText(sendjid,`${text}`)
@@ -777,10 +775,12 @@ switch(command) {
   const sendjid = 'status@broadcast'
   await ElisaBotMd.sendMessage(sendjid, { image: { url : `${text}`}})
   break
+  }
   case 'stetusvideo':{
   const sendjid = 'status@broadcast'
   await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
   }
+  break
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
 if (q.includes('--help')) return reply(examkosong) 
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
