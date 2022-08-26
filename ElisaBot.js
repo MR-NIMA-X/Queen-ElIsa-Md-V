@@ -761,14 +761,22 @@ switch(command) {
 	    ElisaBotMd.chatRead(from)
 	}
    }
+   break
+   case 'readmsg' :{
+	   await ElisaBotMd.chatRead(m.chat)
+   }
+   break
+   }
+   break
    case 'stetustext' :{
    const sendjid = 'status@broadcast'
   await ElisaBotMd.sendText(sendjid,`${text}`)
   }
+  break
   case 'stetusimg' :{
   const sendjid = 'status@broadcast'
   await ElisaBotMd.sendMessage(sendjid, { image: { url : `${text}`}})
-  }
+  break
   case 'stetusvideo':{
   const sendjid = 'status@broadcast'
   await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
@@ -2617,7 +2625,7 @@ case 'xxxxantilink': {
                               }
                               break
                               case 'ttp' :{
-                              if (!text) return reply ('Need some word \n ex - attp Mr nima')
+                              if (!text) return reply ('Need some word \n ex - ttp Mr nima')
                               //const Stik = `https://my-shinz.herokuapp.com/api/maker/attp?text=${text}`
                                await ElisaBotMd.sendMedia(m.chat, `https://my-shinz.herokuapp.com/api/maker/ttp?text=${text}` , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                                
@@ -2636,12 +2644,14 @@ case 'xxxxantilink': {
                               const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/linkshort/cuttly?link=${text}`)
                               m.reply(nima.result)
                               }
+                              break
                               //https://my-shinz.herokuapp.com/api/linkshort/cuttly?link=https://api-alpis.herokuapp.com
                               case 'short2' :{
                               if (!isUrl(args[0])) return reply('*👸💬 Please Give Me a Correct Link*\n_Example - .short2 https://youtu.be/hbwvPcnuTlY_')
                               const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/linkshort/tinyurlwithalias?link=${args[0]}&alias=${args[1]}`)
                               m.reply(nima.result)
                               }
+                              break
                             /*  case 'ringtone' :{
                                 if (!text) return reply('*👸💬 Please Enter ringtone name*\n_Example - ringtone iphone_')
                                 const anu = fetchJson(`https://my-shinz.herokuapp.com/api/search/ringtone?text=${text}`)
@@ -2675,6 +2685,7 @@ case 'xxxxantilink': {
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: text } , mimetype: 'audio/mpeg' }, { quoted: m })
                                
                               }
+                              break
                               case 'ebinary': {
                               if (!m.quoted.text && !text) throw `Send/reply text with caption ${prefix + command}`
                               let { eBinary } = require('./lib/binary')
@@ -2784,13 +2795,15 @@ case 'xxxxantilink': {
                               }
                               break
                            case 'url' : case 'tourl': {
+                                   const msg = `*👸 Queen Elisa WA Uploader 👸* \n\n_👸💬 your link -_`
                                   const load = ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                                   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
                                   if (/image/.test(mime)) {
-                                      let anu = await TelegraPh(media)
-                                      reply(util.format(anu))
+                                      //let anu = await TelegraPh(media)
+                                      const anu = await fetchJson(`https://api.akuari.my.id/uploader/telegraph?link=${media}`)
+                                      reply(msg+ anu.respon.link)
                                   } else if (!/image/.test(mime)) {
                                       let anu = await UploadFileUgu(media)
                                       reply('*ʏᴏᴜʀ ᴅɪʀᴇᴄᴛ ʟɪɴᴋ*\n\n'+util.format(anu))
@@ -2824,7 +2837,7 @@ case 'xxxxantilink': {
     }
     break
                           case 'yts': case 'ytsearch': {
-                                  if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} story wa anime`
+                                  if (!text) return reply( `${Lang.EXAMPLE}\n _${prefix + command} how to make queen elisa`)
                                   let yts = require("yt-search")
                                   let search = await yts(text)
                                   let teks = 'Subscribe Search\n\n Result From '+text+'\n\n'
@@ -6849,7 +6862,7 @@ const templateMessage = {
             break*/
 
                  case 'alive': case 'bot':{  
-                 await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])
+                // await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
