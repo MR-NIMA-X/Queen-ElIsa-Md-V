@@ -795,7 +795,7 @@ switch(command) {
              
              case 'apk':{
             
-           if (!isUrl(args[0]) && !args[0].includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
+           if (!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
                             
           //if (!text) throw '✉️✏️ *Enter App Name !*'
                 await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
@@ -807,6 +807,13 @@ switch(command) {
            
                          }
             break
+case 'wpaper' :{
+   await ElisaBotMd.sendText(m.chat, '*LOADING...*')
+   
+   await ElisaBotMd.sendMessage(m.chat, { image: { url: `https://api.akuari.my.id/search/alphacoders?query=${text}` },  caption: `${global.cap}`}, { quoted: m })
+   await ElisaBotMd.sendMessage(m.chat, { image: { url: `https://api.akuari.my.id/search/alphacoders?query=${text}` },  caption: `${global.cap}`}, { quoted: m }.repeat(5))
+}
+break
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
 if (q.includes('--help')) return reply(examkosong) 
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -2935,6 +2942,30 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
                               }
                               break
+                              case 'downxvid' : {
+      // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
+     //  const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
+       //const video = nima.files.low
+                               await ElisaBotMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
+                               const vid = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
+                               const video = vid.result.files.low
+                               const image = vid.result.image
+                               
+                               await ElisaBotMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
+                               
+                               
+│ *📡 ᴛɪᴛʟᴇ* : ${vid.result.title}
+   
+│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.result.duration} _s_
+   
+│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.result.quality}
+   
+└───────────❍` })
+                               await ElisaBotMd.sendMessage(m.chat, { video: { url: video }, caption: `${m.pushName} *XVIDEO DOWNLOADED*` }, { quoted: m })
+                               
+
+}
+break
                               case 'downxnxx' : {
                                 
                                 if (!isXnxxGrp) throw '*Download is only Alowd this group*\n\n_https://chat.whatsapp.com/FtaEqyeEOmLBeoefGVIulP_\n\n❍ ~if you want download xnxx video join this~'
@@ -8934,6 +8965,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
         
 
     } catch (err) {
+        if (m.chat == '120363043491784571@g.us') return
         await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
        await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
