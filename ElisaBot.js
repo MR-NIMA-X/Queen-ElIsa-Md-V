@@ -2944,7 +2944,7 @@ case 'xxxxantilink': {
                               break
                               case 'xvideo': {
                                    
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
                                   let nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/search?query=${text}`)
@@ -2952,9 +2952,9 @@ case 'xxxxantilink': {
                                   let no = 1
                                   const search = nima.result
                                   for (let i of search) {
-                                      teks += `🔵 No : ${no++}\n*👽 title :* _${i.title}_\n*🗳️ Info :* _${i.info}_\n\n─────────────────\n\n`
+                                      teks += `🔵 No : ${no++}\n*👽 title :* ${i.title}\n*🗳️ Info :* ${i.info}\n*☞ url :* ${i.link}\n\n─────────────────\n\n`
                                   }
-                                  ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
+                                  ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/1d4a15912ba140214fa37.jpg' },  caption: teks }, { quoted: m })
                               }
                               break
                               case 'downxvid' : {
