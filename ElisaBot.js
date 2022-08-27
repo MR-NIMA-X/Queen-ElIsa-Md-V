@@ -2063,21 +2063,21 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                               }
                               break
                             case 'setppbot': case 'setbotpp': {
-                                  if (!isCreator) throw mess.owner
-                                  if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`
-                                  if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
-                                  if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
+                                  if (!isCreator) return reply( mess.owner)
+                                  if (!quoted) return reply( `*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
+                                  if (!/image/.test(mime)) return reply ( `*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
+                                  if (/webp/.test(mime)) return reply( `*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
                                   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
                                   await ElisaBotMd.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
                                   reply(mess.success)
                                   }
                                   break
                              case 'setppgroup': case 'setgrouppp': case 'setgcpp': case 'setppgrup': case 'setppgc': {
-                                  if (!m.isGroup) throw mess.group
-                                  if (!isAdmins) throw mess.admin
-                                  if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`
-                                  if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
-                                  if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
+                                  if (!m.isGroup) return reply( mess.group)
+                                  if (!isAdmins) return reply( mess.admin)
+                                  if (!quoted) return reply( `*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
+                                  if (!/image/.test(mime)) return reply( `*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
+                                  if (/webp/.test(mime)) return reply(`*👸💬 Send/Reply Image With Caption ${prefix + command}*`)
                                   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
                                   await ElisaBotMd.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
                                   reply(mess.success)
@@ -2146,9 +2146,9 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                   ElisaBotMd.sendMessage(m.chat, { image: ds,caption: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
                   break
                               case 'tagall': case 'tag': {
-                                  if (!m.isGroup) throw mess.group
-                                  if (!isBotAdmins) throw mess.botAdmin
-                                  if (!isAdmins) throw mess.admin
+                                  if (!m.isGroup) return reply( mess.group)
+                                  if (!isBotAdmins) return reply( mess.botAdmin)
+                                  if (!isAdmins) return reply( mess.admin)
                   let teks = ` *ＧＲＯＵＰ  ＮＯＴＩＦＹ*
                    
                     *𝐌𝐄𝐒𝐒𝐀𝐆𝐄 : ${q ? q : 'blank'}*\n\n`
@@ -2159,8 +2159,8 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                                   }
                                   break
                                   case 'hidetag': {
-                              if (!m.isGroup) throw mess.group
-                              if (!isAdmins) throw mess.admin
+                              if (!m.isGroup) return reply( mess.group)
+                              if (!isAdmins) return reply( mess.admin)
                               ElisaBotMd.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
                               }
                               break
@@ -2186,9 +2186,9 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                           }
                           break
                                  case 'vote': {
-                              if (!m.isGroup) throw mess.group
-                              if (m.chat in vote) throw `_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`
-                              if (!text) throw `Enter Reason for Vote, ${Lang.EXAMPLE}\n: *${prefix + command} Owner is handsome*`
+                              if (!m.isGroup) return reply( mess.group)
+                              if (m.chat in vote) return reply( `*👸💬 _There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes*`)
+                              if (!text) return reply( `*👸💬 Enter Reason for Vote, ${Lang.EXAMPLE}\n: *${prefix + command} Owner is handsome*`)
                               reply(`Voting starts!\n\n*${prefix}upvote* - for yes\n*${prefix}devote* - for no\n*${prefix}checkvote* - to check the votes\n*${prefix}deletevote* - to delete vote`)
                               vote[m.chat] = [q, [], []]
                               await sleep(1000)
@@ -2228,11 +2228,11 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                           }
                               break
                                  case 'upvote': {
-                              if (!m.isGroup) throw mess.group
-                              if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*Type ${prefix}vote* - to start voting`
+                              if (!m.isGroup) return reply( mess.group)
+                              if (!(m.chat in vote)) return reply (`_*no voting in this group!*_\n\n*Type ${prefix}vote* - to start voting`)
                               isVote = vote[m.chat][1].concat(vote[m.chat][2])
                               wasVote = isVote.includes(m.sender)
-                              if (wasVote) throw 'You have Voted'
+                              if (wasVote) return reply( '*👸💬 You have Voted*')
                               vote[m.chat][1].push(m.sender)
                               menvote = vote[m.chat][1].concat(vote[m.chat][2])
                               teks_vote = `◉◍──[ *ᴇʟɪsᴀ ʙᴏᴛ* ]──◍◉
@@ -2270,7 +2270,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                           }
                                break
                                   case 'devote': {
-                              if (!m.isGroup) throw mess.group
+                              if (!m.isGroup) return reply( mess.group)
                               if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`
                               isVote = vote[m.chat][1].concat(vote[m.chat][2])
                               wasVote = isVote.includes(m.sender)
@@ -2794,8 +2794,13 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                               }
                               break
-                           case 'url' : case 'tourl': {
-                                   const msg = `*👸 Queen Elisa WA Uploader 👸* \n\n_👸💬 your link -_`
+                              case 'url' : {
+                              let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
+                              const anu = await fetchJson(`https://api.akuari.my.id/uploader/telegraph?link=${media}`)
+                              await ElisaBotMd.sendText(m.chat,`*ᴜʀʟ : ${anu.respon.link}*
+                              }
+                              break      
+                           case 'gurl' : case 'tourl': {
                                   const load = ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -3015,7 +3020,7 @@ case 'xxxxantilink': {
                           }
                           case 'gimage': case 'img': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔍`, key: m.key }})
-                          if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} ml nana`
+                          if (!text) return reply( `*👸💬 ${Lang.EXAMPLE}\n ${prefix + command} car*`
                           let gis = require('g-i-s')
                           gis(text, async (error, result) => {
                           n = result
@@ -3240,11 +3245,11 @@ ElisaBotMd.sendMessage(m.chat, buttonMessage, {quoted: m })
                               break*/
                               case 'song' : {
 var GIVEME = ''
-if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt rosa male natuwe katu*"
-if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .yt rosa male natuwe katu*"
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song rosa male natuwe katu*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song rosa male natuwe katu*"
 
                               await ElisaBotMd.sendMessage(from, { react: { text: `🎵`, key: m.key }})
-                                  if (!text) return reply(GIVEME)
+                                  if (!text) return m.reply(GIVEME)
                                   await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`, m, )
                                   let yts = require("yt-search")
                                  // let search = await yts(text)
@@ -3285,8 +3290,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                              break
                               case 'video': { 
 var GIVEME = ''
-if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
-if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n *Example - .yt how to make queen elisa bot*"
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .video how to make queen elisa bot*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n *Example - .video how to make queen elisa bot*"
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                                   if (!text) return reply (GIVEME)
@@ -4216,7 +4221,7 @@ if (!text) return reply (MAX)
       }
    ]
 			
-     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 LOGO PACK 2*`, `MAKE LOGO`, sections, m)
+     await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 LOGO PACK 1*`, `MAKE LOGO`, sections, m)
  	   	                	
   }
             break
