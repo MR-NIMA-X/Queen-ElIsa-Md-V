@@ -781,6 +781,32 @@ switch(command) {
   await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
   }
   break
+/*  case 'getpack': {
+	            ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+                if (!text) throw '*Enter a App Name *'
+                ElisaBotMd.sendMessage(from, { text: `${pushname} _DOWNLOADING YOUR APK PLEASE WAIT..._` }, { quoted: m })
+                thi = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${text}`)
+                
+                ElisaBotMd.sendMessage(from, { text: `${pushname} _UPLOADING YOUR APK PLEASE WAIT..._` }, { quoted: m })    
+                await ElisaBotMd.sendMessage(m.chat, { document: { url: thi.apkdownload }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
+            }
+            break
+            */
+             
+             case 'apk':{
+            
+           if (!isUrl(args[0]) && !args[0].includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
+                            
+          //if (!text) throw '✉️✏️ *Enter App Name !*'
+                await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
+                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${text}`)
+                const file = nima.apkdownload
+                await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
+                //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
+                await ElisaBotMd.sendMessage(m.chat, { document: { url: file }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
+           
+                         }
+            break
        /* case 'invexxcxntori': case 'invexxxntory': case 'pxxxxrofile':{
 if (q.includes('--help')) return reply(examkosong) 
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
