@@ -2942,11 +2942,29 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
                               }
                               break
+                              case 'xvideo': {
+                                   
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
+                                  if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
+                                  
+                                  let nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/search?query=${text}`)
+                                  let teks = '*🎭  XVIDEO RESULTS  🎭* '+text+'\n\n'
+                                  let no = 1
+                                  const search = nima.result
+                                  for (let i of search) {
+                                      teks += `🔵 No : ${no++}\n*👽 title :* _${i.title}_\n*🗳️ Info :* _${i.info}_\n\n─────────────────\n\n`
+                                  }
+                                  ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
+                              }
+                              break
                               case 'downxvid' : {
       // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
      //  const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
        //const video = nima.files.low
-                               await ElisaBotMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
+                               if(!text) return reply('*👸💬 Please give me a link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
+                               if(!args[0].includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
+    
+                               await ElisaBotMd.sendText(m.chat, `*🔄 Please wait Downloading _XVIDEO_ Video ${m.pushName}...*`, m, )
                                const vid = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
                                const video = vid.result.files.low
                                const image = vid.result.image
