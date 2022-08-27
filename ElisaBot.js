@@ -795,7 +795,7 @@ switch(command) {
              
              case 'apk':{
             
-           if (!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
+           if ((!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
                             
           //if (!text) throw '✉️✏️ *Enter App Name !*'
                 await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
