@@ -2521,6 +2521,22 @@ case 'xxxxantilink': {
                                   }
                                 }
                               break
+                              case 'bcimg' : {
+                              let media = await quoted.download()
+                              let getGroups = await ElisaBotMd.groupFetchAllParticipating()
+                                  let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+                                  let anu = groups.map(v => v.id)
+                                  reply(`*Send Broadcast To ${anu.length} Group Chat, Finish Time ${anu.length * 1.5} second*`)
+                                  for (let i of anu) {
+                                      await sleep(1500)
+                                  await ElisaBotMd.sendText(i,`${text}`)
+                                  await ElisaBotMd.sendMessage(i, { image: { url: media } }, { quoted: m })
+                                  reply (`*Successful Sending Broadcast To ${anu.length} Group(s)*`)
+                                  
+                                  }
+                                
+                              }
+                              break
                               case 'bcgc': case 'bcgroup': {
                                   if (!isCreator) throw mess.owner
                                   if (!text) throw `${Lang.BC_GC}${Lang.EXAMPLE}\n : ${prefix + command} hello guys, am back`
@@ -3065,6 +3081,12 @@ break
                               await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: text } , mimetype: 'audio/mpeg' }, { quoted: m })
                                
+                              }
+                              break
+                              case 'directapk' : {
+                              await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                              await ElisaBotMd.sendMessage(m.chat, { document: { url: file }, mimetype: 'application/octet-stream', fileName: `QueenElisa.apk`}, { quoted: m })
+             
                               }
                               break
                           case 'google': {
