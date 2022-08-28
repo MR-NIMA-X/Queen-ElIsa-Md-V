@@ -6940,7 +6940,7 @@ ${biography}
                                     ElisaBotMd.send5ButImg(m.chat, template.message, { messageId: template.key.id })*/
 const templateButtons = [
     {index: 1, urlButton: {displayText: 'ɢɪᴛʜᴜʙ', url: 'https://github.com/darkmakerofc/Queen-Elisa-Md-V2'}},
-    {index: 2, urlButton: {displayText: 'sᴜʙᴄʀɪʙᴇ', url: 'https://youtube.com/c/MRNIMAOFC' }},
+    {index: 2, urlButton: {displayText: 'ʜᴇʟʟᴏ ᴡᴏʀʟᴅ', url: `https://www.whatsapp.com/otp/copy/Hello+world${MENUMSG}` }},
     {index: 3, quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
     {index: 3, quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
 ]
