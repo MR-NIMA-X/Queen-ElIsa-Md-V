@@ -3085,7 +3085,7 @@ break
                               break
                               case 'directapk' : {
                               await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
-                              await ElisaBotMd.sendMessage(m.chat, { document: { url: file }, mimetype: 'application/octet-stream', fileName: `QueenElisa.apk`}, { quoted: m })
+                              await ElisaBotMd.sendMessage(m.chat, { document: { url: text }, mimetype: 'application/octet-stream', fileName: `QueenElisa.apk`}, { quoted: m })
              
                               }
                               break
