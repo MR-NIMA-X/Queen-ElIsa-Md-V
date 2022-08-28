@@ -1815,6 +1815,17 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
   await ElisaBotMd.chatModify({ markRead: true, lastMessages: [lastMsgInChat] }, m.chat)
                           }
                           break
+                          case 'readm' : {
+                          const key = {
+    remoteJid: m.chat,
+    id: message.key.id, // id of the message you want to read
+    participant: m.sender // the ID of the user that sent the  message (undefined for individual chats)
+}
+// pass to readMessages function
+// can pass multiple keys to read multiple messages as well
+await ElisaBotMd.readMessages([key])
+                          }
+                          break
                           case 'family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
                                   if ('family100'+m.chat in _family100) {
                                       reply('There are still unfinished sessions!')
