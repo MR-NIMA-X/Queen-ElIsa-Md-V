@@ -2506,6 +2506,21 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
                               }
                               break
+                              case 'bcgctext' :{
+                              if (!isCreator) return reply( mess.owner)
+                              if (!text) throw `${Lang.BC_GC}\n${Lang.EXAMPLE} ${prefix + command} *Hello i am using queen elisa 🤍*`
+                                  let getGroups = await ElisaBotMd.groupFetchAllParticipating()
+                                  let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+                                  let anu = groups.map(v => v.id)
+                                  reply(`*Send Broadcast To ${anu.length} Group Chat, Finish Time ${anu.length * 1.5} second*`)
+                                  for (let i of anu) {
+                                      await sleep(1500)
+                                  await ElisaBotMd.sendText(i,`${text}`)
+                                  reply (`*Successful Sending Broadcast To ${anu.length} Group(s)*`)
+                                  
+                                  }
+                                }
+                              break
                               case 'bcgc': case 'bcgroup': {
                                   if (!isCreator) throw mess.owner
                                   if (!text) throw `${Lang.BC_GC}${Lang.EXAMPLE}\n : ${prefix + command} hello guys, am back`
