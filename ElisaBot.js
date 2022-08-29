@@ -2687,7 +2687,7 @@ case 'xxxxantilink': {
                               if (global.LANG == 'SI') MAX= '*උපරිම තත්පර 10ක වීඩියෝ පමණයි !*'
                               
                               
-                              if (!quoted) throw `Reply Video/Image With Caption ${prefix + command}`
+                              if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
                                ElisaBotMd.sendText(m.chat, Lang.STICKER_MAKING )
                                       if (/image/.test(mime)) {
                                   let media = await quoted.download()
@@ -2745,6 +2745,15 @@ case 'xxxxantilink': {
                               m.reply(nima.result)
                               }
                               break
+                              case 'triggered' :{
+                              if (!quoted) return reply('*👸💬 Please reply sticker.*')
+                              let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
+                              const stick = 'https://api.akuari.my.id/canvas/triggered2?link='+media
+                              await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
+                              await ElisaBotMd.sendMedia(m.chat, stick , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
+                              }
+                              break
+
                             /*  case 'ringtone' :{
                                 if (!text) return reply('*👸💬 Please Enter ringtone name*\n_Example - ringtone iphone_')
                                 const anu = fetchJson(`https://my-shinz.herokuapp.com/api/search/ringtone?text=${text}`)
