@@ -803,7 +803,7 @@ switch(command) {
                 const file = nima.apkdownload
                 await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                await sleep(5000)
+                await sleep(10000)
                 await ElisaBotMd.sendMessage(m.chat, { document: { url: file }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
                          }
