@@ -802,7 +802,7 @@ switch(command) {
                 nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
                 //const file = nima.apkdownload
                 await sleep(teks2)
-                await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
+                //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 
                 await ElisaBotMd.sendMessage(m.chat, { document: { url: nima.apkdownload }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
