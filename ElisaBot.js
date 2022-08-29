@@ -804,7 +804,7 @@ switch(command) {
                 await sleep(6000)
                 //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                const buffer = await getbuffer(nima.apkdownload)
+                const buffer = await getBuffer(nima.apkdownload)
                 await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
                          }
@@ -820,7 +820,7 @@ switch(command) {
                 await sleep(teks2)
                 //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                const buffer = await getbuffer(nima.apkdownload)
+                const buffer = await getBuffer(nima.apkdownload)
                 await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
                          }
