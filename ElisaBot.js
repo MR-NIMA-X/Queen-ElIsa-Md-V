@@ -304,10 +304,13 @@ const reply3 = (teks) => {
         let gclink = (`https://chat.whatsapp.com/`+await ElisaBotMd.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😉, Because You Sent This Group Link❤️`)
-        if (isAdmins) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😉, Because You Are An Admin Of The Group❤️`)
-        if (isCreator) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😉, Because You Are My Owner Hahahahah🤣😘, You Think I Will Betray You Huh`)
-        ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        if (isgclink) return
+        if (isAdmins) return 
+        if (isCreator) return 
+        await ElisaBotMd.sendText(m.chat,` 
+      *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
+`
+        await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
         
@@ -2685,6 +2688,9 @@ case 'xxxxantilink': {
                               var MAX = ''
                               if (global.LANG == 'EN') MAX= '*Maximum 10 seconds videos only!*'
                               if (global.LANG == 'SI') MAX= '*උපරිම තත්පර 10ක වීඩියෝ පමණයි !*'
+                              var MA2X = ''
+                              if (global.LANG == 'SI') MA2X= '*👸💬 වීඩියෝවකට හෝ ජායාරූපයකට රිප්ලයි ලබාදෙන්න !*'
+                              if (global.LANG == 'EN') MA2X= '*👸💬 Please reply video or photo !*'
                               
                               
                               if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
@@ -2748,7 +2754,8 @@ case 'xxxxantilink': {
                               case 'triggered' :{
                               if (!quoted) return reply('*👸💬 Please reply sticker.*')
                               let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
-                              const stick = 'https://api.akuari.my.id/canvas/triggered2?link='+media
+                              conat img = `https://api.violetics.pw/api/converter/webp-to-image?apikey=b5cd-368b-055f&image=${media}`
+                              const stick = 'https://api.akuari.my.id/canvas/triggered2?link='+img
                               await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
                               await ElisaBotMd.sendMedia(m.chat, stick , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
                               }
@@ -6374,6 +6381,10 @@ break
                   break*/
                   
                              case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':
+                             var MAX = ''
+                              if (global.LANG == 'EN') MAX= '*👸💬 Reply to the audio you want to change with caption _${prefix + command}_*'
+                              if (global.LANG == 'SI') MAX= '*👸💬 ඔබට වෙනස් කිරීමට අවශ්‍ය වෙයිස් එක රිප්ලයි ලබාදෙන්න !*'
+                              
                                   try {
                                   let set
                                   if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
@@ -6400,7 +6411,7 @@ break
                                   ElisaBotMd.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                                   fs.unlinkSync(ran)
                                   })
-                                  } else reply(`Reply to the audio you want to change with caption *${prefix + command}*`)
+                                  } else reply(MAX)
                                   } catch (e) {
                                   reply(e)
                                   }
@@ -10199,7 +10210,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
         if (m.chat == '120363043491784571@g.us') return
-        await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
+        //await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
        await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
     }
