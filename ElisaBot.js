@@ -796,14 +796,15 @@ switch(command) {
              case 'apk':{
             
            if ((!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
-                            
-          //if (!text) throw '✉️✏️ *Enter App Name !*'
+                teks1 = q.split(";")[0]
+                teks2 = q.split(";")[1]           
                 await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
-                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${text}`)
+                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
                 const file = nima.apkdownload
+                await sleep(teks2)
                 await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                await sleep(10000)
+                
                 await ElisaBotMd.sendMessage(m.chat, { document: { url: file }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
                          }
