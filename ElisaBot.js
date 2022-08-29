@@ -2754,7 +2754,7 @@ case 'xxxxantilink': {
                               case 'triggered' :{
                               if (!quoted) return reply('*👸💬 Please reply sticker.*')
                               let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
-                              conat img = `https://api.violetics.pw/api/converter/webp-to-image?apikey=b5cd-368b-055f&image=${media}`
+                              const img = `https://api.violetics.pw/api/converter/webp-to-image?apikey=b5cd-368b-055f&image=${media}`
                               const stick = 'https://api.akuari.my.id/canvas/triggered2?link='+img
                               await ElisaBotMd.sendMessage(from, { react: { text: `✨`, key: m.key }})
                               await ElisaBotMd.sendMedia(m.chat, stick , '𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰', '𝙱𝙾𝚃', m, {asSticker: true}).catch((err) => reply(err))
@@ -10209,7 +10209,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
         
 
     } catch (err) {
-        if (m.chat == '120363043491784571@g.us') return
+       // if (m.chat == '120363043491784571@g.us') return
         //await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
        await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
