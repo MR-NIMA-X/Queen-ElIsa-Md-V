@@ -801,11 +801,27 @@ switch(command) {
                 await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
                 nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
                 //const file = nima.apkdownload
+                await sleep(6000)
+                //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
+                //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
+                const buffer = nima.apkdownload
+                await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
+           
+                         }
+            break
+            case 'apk2':{
+            
+           if ((!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
+                teks1 = q.split(";")[0]
+                teks2 = q.split(";")[1]           
+                await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
+                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
+                //const file = nima.apkdownload
                 await sleep(teks2)
                 //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                
-                await ElisaBotMd.sendMessage(m.chat, { document: { url: nima.apkdownload }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
+                const buffer = nima.apkdownload
+                await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
                          }
             break
