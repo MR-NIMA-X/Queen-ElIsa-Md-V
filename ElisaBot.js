@@ -309,7 +309,7 @@ const reply3 = (teks) => {
         if (isCreator) return 
         await ElisaBotMd.sendText(m.chat,` 
       *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
-`
+`)
         await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
