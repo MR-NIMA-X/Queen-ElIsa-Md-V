@@ -64,17 +64,6 @@ async function startElisaBotMd() {
         auth: state
     })
 
-if (global.AUTO_BIO == 'onn') setInterval(async () => {
-
-const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-           var utch = new Date().toLocaleDateString( get_localized_date)
-           var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
-           const biography = '📅 ' + utch + '\n⌚ ' + time + '\n\n'+ElisaBotMd.user.name
-
-      
-		await ElisaBotMd.setStatus(biography)    
-    
-  },800000)
 
     store.bind(ElisaBotMd.ev)
     
