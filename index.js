@@ -53,6 +53,17 @@ global.db.data = {
 if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
+
+
+
+async function startElisaBotMd() {
+    const ElisaBotMd = DarkMakerincConnect({
+        logger: pino({ level: 'silent' }),
+        printQRInTerminal: true,
+        browser: ['Elina Bot\Darkmaker','Safari','1.0.0'],
+        auth: state
+    })
+
 if (global.AUTO_BIO == 'onn') setInterval(async () => {
 
 const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -63,16 +74,7 @@ const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', da
       
 		await ElisaBotMd.setStatus(biography)    
     
-  }, 2 * 100000)
-
-
-async function startElisaBotMd() {
-    const ElisaBotMd = DarkMakerincConnect({
-        logger: pino({ level: 'silent' }),
-        printQRInTerminal: true,
-        browser: ['Elina Bot\Darkmaker','Safari','1.0.0'],
-        auth: state
-    })
+  },800000)
 
     store.bind(ElisaBotMd.ev)
     
