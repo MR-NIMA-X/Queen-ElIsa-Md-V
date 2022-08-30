@@ -53,6 +53,18 @@ global.db.data = {
 if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
+if (global.AUTO_BIO == 'onn') setInterval(async () => {
+
+const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+           var utch = new Date().toLocaleDateString( get_localized_date)
+           var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
+           const biography = '📅 ' + utch + '\n⌚ ' + time + '\n\n'+ElisaBotMd.user.name
+
+      
+		await ElisaBotMd.setStatus(biography)    
+    
+  }, 2 * 100000)
+
 
 async function startElisaBotMd() {
     const ElisaBotMd = DarkMakerincConnect({
