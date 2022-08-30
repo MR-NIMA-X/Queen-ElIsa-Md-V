@@ -52,8 +52,7 @@ global.db.data = {
 // save database every 30seconds
 if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
-await ElisaBotMd.setStatus('Hello !')
-  }, 1 * 1000)
+  }, 30 * 1000)
 
 
 
