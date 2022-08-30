@@ -63,6 +63,17 @@ async function startElisaBotMd() {
         browser: ['Elina Bot\Darkmaker','Safari','1.0.0'],
         auth: state
     })
+setInterval(async () => {
+if (global.AUTO_BIO == 'off') return
+const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+           var utch = new Date().toLocaleDateString( get_localized_date)
+           var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
+           const biography = '📅 ' + utch + '\n⌚ ' + time + '\n\n'+ElisaBotMd.user.name
+
+      
+		await ElisaBotMd.setStatus(biography)    
+    
+  }, 50000)
 
 
     store.bind(ElisaBotMd.ev)
