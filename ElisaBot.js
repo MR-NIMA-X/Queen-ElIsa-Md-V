@@ -2985,7 +2985,7 @@ const pipeline = promisify(stream.pipeline);
 		    fs.createWriteStream('rbg.png')
         )
     
-         awit ElisaBotMd.sendMessage(m.chat, { image: { url: fs.readFileSync('rbg.png') },  caption: global.cap }, { quoted: m })
+         ElisaBotMd.sendMessage(m.chat, { image: { url: fs.readFileSync('rbg.png') }},  caption: global.cap }, { quoted: m })
                        
         //await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.document, {filename: 'WhatsAsena.png', mimetype: Mimetype.png});
        
