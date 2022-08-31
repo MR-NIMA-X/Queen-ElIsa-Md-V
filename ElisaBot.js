@@ -3494,8 +3494,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
                           break
                           case 'song2' : {
 var GIVEME = ''
-if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt lelena*"
-if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .yt lelena*"
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song2 lelena*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song2 lelena*"
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
                                   if (!text) return reply (GIVEME)
@@ -3524,6 +3524,10 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                            }
                           break  
                           case 'song3' : {
+                          var GIVEME = ''
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song3 lelena*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song3 lelena*"
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
                                   if (!text) return reply (GIVEME)
                                   let yts = require("yt-search")
@@ -3545,7 +3549,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                                   await ElisaBotMd.sendMessage(m.chat, { document: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
                                   await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   
-                          }).catch((err) => m.reply('*CAN\'T DOWNLOAD !!!*))
+                          }).catch((err) => m.reply('*CAN\'T DOWNLOAD !!!*'))
                           }
                           break
                           case 'video2' :{
