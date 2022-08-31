@@ -299,8 +299,8 @@ const reply3 = (teks) => {
 	  //antilink\\
         if (global.antilink == 'true' && m.isGroup ) {
         if (budy.match(`chat.whatsapp.com`)) {
-        reply(`「 ANTI LINK 」\n\nYou have been detected sending a group link, sorry you will be kicked !`)
-        if (!isBotAdmins) return reply(`I Am Not An Admin, How Could I Kick Somebody Who Send Link 😒`)
+       // reply(`「 ANTI LINK 」\n\nYou have been detected sending a group link, sorry you will be kicked !`)
+        if (!isBotAdmins) return 
         let gclink = (`https://chat.whatsapp.com/`+await ElisaBotMd.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
@@ -2949,6 +2949,46 @@ case 'xxxxantilink': {
     await fs.unlinkSync(localFile)
     await fs.unlinkSync(outputFile)
     })
+    }
+    break
+    case 'removebg2'  : {
+    
+const got = require('got');
+const FormData = require('form-data');
+const stream = require('stream');
+const {promisify} = require('util');
+
+const pipeline = promisify(stream.pipeline);
+
+    var load = await message.reply('removeing...')
+        var location = await message.client.downloadAndSaveMediaMessage({
+            key: {
+                remoteJid: message.reply_message.jid,
+                id: message.reply_message.id
+            },
+            message: message.reply_message.data.quotedMessage
+        })
+
+        var form = new FormData();
+        form.append('image_file', fs.createReadStream(location));
+        form.append('size', 'auto');
+
+        var rbg = await got.stream.post('https://api.remove.bg/v1.0/removebg', {
+            body: form,
+            headers: {
+                'X-Api-Key': '5Cx1DPgcR54PVn5Z5WGGn64V'
+            }
+        })
+    
+        await pipeline(
+		    rbg,
+		    fs.createWriteStream('rbg.png')
+        )
+    
+         awit ElisaBotMd.sendMessage(m.chat, { image: { url: fs.readFileSync('rbg.png') },  caption: global.cap }, { quoted: m })
+                       
+        //await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.document, {filename: 'WhatsAsena.png', mimetype: Mimetype.png});
+       
     }
     break
                           case 'yts': case 'ytsearch': {
