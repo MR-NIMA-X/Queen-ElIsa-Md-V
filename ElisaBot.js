@@ -459,7 +459,7 @@ const reply3 = (teks) => {
 				  if (!m.isGroup && global.INBOX_BLOCK == 'on') {  
 				  if (!isCreator) {
 				  await ElisaBotMd.sendText (m.chat, global.INBOX_BLOCK_MSG )
-				  await new Promise(r => setTimeout(r, 5000))
+				  await sleep(8000)
 				  return await ElisaBotMd.updateBlockStatus(m.sender, 'block')
 				  }
 				  }	
@@ -2639,7 +2639,7 @@ case 'xxxxantilink': {
                               case 'chatinfo': {
                                   if (!m.quoted) reply(Lang.M_REPLY)
                                   let msg = await m.getQuotedObj()
-                                  if (!m.quoted.isBaileys) throw 'The message was not sent by a bot!'
+                                  if (!m.quoted.isBaileys) return reply( 'The message was not sent by a bot!')
                                   let teks = ''
                                   for (let i of msg.userReceipt) {
                                       let read = i.readTimestamp
@@ -2685,6 +2685,8 @@ case 'xxxxantilink': {
                                }
                                break
                               case 'sticker': case 's': case 'stickergif': case 'sgif': {
+                              if (!m.quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
+                            
                               var MAX = ''
                               if (global.LANG == 'EN') MAX= '*Maximum 10 seconds videos only!*'
                               if (global.LANG == 'SI') MAX= '*උපරිම තත්පර 10ක වීඩියෝ පමණයි !*'
@@ -2692,8 +2694,6 @@ case 'xxxxantilink': {
                               if (global.LANG == 'SI') MA2X= '*👸💬 වීඩියෝවකට හෝ ජායාරූපයකට රිප්ලයි ලබාදෙන්න !*'
                               if (global.LANG == 'EN') MA2X= '*👸💬 Please reply video or photo !*'
                               
-                              
-                              if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
                                ElisaBotMd.sendText(m.chat, Lang.STICKER_MAKING )
                                       if (/image/.test(mime)) {
                                   let media = await quoted.download()
@@ -2831,7 +2831,7 @@ case 'xxxxantilink': {
                               var STICKER
                               if (global.Lang == 'EN') STICKER = '*This is not Sticker please reply correct sticker'
                               if (global.Lang == 'SI') STICKER = '*ඔබ රිප්ලයි කරන ලද්දේ ස්ටිකර් එකකට නොවේ කරුනාකර ස්ටිකර් එකකට රිප්ලයි කරන්න*'
-                                  if (!quoted) throw '*photo  එකකට රිප්ලයි කරන්න !*'
+                                  if (!quoted) throw '*photo එකකට රිප්ලයි කරන්න !*'
                                   if (!/webp/.test(mime)) throw `${REPLY} *${prefix + command}*`
                                   const load = await ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
                                   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
@@ -2912,7 +2912,7 @@ case 'xxxxantilink': {
                            case 'hurl' : case 'tourl': {
                                    const msg = `*👸 Queen Elisa WA Uploader 👸* \n\n_👸💬 your link -_`
                                   const load = ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
-                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                                  //await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                                   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
                                   if (/image/.test(mime)) {
@@ -3523,6 +3523,31 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                                   }).catch((err) => m.reply(err))
                            }
                           break  
+                          case 'song3' : {
+                          await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
+                                  if (!text) return reply (GIVEME)
+                                  let yts = require("yt-search")
+                                  const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
+                                  yts(text).then(async (search) => {  
+                                  let nima = search.all
+                          
+                          const akur = await fetchJson(`https://a.api.akuari.my.id/downloader/youtube3?link=${search.all[0].url}&type=360`)
+                          const gettsong = akur.audio.audio
+                          await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                          const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
+                          if ( args[1] == 'audio' ){
+                                 // if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
+                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
+                                  return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  
+                                  }
+                                 // if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
+                                  await ElisaBotMd.sendMessage(m.chat, { document: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
+                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  
+                          }).catch((err) => m.reply('*CAN\'T DOWNLOAD !!!*))
+                          }
+                          break
                           case 'video2' :{
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
@@ -10210,7 +10235,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
        // if (m.chat == '120363043491784571@g.us') return
-        //await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
+       await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
        await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
     }
