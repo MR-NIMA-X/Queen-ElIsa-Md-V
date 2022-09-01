@@ -5246,7 +5246,7 @@ break
 /*case 'tiktok4':{
 //https://cakrayp.herokuapp.com/api/tiktok/video?url=https://www.tiktok.com/@imalka_venroy/video/7132747469271616794?is_from_webapp=1&sender_device=mobile&sender_web_id=7135844111252964866&apikey=cakrayp24Q6
 }*/
-case 'tiktok': {
+case 'tiktok4': {
 const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
   // //if 
    if (!text) throw '*Enter a Link Query!*'            
@@ -5266,7 +5266,48 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
        ElisaBotMd.sendText(m.chat, '*SORRY CAN\'T DOWNLOAD ❗*')})
 }
 break
+case 'tiktok' : {
+    if (!text) throw '*Enter a Link Query!*'          
+    const tknima = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
+    
+const msg = `👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸
 
+⦁ ᴀᴜᴛʜᴏʀ : ${tknima.author}
+
+⦁ ᴅᴇᴛᴀɪʟs : ${tknima.desc}
+
+⦁ ᴏʀɪɢɪɴᴀʟ sᴏɴɢ : ${tknima.links[4].s}
+`
+
+const wmvideo = tknima.links[3].a
+const nowmvideo = tknima.links[0].a
+const img = tknima.cover
+        
+	            // footer = global.botnma
+                 var buttons = [
+                    {buttonId: `directkk ${nowmvideo}`, buttonText: {displayText: 'NO WM'}, type: 1},
+                    {buttonId: `directkk ${wmvideo}`, buttonText: {displayText: 'WITH WM'}, type: 1}
+                    
+                ]
+                let buttonMessage = {
+                    image: { url: img },
+                    caption: msg ,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+
+}
+break
+case 'directkk' : {
+       const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
+       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, caption: global.cap}, { quoted: m })
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                  }
+break
 case 'stelegram' :{
 
      if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
