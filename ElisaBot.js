@@ -5276,8 +5276,8 @@ const msg = `👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾
 
 ⦁ ᴅᴇᴛᴀɪʟs : ${tknima.desc}
 
-⦁ ᴏʀɪɢɪɴᴀʟ sᴏɴɢ : ${tknima.links[4].s}
 `
+//⦁ ᴏʀɪɢɪɴᴀʟ sᴏɴɢ : ${tknima.links[4].s}
 
 const wmvideo = tknima.links[3].a
 const nowmvideo = tknima.links[0].a
