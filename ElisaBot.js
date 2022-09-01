@@ -2951,27 +2951,24 @@ case 'xxxxantilink': {
     })
     }
     break
-    case 'removebg2'  : {
+    /*case 'removebg2'  : {
     
-const got = require('got');
-const FormData = require('form-data');
-const stream = require('stream');
-const {promisify} = require('util');
+const got = require('got')
+const FormData = require('form-data')
+const stream = require('stream')
+const {promisify} = require('util')
 
-const pipeline = promisify(stream.pipeline);
+const pipeline = promisify(stream.pipeline)
 
     var load = await message.reply('removeing...')
-        var location = await message.client.downloadAndSaveMediaMessage({
-            key: {
-                remoteJid: message.reply_message.jid,
-                id: message.reply_message.id
-            },
+        var location = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)({
+        
             message: message.reply_message.data.quotedMessage
         })
 
-        var form = new FormData();
+        var form = new FormData()
         form.append('image_file', fs.createReadStream(location));
-        form.append('size', 'auto');
+        form.append('size', 'auto')
 
         var rbg = await got.stream.post('https://api.remove.bg/v1.0/removebg', {
             body: form,
@@ -2990,7 +2987,7 @@ const pipeline = promisify(stream.pipeline);
         //await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.document, {filename: 'WhatsAsena.png', mimetype: Mimetype.png});
        
     }
-    break
+    break*/
                           case 'yts': case 'ytsearch': {
                                   if (!text) return reply( `${Lang.EXAMPLE}\n _${prefix + command} how to make queen elisa`)
                                   let yts = require("yt-search")
