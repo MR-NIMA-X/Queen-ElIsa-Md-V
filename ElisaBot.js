@@ -806,7 +806,7 @@ switch(command) {
                 await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.download } , mimetype: 'application/octet-stream', fileName: `${nima.respon.id}`}, { quoted: m })
+                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.download } , mimetype: 'application/vnd.android.package-archive', fileName: `${nima.respon.id}`}, { quoted: m })
            
                          }
             break
