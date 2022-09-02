@@ -798,36 +798,19 @@ switch(command) {
              
              case 'apk':{
             
-           if ((!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
-                teks1 = q.split(";")[0]
-                teks2 = q.split(";")[1]           
+           if (!text) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
                 await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
-                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
+                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader2?package=${text}`)
                 //const file = nima.apkdownload
-                await sleep(6000)
-                //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
+              //  await sleep(6000)
+                await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                const buffer = await getBuffer(nima.apkdownload)
-                await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
+                //const buffer = await getBuffer(nima.respon.download)
+                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.download } , mimetype: 'application/octet-stream', fileName: `${nima.respon.id}`}, { quoted: m })
            
                          }
             break
-            case 'apk2':{
-            
-           if ((!text) && text.includes('https://play.google.com')) return reply('*👸💬 Please give plastore link*\n'+'```Example .apk https://play.google.com/store/apps/details?id=com.imangi.templerun```')
-                teks1 = q.split(";")[0]
-                teks2 = q.split(";")[1]           
-                await ElisaBotMd.sendMessage(from, { text: `*📥 DOWNLOADING PLASTORE APK...*` }, { quoted: m })
-                nima = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${teks1}`)
-                //const file = nima.apkdownload
-                await sleep(teks2)
-                //await ElisaBotMd.sendMessage(from, { text: `*📤 UPLOADING PLASTORE APK...*` }, { quoted: m })
-                //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
-                const buffer = await getBuffer(nima.apkdownload)
-                await ElisaBotMd.sendMessage(m.chat, { document: buffer , mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
            
-                         }
-            break
 case 'wpaper' :{
    await ElisaBotMd.sendText(m.chat, '*LOADING...*')
    
@@ -870,17 +853,6 @@ if (q.includes('--help')) return reply(examkosong)
 })
   }
   break*/
-  case 'film': {
-  await ElisaBotMd.sendText(m.chat,'serching...')
-  const nimadl2 = require('xfarr-api')
-  nimadl2.Film(text)
-    .then(data => {
-    //console.log(data)
-    ElisaBotMd.sendText(m.chat,data)
-})
-  }
-  break
-  
   case 'news' : {
        const news = await fetchJson(`https://api.sdbots.tk/hirunews`)
        const cap = `*👸 Queen Elisa News 👸*
@@ -1262,10 +1234,6 @@ if (global.LANG == 'EN') MAASS = '```⚠️ This prevents your phone from gettin
       await ElisaBotMd.sendText(m.chat, MAASS + global.botnma )
       
 
-}
-break
-case 'testlang' : {
- reply (Lang.NOT_FOUND)
 }
 break
 case 'elisaehi': {
@@ -5246,7 +5214,7 @@ break
 /*case 'tiktok4':{
 //https://cakrayp.herokuapp.com/api/tiktok/video?url=https://www.tiktok.com/@imalka_venroy/video/7132747469271616794?is_from_webapp=1&sender_device=mobile&sender_web_id=7135844111252964866&apikey=cakrayp24Q6
 }*/
-case 'tiktok4': {
+case 'tiktok': {
 const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
   // //if 
    if (!text) throw '*Enter a Link Query!*'            
@@ -5266,7 +5234,7 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
        ElisaBotMd.sendText(m.chat, '*SORRY CAN\'T DOWNLOAD ❗*')})
 }
 break
-case 'tiktok' : {
+/*case 'tiktok' : {
     if (!text) throw '*Enter a Link Query!*'          
     const tknima = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
     
@@ -5299,7 +5267,7 @@ const img = tknima.cover
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
 
 }
-break
+break*/
 case 'directkk' : {
        const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
        const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
