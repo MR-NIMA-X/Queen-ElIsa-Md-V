@@ -88,6 +88,10 @@ global.BLOCK_CALL = process.env.BLOCK_CALLERS || 'false'
 global.SEND_WELCOME = process.env.SEND_WELCOME_MASSAGE || 'true'
 global.OWNER_REACT = '💻'
 global.BAD_KICK_MSG = process.env.BAD_KICK_MASSAGE || '*Bad word detect !*'
+global.BUTTON1 = process.env.DISPLAY_BUTTON_1 || '𝙶𝚒𝚝𝚑𝚞𝚋'
+global.BUTTON2 = process.env.DISPLAY_BUTTON_2 || '𝚈𝚘𝚞𝚝𝚞𝚋𝚎'
+global.BUTTON1_URL = process.env.BUTTON_1_URL || 'https://github.com/darkmakerofc/
+global.BUTTON2_URL = process.env.BUTTON_2_URL || 'https://youtube.com/c/MRNIMAOFC
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')
