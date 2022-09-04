@@ -3232,7 +3232,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                                     await fetchJson(`https://api.akuari.my.id/search/youtube?query=${text}`)
                                   .then(async (search) => {  
                                   for (let i of search.hasil)   
-                                  if (search.hasil.type === 'channel'){
+                                  if (search.hasil[0].type === 'channel'){
                                  
  const buttons = [
                     {buttonId: `selecttypebutton ${search.hasil[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
@@ -3262,7 +3262,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                 
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                     
- }else if (search.hasil.type === 'video') {
+ }else if (search.hasi[0]l.type === 'video') {
  
 const buttons = [
                     {buttonId: `selecttypebutton ${search.hasil[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
