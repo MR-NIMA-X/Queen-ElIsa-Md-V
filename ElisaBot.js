@@ -3229,31 +3229,32 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                           await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
                                   if (!text) return reply(GIVEME)
                                   await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
-                                  const yts = 'https://api.akuari.my.id/search/youtube?query='
-                                    yts(text).then(async (search) => {  
-                                  for (let i of search.all)   
-                                  views = search.all[0].views
+                                 // const yts = 'https://api.akuari.my.id/search/youtube?query='
+                                    await axios.get(`https://api.akuari.my.id/search/youtube?query=${text}`)
+                                  .then(async (search) => {  
+                                  for (let i of search.hasil)   
+                                  views = search.hasil[0].views
                                       const footer = global.botnma
                 const buttons = [
-                    {buttonId: `selecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `selecttypebutton ${search.hasil[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.hasil[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
-                    image: { url: search.all[0].thumbnail },
+                    image: { url: search.hasil[0].thumbnail },
                     caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
- ➥ ᴛɪᴛʟᴇ -  ${search.all[0].title}
+ ➥ ᴛɪᴛʟᴇ -  ${search.hasil[0].title}
 
- ➥ ᴠɪᴇᴡs - ${search.all[0].views}
+ ➥ ᴠɪᴇᴡs - ${search.hasil[0].views}
 
- ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.all[0].timestamp}
+ ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.hasil[0].timestamp}
 
- ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
+ ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[0].ago}
 
- ➥ ᴜʀʟ - ${search.all[0].url}`,
+ ➥ ᴜʀʟ - ${search.hasil[0].url}`,
                     footer: footer,
                     buttons: buttons,
                     headerType: 4
