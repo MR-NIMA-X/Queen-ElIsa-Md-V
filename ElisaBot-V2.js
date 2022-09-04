@@ -2653,7 +2653,7 @@ case 'xxxxantilink': {
                                }
                                break
                               case 'sticker': case 's': case 'stickergif': case 'sgif': {
-                              if (quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
+                              if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
                             
                               var MAX = ''
                               if (global.LANG == 'EN') MAX= '*Maximum 10 seconds videos only!*'
@@ -3509,7 +3509,16 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
                                   var s2vid = svid.replace("?feature=share","")
                                   yts(s2vid).then(async (search) => {  
 if (search.all[0].type == 'channel') {
-const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+
+                                  let nima = search.all           
+                const buttons = [
+                    {buttonId: `ytmp4 ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `vid2  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `vid2 ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                ]
+            const buttonMessage = {
+                    image: { url: image },
+                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3521,13 +3530,26 @@ const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾�
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[1].ago}
 
- ➥ ᴜʀʟ - ${search.all[1].url}`
+ ➥ ᴜʀʟ - ${search.all[1].url}` ,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+                 
  
-const buturl = search.all[1].url
 const image = search.all[1].thumbnail
-}
-if (search.all[0].type == 'video') {
-const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+} else if (search.all[0].type == 'video') {
+                let nima = search.all           
+                const buttons = [
+                    {buttonId: `ytmp4 ${search.all[1].thumbnail}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `vid2  ${search.all[1].thumbnail} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `vid2 ${search.all[1].thumbnail} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                ]
+            const buttonMessage = {
+                    image: { url: image },
+                    caption:   `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3539,29 +3561,16 @@ const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾�
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
 
- ➥ ᴜʀʟ - ${search.all[0].url}`
- 
-const buturl = search.all[0].url
-const image = search.all[0].thumbnail
-}
-                                  let nima = search.all           
-                                  const footer = global.botnma
-                const buttons = [
-                    {buttonId: `ytmp4 ${buturl}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${buturl} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${buturl} 720p`, buttonText: {displayText: '720p'}, type: 1}
-                ]
-            const buttonMessage = {
-                    image: { url: image },
-                    caption: msg ,
-                    footer: footer,
+ ➥ ᴜʀʟ - ${search.all[0].url}` ,
+                    footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
                 
-               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })})
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                  
-          
+}})
+                                  
 
 }
                           break
@@ -3585,7 +3594,7 @@ text2 = q.split(";")[1]
                                   buf = await getBuffer(media.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
-                                  if ( text2 == 'audio' ){
+                                  if ( text2 === 'audio' ){
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(m.chat, { audio: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
                                   return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
@@ -3615,7 +3624,7 @@ text2 = q.split(";")[1]
                           const gettsong = akur.audio.audio
                           await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
-                          if ( text2 == 'audio' ){
+                          if ( text2 === 'audio' ){
                                  // if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(m.chat, { audio: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
                                   return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
@@ -9277,7 +9286,8 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
        // if (m.chat == '120363043491784571@g.us') return
-       await ElisaBotMd.sendMessage(m.chat, { text : err} ,{ quoted: m })
+      // await ElisaBotMd.sendMessage(m.chat, { text : err} ,{ quoted: m })
+       m.reply(err)
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
        //await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
     }
