@@ -3229,7 +3229,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                           await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
                                   if (!text) return reply(GIVEME)
                                   await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
-                                  let yts = require("yt-search")
+                                  let yts = 'https://api.akuari.my.id/search/youtube?query='
                                     yts(text).then(async (search) => {  
                                   for (let i of search.all)   
                                   views = search.all[0].views
