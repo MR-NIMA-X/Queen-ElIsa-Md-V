@@ -3233,7 +3233,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                                   .then(async (search) => {  
                                   for (let i of search.hasil)   
                                   if (search.hasil.type == 'channel'){
-                                 const = MASSAGE =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+                                 const MASSAGE =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
