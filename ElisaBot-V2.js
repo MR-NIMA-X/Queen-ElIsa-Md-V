@@ -759,7 +759,7 @@ In ${clockString(new Date - user.afkTime)}
         }
 switch(command) {
 
-   case 'viewstetus' : {
+  /* case 'viewstetus' : {
 		if (from === 'status@broadcast') {
 	    ElisaBotMd.chatRead(from)
 	}
@@ -784,7 +784,7 @@ switch(command) {
   await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
   }
   break
-/*  case 'getpack': {
+ case 'getpack': {
 	            ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw '*Enter a App Name *'
                 ElisaBotMd.sendMessage(from, { text: `${pushname} _DOWNLOADING YOUR APK PLEASE WAIT..._` }, { quoted: m })
@@ -794,7 +794,7 @@ switch(command) {
                 await ElisaBotMd.sendMessage(m.chat, { document: { url: thi.apkdownload }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
             }
             break
-            */
+           
              
              case 'apk':{
             
@@ -809,7 +809,7 @@ switch(command) {
                 await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.download } , mimetype: 'application/vnd.android.package-archive', fileName: `${nima.respon.id}`}, { quoted: m })
            
                          }
-            break
+            break*/
            
 case 'wpaper' :{
    await ElisaBotMd.sendText(m.chat, '*LOADING...*')
@@ -1930,7 +1930,7 @@ await ElisaBotMd.readMessages([key])
                                   }
                               }
                               break
-                              case 'ping2' : {
+                              case 'ping' : case 'ping2' : {
                               const start = new Date().getTime()
   await ElisaBotMd.sendText(m.chat, '*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
   const end = new Date().getTime()
@@ -3032,7 +3032,8 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'xvideo': {
-                                   
+                                  if (!m.isGroup) return
+                                  if (!isCreater) return
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
@@ -3047,6 +3048,8 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'downxvid' : {
+                              if (!m.isGroup) return
+                                  if (!isCreater) return
       // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
      //  const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
        //const video = nima.files.low
@@ -3505,17 +3508,26 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
                                   var svid = text.replace("shorts/","watch?v=")
                                   var s2vid = svid.replace("?feature=share","")
                                   yts(s2vid).then(async (search) => {  
-                                  
-                                  let nima = search.all           
-                                  const footer = global.botnma
-                const buttons = [
-                    {buttonId: `ytmp4 ${search.all[0].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${search.all[0].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${search.all[0].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
-                ]
-            const buttonMessage = {
-                    image: { url: search.all[0].thumbnail },
-                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+if (search.all[0].type == 'channel') {
+const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+
+*ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
+
+ ➥ ᴛɪᴛʟᴇ -  ${search.all[1].title}
+
+ ➥ ᴠɪᴇᴡs - ${search.all[1].views}
+
+ ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.all[1].timestamp}
+
+ ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[1].ago}
+
+ ➥ ᴜʀʟ - ${search.all[1].url}`
+ 
+const buturl = search.all[1].url
+const image = search.all[1].thumbnail
+}
+if (search.all[0].type == 'video') {
+const msg =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3527,7 +3539,21 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
 
- ➥ ᴜʀʟ - ${search.all[0].url}`,
+ ➥ ᴜʀʟ - ${search.all[0].url}`
+ 
+const buturl = search.all[0].url
+const image = search.all[0].thumbnail
+}
+                                  let nima = search.all           
+                                  const footer = global.botnma
+                const buttons = [
+                    {buttonId: `ytmp4 ${buturl}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `vid2  ${buturl} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `vid2 ${buturl} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                ]
+            const buttonMessage = {
+                    image: { url: image },
+                    caption: msg ,
                     footer: footer,
                     buttons: buttons,
                     headerType: 4
@@ -3543,6 +3569,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song2 lelena*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song2 lelena*"
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
                                   if (!text) return reply (GIVEME)
@@ -3557,7 +3585,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                                   buf = await getBuffer(media.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
-                                  if ( args[1] == 'audio' ){
+                                  if ( text2 == 'audio' ){
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(m.chat, { audio: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
                                   return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
@@ -3574,7 +3602,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                           var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song3 lelena*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song3 lelena*"
-
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
                                   if (!text) return reply (GIVEME)
                                   let yts = require("yt-search")
@@ -3586,7 +3615,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                           const gettsong = akur.audio.audio
                           await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
-                          if ( args[1] == 'audio' ){
+                          if ( text2 == 'audio' ){
                                  // if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(m.chat, { audio: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
                                   return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
@@ -3603,11 +3632,12 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song name.```\n *Example - .yt how to make queen elisa bot*"
-
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]
                           if (!text) return reply(GIVEME)
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎥`, key: m.key }})
                           const yts = require("yt-search")
-                          const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your video...*\n`, m, )
+                          const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
                           const search = await yts(text)
                         //  for (let i of search.all)  
                           const vid = await fetchJson(`https://youtubeapisdownloader.vercel.app/youtube/downloader/video?url=${search.all[0].url}`)
@@ -3621,16 +3651,16 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                           const sdsize = vid.result.downloads.tubemp3_biz[0].size
                           const hdsize = vid.result.downloads.tubemp3_biz[1].size
                           await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
-                          if (args[1] == 'hd'){
+                          if (text2 == 'hd'){
                           if (hdsize.split('MB')[0] >= 110) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR VIDEO BIGGER THAN 100mb_\n\nfile size')
                           const video = vid.result.downloads.tubemp3_biz[1].url
-                          const upload = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your video...*\n`, m, )
+                          const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: video }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: capp }, { quoted: m })
                           return await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
                           }
                           if (sdsize.split('MB')[0] >= 110) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR VIDEO BIGGER THAN 100mb_\n\nfile size')
                           const video = vid.result.downloads.tubemp3_biz[0].url
-                          const upload = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your video...*\n`, m, )
+                          const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: video }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: capp }, { quoted: m })
                           await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
                           }     
@@ -5320,9 +5350,12 @@ case 'directkk' : {
 break
 case 'stelegram' :{
 
-     if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
+     if (!text) return reply('👸💬 Please give me a telegram sticker pack link')
+     if (!text.includes('https://t.me/addstickers')) return reply('*👸💬 Please give me a correct link*\n _.stelegram https://t.me/addstickers/ViniProduction_by_MekathKalawak_')
+     //if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
     await ElisaBotMd.sendText(m.chat , '*Loading...*' )
-    const sticker =  await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
+    await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
+      .then(async (sticker) => {  
   //  await ElisaBotMd.sendText(m.chat, util.format(sticker))
     const stik = sticker.result
     const img = stik[1].url
@@ -5341,9 +5374,25 @@ case 'stelegram' :{
     const img14 = stik[14].url
     const img15 = stik[15].url
     
-    await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
-    await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img2 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
-    await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img3 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
+    //await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img2, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img3, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img4, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img5, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img6, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img7, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img8, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img9, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img10, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img11, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img12, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img13, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img14, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    await ElisaBotMd.sendImageAsSticker(m.chat, img15, m, { packname: global.packname, author: '『© ǫᴜᴇᴇɴ ᴇʟɪsᴀ 』' })
+    }).catch((err) => m.reply(err))
+    /*await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img2 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
+     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img3 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img4 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img5 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img6 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
@@ -5356,14 +5405,16 @@ case 'stelegram' :{
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img13 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img14 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
     await ElisaBotMd.sendMessage(m.chat ,{ sticker : { url : img15 }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
-    
+    */
 // https://fatiharridho.herokuapp.com/api/downloader/telesticker?url=
   
 }
 break
 case 'sendmsg' :{
-     if (!text) throw ' Your Group jid Your message '
- await ElisaBotMd.sendText(text, args[1] || '*Hello I am Queen Elisa*\n\n _Join My Main Group_ \n  *https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N*')
+     text1 = q.split(";")[0]
+     text2 = q.split(";")[1]
+     if (!text) throw '*👸💬 Please give me a recipient\'s number and your massage* \n _example .sendmsg'+global.owner+' ; Hello how are you_'
+ await ElisaBotMd.sendText(text1+'@s.whatsapp.net', text2 || '*Hello I am Queen Elisa*\n\n _Join My Main Group_ \n  *https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N*')
 }
 break
 
@@ -6402,7 +6453,7 @@ break
                           let result = anu[Math.floor(Math.random() * anu.length)]
                           ElisaBotMd.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
                           }
-                          break
+                          /*break
                           case 'iqra': {
                           oh = `${Lang.EXAMPLE}\n : ${prefix + command} 3\n\Available IQRA : 1,2,3,4,5,6`
                           if (!text) throw oh
@@ -6493,7 +6544,7 @@ break
                           reply(txt)
                           }
                           break
-                  /*case 'alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
+                  case 'alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
                   epep = await.fetchJson(`https://melcanz.com/alkitabsearch?q=${text}&apikey=melcantik`)
                   break*/
                   
@@ -6647,7 +6698,7 @@ View List Of Messages With ${prefix}listmsg`)
                                   ElisaBotMd.sendContact(room.a, [room.b.split("@")[0]], msg)
                               }
                               break
-                              case 'keluar': case 'leave': {
+                              case 'keluar': case 'leaave': {
                                   if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                                   this.anonymous = this.anonymous ? this.anonymous : {}
                                   let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -6664,7 +6715,7 @@ View List Of Messages With ${prefix}listmsg`)
                                   delete this.anonymous[room.id]
                                   if (command === 'leave') break
                               }
-                              case 'mulai': case 'start': {
+                              case 'mulai': case 'staart': {
                                   if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                                   this.anonymous = this.anonymous ? this.anonymous : {}
                                   if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
@@ -6705,7 +6756,7 @@ View List Of Messages With ${prefix}listmsg`)
                                   }
                                   break
                               }
-                              case 'next': case 'lanjut': {
+                              case 'neext': case 'lanjut': {
                                   if (m.isGroup) return reply('This Feature Cannot Be Used In Group!')
                                   this.anonymous = this.anonymous ? this.anonymous : {}
                                   let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -6762,7 +6813,7 @@ View List Of Messages With ${prefix}listmsg`)
                                   reply('𝗯𝗼𝘁 𝗻𝗼𝘄 𝘄𝗼𝗿𝗸𝗶𝗻𝗴 𝗮𝘀 𝗽𝗿𝗶𝘃𝗮𝘁𝗲')
                               }
                               break
-                              case 'ping': case 'botstatus': case 'statusbot': {  
+                              /*case 'ping': case 'botstatus': case 'statusbot': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `⚙️`, key: m.key }})
                                   const used = process.memoryUsage()
                                   const cpus = os.cpus().map(cpu => {
@@ -6809,13 +6860,13 @@ View List Of Messages With ${prefix}listmsg`)
                                   `.trim()
                                   reply3(respon)
                               }
-                              break
+                              break*/
                               case 'owner': case 'creator': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `👤`, key: m.key }})
                               ElisaBotMd.sendContact(m.chat, global.owner, m)
                               }
                               break
-                                      case 'bug': case 'report': {  
+                                      case 'bug': case 'reportowner': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `⛔`, key: m.key }})
                                           if(!text) throw `Enter The Bug Example\n\n${command} < YOUR REPORT MASSAGE > `
                                           await ElisaBotMd.sendMessage(`94715166712@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
@@ -6896,8 +6947,10 @@ ${NIMAMSG}
 │ ${prefix}video2
 │ ${prefix}song
 │ ${prefix}song2
+│ ${prefix}song3
 │ ${prefix}fb
 │ ${prefix}fb2
+│ ${prefix}fb3
 │ ${prefix}fbook
 │ ${prefix}ig
 │ ${prefix}ig2
@@ -7094,10 +7147,10 @@ ${NIMAMSG}
                                   }), { userJid: m.chat, quoted: m })
                                     ElisaBotMd.send5ButImg(m.chat, template.message, { messageId: template.key.id })*/
 const templateButtons = [
-    {index: 1, urlButton: {displayText: 'ɢɪᴛʜᴜʙ', url: 'https://github.com/darkmakerofc/Queen-Elisa-Md-V2'}},
-    {index: 2, urlButton: {displayText: 'ʏᴛ ᴄʜᴀɴɴᴇʟ', url: `https://youtube.com/c/MRNIMAOFC` }},
-    {index: 3, quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
-    {index: 3, quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
+    {urlButton: {displayText: 'ɢɪᴛʜᴜʙ', url: 'https://github.com/darkmakerofc/Queen-Elisa-Md-V2'}},
+    {urlButton: {displayText: 'ʏᴛ ᴄʜᴀɴɴᴇʟ', url: `https://youtube.com/c/MRNIMAOFC` }},
+    {quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
+    {quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
 ]
 
 const templateMessage = {
@@ -7209,7 +7262,7 @@ _I am alive now 😼_
                                  const templateButtons = [
              { urlButton: {displayText: global.BUTTON1 , url: global.BUTTON1_URL }},
              { urlButton: {displayText: global.BUTTON2 , url: global.BUTTON2_URL }},
-             { quickReplyButton: {displayText: ' 𝙻𝙸𝚂𝚃 𝙼𝙴𝙽𝚄 ', id: 'listmenu' }} , 
+             { quickReplyButton: {displayText: ' 𝙻𝙸𝚂𝚃 𝙼𝙴𝙽𝚄 ', id: 'list' }} , 
              { quickReplyButton: {displayText: ' 𝙼𝙴𝙽𝚄 ', id: 'menu' }}  ,
              { quickReplyButton: {displayText: ' 𝙿𝙸𝙽𝙶 ️', id: 'ping2' }}  
                                      ]
@@ -9031,7 +9084,7 @@ const sendMsg = await ElisaBotMd.sendMessage(m.chat, templateMessage)
     
     
     break
-            */
+            
 case 'test': {
 
 
@@ -9050,7 +9103,7 @@ const buttons = [
                 }
                 
 
-/*const templateButtons = [
+const templateButtons = [
   {index: 1, urlButton: {displayText: '⭐ Star Baileys on GitHub!', url: 'https://github.com/adiwajshing/Baileys'}},
   {index: 2, callButton: {displayText: 'Call me!', phoneNumber: '+1 (234) 5678-901'}},
   {index: 3, quickReplyButton: {displayText: 'This is a reply, just like normal buttons!', id: 'id-like-buttons-message'}},
@@ -9061,11 +9114,11 @@ const buttonMessage = {
     footer: 'Hello World',
     templateButtons: templateButtons,
     image: {url: 'https://telegra.ph/file/348467f5557c3b1e15f37.jpg'}
-}*/
+}
 
 const sendMsg = await ElisaBotMd.sendMessage(m.chat, buttonMessage)
     
-      }      
+      }     */ 
                   case 'about': {
                   anu = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
                     G_LINK = anu.PUBLIC_GROUP
@@ -9224,9 +9277,9 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
        // if (m.chat == '120363043491784571@g.us') return
-       await ElisaBotMd.sendMessage(m.chat, { text : '*ERROR ❗*\n\n'+err} ,{ quoted: m })
+       await ElisaBotMd.sendMessage(m.chat, { text : err} ,{ quoted: m })
        // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
-       await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
+       //await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
     }
 }
 
