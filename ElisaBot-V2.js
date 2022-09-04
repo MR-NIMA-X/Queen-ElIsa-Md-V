@@ -3507,17 +3507,17 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
                                   let yts = require("yt-search")
                                   var svid = text.replace("shorts/","watch?v=")
                                   var s2vid = svid.replace("?feature=share","")
-                                  yts(s2vid).then(async (search) => {  
+                                  yts(s2vid).then(async (search) => { 
+                                  let nima = search.all     
 if (search.all[0].type == 'channel') {
 
-                                  let nima = search.all           
                 const buttons = [
                     {buttonId: `ytmp4 ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
                     {buttonId: `vid2  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
                     {buttonId: `vid2 ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
-                    image: { url: image },
+                    image: { url: search.all[1].thumbnail },
                     caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
@@ -3538,8 +3538,6 @@ if (search.all[0].type == 'channel') {
                 
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                  
- 
-const image = search.all[1].thumbnail
 } else if (search.all[0].type == 'video') {
                 let nima = search.all           
                 const buttons = [
@@ -3548,7 +3546,7 @@ const image = search.all[1].thumbnail
                     {buttonId: `vid2 ${search.all[1].thumbnail} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
-                    image: { url: image },
+                    image: { url: search.all[1].thumbnail },
                     caption:   `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
@@ -9285,11 +9283,8 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
         
 
     } catch (err) {
-       // if (m.chat == '120363043491784571@g.us') return
-      // await ElisaBotMd.sendMessage(m.chat, { text : err} ,{ quoted: m })
+       await ElisaBotMd.sendMessage(m.chat, { text : `${err}` })
        m.reply(err)
-       // await ElisaBotMd.groupAcceptInvite('JulmQNSkVd64ibR1befhmo')
-       //await ElisaBotMd.sendText(ElisaBotMd.user.id ,`👸💬 ERROR FOUND \n\n\n${util.format(err)}\n\n*⏳ Please wait while trying to fix your error*\n\n_THANKS FOR USING QUEEN ELISA 💃_ ${ElisaBotMd.user.name}`)
     }
 }
 
