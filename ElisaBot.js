@@ -3230,7 +3230,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
                                   if (!text) return reply(GIVEME)
                                   await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
-                                    await axios.get(`https://api.akuari.my.id/search/youtube?query=${text}`)
+                                    await fetchJson(`https://api.akuari.my.id/search/youtube?query=${text}`)
                                   .then(async (search) => {  
                                   for (let i of search.hasil)   
                                   views = search.hasil[0].views
