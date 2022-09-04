@@ -3227,13 +3227,21 @@ if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ව�
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song name.```\n *Example - .yt how to make queen elisa bot*"
                                   if (!text) return reply(GIVEME)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
-                                  await ElisaBotMd.sendText(m.chat, '```🔄 Please wait ${m.pushName}...```', m, )
+                                  await ElisaBotMd.sendText(m.chat, '```🔄 Please wait '+m.pushName+'...```', m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
                                     await fetchJson(`https://api.akuari.my.id/search/youtube?query=${text}`)
                                   .then(async (search) => {  
                                   for (let i of search.hasil)   
-                                  if (search.hasil.type == 'channel'){
-                                 const MASSAGE =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+                                  if (search.hasil.type === 'channel'){
+                                 
+ const buttons = [
+                    {buttonId: `selecttypebutton ${search.hasil[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.hasil[1].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    
+                ]
+            const buttonMessage = {
+                    image: { url: search.hasil[1].thumbnail },
+                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3246,10 +3254,24 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[1].ago}
 
  ➥ ᴜʀʟ - ${search.hasil[1].url}`
+  ,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+                    
+ }else if (search.hasil.type === 'video') {
  
- const buturl = search.hasil[1].url
- }else if (search.hasil.type == 'video') {
-const MASSAGE = `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+const buttons = [
+                    {buttonId: `selecttypebutton ${search.hasil[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.hasil[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    
+                ]
+            const buttonMessage = {
+                    image: { url: search.hasil[0].thumbnail },
+                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3262,25 +3284,17 @@ const MASSAGE = `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽�
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[0].ago}
 
  ➥ ᴜʀʟ - ${search.hasil[0].url}`
- 
- const buturl = search.hasil[0].url
- }
- 
-                const buttons = [
-                    {buttonId: `selecttypebutton ${buturl}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${buturl}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
-                    
-                ]
-            const buttonMessage = {
-                    image: { url: search.hasil[0].thumbnail },
-                    caption: MASSAGE ,
+  ,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
                 
-               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })})
-                     }
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+                    
+ }})
+ 
+                 }
                               break
                               case 'ytv': {
                               if (!text) throw `${Lang.EXAMPLE}\n : *${prefix + command} How to make queen elisa V2*`
