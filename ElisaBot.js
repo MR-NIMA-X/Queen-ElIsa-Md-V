@@ -3225,24 +3225,31 @@ break
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක හෝ ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song name.```\n *Example - .yt how to make queen elisa bot*"
-
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
                                   if (!text) return reply(GIVEME)
-                                  await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
+                                  await ElisaBotMd.sendText(m.chat, '```🔄 Please wait ${m.pushName}...```', m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
                                     await fetchJson(`https://api.akuari.my.id/search/youtube?query=${text}`)
                                   .then(async (search) => {  
                                   for (let i of search.hasil)   
-                                  views = search.hasil[0].views
-                                      const footer = global.botnma
-                const buttons = [
-                    {buttonId: `selecttypebutton ${search.hasil[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.hasil[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
-                    
-                ]
-            const buttonMessage = {
-                    image: { url: search.hasil[0].thumbnail },
-                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+                                  if (search.hasil.type == 'channel'){
+                                 const = MASSAGE =  `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+
+*ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
+
+ ➥ ᴛɪᴛʟᴇ -  ${search.hasil[1].title}
+
+ ➥ ᴠɪᴇᴡs - ${search.hasil[1].views}
+
+ ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.hasil[1].timestamp}
+
+ ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[1].ago}
+
+ ➥ ᴜʀʟ - ${search.hasil[1].url}`
+ 
+ const buturl = search.hasil[1].url
+ }else if (search.hasil.type == 'video') {
+const MASSAGE = `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3254,8 +3261,20 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song nam
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[0].ago}
 
- ➥ ᴜʀʟ - ${search.hasil[0].url}`,
-                    footer: footer,
+ ➥ ᴜʀʟ - ${search.hasil[0].url}`
+ 
+ const buturl = search.hasil[0].url
+ }
+ 
+                const buttons = [
+                    {buttonId: `selecttypebutton ${buturl}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${buturl}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    
+                ]
+            const buttonMessage = {
+                    image: { url: search.hasil[0].thumbnail },
+                    caption: MASSAGE ,
+                    footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
