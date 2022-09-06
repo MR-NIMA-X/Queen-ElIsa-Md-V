@@ -3675,7 +3675,7 @@ text2 = q.split(";")[1]
                           }     
                           break 
                           case 'video2' :{
-                          if (!text.includes('https://youtu')){
+                          if (text.includes('https://youtu')){
                           if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
 const word1 = q.split("-")[0]
 const word2 = q.split("-")[1]
@@ -3685,15 +3685,14 @@ const word2 = q.split("-")[1]
                           return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
                          
                           }
-                    m.reply('```⏳ Please wait' + m.pushName +'...```')
+                    m.reply('```⏳ Please wait ' + m.pushName +'...```')
                     const yts = require("yt-search")
                     const nima = await yts(text)
                     const search = nima.all
-                    const no = 1
                    let sections = []   
   for (let i of search) {
-  const list = {title: `💥 xɴxx ᴅᴏᴡɴʟᴏᴀᴅᴇʀ 💥`,
-  rows: [
+  const list = {title: `✨ select ✨`,
+  let rows: [
 	    {
 	     title: `${no++} > ${i.title}`, 
 	     rowId: `video3 ${i.url} - 360`,
