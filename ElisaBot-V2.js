@@ -3543,9 +3543,9 @@ if (search.all[0].type == 'channel') {
 } else if (search.all[0].type == 'video') {
                 let nima = search.all           
                 const buttons = [
-                    {buttonId: `ytmp4 ${search.all[1].thumbnail}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${search.all[1].thumbnail} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${search.all[1].thumbnail} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `ytmp4 ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `vid2  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `vid2 ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[1].thumbnail },
@@ -3675,10 +3675,11 @@ text2 = q.split(";")[1]
                           }     
                           break 
                           case 'video2' :{
+                          if (!text) return reply('*👸💬 Need video name or url*')
                           if (text.includes('https://youtu')){
                           if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
-const word1 = q.split("-")[0]
-const word2 = q.split("-")[1]
+                          word1 = q.split("-")[0]
+                          word2 = q.split("-")[1]
                           const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
                           const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${word1}&type=${word2}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
