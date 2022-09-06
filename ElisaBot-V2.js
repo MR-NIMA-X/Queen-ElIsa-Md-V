@@ -3689,17 +3689,18 @@ const word2 = q.split("-")[1]
                     const yts = require("yt-search")
                     const nima = await yts(text)
                     const search = nima.all
+                    
                    let sections = []   
   for (let i of search) {
-  const list = {title: `✨ select ✨`,
-  let rows: [
+  const list = { title: `✨ select ✨`,
+   rows :[
 	    {
-	     title: `${no++} > ${i.title}`, 
+	     title: `${i.title}`, 
 	     rowId: `video3 ${i.url} - 360`,
       description: `DOWNLOAD 360P QULITY`	     
 	    },
 	    {
-	     title: `${no++} > ${i.title}`, 
+	     title: `${i.title}`, 
 	     rowId: `video3 ${i.url} - 720`,
       description: `DOWNLOAD 720P QULITY`	     
 	    }, 
