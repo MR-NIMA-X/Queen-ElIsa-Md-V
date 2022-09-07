@@ -3696,12 +3696,12 @@ text2 = q.split(";")[1]
    rows :[
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url} - 360`,
+	     rowId: `video3 ${i.url}`,
       description: `DOWNLOAD 360P QULITY`	     
 	    },
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url} - 720`,
+	     rowId: `video3 ${i.url} hd`,
       description: `DOWNLOAD 720P QULITY`	     
 	    }, 
 	    ]
