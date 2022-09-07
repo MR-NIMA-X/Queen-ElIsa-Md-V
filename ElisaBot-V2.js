@@ -22,7 +22,10 @@ const Lang = Language.getString('elisabot')
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
-   
+
+var NOT_FOUND = ''
+  if (global.LANG = 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
+  if (global.LANG = 'SI') NOT_FOUND = '*🚫💬 මට කිසිවක් සොයාගත නොහැකිවිය !*'
 //rpg function\\
    const { 
      addInventoriDarah, 
@@ -3678,7 +3681,7 @@ text2 = q.split(";")[1]
                           if (!text) return reply('*👸💬 Need video name or url*')
                           if (text.includes('https://youtu')){
                          // if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
-                          const quality = args[1] ? args[1] : '360p'
+                          const quality = args[1] ? args[1] : '360'
                           const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
                           const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[0]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
@@ -3701,7 +3704,7 @@ text2 = q.split(";")[1]
 	    },
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url} hd`,
+	     rowId: `video3 ${i.url} 720`,
       description: `DOWNLOAD 720P QULITY`	     
 	    }, 
 	    ]
@@ -3732,7 +3735,8 @@ text2 = q.split(";")[1]
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
                                   let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(text, quality)
+                                  await yta(text, quality)
+                                  .then(async (media) => { 
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
@@ -3745,7 +3749,7 @@ text2 = q.split(";")[1]
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
-                await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }}).catch((err) => reply('Cannot Download 🥲'))
+                await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => reply(NOT_FOUND))
                               }
                               break
                               case 'seleytmp3': case 'seleytaudio': {  
@@ -3754,7 +3758,8 @@ text2 = q.split(";")[1]
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your Document type song...*\n`, m, )
                                   let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(text, quality)
+                                  await yta(text, quality)
+                                  .then(async (media) => { 
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
@@ -3766,7 +3771,7 @@ text2 = q.split(";")[1]
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
-                await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
+                await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => m.reply(NOT_FOUND))
                               }
                               break
                               case 'selecttypebutton': {  
@@ -3848,12 +3853,13 @@ text2 = q.split(";")[1]
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
                                   let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(text, quality)
+                                  await yta(text, quality)
+                                  .then(async (media) => { 
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                    const upload = await ElisaBotMd.sendMessage(m.chat, buttonMessage , { quoted: m })
                                    await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                 await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
+                                 await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                               }
                               break
@@ -3863,9 +3869,10 @@ text2 = q.split(";")[1]
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(text, quality)
+                                  await yta(text, quality)
+                                  .then(async (media) => { 
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
-                                  ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                                  ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                               }
                               break
@@ -3877,7 +3884,8 @@ text2 = q.split(";")[1]
                                   if (!text) return reply( `${Lang.EXAMPLE}\n ${prefix + command} https://youtube.com/watch?v=on3sJ8OlH8M`)
                                   const load = await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`, m, )
                                   let quality = args[1] ? args[1] : '360p'
-                                  let media = await ytv(text, quality)
+                                  await ytv(text, quality)
+                                  .then(async (media) => { 
                                   buf = await getBuffer(thub.YT_THUB)
                                   if (media.filesize >= 100000) {
                                   const msg = `*⛔ FILE SIZE UP TO 100MB ⛔*
@@ -3904,7 +3912,7 @@ text2 = q.split(";")[1]
                                   }
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                   await ElisaBotMd.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`,jpegThumbnail:buf, caption: global.cap }, { quoted: m }).catch((err) => m.reply('*Sorry, Can\'t Find your reqest 🥴*'))
-                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })}).catch((err) => m.reply(NOT_FOUND))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                               }
                               break
@@ -3926,7 +3934,8 @@ text2 = q.split(";")[1]
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtFMhcag%27 360p`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
                                   let quality = args[1] ? args[1] : '360p'
-                                  let media = await ytv(text, quality)
+                                  await ytv(text, quality)
+                                  .then(async (media) => { 
                                   await ElisaBotMd.sendText(m.chat, ` *ʟᴏᴀᴅɪɴɢ ${m.pushName} ʏᴏᴜʀ ᴠɪᴅᴇᴏ... 🔄*`)
                                   if (media.filesize >= 100000)  {
                                   const msg = `*⛔ FILE SIZE UP TO 100MB ⛔*
@@ -3955,7 +3964,7 @@ text2 = q.split(";")[1]
                                   const upload = await ElisaBotMd.sendMessage(m.chat, buttonMessage , { quoted: m })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                   ElisaBotMd.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: global.cap }, { quoted: m })
-                                  await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
+                                  await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                                   
                               }
