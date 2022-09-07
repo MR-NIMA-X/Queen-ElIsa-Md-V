@@ -3680,7 +3680,7 @@ text2 = q.split(";")[1]
                          // if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
                           const quality = args[1] ? args[1] : '360p'
                           const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
-                          const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[1]}&type=${quality}`)
+                          const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[0]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
                          
@@ -3696,7 +3696,7 @@ text2 = q.split(";")[1]
    rows :[
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url}`,
+	     rowId: `video3 ${i.url} `,
       description: `DOWNLOAD 360P QULITY`	     
 	    },
 	    {
