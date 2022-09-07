@@ -3677,11 +3677,10 @@ text2 = q.split(";")[1]
                           case 'video2' :{
                           if (!text) return reply('*👸💬 Need video name or url*')
                           if (text.includes('https://youtu')){
-                          if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
-                          word1 = q.split("-")[0]
-                          word2 = q.split("-")[1]
+                         // if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
+                          const quality = args[1] ? args[1] : '360p'
                           const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
-                          const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${word1}&type=${word2}`)
+                          const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[1]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
                          
@@ -3732,7 +3731,7 @@ text2 = q.split(";")[1]
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
-                                  let quality = args[1] ? args[1] : '256kbps'
+                                  let quality = args[1] ? args[1] : '128kbps'
                                   let media = await yta(text, quality)
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
@@ -3754,7 +3753,7 @@ text2 = q.split(";")[1]
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your Document type song...*\n`, m, )
-                                  let quality = args[1] ? args[1] : '256kbps'
+                                  let quality = args[1] ? args[1] : '128kbps'
                                   let media = await yta(text, quality)
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
@@ -3848,7 +3847,7 @@ text2 = q.split(";")[1]
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
                                   const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
-                                  let quality = args[1] ? args[1] : '256kbps'
+                                  let quality = args[1] ? args[1] : '128kbps'
                                   let media = await yta(text, quality)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                    const upload = await ElisaBotMd.sendMessage(m.chat, buttonMessage , { quoted: m })
@@ -3863,7 +3862,7 @@ text2 = q.split(";")[1]
                               
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
-                                  let quality = args[1] ? args[1] : '256kbps'
+                                  let quality = args[1] ? args[1] : '128kbps'
                                   let media = await yta(text, quality)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
