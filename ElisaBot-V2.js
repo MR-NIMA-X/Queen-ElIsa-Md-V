@@ -3773,7 +3773,7 @@ text2 = q.split(";")[1]
                           case 'video4' : {
                               if (!text) throw '*Please Give me a link*'
                               let yts = require("yt-search")
-                              const search = yts(text)
+                              const search = await yts(text)
                                   //const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
                                   //yts(text).then(async (search) => {  
    //buf = await getBuffer(thub.SF_THUB)
@@ -3787,12 +3787,12 @@ text2 = q.split(";")[1]
 
 	            .then(async(result) => {	  	                                	                      	            
 
-		        for(let i of result.url) {		
+		        
 
 		        if(i.url.includes('mp4')){		           			    				
 
 				let sections = []   
-  for (let i of search) {
+  for (let i of result.url) {
   const list = { title: `✨ select ✨`,
    rows :[
 	    {
@@ -3814,7 +3814,6 @@ text2 = q.split(";")[1]
        sections
       }, { quoted : m })    
                
-               }
 
               }
 
