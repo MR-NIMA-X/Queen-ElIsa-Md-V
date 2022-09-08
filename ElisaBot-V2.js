@@ -815,6 +815,58 @@ switch(command) {
            
                          }
             break
+            case 'fb' : case 'hdfbvid' : case 'sdfbvid':  {
+            
+            await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
+            .then(async (nima) => { 
+            buttons = [
+                    {buttonId: `hdfbvid ${text}`, buttonText: {displayText: 'HD VIDEO'}, type: 1},
+                    {buttonId: `sdfbvid ${text}`, buttonText: {displayText: 'SD VIDEO'}, type: 1}
+                    
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://telegra.ph/file/834e7617f46166f8d439a.jpg'},
+                    caption:`*👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙵𝙱 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*
+
+*➮ ᴛɪᴛʟᴇ :* ${nima.hasil.title}
+*➮ ᴜʀʟ :* ${text}
+*➮ ʀᴇǫᴜᴇsᴛᴇʀ :* ${m.pushName}
+                    ` ,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+          
+             }).catch((err) => m.reply(err)
+             
+             if (/hdfbvid/.test(command)) {
+             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
+            .then(async (nima) => { 
+            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
+       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })
+       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+     
+            
+             }).catch((err) => m.reply(err)
+             }
+             
+            if (/sdfbvid/.test(command)){
+            await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
+            .then(async (nima) => { 
+            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
+       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.sd }, caption: global.cap}, { quoted: m })
+       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+     
+            
+             }).catch((err) => m.reply(err)
+             }
+            }
+            break
            
 case 'wpaper' :{
    await ElisaBotMd.sendText(m.chat, '*LOADING...*')
@@ -3699,12 +3751,12 @@ text2 = q.split(";")[1]
    rows :[
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url} `,
+	     rowId: `video2 ${i.url} `,
       description: `DOWNLOAD 360P QULITY`	     
 	    },
 	    {
 	     title: `${i.title}`, 
-	     rowId: `video3 ${i.url} 720`,
+	     rowId: `video2 ${i.url} 720`,
       description: `DOWNLOAD 720P QULITY`	     
 	    }, 
 	    ]
