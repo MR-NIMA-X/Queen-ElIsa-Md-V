@@ -815,7 +815,7 @@ switch(command) {
            
                          }
             break
-            case 'fb':{
+            case 'fb666':{
             
             buttons = [
                     {buttonId: `hdfbvid ${text}`, buttonText: {displayText: 'HD VIDEO'}, type: 1},
@@ -3770,9 +3770,69 @@ text2 = q.split(";")[1]
                              
                           }
                           break
-                                                                                 
-                                                                                                                                        
-                                                                                                                                                                                                                                                      
+                          case 'video4' : {
+                              if (!text) throw '*Please Give me a link*'
+                              let yts = require("yt-search")
+                              const search = yts(text)
+                                  //const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
+                                  //yts(text).then(async (search) => {  
+   //buf = await getBuffer(thub.SF_THUB)
+  // const download = await ElisaBotMd.sendText(m.chat, ` *Please Wait ${global.botnma} Prosesing Your  ${m.pushName} Video ... 🔄*`)
+
+                let bicil = require('@bochilteam/scraper')
+
+                let urlnya = search.all[0].url
+
+	            bicil.savefrom(urlnya)
+
+	            .then(async(result) => {	  	                                	                      	            
+
+		        for(let i of result.url) {		
+
+		        if(i.url.includes('mp4')){		           			    				
+
+				let sections = []   
+  for (let i of search) {
+  const list = { title: `✨ select ✨`,
+   rows :[
+	    {
+	     title: `${i.title}`, 
+	     rowId: `directvideo4 ${i.url} `,
+      description: `🎬 Download ${i.subname} Quality`	     
+	    },
+	    ]
+     }
+     sections.push(list)   
+     }
+  const sendm =  ElisaBotMd.sendMessage(
+      m.chat, 
+      {
+       text: `${text} *Here is the list of videos, click the button below to choose*\n\n${m.pushName}`,
+       footer: `${global.botnma}`,
+       title: `*👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*\n\n Search from ${text}`,
+       buttonText: "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
+       sections
+      }, { quoted : m })    
+               
+               }
+
+              }
+
+            }).catch((err) => m.reply('```Can\'t Download your Video... ☹️```'))
+
+                          
+                          }
+                          break
+                          case 'directvideo4' : {
+                          
+       const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING YOUR VIDEO...*`, m, )
+       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING YOUR VIDEO...*`, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, caption: global.cap}, { quoted: m })
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                  
+                          }
+                          
                           case 'ytmp3': case 'ytaudio': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
