@@ -815,12 +815,8 @@ switch(command) {
            
                          }
             break
-            case 'fb' : case 'hdfbvid' : case 'sdfbvid':  {
+            case 'fb':{
             
-            if (/fb/.test(command)) {
-            await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
-            .then(async (nima) => {
-            await getBuffer(nima.hasil.hd)
             buttons = [
                     {buttonId: `hdfbvid ${text}`, buttonText: {displayText: 'HD VIDEO'}, type: 1},
                     {buttonId: `sdfbvid ${text}`, buttonText: {displayText: 'SD VIDEO'}, type: 1}
@@ -830,7 +826,6 @@ switch(command) {
                     image: { url: 'https://telegra.ph/file/834e7617f46166f8d439a.jpg'},
                     caption:`*👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙵𝙱 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*
 
-*➮ ᴛɪᴛʟᴇ :* ${nima.hasil.title}
 *➮ ᴜʀʟ :* ${text}
 *➮ ʀᴇǫᴜᴇsᴛᴇʀ :* ${m.pushName}
                     ` ,
@@ -839,20 +834,10 @@ switch(command) {
                     headerType: 4
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-         
-             }).catch((err) => m.reply(err))
-             } else if (/hdfbvid/.test(command)) {
-             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
-            .then(async (nima) => { 
-            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
-       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
-       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
-       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })
-       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
-     
-            
-             }).catch((err) => m.reply(NOT_FOUND))
-             } else if (/sdfbvid/.test(command)){
+           
+             }
+            break
+            case 'hdfbvid' : {
             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
             .then(async (nima) => { 
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
@@ -863,9 +848,21 @@ switch(command) {
      
             
              }).catch((err) => m.reply(NOT_FOUND))
-             }
+            
             }
             break
+            case 'sdfbvid' : {
+            await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
+            .then(async (nima) => { 
+            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
+       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })
+       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+     
+            
+             }).catch((err) => m.reply(NOT_FOUND))
+            }
            
 case 'wpaper' :{
    await ElisaBotMd.sendText(m.chat, '*LOADING...*')
