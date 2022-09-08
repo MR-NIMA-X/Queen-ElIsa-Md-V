@@ -838,7 +838,7 @@ switch(command) {
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
           
-             }).catch((err) => m.reply(err)
+             }).catch((err) => m.reply(err))
              
              if (/hdfbvid/.test(command)) {
              await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
@@ -850,7 +850,7 @@ switch(command) {
        return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
             
-             }).catch((err) => m.reply(err)
+             }).catch((err) => m.reply(err))
              }
              
             if (/sdfbvid/.test(command)){
@@ -863,7 +863,7 @@ switch(command) {
        return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
             
-             }).catch((err) => m.reply(err)
+             }).catch((err) => m.reply(err))
              }
             }
             break
