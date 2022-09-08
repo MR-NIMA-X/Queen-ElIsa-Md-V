@@ -817,8 +817,10 @@ switch(command) {
             break
             case 'fb' : case 'hdfbvid' : case 'sdfbvid':  {
             
+            if (/fb/.test(command)) {
             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
-            .then(async (nima) => { 
+            .then(async (nima) => {
+            await getBuffer(nima.hasil.hd)
             buttons = [
                     {buttonId: `hdfbvid ${text}`, buttonText: {displayText: 'HD VIDEO'}, type: 1},
                     {buttonId: `sdfbvid ${text}`, buttonText: {displayText: 'SD VIDEO'}, type: 1}
@@ -837,10 +839,9 @@ switch(command) {
                     headerType: 4
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-          
+         
              }).catch((err) => m.reply(err))
-             
-             if (/hdfbvid/.test(command)) {
+             } else if (/hdfbvid/.test(command)) {
              await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
             .then(async (nima) => { 
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
@@ -850,10 +851,8 @@ switch(command) {
        return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
             
-             }).catch((err) => m.reply(err))
-             }
-             
-            if (/sdfbvid/.test(command)){
+             }).catch((err) => m.reply(NOT_FOUND))
+             } else if (/sdfbvid/.test(command)){
             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
             .then(async (nima) => { 
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
@@ -863,7 +862,7 @@ switch(command) {
        return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
             
-             }).catch((err) => m.reply(err))
+             }).catch((err) => m.reply(NOT_FOUND))
              }
             }
             break
