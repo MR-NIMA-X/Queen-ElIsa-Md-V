@@ -838,16 +838,15 @@ switch(command) {
              }
             break
             case 'hdfbvid' : {
+            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
             await fetchJson(`https://api.akuari.my.id/downloader/fbdl3?link=${text}`)
             .then(async (nima) => { 
-            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
-       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
+            const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
+            const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
        await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
-       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.sd }, caption: global.cap}, { quoted: m })
-       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
-            
-             }).catch((err) => m.reply(NOT_FOUND))
             
             }
             break
@@ -857,13 +856,10 @@ switch(command) {
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
        const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
        await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
-       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })
-       return await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
-     
-            
-             }).catch((err) => m.reply(NOT_FOUND))
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.sd }, caption: global.cap}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
             }
-           
+           break
 case 'wpaper' :{
    await ElisaBotMd.sendText(m.chat, '*LOADING...*')
    
