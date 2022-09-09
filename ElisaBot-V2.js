@@ -815,6 +815,46 @@ switch(command) {
            
                          }
             break
+            case 'modapk' :{
+            await ElisaBotMd.sendText(m.chat,'```Please Wait ...```') 
+            await fetchJson(`https://api.akuari.my.id/search/searchmod?query=${text}`)
+            .then(async (nima) => {  
+            const search = nima.respon
+            let sections = []   
+  for (let i of search) {
+  const list = {title: `SELECT YOUR MOD APP`,
+  rows: [
+	    {
+	     title: `${i.title}`, 
+	     rowId: `downxnxx ${i.link} ${i.title}`,
+      description: `➮ *Version* ${i.version}`	     
+	    }, 
+	    ]
+     }
+     sections.push(list)   
+     }
+  const sendm =  ElisaBotMd.sendMessage(
+      m.chat, 
+      {
+       text: `${m.pushName} This is matching apk\n\n➮ ʀᴇǫᴜᴇsᴛ ${text}`,
+       footer: `${global.botnma}`,
+       title: "*👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙼𝙾𝙳 𝙰𝙿𝙺 👸*",
+       buttonText: "DOWNLOAD MOD APK",
+       sections
+      }, { quoted : m })    
+            }).catch((err) => m.reply(NOT_FOUND))
+            }
+            break
+            case 'modapkdl' : {
+            const down = await ElisaBotMd.sendMessage(from, { text: `*📥 Downloding mod apk...*` }, { quoted: m })
+            const nima = await fetchJson(`https://api.akuari.my.id/downloader/dlmod?link=args[0]`)
+            const upload = await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading mod apk...*` }, { quoted: m })
+            await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+            await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.linkdl } , mimetype: 'application/vnd.android.package-archive', fileName: `${args[1]}.apk`}, { quoted: m })
+            await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
+           
+            }
+            break
             case 'fb666':{
             
             buttons = [
