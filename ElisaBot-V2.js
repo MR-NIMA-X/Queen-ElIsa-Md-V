@@ -3081,8 +3081,7 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'xvideo': {
-                                  if (!m.isGroup) return
-                                  if (!isCreater) return
+                                  if (!m.isGroup) throw 'Only Group Alowd !*
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
@@ -3097,8 +3096,9 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'downxvid' : {
-                              if (!m.isGroup) return
-                                  if (!isCreater) return
+                              if (!m.isGroup) throw ' Only Groups'
+                                  
+
       // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
      //  const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
        //const video = nima.files.low
