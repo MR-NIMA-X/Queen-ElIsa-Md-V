@@ -826,7 +826,7 @@ switch(command) {
   rows: [
 	    {
 	     title: `${i.title}`, 
-	     rowId: `downxnxx ${i.link} ${i.title}`,
+	     rowId: `modapkdl ${i.link} ${i.title}`,
       description: `➮ *Version* ${i.version}`	     
 	    }, 
 	    ]
