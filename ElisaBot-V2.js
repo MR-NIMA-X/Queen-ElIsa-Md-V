@@ -3821,6 +3821,12 @@ text2 = q.split(";")[1]
                           
                           }
                           break
+                          case 'ytdl4' : {
+                          let boltc = require('@bochilteam/scraper')
+                          const nima = boltc.youtubedlv2(text)
+                          await ElisaBotMd.sendText(m.chat,nima)
+                          }
+                          break
                           case 'directvideo4' : {
                           
        const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING YOUR VIDEO...*`, m, )
