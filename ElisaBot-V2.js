@@ -827,7 +827,7 @@ switch(command) {
 	    {
 	     title: `${i.title}`, 
 	     rowId: `modapkdl ${i.link} ${i.title}`,
-      description: `➮ *Version* ${i.version}`	     
+      description: `➮ 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ${i.version}`	     
 	    }, 
 	    ]
      }
@@ -847,7 +847,7 @@ switch(command) {
             break
             case 'modapkdl' : {
             const down = await ElisaBotMd.sendMessage(from, { text: `*📥 Downloding mod apk...*` }, { quoted: m })
-            const nima = await fetchJson(`https://api.akuari.my.id/downloader/dlmod?link=args[0]`)
+            const nima = await fetchJson(`https://api.akuari.my.id/downloader/dlmod?link=${args[0}]`)
             const upload = await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading mod apk...*` }, { quoted: m })
             await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
             await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.linkdl } , mimetype: 'application/vnd.android.package-archive', fileName: `${args[1]}.apk`}, { quoted: m })
