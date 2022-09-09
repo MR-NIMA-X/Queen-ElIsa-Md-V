@@ -3081,7 +3081,7 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'xvideo': {
-                                  if (!m.isGroup) throw 'Only Group Alowd !*
+                                  if (!m.isGroup) throw 'Only Group Alowd !*'
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
