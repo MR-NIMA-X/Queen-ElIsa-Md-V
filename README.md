@@ -9,17 +9,34 @@
 Queen Elisa Whatsapp bot made by dark maker base on cheems can you use queen elisa with amazing fetures
 </h6>
 
+## 
+
+<p align="left">
+<a href="http://www.queenelisa.42web.io"><img align="center" src="https://telegra.ph/file/8b7c4a9bbaae67b1b2e0e.png" alt="VISIT QUEEN ELISA WEBSITE" height="35" width="150" /></a>
+</p align="left">
+
+## 
+
+
+
 `DEPLOY QUEEN ELISA`
  
 **1.** _Fork Queen Elisa Repository._
 
+<p align="left">
+<a href="https://github.com/DarkMakerofc/Queen-Elisa-MD-V2/fork"><img align="center" src="https://telegra.ph/file/3514997e86c4bb12d8f67.png" alt="Fork and deploy" height="35" width="155" /></a>
+
+
 **2** _Scan Qr code using your whatsapp (install)._
+[![Run on Repl.it](https://repl.it/badge/github/quiec/whatsasena)](https://replit.com/@MRNima/QUEEN-ELISA-V2-MD-WHATSAPP-SCANER?v=1?outputonly=1&lite=1#index.js)
+
 
 **3** _Uplode **session.json** File Your forked repository._
+[****__📤 UPLOAD 📤__****]()
 
 **4**  _Make your deploy link and deploy your bot using link Fill heroku_
 
-
+     https://heroku.com/deploy?template=
 
 ##  
 ##  
