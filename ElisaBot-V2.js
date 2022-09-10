@@ -3865,7 +3865,7 @@ text2 = q.split(";")[1]
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(`${text}`)
                           .then(async(nima) => {	  	
-                          reply(`${nima}`)
+                          reply(`${nima.video}`)
                           })
                           }
                           break
