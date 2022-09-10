@@ -799,6 +799,18 @@ switch(command) {
             break
            
              */
+             case 'getspo' : {
+             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
+             await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
+             .then(async (nima) => {
+             await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+             const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
+             await ElisaBotMd.sendMessage(m.chat, { audio: { url: nima.result  }, mimetype: 'audio/mpeg', fileName: `${nima.title}|${artist}.mp3` }, { quoted: m })
+             await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+             
+             })       
+             }
+             break
              case 'apk':{
             
            if (!text) return reply('*👸💬 Please give plastore link*')
