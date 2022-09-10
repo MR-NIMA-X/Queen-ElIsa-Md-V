@@ -3866,7 +3866,7 @@ text2 = q.split(";")[1]
                           await boltc.youtubedlv2(`${text}`)
                           .then(async(nima) => {	  	
                           reply(`${nima}`)
-                          )}
+                          })
                           }
                           break
                           case 'directvideo4' : {
