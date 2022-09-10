@@ -3863,8 +3863,10 @@ text2 = q.split(";")[1]
                           break
                           case 'ytdl4' : {
                           let boltc = require('@bochilteam/scraper')
-                          const nima = boltc.youtubedlv2(text)
-                          await ElisaBotMd.sendText(m.chat,nima)
+                          await boltc.youtubedlv2(`${text}`)
+                          .then(async(nima) => {	  	
+                          reply(`${nima}`)
+                          )}
                           }
                           break
                           case 'directvideo4' : {
