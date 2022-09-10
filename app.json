@@ -183,6 +183,11 @@
   "description" : "INBOX USER BLOCK MASSAGE",
   "required" : true,
   "value" :"*INBOX BLOCK ACTIVATE BY BOT OWNER*"
+  },
+"BLOCK_CALL" :{
+  "description" : "INBOX USER BLOCK CALLS",
+  "required" : true,
+  "value" :"false"
   }
   },
 
