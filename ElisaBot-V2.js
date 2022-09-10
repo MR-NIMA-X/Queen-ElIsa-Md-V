@@ -3864,8 +3864,11 @@ text2 = q.split(";")[1]
                           case 'ytdl4' : {
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(`${text}`)
-                          .then(async(nima) => {	  	
-                          reply(`${nima.video}`)
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['360p'].download()
+                          const dl_url2 = await nima.video['720p'].download()	  	
+                          reply(`${dl_url}`)
+                          reply(`${dl_url2}`)
                           })
                           }
                           break
