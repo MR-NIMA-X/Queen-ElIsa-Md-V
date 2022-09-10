@@ -93,6 +93,14 @@ global.BUTTON1 = process.env.DISPLAY_BUTTON_1 || '𝙶𝚒𝚝𝚑𝚞𝚋'
 global.BUTTON2 = process.env.DISPLAY_BUTTON_2 || '𝚈𝚘𝚞𝚝𝚞𝚋𝚎'
 global.BUTTON1_URL = process.env.BUTTON_1_URL || 'https://github.com/darkmakerofc/'
 global.BUTTON2_URL = process.env.BUTTON_2_URL || 'https://youtube.com/c/MRNIMAOFC'
+global.ADD_MSG = process.env.ADD_MASSAGE || ' ' 
+global.KICK_MSG = process.env.KICK_MASSAGE || ' ' 
+global.SONG_DOWN = process.env.DOWNLOAD_MASSAGE || ' ' 
+global.SONG_UP = process.env.UPLOAD_MASSAGE || ' '
+global.LINK_KICK_MSG = process.env.LINK_KICK_MASSAGE || ' '
+global.SESSION = process.env.SESSION || ' '
+global.BLOCK_CHAT = process.env.BLOCK_CHAT || ' '
+global.SUDO = process.env.SUDO || ' '
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')
