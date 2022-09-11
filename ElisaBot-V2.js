@@ -283,6 +283,23 @@ const reply3 = (teks) => {
 	    }
 	}
 	
+      // VOICE REPLY
+      if (global.VOICE_REPLY == 'true'){
+      const word = ["Hi","Mk","Bye","Bs","alive","gn","night","gm","morning"]
+      const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
+      for (any in word){
+         if (budy.toLowerCase().includes(word[any])) {
+         result = voice[any]
+         ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+//await ElisaBotMd.sendText(m.chat, imoji )
+   //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
+}
+}
+         
+				 
+         }
+            
+      
       
       // AUTO REACt//
       
@@ -799,13 +816,13 @@ switch(command) {
             break
            
              */
-             case 'getspo' : {
+             case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
              .then(async (nima) => {
              await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
              const up = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ...*`, m, )
-             await ElisaBotMd.sendMessage(m.chat, { audio: { url: nima.result }, mimetype: 'audio/mpeg', fileName: `${nima.title}.mp3` }, { quoted: m })
+             await ElisaBotMd.sendMessage(m.chat, { document: { url: nima.result }, mimetype: 'audio/mpeg', fileName: `${nima.title}.mp3` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
              
              })       
