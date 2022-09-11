@@ -7492,7 +7492,7 @@ _I am alive now 😼_
                  case 'alive': case 'bot':{  
                 // await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
-                          await ElisaBotMd.sendMessage(m.chat, { audio: 'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
+                          await ElisaBotMd.sendMessage(m.chat, { audio: {url :'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
               if (global.alive === 'default') {
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
               
