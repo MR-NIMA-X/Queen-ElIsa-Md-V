@@ -101,6 +101,7 @@ global.LINK_KICK_MSG = process.env.LINK_KICK_MASSAGE || ' '
 global.SESSION = process.env.SESSION || ' '
 global.BLOCK_CHAT = process.env.BLOCK_CHAT || ' '
 global.SUDO = process.env.SUDO || ' '
+global.VOICE_REPLY = 'true'
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')
