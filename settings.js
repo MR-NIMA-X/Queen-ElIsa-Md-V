@@ -68,6 +68,7 @@ global.HEROKU = {
     NAME : process.env.APP_NAME,
     STATUS : true
 }
+global.VOICE_REPLY = 'true'
 global.owner= [process.env.OWNER_NUMBER] || ['94715166712'] // Owner number , (අයිතිකරුගේ නම්බර් එක )
 global.alivelogo = process.env.ALIVE_LOGO || `https://telegra.ph/file/1a2dee71baa975091620d.jpg`
 global.alive = process.env.ALIVE_MESSAGE
@@ -101,7 +102,6 @@ global.LINK_KICK_MSG = process.env.LINK_KICK_MASSAGE || ' '
 global.SESSION = process.env.SESSION || ' '
 global.BLOCK_CHAT = process.env.BLOCK_CHAT || ' '
 global.SUDO = process.env.SUDO || ' '
-global.VOICE_REPLY = 'true'
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')
