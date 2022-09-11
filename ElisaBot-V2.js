@@ -285,12 +285,12 @@ const reply3 = (teks) => {
 	
       // VOICE REPLY
       if (global.VOICE_REPLY == 'true'){
-      const word = ["Hi","Mk","Bye","Bs","alive","gn","night","gm","morning"]
-      const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
+      const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
+      const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
       for (any in word){
          if (budy.toLowerCase().includes(word[any])) {
          result = voice[any]
-         ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+         ElisaBotMd.sendMessage(m.chat, { audio: {url:result}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
 //await ElisaBotMd.sendText(m.chat, imoji )
    //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
 }
