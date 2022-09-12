@@ -285,32 +285,32 @@ const reply3 = (teks) => {
 	
       // VOICE REPLY
       if (global.VOICE_REPLY == 'true'){
-            /* if (budy.match(`hi`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+            if (budy.match(`hi`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`mk`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+ }
          if (budy.match(`bye`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`bs`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`gn`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`night`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`Gm`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }
+        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          if (budy.match(`morning`)) {
-         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
-         }*/
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          
-      const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
+     /* const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
       const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
       for (any in word){
          if (budy.toLowerCase().includes(word[any])) {
@@ -320,7 +320,7 @@ const reply3 = (teks) => {
    //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
 }
 }
-         
+     */    
 				 
          }
             
