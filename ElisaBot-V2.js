@@ -285,12 +285,37 @@ const reply3 = (teks) => {
 	
       // VOICE REPLY
       if (global.VOICE_REPLY == 'true'){
+            /* if (budy.match(`hi`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`mk`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`bye`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`bs`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`gn`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`night`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`Gm`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }
+         if (budy.match(`morning`)) {
+         await ElisaBotMd.sendMessage(from, { react: { text: `😙`, key: m.key }})
+         }*/
+         
       const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
       const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
       for (any in word){
          if (budy.toLowerCase().includes(word[any])) {
-         result = voice[any]
-         ElisaBotMd.sendMessage(m.chat, { audio: {url:result}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+        const result = voice[any]
+        await ElisaBotMd.sendMessage(m.chat, { audio: {url:result}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
 //await ElisaBotMd.sendText(m.chat, imoji )
    //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
 }
@@ -3358,31 +3383,31 @@ if (global.BOT_LANGUAGE == 'EN') GIVEME ="```👸💬 Please give me a video or 
                                   await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
                                   await ElisaBotMd.sendText(m.chat, '```🔄 Please wait '+m.pushName+'...```', m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
-                                    await fetchJson(`https://api.akuari.my.id/search/youtube?query=${text}`)
+                                    await yts(text)
                                   .then(async (search) => {  
-                                  for (let i of search.hasil)   
-                                  if (search.hasil[0].type == 'channel'){
+                                  for (let i of search.all)   
+                                  if (search.all[0].type == 'channel'){
                                  
  const buttons = [
-                    {buttonId: `selecttypebutton ${search.hasil[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.hasil[1].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `selecttypebutton ${search.all[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.all[1].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
-                    image: { url: search.hasil[1].thumbnail },
+                    image: { url: search.all[1].thumbnail },
                     caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
- ➥ ᴛɪᴛʟᴇ -  ${search.hasil[1].title}
+ ➥ ᴛɪᴛʟᴇ -  ${search.all[1].title}
 
- ➥ ᴠɪᴇᴡs - ${search.hasil[1].views}
+ ➥ ᴠɪᴇᴡs - ${search.all[1].views}
 
- ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.hasil[1].timestamp}
+ ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.all[1].timestamp}
 
- ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[1].ago}
+ ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[1].ago}
 
- ➥ ᴜʀʟ - ${search.hasil[1].url}`
+ ➥ ᴜʀʟ - ${search.all[1].url}`
   ,
                     footer: global.botnma,
                     buttons: buttons,
@@ -3391,28 +3416,28 @@ if (global.BOT_LANGUAGE == 'EN') GIVEME ="```👸💬 Please give me a video or 
                 
               return await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                     
- }else if (search.hasil[0].type == 'video') {
+ }else if (search.all[0].type == 'video') {
  
 const buttons = [
-                    {buttonId: `selecttypebutton ${search.hasil[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.hasil[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `selecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
+                    {buttonId: `audioselecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
-                    image: { url: search.hasil[0].thumbnail },
+                    image: { url: search.all[0].thumbnail },
                     caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
- ➥ ᴛɪᴛʟᴇ -  ${search.hasil[0].title}
+ ➥ ᴛɪᴛʟᴇ -  ${search.all[0].title}
 
- ➥ ᴠɪᴇᴡs - ${search.hasil[0].views}
+ ➥ ᴠɪᴇᴡs - ${search.all[0].views}
 
  ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.hasil[0].timestamp}
 
- ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.hasil[0].ago}
+ ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
 
- ➥ ᴜʀʟ - ${search.hasil[0].url}`
+ ➥ ᴜʀʟ - ${search.all[0].url}`
   ,
                     footer: global.botnma,
                     buttons: buttons,
