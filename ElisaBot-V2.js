@@ -7490,6 +7490,9 @@ _I am alive now 😼_
        break*/
 
                  case 'alive': case 'bot':{  
+                 // Push Message To Console && Auto Read
+            ElisaBotMd.readMessages([m.key])
+            
                 // await ElisaBotMd.sendReadReceipt(from, m.sender, [m.key.id])
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
                           await ElisaBotMd.sendMessage(m.chat, { audio: {url :'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
