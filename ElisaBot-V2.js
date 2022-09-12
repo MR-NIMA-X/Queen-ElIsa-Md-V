@@ -309,6 +309,30 @@ const reply3 = (teks) => {
          if (budy.match(`morning`)) {
          await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
 }
+         if (budy.match(`Hi`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`Mk`)) {
+        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+ }
+         if (budy.match(`Bye`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`Bs`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`Gn`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`Night`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`gm`)) {
+        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+         if (budy.match(`Morning`)) {
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
          
      /* const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
       const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
