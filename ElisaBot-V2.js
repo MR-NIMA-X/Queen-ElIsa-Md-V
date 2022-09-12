@@ -3410,10 +3410,9 @@ if (global.BOT_LANGUAGE == 'EN') GIVEME ="```👸💬 Please give me a video or 
                                   await ElisaBotMd.sendText(m.chat, '```🔄 Please wait '+m.pushName+'...```', m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
                                  let yts = require("yt-search")
-                                    await yts(text)
-                                  .then(async (search) => {  
+                                  yts(text).then(async (search) => {  
                                   for (let i of search.all)   
-                                  if (search.all[0].type == 'channel'){
+if (search.all[0].type == 'channel'){
                                  
  const buttons = [
                     {buttonId: `selecttypebutton ${search.all[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
