@@ -19,13 +19,15 @@ const nimadl = require('xfarr-api')
 const Language = require('./language')
 const Lang = Language.getString('elisabot')
 
+
 var LOGO_MAKING = ''
-  if (global.BOT_LANGUAGE == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
-  if (global.BOT_LANGUAGE == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
+  if (global.BOT_LANGUAGE === 'SI') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
+  if (global.BOT_LANGUAGE === 'EN') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
 
 var NOT_FOUND = ''
   if (global.BOT_LANGUAGE = 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
   if (global.BOT_LANGUAGE = 'SI') NOT_FOUND = '*🚫💬 මට කිසිවක් සොයාගත නොහැකිවිය !*'
+
 //rpg function\\
    const { 
      addInventoriDarah, 
@@ -3407,6 +3409,7 @@ if (global.BOT_LANGUAGE == 'EN') GIVEME ="```👸💬 Please give me a video or 
                                   await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
                                   await ElisaBotMd.sendText(m.chat, '```🔄 Please wait '+m.pushName+'...```', m, )
                                  // const yts = 'https://api.akuari.my.id/search/youtube?query='
+                                 let yts = require("yt-search")
                                     await yts(text)
                                   .then(async (search) => {  
                                   for (let i of search.all)   
@@ -3944,12 +3947,13 @@ text2 = q.split(";")[1]
                           await boltc.youtubedlv2(`${text}`)
                           .then(async(nima) => {
                           const dl_url = await nima.video['360p'].download()
-                          const dl_url2 = await nima.video['720p'].download()	  	
-                          reply(`360p ${dl_url}`)
-                          reply(`720p ${dl_url2}`)
-                          reply(`Download ${nima.video.download}`)
-                          reply(`Video ${nima.video}`)
-                          reply(` Audio ${nima.audio}`)
+                          const dl_url2 = await nima.video['720p'].download()
+                          await ElisaBotMd.sendText(m.chat,jsonformat(nima))  	
+                          await ElisaBotMd.sendText(m.chat,`360p ${dl_url}`)
+                          await ElisaBotMd.sendText(m.chat,`720p ${dl_url2}`)
+                          await ElisaBotMd.sendText(m.chat,`Download ${jsonformat(nima.video.download))}`)
+                          await ElisaBotMd.sendText(m.chat,`Video ${jsonformat(nima.video))}`)
+                          await ElisaBotMd.sendText(m.chat,` Audio ${jsonformat(nima.audio))}`)
                           })
                           }
                           break
