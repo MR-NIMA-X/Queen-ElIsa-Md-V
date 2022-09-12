@@ -56,7 +56,7 @@ global.limitawal = {
 //global api
 global.fbapi = process.env.EXTRA_API || 'dd79-1aeb-21a3'
 global.LANG = 'EN' || 'EN'
-global.BOT_LANGUAGE = 'EN'
+global.BOT_LANGUAGE = "EN"
 global.APIs = {
 	zenz: 'https://zenzapi.xyz', 
 }
