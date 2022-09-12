@@ -3951,9 +3951,9 @@ text2 = q.split(";")[1]
                           await ElisaBotMd.sendText(m.chat,jsonformat(nima))  	
                           await ElisaBotMd.sendText(m.chat,`360p ${dl_url}`)
                           await ElisaBotMd.sendText(m.chat,`720p ${dl_url2}`)
-                          await ElisaBotMd.sendText(m.chat,`Download ${jsonformat(nima.video.download))}`)
-                          await ElisaBotMd.sendText(m.chat,`Video ${jsonformat(nima.video))}`)
-                          await ElisaBotMd.sendText(m.chat,` Audio ${jsonformat(nima.audio))}`)
+                          await ElisaBotMd.sendText(m.chat,`Download ${jsonformat(nima.video.download)}`)
+                          await ElisaBotMd.sendText(m.chat,`Video ${jsonformat(nima.video)}`)
+                          await ElisaBotMd.sendText(m.chat,` Audio ${jsonformat(nima.audio)}`)
                           })
                           }
                           break
