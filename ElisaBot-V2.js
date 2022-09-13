@@ -867,6 +867,26 @@ switch(command) {
             break
            
              */
+             case 'buttest' : {
+                 
+    const logs = `BOT AKAN BLOKIR KONTAKMU?
+    
+≫ Spam
+≫ Chat Aneh Aneh
+≫ Berantem`
+
+ const haori1 = `Sukses Mengirim Pesan
+👥 Dari : wa.me//
+
+⬡──⬡─────────⬡──⬡
+
+Isi Pesan : ${pesan}
+
+⬡──⬡─────────⬡──⬡`
+    ElisaBotMd.sendMessage(m.chat, await (await fetch('https://telegra.ph/file/9ceda8d2274e97bad5bca.jpg')).buffer(), logs, haori1, 'Owner', 'owner', 'Donasi', '.donasi', m)
+
+             }
+             break
              case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
@@ -3446,7 +3466,7 @@ if (search.all[0].type == 'channel'){
  
 const buttons = [
                     {buttonId: `selecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
+                    {buttonId: `audioselecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
