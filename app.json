@@ -188,7 +188,28 @@
   "description" : "INBOX USER BLOCK CALLS",
   "required" : true,
   "value" :"false"
+  },
+ "BLOCK_CALL" :{
+  "description" : "INBOX USER BLOCK CALLS",
+  "required" : true,
+  "value" :"false"
+  },
+ "BLOCK_CALL" :{
+  "description" : "INBOX USER BLOCK CALLS",
+  "required" : true,
+  "value" :"false"
+  },
+ "BLOCK_CALL" :{
+  "description" : "INBOX USER BLOCK CALLS",
+  "required" : true,
+  "value" :"false"
+  },
+ "BLOCK_CALL" :{
+  "description" : "INBOX USER BLOCK CALLS",
+  "required" : true,
+  "value" :"false"
   }
+  
   },
 
   "buildpacks": [
