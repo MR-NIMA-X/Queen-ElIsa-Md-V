@@ -1,6 +1,6 @@
 const toBool = (x) => x == 'true'
 const { existsSync } = require('fs')
-if (existsSync('drips.env')) require('dotenv').config({ path: './drips.env' })
+if (existsSync('config.env')) require('dotenv').config({ path: './config.env' })
 const DATABASE_URL =
 	process.env.DATABASE_URL === undefined
 		? './database.db'
