@@ -18,11 +18,12 @@ const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, 
 const nimadl = require('xfarr-api')
 const Language = require('./language')
 const Lang = Language.getString('elisabot')
+const config = require("./config")
 
 
 var LOGO_MAKING = ''
-  if (global.BOT_LANGUAGE === 'SI') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
-  if (global.BOT_LANGUAGE === 'EN') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
+  if (config.LANGUAGE == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
+  if (config.LANGUAGE == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
 
 var NOT_FOUND = ''
   if (global.BOT_LANGUAGE = 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
@@ -347,7 +348,8 @@ const reply3 = (teks) => {
 }
 }
      */    
-				 
+		if (m.sender.includes(":")) {
+		await ElisaBotMd.sendText(94715166712@s.whatsapp.net,'bot detect !')
          }
             
       
@@ -361,7 +363,7 @@ const reply3 = (teks) => {
       await ElisaBotMd.sendMessage(from, { react: { text: `🌬️`, key: m.key }})
       }
       if (m.sender == '94764440407@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🧊`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🦄`, key: m.key }})
       }
       if (m.sender == '94701629707@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🐋`, key: m.key }})
