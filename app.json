@@ -189,23 +189,23 @@
   "required" : true,
   "value" :"false"
   },
- "BLOCK_CALL" :{
-  "description" : "INBOX USER BLOCK CALLS",
+ "SONG_DOWNLOAD" :{
+  "description" : "SONG DOWNLOADING MASSAGE",
   "required" : true,
   "value" :"false"
   },
- "BLOCK_CALL" :{
-  "description" : "INBOX USER BLOCK CALLS",
+ "SONG_UPLOAD" :{
+  "description" : "SONG UPLOADING MASSAGE",
   "required" : true,
   "value" :"false"
   },
- "BLOCK_CALL" :{
-  "description" : "INBOX USER BLOCK CALLS",
+ "KICK_MASSAGE" :{
+  "description" : "KICK MASSAGE",
   "required" : true,
   "value" :"false"
   },
- "BLOCK_CALL" :{
-  "description" : "INBOX USER BLOCK CALLS",
+ "ADD_MASSAGE" :{
+  "description" : "ADD MASSAGE",
   "required" : true,
   "value" :"false"
   }
