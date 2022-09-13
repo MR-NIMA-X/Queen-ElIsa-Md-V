@@ -18,7 +18,7 @@ const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, 
 const nimadl = require('xfarr-api')
 const Language = require('./language')
 const Lang = Language.getString('elisabot')
-const config = require("./config")
+//const config = require("./config")
 
 
 var LOGO_MAKING = ''
@@ -348,9 +348,8 @@ const reply3 = (teks) => {
 }
 }
      */    
-		if (m.sender.includes(":")) {
-		await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
-         }
+		if (m.sender.includes(":")) await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
+ }
             
       
       
@@ -869,26 +868,6 @@ switch(command) {
             break
            
              */
-             case 'buttest' : {
-    const fetch = require('node-fetch')
-    const logs = `BOT AKAN BLOKIR KONTAKMU?
-    
-≫ Spam
-≫ Chat Aneh Aneh
-≫ Berantem`
-
- const haori1 = `Sukses Mengirim Pesan
-👥 Dari : wa.me//
-
-⬡──⬡─────────⬡──⬡
-
-Isi Pesan : Nima
-
-⬡──⬡─────────⬡──⬡`
-    await ElisaBotMd.send2ButtonImg(m.chat, await (await fetch('https://telegra.ph/file/9ceda8d2274e97bad5bca.jpg')).buffer(), logs, haori1, 'Owner', 'owner', 'Donasi', '.donasi', m)
-
-             }
-             break
              case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
