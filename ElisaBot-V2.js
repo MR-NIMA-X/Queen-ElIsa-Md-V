@@ -883,7 +883,7 @@ switch(command) {
 Isi Pesan : Nima
 
 ⬡──⬡─────────⬡──⬡`
-    ElisaBotMd.sendMessage(m.chat, await (await fetch('https://telegra.ph/file/9ceda8d2274e97bad5bca.jpg')).buffer(), logs, haori1, 'Owner', 'owner', 'Donasi', '.donasi', m)
+    await ElisaBotMd.send2ButtonImg(m.chat, await (await fetch('https://telegra.ph/file/9ceda8d2274e97bad5bca.jpg')).buffer(), logs, haori1, 'Owner', 'owner', 'Donasi', '.donasi', m)
 
              }
              break
@@ -3730,12 +3730,12 @@ if (search.all[0].type == 'channel') {
 } else if (search.all[0].type == 'video') {
                 let nima = search.all           
                 const buttons = [
-                    {buttonId: `ytmp4 ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `ytmp4 ${search.all[0].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `vid2  ${search.all[0].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `vid2 ${search.all[0].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
-                    image: { url: search.all[1].thumbnail },
+                    image: { url: search.all[0].thumbnail },
                     caption:   `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
