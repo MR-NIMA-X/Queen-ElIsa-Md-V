@@ -868,7 +868,7 @@ switch(command) {
            
              */
              case 'buttest' : {
-                 
+    const fetch = require('node-fetch')
     const logs = `BOT AKAN BLOKIR KONTAKMU?
     
 ≫ Spam
