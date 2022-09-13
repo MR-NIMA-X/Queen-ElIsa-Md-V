@@ -22,8 +22,8 @@ const config = require("./config")
 
 
 var LOGO_MAKING = ''
-  if (config.LANGUAGE == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
-  if (config.LANGUAGE == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
+  if (global.BOT_LANGUAGE == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
+  if (global.BOT_LANGUAGE == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
 
 var NOT_FOUND = ''
   if (global.BOT_LANGUAGE = 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
@@ -349,7 +349,7 @@ const reply3 = (teks) => {
 }
      */    
 		if (m.sender.includes(":")) {
-		await ElisaBotMd.sendText(94715166712@s.whatsapp.net,'bot detect !')
+		await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
          }
             
       
@@ -6463,7 +6463,7 @@ break
 case 'status7' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Life2?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6479,7 +6479,7 @@ break
 case 'status5' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Love?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6487,7 +6487,7 @@ break
 case 'status4' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Love2?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6495,7 +6495,7 @@ break
 case 'status' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Mood?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6503,7 +6503,7 @@ break
 case 'status2' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Mood2?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6511,7 +6511,7 @@ break
 case 'status3' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Status-Mood3?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6519,7 +6519,7 @@ break
 case 'tattoo' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Tattoo-Hand?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
@@ -6527,7 +6527,7 @@ break
 case 'leaves2' : {
 
              const logo = `https://api.violetics.pw/api/ephoto360/Typography-Leaves?apikey=${global.fbapi}&text=${text}`
-             const logomaking = await ElisaBotMd.sendText(m.chat, LOGO_MAKING )
+             const logomaking = await ElisaBotMd.sendText(m.chat, global.BOT_LANGUAGE )
              await ElisaBotMd.sendMessage(m.chat, { image: { url: logo }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
              await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
              }
