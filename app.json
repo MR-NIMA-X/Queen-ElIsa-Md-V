@@ -208,6 +208,11 @@
   "description" : "ADD MASSAGE",
   "required" : true,
   "value" :"false"
+  },
+  "LINK_KICK_MASSAGE" :{
+  "description" : "ADD MASSAGE",
+  "required" : true,
+  "value" :"false"
   }
   
   },
