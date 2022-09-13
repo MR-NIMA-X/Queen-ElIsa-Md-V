@@ -880,7 +880,7 @@ switch(command) {
 
 ⬡──⬡─────────⬡──⬡
 
-Isi Pesan : ${pesan}
+Isi Pesan : Nima
 
 ⬡──⬡─────────⬡──⬡`
     ElisaBotMd.sendMessage(m.chat, await (await fetch('https://telegra.ph/file/9ceda8d2274e97bad5bca.jpg')).buffer(), logs, haori1, 'Owner', 'owner', 'Donasi', '.donasi', m)
