@@ -3975,7 +3975,8 @@ text2 = q.split(";")[1]
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                  const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                                  const uplaod = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
                 body:"YOUTUBE MP3",
@@ -3983,9 +3984,8 @@ text2 = q.split(";")[1]
                 thumbnail:buf,
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
-                await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => reply(NOT_FOUND))
-                await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
       
                               }
                               break
@@ -4002,7 +4002,7 @@ text2 = q.split(";")[1]
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                  const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                  const uplaod = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
     
                                   ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
@@ -4013,7 +4013,7 @@ text2 = q.split(";")[1]
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => m.reply(NOT_FOUND))
-                await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
     
                               }
                               break
