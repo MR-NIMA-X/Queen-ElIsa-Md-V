@@ -356,13 +356,13 @@ const reply3 = (teks) => {
       // AUTO REACt//
       
       if (m.sender == '94702695534@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🧚‍♀`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🌻`, key: m.key }})
       }
       if (m.sender == '94713742435@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🌬️`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🌼️`, key: m.key }})
       }
       if (m.sender == '94764440407@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🦄`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🏵️`, key: m.key }})
       }
       if (m.sender == '94701629707@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🐋`, key: m.key }})
@@ -4104,12 +4104,13 @@ text2 = q.split(";")[1]
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                    const upload = await ElisaBotMd.sendMessage(m.chat, buttonMessage , { quoted: m })
                                    await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                   
+                                   await ElisaBotMd.sendMessage(m.chat, { delete: load.key })}).catch((err) => m.reply(NOT_FOUND))
                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                 await ElisaBotMd.sendMessage(m.chat, { delete: load.key })}).catch((err) => m.reply(NOT_FOUND))
-                                 await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
-                                // await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                                // await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
+                                
+                                  await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
+                                  
       
                               }
                               break
