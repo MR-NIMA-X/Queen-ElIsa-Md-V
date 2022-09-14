@@ -4107,7 +4107,7 @@ text2 = q.split(";")[1]
                                    
                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
                                  await ElisaBotMd.sendMessage(m.chat, { delete: load.key })}).catch((err) => m.reply(NOT_FOUND))
-                                 await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
+                                 await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                                 // await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
       
