@@ -3833,7 +3833,7 @@ text2 = q.split(";")[1]
                           const video = vid.result.downloads.tubemp3_biz[1].url
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: video }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: capp }, { quoted: m })
-                          return await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })
+                          return 
                           }
                           if (sdsize.split('MB')[0] >= 110) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR VIDEO BIGGER THAN 100mb_\n\nfile size')
                           const video = vid.result.downloads.tubemp3_biz[0].url
@@ -3976,7 +3976,7 @@ text2 = q.split(";")[1]
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                  const uplaod = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                 // 
                                   ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
                 body:"YOUTUBE MP3",
@@ -3985,7 +3985,7 @@ text2 = q.split(";")[1]
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
-                await ElisaBotMd.sendMessage(m.chat,{ delete : upload.key })  
+              //  await ElisaBotMd.sendMessage(m.chat,{ delete : upload.key })  
       
       }).catch((err) => reply(NOT_FOUND))
       
@@ -4004,7 +4004,7 @@ text2 = q.split(";")[1]
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                  const uplaod = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                  
     
                                   ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
@@ -4104,11 +4104,11 @@ text2 = q.split(";")[1]
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                    const upload = await ElisaBotMd.sendMessage(m.chat, buttonMessage , { quoted: m })
                                    await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                   
                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
                                  await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
-                                 await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                                // await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
       
                               }
                               break
