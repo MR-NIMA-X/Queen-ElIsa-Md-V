@@ -3966,8 +3966,8 @@ text2 = q.split(";")[1]
                           //await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
-                                 // const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
-                                 const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
+                                 const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
+                                 //const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
                                   let quality = args[1] ? args[1] : '128kbps'
                                   await yta(text, quality)
                                   .then(async (media) => { 
@@ -4096,8 +4096,8 @@ text2 = q.split(";")[1]
 }       
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
-                                  //const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
-                                  const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
+                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
+                                 // const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
                                   let quality = args[1] ? args[1] : '128kbps'
                                   await yta(text, quality)
                                   .then(async (media) => { 
@@ -4106,7 +4106,8 @@ text2 = q.split(";")[1]
                                    await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                    
                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                 await  ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
+                                 await ElisaBotMd.sendMessage(m.chat, { delete: load.key })}).catch((err) => m.reply(NOT_FOUND))
+                                 await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })}).catch((err) => m.reply(NOT_FOUND))
                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                                 // await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
       
