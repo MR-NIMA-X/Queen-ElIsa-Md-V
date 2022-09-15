@@ -98,7 +98,7 @@ global.ADD_MSG = process.env.ADD_MASSAGE || ' '
 global.KICK_MSG = process.env.KICK_MASSAGE || ' ' 
 global.SONG_DOWN = process.env.SONG_DOWNLOAD || ' ' 
 global.SONG_UP = process.env.SONG_UPLOAD || ' '
-global.LINK_KICK_MSG = process.env.LINK_KICK_MASSAGE || ' '
+global.NUMBER_212_BLOCK = process.env.NUMBER_212_BLOCK || 'true'
 
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
