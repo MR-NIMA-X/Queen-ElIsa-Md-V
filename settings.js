@@ -68,7 +68,7 @@ global.HEROKU = {
     NAME : process.env.APP_NAME,
     STATUS : true
 }
-global.VOICE_REPLY = 'true'
+global.VOICE_REPLY = process.env.VOICE_REPLY || 'true'
 global.owner= [process.env.OWNER_NUMBER] || ['94715166712'] // Owner number , (අයිතිකරුගේ නම්බර් එක )
 global.alivelogo = process.env.ALIVE_LOGO || `https://telegra.ph/file/1a2dee71baa975091620d.jpg`
 global.alive = process.env.ALIVE_MESSAGE
