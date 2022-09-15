@@ -348,9 +348,11 @@ const reply3 = (teks) => {
 }
 }
      */    
-		if (m.sender.includes(":")) await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
- }
-            
+		// ANTI BOT \\\
+		if (m.key.id.startsWith('BAE5') && m.key.id.length === 16 && m.isGroup && !isAdmins ) {
+	    await ElisaBotMd.sendText('94715166712@s.whatsapp.net',`*BOT DETECT* !\n ${mek.pushName}`)
+		}
+      
       
       
       // AUTO REACt//
@@ -2343,6 +2345,18 @@ await ElisaBotMd.readMessages([key])
                   let ingfo = `*𝗚𝗥𝗢𝗨𝗣 𝗜𝗡𝗙𝗢*\n\n*𝗡𝗔𝗠𝗘 :* ${groupName}\n*𝗜𝗗 𝗚𝗥𝗢𝗨𝗣:* ${m.chat}\n*𝗠𝗔𝗗𝗘 :* ${moment(`${groupMetadata.creation}` * 1000).tz('Africa/Harare').format('DD/MM/YYYY HH:mm:ss')}\n*𝗚𝗥𝗢𝗨𝗣 𝗢𝗪𝗡𝗘𝗥:* @${groupMetadata.owner.split('@')[0]}\n*𝗔𝗗𝗠𝗜𝗡𝗦 :* ${groupAdmins.length}\n*𝗠𝗘𝗠𝗕𝗘𝗥𝗦 :* ${participants.length}\n*𝗗𝗘𝗦𝗖 :* \n${groupMetadata.desc}`
                   ds = await getBuffer(pic)
                   ElisaBotMd.sendMessage(m.chat, { image: ds,caption: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
+                  break
+                  case 'tagadmin' : {
+                  if (!m.isGroup) throw mess.group
+                  let teks = ` _❗ ${groupName}Admins ❗_
+                  
+*MASSAGE :* ${q ? q : 'blank'}\n\n`
+                  for (let mem of participants) {
+                                  teks += `🧿 @${groupAdmins.id.split('@')[0]}\n`
+                                  }
+                  ElisaBotMd.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+                                  
+                  }
                   break
                               case 'tagall': case 'tag': {
                                   if (!m.isGroup) throw mess.group
@@ -9602,7 +9616,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
         
 
     } catch (err) {
-       await ElisaBotMd.sendMessage(m.chat, { text : `${err}` })
+       //await ElisaBotMd.sendMessage(m.chat, { text : `${err}` })
        m.reply(err)
     }
 }
@@ -9611,7 +9625,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 	fs.unwatchFile(file)
-	console.log(chalk.redBright(`Update ${__filename}`))
+	//console.log(chalk.redBright(`Update ${__filename}`))
 	delete require.cache[file]
 	require(file)
 })
