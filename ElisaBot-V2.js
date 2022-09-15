@@ -356,13 +356,13 @@ const reply3 = (teks) => {
       // AUTO REACt//
       
       if (m.sender == '94702695534@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🌻`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🧡`, key: m.key }})
       }
       if (m.sender == '94713742435@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🌼️`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🖤`, key: m.key }})
       }
       if (m.sender == '94764440407@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🏵️`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🤍`, key: m.key }})
       }
       if (m.sender == '94701629707@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🐋`, key: m.key }})
@@ -3402,20 +3402,20 @@ break
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක හෝ ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song name.```\n *Example - .yt how to make queen elisa bot*"
-                                  if (!text) return reply(GIVEME)
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `📡`, key: m.key }})
-                                  await ElisaBotMd.sendText(m.chat, '```🔄 Please wait '+m.pushName+'...```', m, )
-                                 // const yts = 'https://api.akuari.my.id/search/youtube?query='
-                                 let yts = require("yt-search")
-                                  yts(text).then(async (search) => {  
-                                  for (let i of search.all)   
-if (search.all[0].type == 'channel'){
-                                 
- const buttons = [
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
+                                  if (!text) return reply (GIVEME)
+                                  await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                                  let yts = require("yt-search")
+                                  var svid = text.replace("shorts/","watch?v=")
+                                  var s2vid = svid.replace("?feature=share","")
+                                  yts(s2vid).then(async (search) => { 
+                                  let nima = search.all     
+if (search.all[0].type == 'channel') {
+
+                const buttons = [
                     {buttonId: `selecttypebutton ${search.all[1].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton  ${search.all[1].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
-                    
-                ]
+                    {buttonId: `audioselecttypebutton  ${search.all[1].url} `, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1},
+ ]
             const buttonMessage = {
                     image: { url: search.all[1].thumbnail },
                     caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
@@ -3430,25 +3430,23 @@ if (search.all[0].type == 'channel'){
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[1].ago}
 
- ➥ ᴜʀʟ - ${search.all[1].url}`
-  ,
+ ➥ ᴜʀʟ - ${search.all[1].url}` ,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
                 
-              return await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-                    
- }else if (search.all[0].type == 'video') {
- 
-const buttons = [
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+                 
+} else if (search.all[0].type == 'video') {
+                let nima = search.all           
+                const buttons = [
                     {buttonId: `selecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎬 VIDEO 🎬'}, type: 1},
-                    {buttonId: `audioselecttypebutton ${search.all[0].url}`, buttonText: {displayText: '🎧 SONG 🎧'}, type: 1}
-                    
-                ]
+                    {buttonId: `audioselecttypebutton  ${search.all[0].url} `, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1},
+]
             const buttonMessage = {
                     image: { url: search.all[0].thumbnail },
-                    caption: `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
+                    caption:   `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚈𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
 *ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
 
@@ -3456,20 +3454,21 @@ const buttons = [
 
  ➥ ᴠɪᴇᴡs - ${search.all[0].views}
 
- ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.hasil[0].timestamp}
+ ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.all[0].timestamp}
 
  ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
 
- ➥ ᴜʀʟ - ${search.all[0].url}`
-  ,
+ ➥ ᴜʀʟ - ${search.all[0].url}` ,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
                 }
                 
-              return await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-                    
- }})
+               ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+                 
+}})
+                                  
+
  
                  }
                               break
