@@ -386,7 +386,7 @@ const reply3 = (teks) => {
         }
         }
          //212 BLOCK \\
-       if (m.sender.startsWith("212") && !m.isGroup ) {
+       if (m.sender.startsWith("212") && !m.isGroup && global.NUMBER_212_BLOCK == 'true') {
 ElisaBotMd.sendMessage(from, { react: { text: `📛`, key: m.key }})
 ElisaBotMd.updateBlockStatus(m.sender,'block')
             
@@ -884,48 +884,43 @@ switch(command) {
              })       
              }
              break
-             case 'hi': 'හායි':{
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'hi': case : 'hai' : case 'හායි': {
+             
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
-             case 'mk' :'මොකද කරන්නේ' :{
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'mk': case 'මොකද කරන්නේ' :{
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
-             case 'gn':'night' :{
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'gn': case 'night'{
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              
              }
              break
-             case 'bs': {
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'bs': case 'night' :{
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              
              }
              break
-             case 'gm':'morning': {
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'gm': case 'morning' :{
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
-             case 'bye' :'බායි':{
-             if (global.VOICE_REPLY == 'true'){
-            
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
+             
+             case 'bye' :case 'බායි' :{
+             if (global.VOICE_REPLY == 'false') return
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
              
@@ -1980,13 +1975,8 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
 └───────▢`)
                               }
                               break
-                              case 'Hi': case 'hi': case 'HI': {         
-                              if (isAdmins) return reply (`*👋 Hello Admin ${m.pushName}*`)
-                                  replay(`*👋 Hello... ${m.pushName}*`)
                               
-                              }
-                              break
-                              case 'Thank': case 'thanku': case 'Thnks': case 'Thank': {
+                              case 'thank': case 'thanku': case 'thnks': case 'thank': {
                                   reply(`*🐣 Your are welcome... ${m.pushName}*`)
                               }
                               break
