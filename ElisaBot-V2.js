@@ -287,7 +287,7 @@ const reply3 = (teks) => {
 	}
 	
       // VOICE REPLY
-      if (global.VOICE_REPLY == 'true'){
+     /* if (global.VOICE_REPLY == 'true'){
             if (budy.match(`hi`)) {
          await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
 }
@@ -347,11 +347,11 @@ const reply3 = (teks) => {
    //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
 }
 }
-     */    
+     
 		if (m.sender.includes(":")) await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
  }
             
-      
+    */  
       
       // AUTO REACt//
       
@@ -385,8 +385,12 @@ const reply3 = (teks) => {
         await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
-        
-       
+         //212 BLOCK \\
+       if (m.sender.startsWith("212") && !m.isGroup ) {
+ElisaBotMd.sendMessage(from, { react: { text: `📛`, key: m.key }})
+ElisaBotMd.updateBlockStatus(m.sender,'block')
+            
+            }
 // AUTO MASSAGE REPLY REACT🐣
 
      if (global.AUTO_REACT == 'true' ) {
@@ -880,6 +884,51 @@ switch(command) {
              })       
              }
              break
+             case 'hi': 'හායි':{
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             }
+             break
+             case 'mk' :'මොකද කරන්නේ' :{
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             }
+             break
+             case 'gn':'night' :{
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             
+             }
+             break
+             case 'bs': {
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             
+             }
+             break
+             case 'gm':'morning': {
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             }
+             break
+             case 'bye' :'බායි':{
+             if (global.VOICE_REPLY == 'true'){
+            
+         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+}
+             }
+             break
+             
              case 'apk':{
             
            if (!text) return reply('*👸💬 Please give plastore link*')
@@ -3985,7 +4034,6 @@ text2 = q.split(";")[1]
                                   buf = await getBuffer(media.thumb)
                                   if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
-                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                  // 
                                   ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
@@ -3996,6 +4044,8 @@ text2 = q.split(";")[1]
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
+                await ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                                  
               //  await ElisaBotMd.sendMessage(m.chat,{ delete : upload.key })  
       
       }).catch((err) => reply(NOT_FOUND))
