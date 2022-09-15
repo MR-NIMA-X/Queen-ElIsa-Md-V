@@ -885,7 +885,7 @@ switch(command) {
              }
              break
              
-             case 'hi': case : 'hai' : case 'හායි': {
+             case 'hi': case 'hai' : case 'හායි': {
              
              if (global.VOICE_REPLY == 'false') return
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
