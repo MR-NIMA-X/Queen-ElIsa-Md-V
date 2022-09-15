@@ -4091,7 +4091,7 @@ text2 = q.split(";")[1]
                                    ElisaBotMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: upload.key.id, participant: m.quoted.sender } })
                               }
                               break*/
-                             case 'seleytmp3': case 'seleytaudio': {  
+                             case 'audytmp3': case 'seleytaudio': {  
                          // await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
@@ -4106,16 +4106,16 @@ text2 = q.split(";")[1]
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                   
     
-                                  ElisaBotMd.sendMessage(m.chat, {audio :{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                                  ElisaBotMd.sendMessage(m.chat, {audio:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
                 thumbnail:buf,
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
-                await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+              //  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => m.reply(NOT_FOUND))
-                await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
+                await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
     
                               }
                               break
