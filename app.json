@@ -192,27 +192,27 @@
  "SONG_DOWNLOAD" :{
   "description" : "SONG DOWNLOADING MASSAGE",
   "required" : true,
-  "value" :"false"
+  "value" :"🔁 SERACHING YOUR SONG"
   },
  "SONG_UPLOAD" :{
   "description" : "SONG UPLOADING MASSAGE",
   "required" : true,
-  "value" :"false"
+  "value" :"📤 UPLOADING YOUR SONG"
   },
  "KICK_MASSAGE" :{
   "description" : "KICK MASSAGE",
   "required" : true,
-  "value" :"false"
+  "value" :"BYE BYE !"
   },
  "ADD_MASSAGE" :{
   "description" : "ADD MASSAGE",
   "required" : true,
-  "value" :"false"
+  "value" :"HELLO I AM ADD YOU"
   },
   "LINK_KICK_MASSAGE" :{
   "description" : "ADD MASSAGE",
   "required" : true,
-  "value" :"false"
+  "value" :"link not alowd"
   }
   
   },
