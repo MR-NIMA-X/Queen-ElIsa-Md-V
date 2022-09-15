@@ -2349,8 +2349,8 @@ await ElisaBotMd.readMessages([key])
                   let teks = ` _❗ ${groupName}Admins ❗_
                   
 *MASSAGE :* ${q ? q : 'blank'}\n\n`
-                  for (let mem of participants) {
-                                  teks += `🧿 @${groupAdmins.id.split('@')[0]}\n`
+                  for (let mem of groupAdmins) {
+                                  teks += `🧿 @${mem.id.split('@')[0]}\n`
                                   }
                   ElisaBotMd.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                                   
