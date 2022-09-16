@@ -1550,17 +1550,12 @@ ${ehinima.XX_XX}
                                   let search = await yts(text)
                                   for (let i of search.all)
                                   if(search.length < 1) return reply (  ' NOT FOUND !!! ')
-                                  nima =  `
+                                 const nimamsg =  `
                                       
-╔═════════════════◉
-║    𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝚈𝚝 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍     ║
- ◉═════════════════╝
- `,
-                                      template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                                      listMessage :{
-                                      description: nima,
-                                      buttonText: " SELECT ",
-                                      footerText: ` 
+╔═════════════════════◉
+║    𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝚈𝚝 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍   ║
+ ◉═════════════════════╝
+ 
 🐣 ᴛɪᴛʟᴇ : ${search.all[0].title}
 
 🔍 ɢᴇᴛ ᴛʏᴘᴇ : Search
@@ -1577,9 +1572,9 @@ ${ehinima.XX_XX}
 
 🌀 ᴜʀʟ : ${search.all[0].ago}
 
- `,
-                                      listType: "SINGLE_SELECT",
-                                      sections: [{
+ `
+                                      
+                                      let sections = [{
                                                   "title": `❶ Title - ${search.all[0].title}`,
                                                   "rows": [
                                                       {
@@ -1600,7 +1595,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "Download 720p Video ",
                                                           "description": search.all[0].title,
-                                                          "rowId": `720ytmp4 ${search.all[0].url}`
+                                                          "rowId": `ytmp4 ${search.all[0].url}`
                                                       }
                                                   ]
                                               },
@@ -1625,7 +1620,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[1].title,
-                                                          "rowId": `720ytmp4 ${search.all[1].url}`
+                                                          "rowId": `ytmp4 ${search.all[1].url}`
                                                       }
                                                   ]
                                               },
@@ -1650,7 +1645,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[2].title,
-                                                          "rowId": `720ytmp4 ${search.all[2].url}`
+                                                          "rowId": `ytmp4 ${search.all[2].url}`
                                                       }
                                                   ]
                                               },
@@ -1675,7 +1670,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[3].title,
-                                                          "rowId": `720ytmp4 ${search.all[3].url}`
+                                                          "rowId": `ytmp4 ${search.all[3].url}`
                                                       }
                                                   ]
                                               },
@@ -1700,7 +1695,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[4].title,
-                                                          "rowId": `720ytmp4 ${search.all[4].url}`
+                                                          "rowId": `ytmp4 ${search.all[4].url}`
                                                       }
                                                   ]
                                               },
@@ -1725,7 +1720,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[5].title,
-                                                          "rowId": `720ytmp4 ${search.all[5].url}`
+                                                          "rowId": `ytmp4 ${search.all[5].url}`
                                                       }
                                                   ]
                                               },
@@ -1750,7 +1745,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[6].title,
-                                                          "rowId": `720ytmp4 ${search.all[6].url}`
+                                                          "rowId": `ytmp4 ${search.all[6].url}`
                                                       }
                                                   ]
                                               },
@@ -1775,7 +1770,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[7].title,
-                                                          "rowId": `720ytmp4 ${search.all[7].url}`
+                                                          "rowId": `ytmp4 ${search.all[7].url}`
                                                       }
                                                   ]
                                               },
@@ -1800,7 +1795,7 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[8].title,
-                                                          "rowId": `720ytmp4 ${search.all[8].url}`
+                                                          "rowId": `ytmp4 ${search.all[8].url}`
                                                       }
                                                   ]
                                               },
@@ -1825,17 +1820,14 @@ ${ehinima.XX_XX}
                                                       {
                                                           "title": "🎬  Download 720p Video  ",
                                                           "description": search.all[9].title,
-                                                          "rowId": `720ytmp4 ${search.all[9].url}`
+                                                          "rowId": `ytmp4 ${search.all[9].url}`
                                                       }
                                                   ]
                                               }
                                               
-                                          ],
-                              listType: 1
-                                  }
-                              }), {})
-                              ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                              }
+                                          ]
+                                          await ElisaBotMd.sendListMsg(m.chat, `${nimamsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
+ }
                               break	
                           /*    case 'modapk':{
  ElisaBotMd.sendMessage(from, { react: { text: `📂`, key: m.key }})
