@@ -357,7 +357,7 @@ const reply3 = (teks) => {
       // AUTO REACt//
       
       if (m.sender == '94702695534@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `🧡`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
       }
       if (m.sender == '94713742435@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🖤`, key: m.key }})
@@ -3276,7 +3276,7 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'xvideo': {
-                                  if (!m.isGroup) throw 'Only Group Alowd !*'
+                                  if (m.isGroup) throw  '*CAN\T DOWNLOAD ON GROUPS*'
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
@@ -3291,7 +3291,7 @@ const pipeline = promisify(stream.pipeline)
                               }
                               break
                               case 'downxvid' : {
-                              if (!m.isGroup) throw ' Only Groups'
+                              if (m.isGroup) throw '*CAN\T DOWNLOAD ON GROUPS*'
                                   
 
       // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
@@ -7363,6 +7363,7 @@ ${NIMAMSG}
 │ ${prefix}ehi
 │ ${prefix}apk
 │ ${prefix}modapk
+│ ${prefix}downxvid
 ╰────────────⦁
 
 ╭──❰ *𝚂𝙴𝙰𝚁𝙲𝙷 𝙼𝙴𝙽𝚄* ❱
@@ -7513,6 +7514,7 @@ ${NIMAMSG}
 │ ${prefix}alive
 │ ${prefix}bug
 │ ${prefix}xnxxsh
+│ ${prefix}xvideo
 │ ${prefix}about
 ╰─────────────⦁`
 
@@ -9010,14 +9012,19 @@ var LOGODESC = ''
 if (global.LANG == 'EN') LOGODESC = '_Make logos on logo pack -1_'
 if (global.LANG == 'SI') LOGODESC = '_ලෝගෝ සෑදීම ආකාරය - 1_'
 var LOGODESC_2 = ''
-if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -1_'
-if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 1_'
+if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -2_'
+if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 2_'
+var LOGODESC_3 = ''
+if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -3_'
+if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
  
                       anu = `*LOGO LIST MENU*
 
 🎡 *.logo -* ${LOGODESC}
 
 🎡 *.logo2 -* ${LOGODESC_2}
+
+🎡 *.lpgo3 -* ${LOGODESC_3}
 
  *_Example : .logo1 MR NIMA_*`,
 next = Lang.NEXT_BUTTON
