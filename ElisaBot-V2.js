@@ -3395,7 +3395,7 @@ break
                               }
                               break
                           case 'google': {
-                                  if (!text) throw `Example : ${prefix + command} fatih arridho`
+                                  if (!text) throw `Example : ${prefix + command} queen elisa bot`
                                   await fetchJson(`https://api.akuari.my.id/search/google?query=${text}`)
                                   .then(async (nima) => { 
                                   const res = nima.result
@@ -3405,7 +3405,7 @@ break
                                   teks += `➠ *Description* : ${g.snippet}\n`
                                   teks += `➠ *Link* : ${g.link}\n\n────────────────────────\n\n`
                                   }
-                                  reply(teks)
+                                  reply(`teks`)
                                   }).catch((err) => m.reply(NOT_FOUND))
                                   
                                   }
@@ -7361,6 +7361,8 @@ ${NIMAMSG}
 │ ${prefix}ytmp3
 │ ${prefix}ytmp4
 │ ${prefix}ehi
+│ ${prefix}apk
+│ ${prefix}modapk
 ╰────────────⦁
 
 ╭──❰ *𝚂𝙴𝙰𝚁𝙲𝙷 𝙼𝙴𝙽𝚄* ❱
@@ -7370,6 +7372,8 @@ ${NIMAMSG}
 │ ${prefix}pinterest
 │ ${prefix}wikimedia
 │ ${prefix}ytsearch
+│ ${prefix}apk
+│ ${prefix}modapk
 ╰────────────⦁
 
 ╭──❰ *𝚁𝙰𝙽𝙳𝙾𝙼 𝙼𝙴𝙽𝚄* ❱
@@ -7826,9 +7830,8 @@ desmsg = `
  
  👋 𝗛𝗶  ${pushname}
 
-╭──────[ 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 𝙼𝙳 ]
+╭──────[ ${global.botnma} ]
 │
-│ *𝙱𝙾𝚃 𝙽𝙰𝙼𝙴* : ${global.botnma}
 │
 │ *𝙾𝚆𝙽𝙴𝚁 𝙽𝙰𝙼𝙴* : ${global.ownernma}
 │
@@ -7848,7 +7851,7 @@ desmsg = `
          "title": "ʙᴏᴛ ʟɪsᴛ ᴍᴇɴᴜ ᴄʟɪᴄᴋ ᴀɴᴅ sᴇʟᴇᴄᴛ ʏᴏᴜʀ ᴏᴡɴ",
                                                   "rows": [
                                                       {
-                                                          "title": "❰❰⦁ 𝗚𝗥𝗢𝗨𝗣 𝗖𝗠𝗗 ⦁❱❱",
+                                                          "title": "▷ GROUP MENU ◁",
                                                           "description": Lang.GROUP_CMD_DESC ,
                                                           "rowId": `${prefix}grpmenu`
                                                       }
@@ -7858,84 +7861,76 @@ desmsg = `
                                                   "title": `${global.botnma} *ᗰᗴᑎᑌ* `,
                                                   "rows": [
                                                       {
-                                                          "title": "❰❰⦁ 𝗠𝗘𝗡𝗨 𝗖𝗠𝗗 ⦁❱❱",
-                                                          "description": Lang.ALL_CMD ,
-                                                          "rowId": `${prefix}elisaallmenu`
-                                                      },
-                                                      {
-                                                          "title": "❰❰⦁ 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗖𝗠𝗗 ⦁❱❱",
+                                                          "title": "▷ DOWNLOAD MENU ◁",
                                                           "description": Lang.DOWNLOAD_CMD ,
                                                           "rowId": `${prefix}elisadownloadmenu`
                                                       },
                                                       {
-                                                          "title": "❰❰⦁ 𝗦𝗘𝗔𝗥𝗖𝗛 𝗖𝗠𝗗 ⦁❱❱",
+                                                          "title": "▷ SEARCH MENU ◁",
                                                           "description": Lang.SEARCH_CMD ,
                                                           "rowId": `${prefix}elisasearchmenu`
                                                       },
                                                           {
-                                                              "title": "❰❰⦁ 𝗙𝗨𝗡 𝗖𝗠𝗗 ⦁❱❱",
+                                                              "title": "▷ FUN MENU ◁",
                                                           "description": Lang.FUN_CMD ,
                                                           "rowId": `${prefix}funmenu`
                                                           },
                                                           {
-                                                              "title": "❰❰⦁ 𝗖𝗢𝗡𝗩𝗘𝗥𝗧 𝗖𝗠𝗗 ⦁❱❱",
+                                                              "title": "▷ CONVERT MENU ◁",
                                                           "description": Lang.CONVERT_CMD ,
                                                           "rowId": `${prefix}elisaconvertmenu`
                                                           },
                                                           {
-                                                              "title": "❰❰⦁ 𝗥𝗔𝗡𝗗𝗢𝗠 𝗔𝗡𝗜𝗠𝗘 𝗖𝗠𝗗 ⦁❱❱",
+                                                              "title": "▷ RANDOM ANIME MENU ◁",
                                                           "description": Lang.RANDOM_ANIME ,
                                                           "rowId": `${prefix}elisaranimemenu`
                                                           },
                                                           {
-                                                          "title": "❰❰⦁ 𝗠𝗜𝗦𝗖 𝗖𝗠𝗗 ⦁❱❱",
+                                                          "title": "▷ MISC MENU ◁",
                                                           "description": Lang.MISC_CMD ,
                                                           "rowId": `${prefix}elisanocategorymenu`
                                                           },
                                                           {
-                                                              "title": "❰❰⦁ 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗖𝗠𝗗 ⦁❱❱",
+                                                              "title": "▷ DATABASE MENU ◁",
                                                           "description": Lang.DATABASE_CMD ,
                                                           "rowId": `${prefix}elisadatabasemenu`
                                                           },
                                                           {
-                                                              "title": "❰❰⦁ 𝙇𝙊𝙂𝙊 𝙈𝙀𝙉𝙐 ⦁❱❱",
+                                                              "title": "▷ LOGO MENU ◁",
                                                           "description": Lang.LOGO_CMD ,
                                                           "rowId": `${prefix}logomenu`
                                                           },
                                                           {
-                                                              "title": "❰❰⦁ 𝗩𝗢𝗜𝗖𝗘 𝗖𝗠𝗗 ⦁❱❱",
+                                                              "title": "▷ VOICE MENU ◁",
                                                           "description": Lang.VOICE_CMD ,
                                                           "rowId": `${prefix}elisavoicemenu`
                                                           }
                                                   ]
                                               },
                                               {
-                                                  "title": "❰❰⦁ 𝗖𝗛𝗔𝗧 𝗖𝗠𝗗 ⦁❱❱",
+                                                  "title": "▷ OWNER ◁",
                                                   "rows": [
                                                       {
-                                                          "title": "❰❰⦁ 𝗔𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦 𝗖𝗠𝗗 ⦁❱❱",
-                                                          "rowId": `${prefix}elisaanonymouschatmenu`
-                                                      }
-                                                  ]
-                                              },
-                                              {
-                                                  "title": "❰❰⦁ 𝗢𝗪𝗡𝗘𝗥 ⦁❱❱",
-                                                  "rows": [
-                                                      {
-                                                          "title": "❰❰⦁ 𝗢𝗪𝗡𝗘𝗥 𝗖𝗠𝗗 ⦁❱❱",
+                                                          "title": "▷ OWNER MENU◁",
                                                           "description": Lang.OWNER_CMD ,
                                                           "rowId": `${prefix}ownermenu`
                                                       }
                                                   ]
                                               },
                                               {
-                                                  "title": "❰❰⦁ 𝗖𝗥𝗘𝗗𝗜𝗧𝗦 𝗕𝗢𝗧𝗦 ⦁❱❱",
+                                                  "title": "▷ CREDITS BOT ◁",
                                                   "rows": [
                                                       {
-                                                          "title": "❰❰⦁ 𝘼𝘽𝙊𝙐𝙏 ⦁❱❱",
+                                                          "title": "▷ ABOUT ◁",
                                                           "description": Lang.ABOUT_CMD ,
                                                           "rowId": `${prefix}about`
-                                                      }								]
+                                                      },
+                                                                                                            {
+                                                          "title": "▷ HELPERS ◁",
+                                                          "description": Lang.ABOUT_CMD ,
+                                                          "rowId": `${prefix}helpers`
+                                                      }
+                                                    ]
 							}
 						]
 						await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
@@ -8053,6 +8048,17 @@ footer = global.botnma
                              */
 }
                   break
+case 'helpers' : {
+  await ElisaBotMd.sendText(m.chat,`   *👸 𝙷𝙴𝙻𝙿𝙴𝚁𝚂 👸*
+  
+💞 𝚂𝙻 𝚁𝙴𝙰𝙻 𝚃𝙴𝙲𝙷 
+💞 𝙳𝙰𝚁𝙺 𝙰𝙻𝙿𝙷𝙰
+💞 𝚂𝙰𝙽𝙷𝚆𝙰
+💞 𝚃𝙷𝙰𝚂𝙷𝙸
+
+`)
+}
+break
                   case 'elisadownloadmenu': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
 var TIKTOK = ''
