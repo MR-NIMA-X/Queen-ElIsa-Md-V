@@ -925,10 +925,43 @@ switch(command) {
              break
              
              case 'apk':{
-            
-           if (!text) return reply('*👸💬 Please give plastore link*')
-           if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
-                await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
+/*var P_LINK = ''
+if (global.LANG == 'EN') P_LINK = return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
+if (global.LANG == 'EN') P_LINK = */
+
+           if (!text) return reply('*👸💬 Please give plastore app name*')
+            await ElisaBotMd.sendText(m.chat,mess.wait)
+           await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}`)
+            .then(async (nima) => {  
+           const caption = ` *👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙰𝙿𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*
+
+   ✒ 𝚃𝙸𝚃𝙻𝙴 : ${nima.hasil[0].title}
+   ✒ 𝙿𝙰𝙲𝙺𝙰𝙶𝙴 𝙽𝙰𝙼𝙴 : ${nima.hasil[0].appId}
+   ✒ 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 : ${nima.hasil[0].developer}
+   ✒ 𝚁𝙰𝚃𝙴 : ${nima.hasil[0].scoreText}
+   ✒ 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽 : ${nima.hasil[0].summary}
+   ✒ 𝚄𝚁𝙻 : ${nima.hasil[0].url} `
+   
+   const buttons = [
+                    {buttonId: `getapk ${nima.hasil[0].url}}`, buttonText: {displayText: '🗳️ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴘᴋ 🗳️'}, type: 1},
+                     
+                ]
+            const buttonMessage = {
+                    image: { url: nima.hasil[0].icon },
+                    caption: caption,
+                    footer: global.botnma,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                
+           await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }).catch((err) => m.reply(NOT_FOUND))
+       }
+       break    
+       
+       case 'getapk' : {
+            if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
+           await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
                 await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader2?package=${text}`)
                 .then(async (nima) => {  
                 //const file = nima.apkdownload
@@ -3369,16 +3402,15 @@ break
                               break
                           case 'google': {
                                   if (!text) throw `Example : ${prefix + command} fatih arridho`
-                                  let google = require('google-it')
-                                  google({'query': text}).then(res => {
-                                  let teks = `Google Search From : ${text}\n\n`
+                                  await fetchJson(`https://api.akuari.my.id/search/google?query=${text}`)
+                                  .then(async (res) => { 
+                                  let teks = `*『 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ɢᴏᴏɢʟᴇ sᴇᴀʀᴄʜ 』* \n_🔍 sᴇᴀʀᴄʜ : ${text}_\n\n`
                                   for (let g of res) {
-                                  teks += `🔮 *𝗧𝗜𝗧𝗟𝗘* : ${g.title}\n`
-                                  teks += `🔮 *𝗗𝗘𝗦𝗖𝗥𝗜𝗣𝗧𝗜𝗢𝗡* : ${g.snippet}\n`
-                                  teks += `🔮 *𝗟𝗜𝗡𝗞* : ${g.link}\n\n────────────────────────\n\n`
-                                  } 
+                                  teks += `➠ *Title* : ${g.title}\n`
+                                  teks += `➠ *Description* : ${g.snippet}\n`
+                                  teks += `➠ *Link* : ${g.link}\n\n────────────────────────\n\n`
+                                  }}).catch((err) => m.reply(NOT_FOUND))
                                   reply(teks)
-                                  })
                                   }
                                   break
                           case 'img2' :{
@@ -3436,7 +3468,7 @@ break
                 ]
             const buttonMessage = {
                     image: { url: images },
-                    caption: `*𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙸𝙼𝙰𝙶𝙴 𝙳𝙾𝙽𝙻𝙾𝙰𝙳𝙴𝚁*
+                    caption: `*𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙸𝙼𝙰𝙶𝙴 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁*
 ⦁ *𝚁𝙴𝚀𝚄𝙴𝚂𝚃* : ${text}
 ⦁ *𝙼𝙴𝙳𝙸𝙰 𝚄𝚁𝙻* : ${images}
 ⦁ *𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝚁* :${m.pushName}`,
@@ -4066,7 +4098,7 @@ text2 = q.split(";")[1]
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                 await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})}).catch((err) => m.reply(NOT_FOUND))
-                await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
+                //await ElisaBotMd.sendMessage(m.chat,{delete : upload.key })  
     
                               }
                               break
@@ -5716,6 +5748,12 @@ case 'directkk' : {
        await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
                   }
 break
+case 'findsticker' : case 'searchsticker' : {
+ if (!text) return reply('*👸💬 Please give me sticker pack name*')
+ await fetchJson(`https://api.akuari.my.id/search/stickertelegram?query=${text}`)
+ 
+
+}
 case 'stelegram' :{
 
      if (!text) return reply('👸💬 Please give me a telegram sticker pack link')
