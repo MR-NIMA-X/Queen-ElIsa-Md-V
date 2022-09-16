@@ -898,14 +898,14 @@ switch(command) {
              }
              break
              
-             case 'gn': case 'night'{
+             case 'gn': case 'night' :{
              if (global.VOICE_REPLY == 'false') return
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              
              }
              break
              
-             case 'bs': case 'night' :{
+             case 'bs': {
              if (global.VOICE_REPLY == 'false') return
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              
