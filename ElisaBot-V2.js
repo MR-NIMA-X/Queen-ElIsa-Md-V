@@ -2268,6 +2268,8 @@ await ElisaBotMd.readMessages([key])
                       for (let mem of participants) {
                       //await ElisaBotMd.sendText(m.chat,mem.id) 
                       await sleep(1000)
+                      if(mem.id == botNumber+'@s.whatsapp.net') return
+                      if(mem.id == owner+'@s.whatsapp.net') return
                       await ElisaBotMd.groupParticipantsUpdate(m.chat, [mem.id], 'remove')
                       await ElisaBotMd.sendText(m.chat,`*${mem.id.split('@')[0]} Kick out !!!*`)
                                   }
