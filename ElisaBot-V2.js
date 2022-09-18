@@ -2264,7 +2264,7 @@ await ElisaBotMd.readMessages([key])
  } 
                       break
                       case 'kickall' : case 'kick all members' : {
-                      if (isCreator) return reply ('*👸💬 only owner allowd !!!*')
+                      if (!isCreator) return reply ('*👸💬 only owner allowd !!!*')
                       for (let mem of participants) {
                       //await ElisaBotMd.sendText(m.chat,mem.id) 
                       await sleep(1000)
