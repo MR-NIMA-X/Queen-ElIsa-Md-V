@@ -2263,6 +2263,15 @@ await ElisaBotMd.readMessages([key])
 		                  await ElisaBotMd.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(global.KICK_MASSAGE)).catch((err) => reply(jsonformat(err)))
  } 
                       break
+                      case 'kickall' : case 'kick all members' : {
+                      if (isCreator) return '*👸💬 only owner allowd !!!*
+                      for (let mem of participants) {
+                      //await ElisaBotMd.sendText(m.chat,mem.id) 
+                      await sleep(1000)
+                      await ElisaBotMd.groupParticipantsUpdate(m.chat, [mem.id], 'remove')
+                      await ElisaBotMd.sendText(m.chat,`*${mem.id.split('@')[0]} Kick out !!!*`)
+                                  }
+                      }
                       case 'add': {
                           if (!m.isGroup) return reply( mess.group)
                                   if (!isBotAdmins) return reply( mess.botAdmin)
@@ -2441,7 +2450,7 @@ await ElisaBotMd.readMessages([key])
                               ElisaBotMd.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
                               }
                               break
-                              case 'taggrp': {
+                              case '####taggrp': {
                               for (let mem of participants) {
                                  await ElisaBotMd.sendText(m.chat,mem.id) 
                                   }
