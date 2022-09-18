@@ -2442,7 +2442,10 @@ await ElisaBotMd.readMessages([key])
                               }
                               break
                               case 'taggrp': {
-                              reply(mem)
+                              for (let mem of participants) {
+                                 reply(mem) 
+                                  }
+                              
    }
                               break
                           case 'style': case 'styletext': {
