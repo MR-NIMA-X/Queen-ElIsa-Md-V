@@ -2443,7 +2443,7 @@ await ElisaBotMd.readMessages([key])
                               break
                               case 'taggrp': {
                               for (let mem of participants) {
-                                 reply(mem) 
+                                 await ElisaBotMd.sendText(m.chat,mem.id) 
                                   }
                               
    }
