@@ -2444,7 +2444,7 @@ await ElisaBotMd.readMessages([key])
                               case 'taggrp': {
 text1 = q.split(";")[0]
 text2 = q.split(";")[1]
-                              if (text1.includes('@g.us')) return reply('*👸💬 Please give me correct group jid*')
+                            //  if (text1.includes('@g.us')) return reply('*👸💬 Please give me correct group jid*')
                              const GRPdata = await ElisaBotMd.groupMetadata(text1)
                              const grpmember = await GRPdata.participants
                             //  if (!m.isGroup) throw mess.group
