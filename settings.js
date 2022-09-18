@@ -21,7 +21,7 @@ global.tiktokthub = 'https://telegra.ph/file/d83742c9e0a076364184e.jpg'
 global.pemilik = ['94715166712'] //Change  it , ඔබට කැමති නම් වෙනස් කරන්න
 global.premium = ['94715166712'] //Change it ඔබට කැමතිනම් වෙනස් කරන්න 
 global.pengguna = 'Dark Maker' // Your name ඔබේ නම 
-global.sessionName = 'test-session'
+global.sessionName = 'session'
 global.prefa = ['#','!','/',''] 
 global.sp = '🔵'
 
