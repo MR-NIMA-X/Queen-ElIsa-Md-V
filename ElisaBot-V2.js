@@ -2442,17 +2442,8 @@ await ElisaBotMd.readMessages([key])
                               }
                               break
                               case 'taggrp': {
-text1 = q.split(";")[0]
-text2 = q.split(";")[1]
-                            //  if (text1.includes('@g.us')) return reply('*👸💬 Please give me correct group jid*')
-                             const GRPdata = await ElisaBotMd.groupMetadata(text1)
-                             const grpmember = await GRPdata.participants
-                            //  if (!m.isGroup) throw mess.group
-                            //  let wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
-                             // if (!isAdmins) throw mess.admin
-                             const teks = text2
-                              ElisaBotMd.sendMessage(text1, { text : teks ? teks : '' , mentions: grpmember.map(a => a.id)})
-                              }
+                              reply(mem)
+   }
                               break
                           case 'style': case 'styletext': {
                               /*if (!isPremium && global.db.users[m.sender].limit < 1) return reply(mess.endLimit) // response when limit runs out
@@ -2920,6 +2911,31 @@ case 'xxxxantilink': {
                                   if ((quoted.msg || quoted).seconds > 11) return reply(MAX)
                                   let media = await quoted.download()
                                   let encmedia = await ElisaBotMd.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                                  await fs.unlinkSync(encmedia)
+                              } else {
+                                  throw MA2X
+                                  }
+                              }
+                              break
+                              case 'sticker2': case 'st': case 'stickergif2': case 'sgif2': {
+                              if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
+                            
+                              var MAX = ''
+                              if (global.LANG == 'EN') MAX= '*Maximum 10 seconds videos only!*'
+                              if (global.LANG == 'SI') MAX= '*උපරිම තත්පර 10ක වීඩියෝ පමණයි !*'
+                              var MA2X = ''
+                              if (global.LANG == 'SI') MA2X= '*👸💬 වීඩියෝවකට හෝ ජායාරූපයකට රිප්ලයි ලබාදෙන්න !*'
+                              if (global.LANG == 'EN') MA2X= '*👸💬 Please reply video or photo !*'
+                              
+                               ElisaBotMd.sendText(m.chat, Lang.STICKER_MAKING )
+                                      if (/image/.test(mime)) {
+                                  let media = await quoted.download()
+                                  let encmedia = await ElisaBotMd.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: m.pushName })
+                                  await fs.unlinkSync(encmedia)
+                              } else if (/video/.test(mime)) {
+                                  if ((quoted.msg || quoted).seconds > 11) return reply(MAX)
+                                  let media = await quoted.download()
+                                  let encmedia = await ElisaBotMd.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: m.pushName })
                                   await fs.unlinkSync(encmedia)
                               } else {
                                   throw MA2X
