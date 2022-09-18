@@ -2416,9 +2416,9 @@ await ElisaBotMd.readMessages([key])
                   
 *MASSAGE :* ${q ? q : 'blank'}\n\n`
                   for (let mem of groupAdmins) {
-                                  teks += `🧿 @${mem.id.split('@')[0]}\n`
+                                  teks += `    `
                                   }
-                  ElisaBotMd.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+                  ElisaBotMd.sendMessage(m.chat, { text: teks, mentions: groupAdmins.map(a => a.id) }, { quoted: m })
                                   
                   }
                   break
@@ -2442,11 +2442,16 @@ await ElisaBotMd.readMessages([key])
                               }
                               break
                               case 'taggrp': {
+text1 = q.split(";")[0]
+text2 = q.split(";")[1]
+                              if (text1.includes(@g.us)) return reply('*👸💬 Please give me correct group jid*')
+                             const GRPdata = await ElisaBotMd.groupMetadata(text1).catch(e => {}) : ''
+                             const grpmember = await GRPdata.participants
                             //  if (!m.isGroup) throw mess.group
                             //  let wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
                              // if (!isAdmins) throw mess.admin
-                             const teks = args[1]
-                              ElisaBotMd.sendMessage(args[0]+'@g.us', { text : teks ? teks : '' , mentions: participants.map(a => a.id)})
+                             const teks = text2
+                              ElisaBotMd.sendMessage(text1, { text : teks ? teks : '' , mentions: grpmember.map(a => a.id)})
                               }
                               break
                           case 'style': case 'styletext': {
