@@ -2796,11 +2796,14 @@ case 'xxxxantilink': {
     }
     break
    case 'removebg2' : {
-   
-   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
+       if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`
+    if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
+    if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
+
+   const media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
    await ElisaBotMd.sendText(m.chat,media)
    ElisaBotMd.sendMessage(m.chat, { image: {url :`https://api.akuari.my.id/other/removebg3?link=${media}`} , caption : global.cap  }, { quoted: m })
-                                     
+   await fs.unlinkSync(media)
    }
    break
     /*case 'removebg2'  : {
