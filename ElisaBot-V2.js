@@ -240,9 +240,9 @@ const reply3 = (teks) => {
         	if (m.chat === '120363043491784571@g.us') {
 				  return
 				  }
-			//if (m.chat === '94719574492-1634878051@g.us') {
-	///		      return
-		//	}
+	   	if (m.chat === '94719574492-1634878051@g.us') {
+                 return
+		}
 				  
         //Public & Self\\
         if (!ElisaBotMd.public) {
@@ -250,10 +250,10 @@ const reply3 = (teks) => {
         }
 
         //Push Message To Console && Auto Read\\
-       if (m.message) {
-           // ElisaBotMd.sendReadReceipt(m.chat, m.sender, [m.key.id])
+      /* if (m.message) {
+           ElisaBotMd.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
-        }
+        }*/
      // if (m.message.buttonmessage) {
    //      await ElisaBotMd.sendText('94715166712@s.whatsapp.net' , 'RUN' )
 //       }
@@ -287,73 +287,7 @@ const reply3 = (teks) => {
 	    }
 	}
 	
-      // VOICE REPLY
-     /* if (global.VOICE_REPLY == 'true'){
-            if (budy.match(`hi`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`mk`)) {
-        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
- }
-         if (budy.match(`bye`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`bs`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`gn`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`night`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Gm`)) {
-        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`morning`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Hi`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Mk`)) {
-        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
- }
-         if (budy.match(`Bye`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Bs`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Gn`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Night`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`gm`)) {
-        await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         if (budy.match(`Morning`)) {
-         await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-}
-         
-     /* const word = ["Hi","Mk","Bye","Bs","gn","night","gm","morning"]
-      const voice = ["https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bye.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/bs.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gn.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3","https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/gm.mp3"]
-      for (any in word){
-         if (budy.toLowerCase().includes(word[any])) {
-        const result = voice[any]
-        await ElisaBotMd.sendMessage(m.chat, { audio: {url:result}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
-//await ElisaBotMd.sendText(m.chat, imoji )
-   //      await ElisaBotMd.sendMessage(from, { react: { text: imoji, key: m.key }})
-}
-}
-     
-		if (m.sender.includes(":")) await ElisaBotMd.sendText('94715166712@s.whatsapp.net','bot detect !')
- }
-            
-    */  
-      
+
       // AUTO REACt//
       
       if (m.sender == '94702695534@s.whatsapp.net') {
@@ -497,41 +431,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
          await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
          }}}
 
-        /* if (m.isGroup) {
-         
-         for (any in bad){
-         if (budy.toLowerCase().includes(bad[any])){
-         
-         await ElisaBotMd.sendText(m.chat,'*Bad word detect !*')
-         
-         }
-         }
-         }*/
-      //auto reply 
-        /*for (let anji of setik){
-				if (budy === anji){
-					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
-					ElisaBotMd.sendMessage(m.chat, { sticker: result }, { quoted: m })
-					}
-			}
-			for (let anju of vien){
-				if (budy === anju){
-					result = fs.readFileSync(`./Media/vn/${anju}.mp3`)
-					ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
-					}
-			}
-			for (let anjh of imagi){
-				if (budy === anjh){
-					result = fs.readFileSync(`./Media/image/${anjh}.jpg`)
-					ElisaBotMd.sendMessage(m.chat, { image: result }, { quoted: m })
-					}
-			}
-					for (let anjh of videox){
-				if (budy === anjh){
-					result = fs.readFileSync(`./Media/vid/${anjh}.mp4`)
-					ElisaBotMd.sendMessage(m.chat, { video: result }, { quoted: m })
-					}
-				  }*/
+     
 				  
 				  if (!m.isGroup && global.INBOX_BLOCK == 'on') {  
 				  if (!isCreator) {
@@ -836,43 +736,7 @@ In ${clockString(new Date - user.afkTime)}
         }
 switch(command) {
 
-  /* case 'viewstetus' : {
-		if (from === 'status@broadcast') {
-	    ElisaBotMd.chatRead(from)
-	}
-   }
-   break
-   case 'readmsg' :{
-	   await ElisaBotMd.chatRead(m.chat)
-   }
-   break
-   case 'stetustext' :{
-   const sendjid = 'status@broadcast'
-  await ElisaBotMd.sendText(sendjid,`${text}`)
-  }
-  break
-  case 'stetusimg' :{
-  const sendjid = 'status@broadcast'
-  await ElisaBotMd.sendMessage(sendjid, { image: { url : `${text}`}})
-  break
-  }
-  case 'stetusvideo':{
-  const sendjid = 'status@broadcast'
-  await ElisaBotMd.sendMessage(sendjid, { video: { url : `${text}`}})
-  }
-  break
- case 'getpack': {
-	            ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw '*Enter a App Name *'
-                ElisaBotMd.sendMessage(from, { text: `${pushname} _DOWNLOADING YOUR APK PLEASE WAIT..._` }, { quoted: m })
-                thi = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader?query=${text}`)
-                
-                ElisaBotMd.sendMessage(from, { text: `${pushname} _UPLOADING YOUR APK PLEASE WAIT..._` }, { quoted: m })    
-                await ElisaBotMd.sendMessage(m.chat, { document: { url: thi.apkdownload }, mimetype: 'application/octet-stream', fileName: `${text}.apk`}, { quoted: m })
-            }
-            break
-           
-             */
+
              case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
@@ -1015,7 +879,7 @@ if (global.LANG == 'EN') P_LINK = */
            
             }
             break
-            case 'fb666':{
+            case 'fb3':{
             
             buttons = [
                     {buttonId: `hdfbvid ${text}`, buttonText: {displayText: 'HD VIDEO'}, type: 1},
@@ -1043,9 +907,9 @@ if (global.LANG == 'EN') P_LINK = */
             .then(async (nima) => { 
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
             const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
-       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+     //  await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
        await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.hd }, caption: global.cap}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
-       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+     //  await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      
             
             }
@@ -1055,9 +919,9 @@ if (global.LANG == 'EN') P_LINK = */
             .then(async (nima) => { 
             const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING FB VIDEO...*`, m, )
        const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING FB VIDEO...*`, m, )
-       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+    //   await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
        await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.hasil.sd }, caption: global.cap}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
-       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+  //     await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
             }
            break
 case 'wpaper' :{
@@ -1147,70 +1011,8 @@ await ElisaBotMd.sendMessage(m.chat,{delete : up.key })
 
 }
 break
-/*  case 'thinutiktok' : {
-   
-    
-const cyber = await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`)
-
- 
- await ElisaBotMd.sendText(m.chat,`
-1. ${cyber.author}
- 
-2. ${cyber.author_a}
- 
-3. ${cyber.play_url}
- 
-4. ${cyber.links}
- `)
-
-var request = require("request");
-
-var options = {
-  method: 'GET',
-  url: 'https://api.sdbots.tk//tiktok?url=https://www.tiktok.com/@hadawathhora/video/7067558482706271515',
-}
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error)
-
-  ElisaBotMd.sendText(m.chat,` ${body} `)
-  console.log(body)
-  
-})
-
-const VID = cyber.links[0].a
-
- await ElisaBotMd.sendMessage(m.chat, { video: { url: VID }, caption: cyber.desc }, { quoted: m })
-                             
 
 
-}
-break*/
-
-        case 'userlimit': 
-{      
-   let txt = `「 *ALL LIMIT USER* 」\n\n`
-     for (let i of _limit){
-     txt += `➸ *ID :* @${i.id.split("@")[0]}\n➸ *Limit* : ${i.limit}\n`
-     }
-    reply(txt)       
-  }
- break
- case 'leaderboard':
-{      
-   let txt = `「 *LEADERBOARD* 」\n\n`
-     for (let i of _buruan){
-     txt += `➸ *ID :* ${i.id}\n`
-     txt += `*🐟Fish* : ${i.ikan}\n`
-     txt += `*🐔Chicken* : ${i.ayam}\n`
-     txt += `*🐇Rabbit* : ${i.kelinci}\n`
-     txt += `*🐑Sheep* : ${i.domba}\n`
-     txt += `*🐄Cow* : ${i.sapi}\n`
-     txt += `*🐘Elephant* : ${i.gajah}\n\n`
-     }
-    reply(txt)       
-  }
- break
  case 'timetest' : {
            
            const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -1829,106 +1631,7 @@ ${ehinima.XX_XX}
                                           await ElisaBotMd.sendListMsg(m.chat, `${nimamsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
  }
                               break	
-                          /*    case 'modapk':{
- ElisaBotMd.sendMessage(from, { react: { text: `📂`, key: m.key }})
-          if (!text) throw '✉️✏️ *Enter App Name*'
-             
-               const tgm = await fetchJson(`https://api.akuari.my.id/search/happymod?query=${text}`)
-               const caption = '\n\nTitle : '+tgm.result[0].title+'\n\nLink :'+tgm.result[0].link+'\n\nRating : '+tgm.result[0].rating\n'
-                  let buttons = [
-                    {buttonId: `menu`, buttonText: {displayText: 'MENU'}, type: 1}
-                   
-                    
-                ]
-                let buttonMessage = {
-                    image: { url: tgm.result[0].icon },
-                    caption: caption,
-                    footer: ` ᴄʏʙᴇʀ-x ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ꜱᴛᴀʙʟᴇ`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-                         case 'ttc': case 'ttt': case 'tictactoe': {
-                              let TicTacToe = require("./lib/tictactoe")
-                              this.game = this.game ? this.game : {}
-                              if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return reply (  'You are still in the game'
-                              const room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
-                              if (room) {
-                              reply('Partner found!')
-                              room.o = m.chat
-                              room.game.playerO = m.sender
-                              room.state = 'PLAYING'
-                              const arr = room.game.render().map(v => {
-                              return {
-                              X: '❌',
-                              O: '⭕',
-                              1: '1️⃣',
-                              2: '2️⃣',
-                              3: '3️⃣',
-                              4: '4️⃣',
-                              5: '5️⃣',
-                              6: '6️⃣',
-                              7: '7️⃣',
-                              8: '8️⃣',
-                              9: '9️⃣',
-                              }[v]
-                              })
-                              const str = `Room ID: ${room.id}
-                  
-                  ${arr.slice(0, 3).join('')}
-                  ${arr.slice(3, 6).join('')}
-                  ${arr.slice(6).join('')}
-                  
-                  Waiting @${room.game.currentTurn.split('@')[0]}
-                  
-                  Type *give up* to surrender and admit defeat`
-                              if (room.x !== room.o) await ElisaBotMd.sendText(room.x, str, m, { mentions: parseMention(str) } )
-                              await ElisaBotMd.sendText(room.o, str, m, { mentions: parseMention(str) } )
-                              } else {
-                              room = {
-                              id: 'tictactoe-' + (+new Date),
-                              x: m.chat,
-                              o: '',
-                              game: new TicTacToe(m.sender, 'o'),
-                              state: 'WAITING'
-                              }
-                              if (text) room.name = text
-                              reply('Waiting for partner' + (text ? ` type the command below ${prefix}${command} ${text}` : ''))
-                              this.game[room.id] = room
-                              }
-                              }
-                              break*/
-                             /* case 'get': {
 
-            
-
-                let bicil = require('@bochilteam/scraper')
-
-                let urlnya = text
-
-	            bicil.savefrom(urlnya)
-
-	            .then(async(result) => {	  	                                	                      	            
-
-		        for(let i of result.url) {		
-
-		        if(i.url.includes('mp4')){		           			    				
-
-				let link = await getBuffer(i.url)
-
-                ElisaBotMd.sendMessage(m.chat, { video: link, caption: `*quality ${i.subname}*` }, { quoted: m })                  
-
-               }
-
-              }
-
-            }).catch((err) => m.reply(`*Sorry Future Error*`))
-
-            }		
-
-			break*/
                               case 'delttc': case 'delttt': {
                               this.game = this.game ? this.game : {}
                               try {
@@ -2051,121 +1754,7 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
 await ElisaBotMd.readMessages([key])
                           }
                           break
-                          case 'family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
-                                  if ('family100'+m.chat in _family100) {
-                                      reply('There are still unfinished sessions!')
-                                      throw false
-                                  }
-                                  let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/family100.json')
-                                  let random = anu[Math.floor(Math.random() * anu.length)]
-                                  let hasil = `*Answer the following questions :*\n${random.soal}\n\nThere is *${random.jawaban.length}* Answer ${random.jawaban.find(v => v.includes(' ')) ? `(some answers have spaces)` : ''}`.trim()
-                                  _family100['family100'+m.chat] = {
-                                      id: 'family100'+m.chat,
-                                      pesan: await ElisaBotMd.sendText(m.chat, hasil, m),
-                                      ...random,
-                                      terjawab: Array.from(random.jawaban, () => false),
-                                      hadiah: 6,
-                                  }
-                              }
-                              break
-                              case 'halahkdkdkd': case 'hilihdkksls': case 'huluhkdksls': case 'helehkdkdkd': case 'holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
-                              if (!m.quoted && !text) return reply (  `Send/reply text with caption ${prefix + command}`)
-                              ter = command[1].toLowerCase()
-                              tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-                              reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
-                              break
-                              case 'tebakjxkzkossihdhdidii': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
-                                  if (!text) return reply ( `Example : ${prefix + command} lagu\n\nOption : \n1. music\n2. picture\n3. word\n4. sentence\n5. lyrics\n6.rice cake`)
-                                  if (args[0] === "lagu") {
-                                      if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return reply ( "There are still unfinished sessions!")
-                                      let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      let msg = await ElisaBotMd.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })
-                                      ElisaBotMd.sendText(m.chat, `The song is a song from?\n\nArtist : ${result.artist}\nTime : 60s`, msg).then(() => {
-                                      tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                                      })
-                                      await sleep(60000)
-                                      if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Time Out\nAnswer:  ${tebaklagu[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, ElisaBotMd.user.name, m)
-                                      delete tebaklagu[m.sender.split('@')[0]]
-                                      
-                                      }
-                                  } else if (args[0] === 'gambar') {
-                                      if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) return reply ( "There are still unfinished sessions!")
-                                      let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakgambar.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      ElisaBotMd.sendImage(m.chat, result.img, `Please answer the questions above\n\nDescription : ${result.deskripsi}\nWaktu : 60s`, m).then(() => {
-                                      tebakgambar[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                                      })
-                                      await sleep(60000)
-                                      if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Time has run out\Answer:  ${tebakgambar[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, ElisaBotMd.user.name, m)
-                                      delete tebakgambar[m.sender.split('@')[0]]
-                                      
-                                      }
-                                  } else if (args[0] === 'kata') {
-                                      if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return reply ( "There are still unfinished sessions!")
-                                      let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkata.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      ElisaBotMd.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nTime : 60s`, m).then(() => {
-                                      tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                                      })
-                                      await sleep(60000)
-                                      if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Time has run out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, ElisaBotMd.user.name, m)
-                                      delete tebakkata[m.sender.split('@')[0]]
-                                      
-                                      }
-                                  } else if (args[0] === 'kalimat') {
-                                      if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
-                                      let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkalimat.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      ElisaBotMd.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nTime : 60s`, m).then(() => {
-                                      tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                                      })
-                                      await sleep(60000)
-                                      if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ElisaBotMd.user.name, m)
-                                      delete tebakkalimat[m.sender.split('@')[0]]
-                                      
-                                      }
-                                  } else if (args[0] === 'lirik') {
-                                      if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
-                                      let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaklirik.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      ElisaBotMd.sendText(m.chat, `These are the lyrics of the song? : *${result.soal}*?\nTime : 60s`, m).then(() => {
-                                      tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                                      })
-                                      await sleep(60000)
-                                      if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ElisaBotMd.user.name, m)
-                                      delete tebaklirik[m.sender.split('@')[0]]
-                                      
-                                      }
-                                  } else if (args[0] === 'lontong') {
-                                      if (caklontong.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
-                                      let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/caklontong.json')
-                                      let result = anu[Math.floor(Math.random() * anu.length)]
-                                      ElisaBotMd.sendText(m.chat, `*Answer the following questions :*\n${result.soal}*\nTime : 60s`, m).then(() => {
-                                      caklontong[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                              caklontong_desk[m.sender.split('@')[0]] = result.deskripsi
-                                      })
-                                      await sleep(60000)
-                                      if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
-                                      console.log("Answer: " + result.jawaban)
-                                      ElisaBotMd.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ElisaBotMd.user.name, m)
-                                      delete caklontong[m.sender.split('@')[0]]
-                              delete caklontong_desk[m.sender.split('@')[0]]
                           
-                                      }
-                                  }
-                              }
-                              break
                               case 'ping' : case 'ping2' : {
                               const start = new Date().getTime()
   await ElisaBotMd.sendText(m.chat, '*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
@@ -3206,6 +2795,14 @@ case 'xxxxantilink': {
     })
     }
     break
+   case 'removebg2' : {
+   
+   let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
+   await ElisaBotMd.sendText(m.chat,media)
+   ElisaBotMd.sendMessage(m.chat, { image: {url :`https://api.akuari.my.id/other/removebg3?link=${media}`} , caption : global.cap  }, { quoted: m })
+                                     
+   }
+   break
     /*case 'removebg2'  : {
     
 const got = require('got')
@@ -3630,107 +3227,7 @@ await new Promise(r => setTimeout(r, 2000))
 await ElisaBotMd.sendMessage(from, { react: { text: `🎦`, key: m.key }})
   }
             break
-                         /* case 'song': {
-                           
-                          await ElisaBotMd.sendMessage(from, { react: { text: `🎵`, key: m.key }})
-                                  if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} Alemal`
-                                  await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`, m, )
-                                  let yts = require("yt-search")
-                                 // let search = await yts(text)
-                                  yts(text).then(async (search) => {  
-                                  for (let i of search.all)  
-                                  if(search.all.length < 1) throw Lang.NOT_FOUND 
-                                     
-                                  //buffer = await getbuffer(`${search.all[0].thumbnail}`),
-                              //    link = 'https://youtube.com/c/MRNIMAOFC',
-                                  ngen = `⫷⦁[ *👸 𝙴𝙻𝙸𝚂𝙰 𝚂𝙾𝙽𝙶 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸* ]⦁⫸
 
-*ᴀʙᴏᴜᴛ ʏᴏᴜʀ ʀᴇsᴜʟᴛ...*
-
- ➥ ᴛɪᴛʟᴇ -  ${search.all[0].title}
-
- ➥ ᴠɪᴇᴡs - ${search.all[0].views}
-
- ➥ ᴅᴜʀᴀᴛɪᴏɴ - ${search.all[0].timestamp}
-
- ➥ ᴜᴘʟᴏᴀᴅ ᴏɴ - ${search.all[0].ago}
-
- ➥ ᴜʀʟ - ${search.all[0].url}        
- `
-        
-/*let buttons = [
-{buttonId: `httpinjector`, buttonText: {displayText: ' DOCUMENT '}, type: 1},
-{buttonId: `elisaehi`, buttonText: {displayText: ' AUDIO '}, type: 1},
-
-]
-let buttonMessage = {
-document: fs.readFileSync('./lib/tes.xlsx'),
-mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-jpegThumbnail:buffer,
-mentions: [m.sender],
-fileName: `${global.ownernma}`,
-fileLength: 99999999999999,
-caption: ngen,
-footer: `${global.botnma}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title: `${global.botnma}`,
-body: `𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃`,
-mediaType:2,
-thumbnail: buffer,
-sourceUrl: link,
-mediaUrl: link,
-}}
-}
-ElisaBotMd.sendMessage(m.chat, buttonMessage, {quoted: m })
-                              
-  message = await prepareWAMessageMedia({ image : { url: search.all[0].thumbnail } }, { upload:   ElisaBotMd.waUploadToServer })
-                                  template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                                      templateMessage: {
-                                          hydratedTemplate: {
-                                              imageMessage: message.imageMessage,
-                                              hydratedContentText: ngen,
-                                              hydratedFooterText: global.botnma ,
-                                              hydratedButtons: [{
-                                                  urlButton: {
-                                                      displayText: 'YOUTUBE',
-                                                      url: `${search.all[0].url}`
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: '📁 DOCUMENT 📁',
-                                                      id: `ytmp3 ${search.all[0].url} `
-                                                      }
-                                                  },  {
-                                                  quickReplyButton: {
-                                                      displayText: '🎧 AUDIO 🎧',
-                                                      id: `audytmp3 ${search.all[0].url} `
-                                                      }
-                                                  
-                                              }]
-                                          }
-                                      }
-                                  }), { userJid: m.chat, quoted: m })
-                                    ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })}).catch((err) => m.reply('*Sorry, Can\'t Find your reqest ❗*'))
- 
-    footer = global.botnma
-                 buttons = [
-                    {buttonId: `ytmp3 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
-                    {buttonId: `audytmp3  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
-                    
-                ]
-                let buttonMessage = {
-                    image: { url: search.all[0].thumbnail },
-                    caption: ngen,
-                    footer:footer,
-                    buttons: buttons,
-                    headerType: 4
-                }
-               await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-                 
-                             }
-                              break*/
                               case 'song' : {
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt rosa male natuwe katu*"
