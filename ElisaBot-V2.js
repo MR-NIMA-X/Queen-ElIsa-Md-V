@@ -240,9 +240,9 @@ const reply3 = (teks) => {
         	if (m.chat === '120363043491784571@g.us') {
 				  return
 				  }
-	   	if (m.chat === '94719574492-1634878051@g.us') {
+	  /* 	if (m.chat === '94719574492-1634878051@g.us') {
                  return
-		}
+		}*/
 				  
         //Public & Self\\
         if (!ElisaBotMd.public) {
