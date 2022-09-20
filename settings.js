@@ -99,6 +99,7 @@ global.KICK_MSG = process.env.KICK_MASSAGE || ' '
 global.SONG_DOWN = process.env.SONG_DOWNLOAD || ' ' 
 global.SONG_UP = process.env.SONG_UPLOAD || ' '
 global.NUMBER_212_BLOCK = process.env.NUMBER_212_BLOCK || 'true'
+global.BLOCKCHAT = '120363020593759568,120363024393591085'
 
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')

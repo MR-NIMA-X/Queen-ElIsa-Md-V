@@ -16,6 +16,8 @@ const path = require('path')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
+        
+  
 
 var low
 try {
@@ -68,22 +70,16 @@ async function startElisaBotMd() {
     store.bind(ElisaBotMd.ev)
     
     // anticall auto block
-    ElisaBotMd.ws.on('CB:call', async (json) => {
-    const callerId = json.content[0].attrs['call-creator']
-    if (global.BLOCK_CALL == 'true') return 
-    if (json.content[0].tag == 'offer') {
-    let pa7rick = await ElisaBotMd.sendContact(callerId, global.owner)
-    ElisaBotMd.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : pa7rick })
-    await sleep(8000)
-    await ElisaBotMd.updateBlockStatus(callerId, "block")
     
-    }
-    })
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
         mek = chatUpdate.messages[0]
+        if (!global.BLOCKCHAT == 'false'){
+        var abc = global.BLOCKCHAT.split(',')                       
+            if(mek.key.remoteJid.includes('-') ? abc.includes(mek.key.remoteJid.split('@')[0]) : abc.includes(mek.participant ? mek.participant.split('@')[0] : mek.key.remoteJid.split('@')[0])) return 
+        }
        // console.log(mek)
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
@@ -611,7 +607,7 @@ startElisaBotMd()
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 	fs.unwatchFile(file)
-	//console.log(chalk.redBright(`Update ${__filename}`))
+	console.log(chalk.redBright(`Update ${__filename}`))
 	delete require.cache[file]
 	require(file)
 })
