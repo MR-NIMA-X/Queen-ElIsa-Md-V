@@ -77,8 +77,8 @@ async function startElisaBotMd() {
         try {
         mek = chatUpdate.messages[0]
         if (!global.BLOCKCHAT == 'false'){
-        var abc = global.BLOCKCHAT.split(',')                       
-            if(mek.key.remoteJid.includes('-') ? abc.includes(mek.key.remoteJid.split('@')[0]) : abc.includes(mek.participant ? mek.participant.split('@')[0] : mek.key.remoteJid.split('@')[0])) return 
+        const abc = global.BLOCKCHAT.split(',')                       
+            if(mek.key.remoteJid.includes(abc)) return 
         }
        // console.log(mek)
         if (!mek.message) return
@@ -88,7 +88,7 @@ async function startElisaBotMd() {
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
       
         m = smsg(ElisaBotMd, mek, store)
-        require("./ElisaBot-V2")(ElisaBotMd, m, chatUpdate, store)
+        require("https://raw.githubusercontent.com/MR-NIMA-X/Queen-Elisa-MD-2.1.0-V/main/ElisaBot-V2.js?token=GHSAT0AAAAAABYL4Y4MN5M75UHQUZSNRRQYYZJZS7A")(ElisaBotMd, m, chatUpdate, store)
         } catch (err) {
             console.log(err)
         }
