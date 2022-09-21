@@ -3573,10 +3573,63 @@ audio ${dl_url4}
                           })
                           }
                           break
+                          case 'yt2' : {
+                          if (!text) return m.reply('Please Give me a youtube link')
+                          await ElisaBotMd.sendText(m.chat,mess.wait)
+                          let boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(`${text}`)
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['480p'].download()
+                          const dl_url3 = await nima.video['240p'].download()
+                          const dl_url2 = await nima.video['720p'].download()
+                          const dl_url4 = await nima.audio['128kbps'].download()
+                         
+           const buttons = [
+  {buttonId: `directvideodown ${dl_url3}`, buttonText: {displayText: '240P'}, type: 1},
+  {buttonId: `directvideodown ${dl_url}`, buttonText: {displayText: '480P'}, type: 1},
+  {buttonId: `directaudiodown ${dl_url4}`, buttonText: {displayText: 'AUDIO'}, type: 1}
+]
+
+const buttonMessage = {
+    image: {url: nima.thubnail},
+    caption: `╭────[👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 👸] 
+│
+◯ ᴛɪᴛʟᴇ : ${nima.title}
+
+◯ ᴠɪᴅᴇᴏ ɪᴅ : ${nima.id}
+
+◯ ʀᴇǫᴜsᴛᴇʀ : ${m.pushName}
+│
+╰────────────◯`,
+    footer: global.botnma,
+    buttons: buttons,
+    headerType: 4
+}
+
+await ElisabotMd.sendMessage(m.chat, buttonMessage)
+})
+                          }
+                          break
                           case 'tiktokjson' : {
                           let bocil = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    bocil.tiktokdlv3(`${text}`).then(async (video) => {  
+   reply(`${jsonformat(video)}`)
+     })  
+                          }
+                          break
+                          case 'tiktokjson2' : {
+                          let bocil = require('@bochilteam/scraper')    
+ //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
+   bocil.tiktokdlv2(`${text}`).then(async (video) => {  
+   reply(`${jsonformat(video)}`)
+     })  
+                          }
+                          break
+                          case 'tiktokjson3' : {
+                          let bocil = require('@bochilteam/scraper')    
+ //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
+   bocil.tiktokdl(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
      })  
                           }
@@ -3598,7 +3651,36 @@ audio ${dl_url4}
        await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
                   
                           }
-                          
+                          break
+case 'directvideodown' : {
+var DOWNLOAD = ''
+if (global.LANG == 'SI' ) DOWNLOAD = '*📥 ඔබගේ වීඩියෝව බාගත කරමින් පවති...*'
+if (global.LANG == 'EN' ) DOWNLOAD = '*📥 DOWNLOADING YOUR VIDEO...*'
+var UPLOAD = ''
+if (global.LANG == 'SI' ) UPLOAD = '*📤 ඔබගේ විඩියෝව ඔබවෙත එවමින් පවතී...*'
+if (global.LANG == 'EN' ) UPLOAD = '*📤 UPLOADING YOUR VIDEO...*'
+       const down = await ElisaBotMd.sendText(m.chat,DOWNLOAD, m, )
+       const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+       buf = await getBuffer(thub.SF_THUB)
+       const up = await ElisaBotMd.sendText(m.chat,UPLOAD, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, mimetype: 'video/mp4', fileName: `${text}.mp4`,jpegThumbnail:buf, caption: global.cap }, { quoted: m })
+       //await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, caption: global.cap}, { quoted: m })
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                  }
+break
+case 'directaudiodown' : {
+
+       const down = await ElisaBotMd.sendText(m.chat,globa.SONG_DOWN, m, )
+       const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+       buf = await getBuffer(thub.SF_THUB)
+       const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP, m, )
+       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
+       await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, mimetype: 'video/mp4', fileName: `${text}.mp4`,jpegThumbnail:buf, caption: global.cap }, { quoted: m })
+       //await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, caption: global.cap}, { quoted: m })
+       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+                  }
+break
                           case 'ytmp3': case 'ytaudio': {  
                           //await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
@@ -5295,14 +5377,7 @@ const img = tknima.cover
 
 }
 break*/
-case 'directkk' : {
-       const down = await ElisaBotMd.sendText(m.chat, `*📥 DOWNLOADING TIKTOK VIDEO...*`, m, )
-       const up = await ElisaBotMd.sendText(m.chat, `*📤 UPLOADING TIKTOK VIDEO...*`, m, )
-       await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
-       await ElisaBotMd.sendMessage(m.chat, { video: { url: text }, caption: global.cap}, { quoted: m })
-       await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
-                  }
-break
+
 case 'findsticker' : case 'searchsticker' : {
  if (!text) return reply('*👸💬 Please give me sticker pack name*')
  await fetchJson(`https://api.akuari.my.id/search/stickertelegram?query=${text}`)
