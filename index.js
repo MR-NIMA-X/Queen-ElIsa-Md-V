@@ -73,7 +73,7 @@ async function startElisaBotMd() {
     
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
-    await ElisaBotMd.sendPresenceUpdate('unavailable')
+   // await ElisaBotMd.sendPresenceUpdate('unavailable')
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
         mek = chatUpdate.messages[0]

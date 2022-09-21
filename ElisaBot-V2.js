@@ -3573,6 +3573,14 @@ audio ${dl_url4}
                           })
                           }
                           break
+                          case 'tiktokjson' : {
+                          let bocil = require('@bochilteam/scraper')    
+ //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
+   bocil.tiktokdlv3(`${text}`).then(async (video) => {  
+   reply(`${jsonformat(video)}`)
+     })  
+                          }
+                          break
                           case 'savevid' : {
                           let boltc = require('@bochilteam/scraper')
                           boltc.savefrom(text)
