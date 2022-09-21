@@ -3563,7 +3563,22 @@ text2 = q.split(";")[1]
                           const dl_url = await nima.video['360p'].download()
                           const dl_url3 = await nima.video['240p'].download()
                           const dl_url2 = await nima.video['720p'].download()
+                          const dl_url4 = await nima.audio['128kbps'].download()
+                          await ElisaBotMd.sendText(m.chat,`
+360 ${dl_url}
+240 ${dl_url2}
+720 ${dl_url3}
+audio ${dl_url4}
+                          `)
                           })
+                          }
+                          break
+                          case 'savevid' : {
+                          let boltc = require('@bochilteam/scraper')
+                          boltc.savefrom(text)
+                         .then(async(result) => {
+	                     reply(`${jsonformat(result)}`)
+	                     })
                           }
                           break
                           case 'directvideo4' : {

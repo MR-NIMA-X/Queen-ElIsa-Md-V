@@ -70,7 +70,7 @@ async function startElisaBotMd() {
     store.bind(ElisaBotMd.ev)
     
     // anticall auto block
-    
+    ElisaBotMd.sendPresenceUpdate('unavailable')
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
@@ -78,7 +78,7 @@ async function startElisaBotMd() {
         mek = chatUpdate.messages[0]
         //if (!global.BLOCKCHAT == 'false'){
         const abc = global.BLOCKCHAT.split(',')                       
-            if(mek.key.remoteJid.includes(abc)) return 
+            if(mek.key.includes(abc)) return 
        // }
        // console.log(mek)
         if (!mek.message) return
