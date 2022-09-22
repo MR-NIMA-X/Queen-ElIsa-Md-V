@@ -3606,7 +3606,7 @@ const buttonMessage = {
     headerType: 4
 }
 
-await ElisabotMd.sendMessage(m.chat, buttonMessage)
+await ElisaBotMd.sendMessage(m.chat, buttonMessage)
 })
                           }
                           break
@@ -3671,7 +3671,7 @@ if (global.LANG == 'EN' ) UPLOAD = '*📤 UPLOADING YOUR VIDEO...*'
 break
 case 'directaudiodown' : {
 
-       const down = await ElisaBotMd.sendText(m.chat,globa.SONG_DOWN, m, )
+       const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
        const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
        buf = await getBuffer(thub.SF_THUB)
        const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP, m, )
