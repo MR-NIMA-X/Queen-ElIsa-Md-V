@@ -840,7 +840,7 @@ if (global.LANG == 'EN') P_LINK = */
                          }
             break
             case 'modapk' :{
-            await ElisaBotMd.sendText(m.chat,'```Please Wait ...```') 
+            await ElisaBotMd.sendText(m.chat,mess.wait) 
             await fetchJson(`https://api.akuari.my.id/search/searchmod?query=${text}`)
             .then(async (nima) => {  
             const search = nima.respon
@@ -2327,7 +2327,7 @@ case 'xxxxantilink': {
                               case 'linkgroup': case 'grouplink': case 'gclink': case 'linkgc': {
                                   if (!m.isGroup) throw mess.group
                                   let response = await ElisaBotMd.groupInviteCode(m.chat)
-                                  ElisaBotMd.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink of: ${groupMetadata.subject} Group`, m, { detectLink: true })
+                                  ElisaBotMd.sendText(m.chat, `*🖇️Link Of :* ${groupMetadata.subject} *Group*\n\nhttps://chat.whatsapp.com/${response}`, m, { detectLink: true })
                               }
                               break
                               case 'ephemeral': {
@@ -2349,7 +2349,17 @@ case 'xxxxantilink': {
                                   ElisaBotMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
                               }
                               break
-                              case 'bcgctext' :{
+                              case 'clear' : {
+                              if(!isCreator) return
+const lastMsgInChat = await getLastMessageInChat(m.chat) // implement this on your end
+await ElisaBotMd.chatModify({
+  delete: true,
+  lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
+},
+m.chat)
+                              }
+                              break
+                              case 'bctext' :{
                               if (!isCreator) return reply( mess.owner)
                               if (!text) throw `${Lang.BC_GC}\n${Lang.EXAMPLE} ${prefix + command} *Hello i am using queen elisa 🤍*`
                                   let getGroups = await ElisaBotMd.groupFetchAllParticipating()
@@ -2359,9 +2369,11 @@ case 'xxxxantilink': {
                                   for (let i of anu) {
                                       await sleep(1500)
                                   await ElisaBotMd.sendText(i,`『 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ʙʀᴏᴀᴅᴄᴀsᴛ 』${text}`)
+                                  //reply (`*Successful Sending Broadcast To ${anu.length} Group(s)*`)
+                                  }
                                   reply (`*Successful Sending Broadcast To ${anu.length} Group(s)*`)
                                   
-                                  }
+                                  
                                 }
                               break
                               case 'bcimg' : {
@@ -3119,7 +3131,7 @@ if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ව�
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video or song name.```\n *Example - .yt how to make queen elisa bot*"
                                   await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                                   if (!text) return reply (GIVEME)
-                                  await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                                  await ElisaBotMd.sendText(m.chat,mess.wait, m, )
                                   let yts = require("yt-search")
                                   var svid = text.replace("shorts/","watch?v=")
                                   var s2vid = svid.replace("?feature=share","")
@@ -3238,7 +3250,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
 
                               await ElisaBotMd.sendMessage(from, { react: { text: `🎵`, key: m.key }})
                                   if (!text) return reply(GIVEME)
-                                  await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`, m, )
+                                  await ElisaBotMd.sendText(m.chat, mess.wait, m, )
                                   let yts = require("yt-search")
                                  // let search = await yts(text)
                                   yts(text).then(async (search) => {  
@@ -3283,7 +3295,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                                   if (!text) return reply (GIVEME)
-                                  await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                                  await ElisaBotMd.sendText(m.chat, mess.wait, m, )
                                   let yts = require("yt-search")
                                   var svid = text.replace("shorts/","watch?v=")
                                   var s2vid = svid.replace("?feature=share","")
@@ -3358,8 +3370,9 @@ if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ග�
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song2 lelena*"
 text1 = q.split(";")[0]
 text2 = q.split(";")[1]
+await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
 
-                          await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
+                          //await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
                                   if (!text) return reply (GIVEME)
                                   let yts = require("yt-search")
                                   //const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
@@ -3368,23 +3381,50 @@ text2 = q.split(";")[1]
                                   
                                   let nima = search.all
                                   let { yta } = require('./lib/y2mate')
-                                  let quality = args[1] ? args[1] : '256kbps'
+                                  let quality = args[1] ? args[1] : '128kbps'
                                   let media = await yta(search.all[0].url , quality)
                                   buf = await getBuffer(media.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   //const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
-                                  if ( text2 === 'audio' ){
-                                  if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  await ElisaBotMd.sendMessage(m.chat, { audio: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                  return await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   
-                                  }
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  await ElisaBotMd.sendMessage(m.chat, { document: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, { document: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
                                   await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+
+                                  }).catch((err) => m.reply(NOT_FOUND))
+                           }
+                          break  
+                          case 'audiosong2' : {
+var GIVEME = ''
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song2 lelena*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song2 lelena*"
+
+await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
+
+                          //await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
+                                  if (!text) return reply (GIVEME)
+                                  let yts = require("yt-search")
+                                  //const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
+                                  const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
+                                  yts(text).then(async (search) => {  
                                   
-                                  }).catch((err) => m.reply(err))
+                                  let nima = search.all
+                                  let { yta } = require('./lib/y2mate')
+                                  let quality = args[1] ? args[1] : '128kbps'
+                                  let media = await yta(search.all[0].url , quality)
+                                  buf = await getBuffer(media.thumb)
+                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                                  //const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
+                                  const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
+                                  
+                                  if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, { audio : { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+
+                                  }).catch((err) => m.reply(NOT_FOUND))
                            }
                           break  
                           case 'song3' : {
@@ -3467,7 +3507,7 @@ text2 = q.split(";")[1]
                           return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
                          
                           }
-                    m.reply('```⏳ Please wait ' + m.pushName +'...```')
+                    m.reply(mess.wait)
                     const yts = require("yt-search")
                     const nima = await yts(text)
                     const search = nima.all
@@ -3849,7 +3889,7 @@ break
 
                                   let { ytv } = require('./lib/y2mate')
                                   if (!text) return reply( `${Lang.EXAMPLE}\n ${prefix + command} https://youtube.com/watch?v=on3sJ8OlH8M`)
-                                  const load = await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`, m, )
+                                  const load = await ElisaBotMd.sendText(m.chat, mess.wait, m, )
                                   let quality = args[1] ? args[1] : '360p'
                                   await ytv(text, quality)
                                   .then(async (media) => { 
@@ -3899,7 +3939,7 @@ break
                               
                                   let { ytv } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtFMhcag%27 360p`
-                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                                  const load = await ElisaBotMd.sendText(m.chat,mess.wait, m, )
                                   let quality = args[1] ? args[1] : '360p'
                                   await ytv(text, quality)
                                   .then(async (media) => { 
@@ -5477,7 +5517,7 @@ let { ytv } = require('./lib/y2mate2')
 if (!text) return reply(`${Lang.EXAMPLE}\n : ${prefix + command} https://youtube.com/watch?v=RNa4thokVJ4 360p`)
 if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid!`)
 await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
-const load = await ElisaBotMd.sendText(m.chat, `*🔄 Please wait ${m.pushName}...*`)
+const load = await ElisaBotMd.sendText(m.chat,mess.wait)
 let quality = args[1] ? args[1] : '360p'
 let media = await ytv(text, quality)
 if (media.filesize >= 100000)  {
@@ -6406,7 +6446,7 @@ break
     
     if (!text) throw '*Please Give me a link*'
    buf = await getBuffer(thub.SF_THUB)
-   const download = await ElisaBotMd.sendText(m.chat, ` *Please Wait ${global.botnma} Prosesing Your  ${m.pushName} Video ... 🔄*`)
+   const download = await ElisaBotMd.sendText(m.chat, mess.wait)
 
                 let bicil = require('@bochilteam/scraper')
 
