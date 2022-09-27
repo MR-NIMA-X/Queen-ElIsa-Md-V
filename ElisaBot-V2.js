@@ -756,7 +756,39 @@ switch(command) {
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
-             
+             case 'fancy' : {
+             if(!text) return reply('*👸💬 Need some text*\n _ex_ .fancy Queen Elisa')
+             await ElisaBotMd.sendText(m.chat,mess.wait)
+             const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/tools/styletext?text=${text}`)
+             const search = nima.result
+             let sections = []   
+  for (let i of search) {
+  const list = { title: `👸 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ғᴀɴᴄʏ ᴛᴇxᴛ 👸`,
+   rows :[
+	    {
+	     title: `${i.result}`, 
+	     rowId: `genfancy ${i.result} `   
+	    }
+	    ]
+     }
+     sections.push(list)   
+     }
+  const sendm =  ElisaBotMd.sendMessage(
+      m.chat, 
+      {
+       text: `${text} *Here is the list of Fancy Texts, click the button below to choose*\n\n${m.pushName}`,
+       footer: `${global.botnma}`,
+       title: `◯═══════════◯
+${global.botnma} Fancy Text List
+🗳️ Your text : ${text}`,
+       buttonText: "GET FANCY TEXT",
+       sections
+      }, { quoted : m })
+             }
+             break
+             case 'genfancy' : {
+             m.reply(text)
+             break
              case 'mk': case 'මොකද කරන්නේ' :{
              if (global.VOICE_REPLY == 'false') return
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
@@ -3260,8 +3292,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                               
                 const footer = global.botnma
                 const buttons = [
-                    {buttonId: `ytmp3 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
-                    {buttonId: `audytmp3  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
+                    {buttonId: `song2 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
+                    {buttonId: `audiosong2  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
@@ -3389,8 +3421,14 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, { document: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${media.title}`,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
 
                                   }).catch((err) => m.reply(NOT_FOUND))
@@ -3420,8 +3458,14 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, { audio : { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${media.title}`,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
 
                                   }).catch((err) => m.reply(NOT_FOUND))
@@ -3456,7 +3500,7 @@ text2 = q.split(";")[1]
                                   await ElisaBotMd.sendMessage(m.chat, { document: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
                                   await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   
-                          }).catch((err) => m.reply('*CAN\'T DOWNLOAD !!!*'))
+                          }).catch((err) => m.reply(err))
                           }
                           break
                           case 'video3' :{
@@ -3817,8 +3861,8 @@ break
 ╰──────◉
 `,
                             buttons = [
-                                          { buttonId: `seleytmp3 ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
-                                          { buttonId: `audytmp3 ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
+                                          { buttonId: `song2 ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
+                                          { buttonId: `audiosong2 ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
                                       ]
                                       await ElisaBotMd.sendButtonText(m.chat, buttons, YTMASS, `𝙶𝙴𝙽𝙴𝚁𝙰𝚃𝙴𝙳 𝙱𝚈 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 ` ,m)
                                   }
@@ -3840,7 +3884,7 @@ break
                                    ElisaBotMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: upload.key.id, participant: m.quoted.sender } })
                               }
                               break*/
-                             case 'audytmp3': case 'seleytaudio': {  
+                             case 'audio': case 'seleytaudio': {  
                          // await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
