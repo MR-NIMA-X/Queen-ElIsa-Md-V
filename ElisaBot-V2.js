@@ -788,6 +788,7 @@ ${global.botnma} Fancy Text List
              break
              case 'genfancy' : {
              m.reply(text)
+             }
              break
              case 'mk': case 'මොකද කරන්නේ' :{
              if (global.VOICE_REPLY == 'false') return
