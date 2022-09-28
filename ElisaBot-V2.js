@@ -29,6 +29,7 @@ var NOT_FOUND = ''
   if (global.LANG == 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
   if (global.LANG == 'SI') NOT_FOUND = '*🚫💬 මට කිසිවක් සොයාගත නොහැකිවිය !*'
 
+const BOT_VERSION = '2.2.0'
 //rpg function\\
    const { 
      addInventoriDarah, 
@@ -7369,16 +7370,34 @@ _I am alive now 😼_
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
                           await ElisaBotMd.sendMessage(m.chat, { audio: {url :'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
               if (global.alive === 'default') {
+              const © = '```'
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
               
                  let buttons = [
                     {buttonId: `menu`, buttonText: {displayText: 'ᴍᴇɴᴜ'}, type: 1},
-                    {buttonId: `ping`, buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1}
+                    {buttonId: `owner`, buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1}
                     
                 ]
                 let buttonMessage = {
                     image: { url: global.alivelogo },
-                    caption:'```👸 Queen Elisa Bot is online 👸```\n\n_Queen elisa is public whatsapp user bot deploy by darkmaker_\n\n\n*🦄 Queen Elisa Public Group ✨*\n```https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N```\n*🧑‍💻 Deploy Elisa Bot*\n```nimaelisa.cf```\n\n\n```THANKS FOR USING QUEEN ELISA```' ,
+                    caption:`${©}◈ Queen Elisa Bot is Online ◈${©}
+
+*( ᴅᴇᴘʟᴏʏ ) ▽* 
+ _http://github.com/darkmakerofc_
+*( ᴏᴡɴᴇʀ ) ▽* 
+_${global.owner}_
+*( ᴘᴜʙʟɪᴄ ɢʀᴏᴜᴘ ) ▽*
+_https://chat.whatsapp.com/BbIpvkRD4qP6xKckb8cpT0_
+*( ᴠᴇʀsɪᴏɴ ) ▽*
+ _${BOT_VERSION}_
+*( ʏᴏᴜᴛᴜʙᴇ ) ▽*
+ _https://youtube.com/MRNIMAOFC_
+
+*[ ⏱️ ʀᴜɴ ᴛɪᴍᴇ ⏱️] ▽*
+${runtime(process.uptime())}
+
+${©}💗 THANKS FOR USING QUEEN ELISA 💗${©}
+`,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
