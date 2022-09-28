@@ -7370,7 +7370,7 @@ _I am alive now 😼_
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
                           await ElisaBotMd.sendMessage(m.chat, { audio: {url :'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
               if (global.alive === 'default') {
-              const © = '```'
+              const ita = '```'
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
               
                  let buttons = [
@@ -7380,7 +7380,7 @@ _I am alive now 😼_
                 ]
                 let buttonMessage = {
                     image: { url: global.alivelogo },
-                    caption:`${©}◈ Queen Elisa Bot is Online ◈${©}
+                    caption:`${ita}◈ Queen Elisa Bot is Online ◈${ita}
 
 *( ᴅᴇᴘʟᴏʏ ) ▽* 
  _http://github.com/darkmakerofc_
@@ -7396,7 +7396,7 @@ _https://chat.whatsapp.com/BbIpvkRD4qP6xKckb8cpT0_
 *[ ⏱️ ʀᴜɴ ᴛɪᴍᴇ ⏱️] ▽*
 ${runtime(process.uptime())}
 
-${©}💗 THANKS FOR USING QUEEN ELISA 💗${©}
+${ita}💗 THANKS FOR USING QUEEN ELISA 💗${ita}
 `,
                     footer: global.botnma,
                     buttons: buttons,
