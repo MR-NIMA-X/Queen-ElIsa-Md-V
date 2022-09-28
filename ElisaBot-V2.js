@@ -3460,7 +3460,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, {audio:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`${media.title}`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
@@ -7216,6 +7216,7 @@ ${NIMAMSG}
 ╭────❰ *𝙻𝙾𝙶𝙾 𝙼𝙴𝙽𝚄* ❱   
 │ ${prefix}logo
 │ ${prefix}logo2
+│ ${prefix}logo3
 ╰──────────────⦁
 
 ╭───❰ 𝙾𝚆𝙽𝙴𝚁 𝙼𝙴𝙽𝚄 ❱
@@ -8710,35 +8711,7 @@ back = Lang.BACK_BUTTON
                     headerType: 4
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-          
-                        /*message = await prepareWAMessageMedia({ image : { url: 'https://telegra.ph/file/4c48b566ce23dd180d1be.jpg' } }, { upload:   ElisaBotMd.waUploadToServer })
-                                  template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                                      templateMessage: {
-                                          hydratedTemplate: {
-                                              imageMessage: message.imageMessage,
-                                              hydratedContentText: anu ,
-                                              hydratedFooterText: global.botnma ,
-                                              hydratedButtons: [{
-                                                  urlButton: {
-                                                      displayText: '❰ ʏᴏᴜᴛᴜʙᴇ ❱' ,
-                                                      url: 'https://youtube.com/c/MRNIMAOFC'
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: `${back}` ,
-                                                      id: 'elisadatabasemenu'
-                                                      }
-                                                  },  {
-                                                  quickReplyButton: {
-                                                      displayText: `${next}` ,
-                                                      id: 'logomenu'
-                                                      }
-                                              }]
-                                          }
-                                      }
-                                  }), { userJid: m.chat, quoted: m })
-                                    ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                             */
+         
 }
                   break
                   case 'logomenu': {  
@@ -8752,8 +8725,8 @@ var LOGODESC_2 = ''
 if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -2_'
 if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 2_'
 var LOGODESC_3 = ''
-if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -3_'
-if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
+if (global.LANG == 'EN') LOGODESC_3 = '_Make logos on logo pack -3_'
+if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
  
                       anu = `*LOGO LIST MENU*
 
