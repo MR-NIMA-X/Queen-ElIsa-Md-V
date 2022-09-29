@@ -1060,7 +1060,7 @@ break
            
            const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
            var utch = new Date().toLocaleDateString( get_localized_date)
-           var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
+           var time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
            const biography = '📅 ' + utch + '\n⌚ ' + time + '\n\n'+'👸💬 𝚀𝚞𝚎𝚎𝚗 𝙴𝚕𝚒𝚜𝚊 𝚒𝚜 𝚘𝚗𝚕𝚒𝚗𝚎'
 
       
@@ -7054,7 +7054,7 @@ case 'menu': case 'panel':{
   
            const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
            var utch = new Date().toLocaleDateString( get_localized_date)
-           var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
+           var time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
            const biography = '*📅 ᴛᴏᴅᴀʏ ɪs :* ' + utch + '\n*⌚ ɴᴏᴡ ᴛɪᴍᴇ :* ' + time
 
                                  message = await prepareWAMessageMedia({ image : { url: global.alivelogo} }, { upload:   ElisaBotMd.waUploadToServer })
@@ -7348,7 +7348,7 @@ const templateMessage = {
 _I am alive now 😼_
 *╔═══════════════════╗*
 *║📆* *${thisDay}*, *${day}*                                           
-*║⌚* *${moment.tz('asia/colombo').format('HH:mm:ss')}*                                                    
+*║⌚* *${moment.tz(TIME_ZONE).format('HH:mm:ss')}*                                                    
 *╚═══════════════════╝*
 *┃Owner 🎩:* _${global.ownername}_
 *┃Version 🧚:* _1.0.1_
@@ -7441,7 +7441,7 @@ ${ita}💗 THANKS FOR USING QUEEN ELISA 💗${ita}
                               break
                   /* case 'command': case 'list' : case 'cmmd' : {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🗒️`, key: m.key }})
-                   var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
+                   var time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
                    ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                                   listMessage :{
@@ -7570,12 +7570,13 @@ ${ita}💗 THANKS FOR USING QUEEN ELISA 💗${ita}
                               ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
                               }
                               break*/
-case 'command': case 'list' : case 'cmmd' : { 
+case 'command': case 'list' : case 'cmd' : { 
       const sendListMsg = require('@adiwajshing/baileys')
  await ElisaBotMd.sendMessage(from, { react: { text: `🗒️`, key: m.key }})
+                  const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
                   var date = new Date().toLocaleDateString( get_localized_date)
-                   var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
-                   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+                  var time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+                  ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
 desmsg = `╔══════╡ 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 ╞══════■
@@ -8275,6 +8276,7 @@ back = Lang.BACK_BUTTON
 }
                   break
                   case 'elisavoicemenu': {  
+                  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎙️`, key: m.key }})
                   
 var VOICEDESC = ''
