@@ -23,6 +23,7 @@ const TIME_ZONE = 'Asia/Colombo'
 const MENU_IMOJI = '👸|♥️'
   const M_E = MENU_IMOJI.split('|')[0]
   const D_E = MENU_IMOJI.split('|')[1]
+const HELPERS = '94716338723,94711421243,94719574492'
 
 
 var LOGO_MAKING = ''
@@ -291,7 +292,8 @@ const reply3 = (teks) => {
 		setting.status = new Date() * 1
 	    }
 	}
-	
+	   
+	   
 
       // AUTO REACt//
       
@@ -334,7 +336,11 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 // AUTO MASSAGE REPLY REACT🐣
 
      if (global.AUTO_REACT == 'true' ) {
-		
+		const sudoo = HELPERS.split(',')
+		if (m.sender.startsWith(sudoo){
+		await ElisaBotMd.sendMessage(from, { react: { text: `👻`, key: m.key }})
+         
+		}
 		if (m.sender == `${global.owner}@s.whatsapp.net`) {
 				  await ElisaBotMd.sendMessage(from, { react: { text: global.OWNER_REACT , key: m.key }})
 				 }		 
@@ -3289,7 +3295,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `🎦`, key: m.key }})
                               case 'song' : {
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt rosa male natuwe katu*"
-if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .yt rosa male natuwe katu*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song rosa male natuwe katu*"
 
                               await ElisaBotMd.sendMessage(from, { react: { text: `🎵`, key: m.key }})
                                   if (!text) return reply(GIVEME)
@@ -3334,7 +3340,7 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                               case 'video': { 
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
-if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n *Example - .yt how to make queen elisa bot*"
+if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n *Example - .video how to make queen elisa bot*"
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                                   if (!text) return reply (GIVEME)
@@ -4102,40 +4108,7 @@ break
                                   await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                               }
                               break
-                              /*
-                              case '480ytmp4': case '720ytmp4': {
                               
-                                  let { ytv } = require('./lib/y2mate')
-                                  if (!text) throw `Example : ${prefix + command} https://Subscribe.com/watch?v=PtFMhcag%27 360p`
-                                  let quality = args[1] ? args[1] : '480p'
-                                  let media = await ytv(text, quality)
-                                  if (media.filesize >= 150000) return reply('*❗ Video size is too big*\n\n ♨ please Try 360p ♨ '+util.format(media)+'.mp4')
-                                  ElisaBotMd.sendMessage(m.chat, { document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `🌟 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n👜 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n🌼 𝗨𝗥𝗟 : ${isUrl(text)}\n🌍 𝗘𝗫𝗧 : MP3\n🔮 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '480p'}` }, { quoted: m })
-                              }
-                              break
-                              */
-                              case '720ytmp4': case '720ytvideo': {  
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
-                                  let { ytv } = require('./lib/y2mate')
-                                  let { yt720 } = require('./lib/ytmp4')
-                                  if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtFMhcag%27 360p`
-                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your 720p Video...*\n`, m, )
-                                  let media = await yt720(text)
-                                   meadia = await ytv(text)
-                                  buttons = [{
-                                                  urlButton: {
-                                                      displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ᴏɴ ᴡᴇʙ',
-                                                      url: `${media.url}.mp4`
-                                                  }
-                                              }]
-                                  if (meadia.filesize >= 100000) return ElisaBotMd.sendButtonText(m.chat, buttons,`❗ ʏᴏᴜʀ ${media.title}.mp4 ᴠɪᴅᴇᴏ sɪᴢᴇ ᴛᴏ ʙɪɢ \n ᴛʀʏ 360ᴘ ᴏʀ ᴜsᴇ ᴛʜɪs ʟɪɴᴋ ᴅᴏᴡɴʟᴏᴀᴅ\n\nᴠɪᴅᴇᴏ sɪᴢᴇ :${media.filesize}`,m.pushName, m)
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
-                                  await ElisaBotMd.sendMessage(m.chat, { video: { url: media.url }, mimetype: 'video/mp4', fileName: `DARK MAKER YTV.mp4`, caption: global.cap }, { quoted: m })
-                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
-                                
-                              }
-                              break
                           case 'getmusic': {
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} 1`
@@ -5570,7 +5543,7 @@ break
 case 'vid2': {
 themeemoji ='📽️'
 const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
-let { ytv } = require('./lib/y2mate2')
+let { ytv } = require('./lib/y2mate')
 if (!text) return reply(`${Lang.EXAMPLE}\n : ${prefix + command} https://youtube.com/watch?v=RNa4thokVJ4 360p`)
 if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid!`)
 await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
@@ -7579,19 +7552,21 @@ case 'command': case 'list' : case 'cmd' : {
                   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
-desmsg = `╔══════╡ 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 ╞══════■
-║
-╠▩  *ᴏᴡɴᴇʀ :* ${global.ownernma}
-╠▩  *ʙᴏᴛ ɴᴀᴍᴇ :* ${global.botnma}
-╠▩  *ɴᴏᴡ ᴛɪᴍᴇ :* ${time}
-╠▩  *ᴅᴀᴛᴇ :* ${date}
-╠▩  *sᴇɴᴅᴇʀ :* ${m.pushName}
-╠▩  *ʀᴀᴍ ᴜsᴀɢᴇ* : ${ram0}
-╠▩  *ʀᴜɴ ᴛɪᴍᴇ :* ${runtime(process.uptime())}
-╠▩  *ᴘʀᴇғɪx :* ${prefix}
-╠▩  *ʙʀᴏᴡsᴇʀ :* Opera
-║
-╚═════════◯
+desmsg = `『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+    ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 *▸ ${m.sender.split('@')[0]}*
+    ▢ 𝙽𝙰𝙼𝙴 * ▸ ${m.pushName}*
+
+『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+     ▢ 𝙽𝙰𝙼𝙴 *▸ ${global.botnma}*
+     ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 *▸ ${botNumber}*
+     ▢ 𝙷𝙾𝚂𝚃 𝙾𝙽 *▸ Heroku*
+     ▢ 𝚆𝙴𝙱 *▸ Opera*
+
+『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』
+     ▢ 𝙿𝚁𝙴𝙵𝙸𝚇 *▸ ${prefix}*
+     ▢ 𝙽𝙾𝚆 𝚃𝙸𝙼𝙴 *▸ ${time}*
+     ▢ 𝙳𝙰𝚃𝙴 *▸ ${date}*
+     ▢ 𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴 *▸ ${ram0}*
 `
     
             
@@ -8276,6 +8251,11 @@ back = Lang.BACK_BUTTON
 }
                   break
                   case 'elisavoicemenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
                   
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎙️`, key: m.key }})
                   
