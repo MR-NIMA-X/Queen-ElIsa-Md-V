@@ -337,7 +337,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 
      if (global.AUTO_REACT == 'true' ) {
 		const sudoo = HELPERS.split(',')
-		if (m.sender.startsWith(sudoo){
+		if (m.sender.startsWith(sudoo)){
 		await ElisaBotMd.sendMessage(from, { react: { text: `👻`, key: m.key }})
          
 		}
