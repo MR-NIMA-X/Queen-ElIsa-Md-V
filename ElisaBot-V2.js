@@ -7573,27 +7573,24 @@ ${ita}💗 THANKS FOR USING QUEEN ELISA 💗${ita}
 case 'command': case 'list' : case 'cmmd' : { 
       const sendListMsg = require('@adiwajshing/baileys')
  await ElisaBotMd.sendMessage(from, { react: { text: `🗒️`, key: m.key }})
+                  var date = new Date().toLocaleDateString( get_localized_date)
                    var time = new Date().toLocaleString('HI', { timeZone: 'Asia/Colombo' }).split(' ')[1]
                    ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
-desmsg = `                                      
- 
- 👋 𝗛𝗶  ${pushname}
-
-╭──────[ ${global.botnma} ]
-│
-│
-│ *𝙾𝚆𝙽𝙴𝚁 𝙽𝙰𝙼𝙴* : ${global.ownernma}
-│
-│ *𝚁𝚄𝙽 𝚃𝙸𝙼𝙴* : ${runtime(process.uptime())}
-│
-│ *𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴* : ${ram0}
-│
-│ *𝙽𝙾𝚆 𝙰𝚃* : ${time}
-│
-╰─────────────────────⦁
-
+desmsg = `╔══════╡ 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 ╞══════■
+║
+╠▩  *ᴏᴡɴᴇʀ :* ${global.ownernma}
+╠▩  *ʙᴏᴛ ɴᴀᴍᴇ :* ${global.botnma}
+╠▩  *ɴᴏᴡ ᴛɪᴍᴇ :* ${time}
+╠▩  *ᴅᴀᴛᴇ :* ${date}
+╠▩  *sᴇɴᴅᴇʀ :* ${m.pushName}
+╠▩  *ʀᴀᴍ ᴜsᴀɢᴇ* : ${ram0}
+╠▩  *ʀᴜɴ ᴛɪᴍᴇ :* ${runtime(process.uptime())}
+╠▩  *ᴘʀᴇғɪx :* ${prefix}
+╠▩  *ʙʀᴏᴡsᴇʀ :* Opera
+║
+╚═════════◯
 `
     
             
@@ -7676,7 +7673,7 @@ desmsg = `
                                                           "description": Lang.ABOUT_CMD ,
                                                           "rowId": `${prefix}about`
                                                       },
-                                                                                                            {
+                                                      {
                                                           "title": "▷ HELPERS ◁",
                                                           "description": Lang.ABOUT_CMD ,
                                                           "rowId": `${prefix}helpers`
@@ -7684,13 +7681,13 @@ desmsg = `
                                                     ]
 							}
 						]
-						await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
+						await ElisaBotMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `    `, `ALL MENU`, sections, m)
                 }
             
             break
                   case 'grpmenu': {  
   const start = new Date().getTime()
-  await console.log('*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
   const end = new Date().getTime()
   const ping = (end - start) + ' *_ᴍs_*' 
   const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
@@ -7828,12 +7825,12 @@ case 'helpers' : {
 break
                   case 'elisadownloadmenu': {  
 const start = new Date().getTime()
-  await console.log('*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
   const end = new Date().getTime()
   const ping = (end - start) + ' *_ᴍs_*' 
   const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
 
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
 var TIKTOK = ''
 if (global.LANG == 'EN') TIKTOK = '_Download Your Tiktok Link video_'
 if (global.LANG == 'SI') TIKTOK = '_ඔබගේ ටික්ටොක් වීඩියෝ ලින්කුව බාගතකරයි_'
@@ -7879,9 +7876,21 @@ if (global.LANG == 'EN') SONG2  = '_The song you name will download [ none butto
 if (global.LANG == 'SI') SONG2  = '_ඔබ නම් යෙදූ ගීතය බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]_'
 if (global.LANG == 'EN') VIDEO2  = '_The video you name will download [ none button ]_'
 if (global.LANG == 'SI') VIDEO2  = '_ඔබ නම් යෙදූ වීඩියෝව බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]_'
+var APK = ''
+var MOD_APK = ''
+var TELE = ''
+var XNXX = ''
+if (global.LANG == 'EN') APK = '_Download Plastore apk_'
+if (global.LANG == 'SI') APK = '_Plastore Apk බාගත කිරීමට_'
+if (global.LANG == 'EN') MOD_APK = '_Mod Apk Download_'
+if (global.LANG == 'SI') MOD_APK = 'මොඩ් Apk බාගත කිරීම_'
+if (global.LANG == 'EN') TELE = 'Telegram Sticker Download_
+if (global.LANG == 'SI') TELE = '
+if (global.LANG == 'EN') XNXX = '_Xnxx Video Download ( only main Group )_
+if (global.LANG == 'SI') XNXX = '_Xnxx වීඩියෝ බාගත කිරීම ( ප්‍රදාන ශාපයේ පමණක් වලංගු විදානයකි )_
 
  prefix = '.'
-anu = `*◯───────[ GROUP MENU ]───────◯*
+anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 
 ╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
 ├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
@@ -7889,36 +7898,63 @@ anu = `*◯───────[ GROUP MENU ]───────◯*
 
 ${M_E} *${prefix}tiktok* 
    ${D_E} ${TIKTOK} 
+   
 ${M_E} *${prefix}tiktok2*  
    ${D_E}  ${TIKTOK} _type ( ii )_
+   
 ${M_E} *${prefix}insta*  
    ${D_E}  ${INSTA}
+   
 ${M_E} *${prefix}ig2*  
    ${D_E}  ${IG2}
+   
 ${M_E} *${prefix}fb*  
    ${D_E}  ${FB}
+   
 ${M_E} *${prefix}fb2*  
    ${D_E}  ${FB2}
+   
 ${M_E} *${prefix}ytmp3*  
    ${D_E}  ${YTMP3}
+   
 ${M_E} *${prefix}ytmp4*  
    ${D_E}  ${YTMP4}
+   
 ${M_E} *${prefix}getmusic*  
    ${D_E}  ${GETMUSIC}
+   
 ${M_E} *${prefix}getvideo*  
    ${D_E}  ${GETVIDEO}
+   
 ${M_E} *${prefix}song*  
    ${D_E}  ${SONG}
+   
 ${M_E} *${prefix}song2*  
    ${D_E}  ${SONG2}
+   
 ${M_E} *${prefix}video*  
    ${D_E}  ${VIDEO}
+   
 ${M_E} *${prefix}video2*  
    ${D_E}  ${VIDEO2}
+   
 ${M_E} *${prefix}ytv*  
    ${D_E}  ${YTV}
+   
 ${M_E} *${prefix}yt*  
    ${D_E}  ${YT} 
+   
+${M_E} *${prefix}apk*  
+   ${D_E}  ${APK} 
+   
+${M_E} *${prefix}modapk*  
+   ${D_E}  ${MOD_APK} 
+   
+${M_E} *${prefix}stelegram*  
+   ${D_E}  ${TELE} 
+   
+${M_E} *${prefix}xnxxsh*  
+   ${D_E}  ${XNXX} 
 
 *────────◯*`,
 
@@ -7966,7 +8002,13 @@ back = Lang.BACK_BUTTON
                              */
 }
                               break 
-                              case 'elisasearchmenu': {  
+                              case 'elisasearchmenu': { 
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔍`, key: m.key }})
 var PLAY = ''
 if (global.LANG == 'EN') PLAY = '_Search youtube and download_'
@@ -7990,29 +8032,38 @@ var WIKI = ''
 if (global.LANG == 'EN') WIKI = '_search on wikipidia_'
 if (global.LANG == 'SI') WIKI = '_විකිපීඩියා හී සර්ච් කරයි_'
 prefix = '.'
-                                  anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄╌╌┄┘
-               *𝗦𝗘𝗔𝗥𝗖𝗛 𝗠𝗘𝗡𝗨*
+                                  anu = `*◯───────[ SEARCH MENU ]───────◯*
 
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-💮 *${prefix}play* - ${PLAY}
+${M_E} *${prefix}play*   
+   ${D_E}  ${PLAY}
 
-💮 *${prefix}yts* - ${YTS}
+${M_E} *${prefix}yts*   
+   ${D_E}  ${YTS}
 
-💮 *${prefix}google* - ${GOOGLE}
+${M_E} *${prefix}google*   
+   ${D_E}  ${GOOGLE}
 
-💮 *${prefix}img* - ${IMG}
+${M_E} *${prefix}img*   
+   ${D_E}  ${IMG}
 
-💮 *${prefix}pinterest* - ${PINSA}
+${M_E} *${prefix}pinterest*   
+   ${D_E}  ${PINSA}
 
-💮 *${prefix}wallpaper* - ${WALLPAPER}
+${M_E} *${prefix}wallpaper*   
+   ${D_E}  ${WALLPAPER}
 
-💮 *${prefix}wikimedia* - ${WIKI}
+${M_E} *${prefix}wikimedia*   
+   ${D_E}  ${WIKI}
 
-💮 *${prefix}ytsearch* - ${YTS}
-                    `
+${M_E} *${prefix}ytsearch*   
+   ${D_E}  ${YTS}
+   
+*──────────◯*
+`
  next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
                     
@@ -8061,7 +8112,13 @@ back = Lang.BACK_BUTTON
                               */
 }
                   break
-                  case 'randommenu': {  
+                  case 'randommenu': { 
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🗳️`, key: m.key }})
 var COFFY = ''
 if (global.LANG == 'EN') COFFY = '_Send random coffee image_'
@@ -8070,16 +8127,20 @@ var COUPP = ''
 if (global.LANG == 'EN') COUPP = '_send copple profile photo randomly_'
 if (global.LANG == 'SI') COUPP = '_අහබු ලෙස copple profile photo එවයි_'
 prefix = '.'
-                      anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄┄╌╌┘
-              *𝗥𝗔𝗡𝗗𝗢𝗠 𝗠𝗘𝗡𝗨*
- 
-⚫ *${prefix}coffee* - ${COFFY}
+                      anu = `*◯───────[ RANDOM MENU ]───────◯*
 
-⚫ *${prefix}couplepp* - ${COUPP}
-                    `
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
+
+${M_E} *${prefix}coffee*   
+   ${D_E}  ${COFFY}
+
+${M_E} *${prefix}couplepp*   
+   ${D_E}  ${COUPP}
+   
+*──────────◯*
+`
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
@@ -8130,6 +8191,12 @@ footer = global.botnma
 }
                   break
                   case 'funmenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🤪`, key: m.key }})
                       
 var COPLE = ''
@@ -8142,18 +8209,23 @@ var MATH = ''
 if (global.LANG == 'EN') MATH = '_Counting with Bot_.'
 if (global.LANG == 'SI') MATH = '_බොට් සමග ගණන් සෑදීමට._'
 prefix = '.'
-anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄╌╌┄┘
-              *𝗙𝗨𝗡 𝗠𝗘𝗡𝗨*
-             
-🔘 *${prefix}couple* - ${COPLE}
+anu = `*◯───────[ FUN MENU ]───────◯*
 
-🔘 *${prefix}mysoulmate* - ${MYSOLO}
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-🔘 *${prefix}math* - ${MATH}
-                    `
+${M_E} *${prefix}couple*   
+   ${D_E}  ${COPLE}
+
+${M_E} *${prefix}mysoulmate*   
+   ${D_E}  ${MYSOLO}
+
+${M_E} *${prefix}math*   
+   ${D_E}  ${MATH}
+   
+*──────────◯*
+`
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
                    
@@ -8209,26 +8281,28 @@ var VOICEDESC = ''
 if (global.LANG == 'EN') VOICEDESC= '*💬 About Voice changer cmd*\n _When you reply to one of your voice messages and use the following command, the corresponding voice has been changed._'
 if (global.LANG == 'SI') VOICEDESC= '*💬 වොයිස් විධාන පිලිබද* \n _ඔබගේ වොයිස් මැස්ස්සේජ් එකක් සදහා රිප්ලයි කර පහත කමාන්ඩ් බාවිතකරවිට ඒවාට අදාල voice වෙනස් වී ලැබෙයි_'
 prefix = '.'
-                      anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄╌╌┄┘
-             *𝗩𝗢𝗜𝗖𝗘 𝗖𝗛𝗔𝗡𝗚𝗘𝗥 𝗠𝗘𝗡𝗨*
-          
-🎙️ *${prefix}bass*
-🎙️ *${prefix}blown*
-🎙️ *${prefix}deep*
-🎙️ *${prefix}earrape*
-🎙️ *${prefix}fast*
-🎙️ *${prefix}fat*
-🎙️ *${prefix}nightcore*
-🎙️ *${prefix}reverse*
-🎙️ *${prefix}robot*
-🎙️ *${prefix}slow*
-🎙️ *${prefix}squirrel*
+                      anu = `*◯───────[ VOICE MENU ]───────◯*
+
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
+
+${M_E} *${prefix}bass*
+${M_E} *${prefix}blown*
+${M_E} *${prefix}deep*
+${M_E} *${prefix}earrape*
+${M_E} *${prefix}fast*
+${M_E} *${prefix}fat*
+${M_E} *${prefix}nightcore*
+${M_E} *${prefix}reverse*
+${M_E} *${prefix}robot*
+${M_E} *${prefix}slow*
+${M_E} *${prefix}squirrel*
 
 ${VOICEDESC}
-                  `
+
+*──────────◯*
+`
                   next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
@@ -8370,6 +8444,12 @@ footer = global.botnma
                               }
                   break
                   case 'elisaconvertmenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🛠️`, key: m.key }})
                   prefix = '.'
 var IMG = ''
@@ -8393,26 +8473,35 @@ if (global.LANG == 'SI' ) GIF= 'ඇනිමේශන් ස්ටිකර් G
 var URL = ''
 if (global.LANG == 'EN' ) URL= 'Get url your image / video'
 if (global.LANG == 'SI' ) URL= 'ඔබගේ ජායාරූපයට හෝ වීඩියෝවට ලින්කුවක් ලබාදෙයි'
-                  anu = `
+                  anu = `*◯───────[ CONVERT MENU ]───────◯*
 
-┌┄┄╌╌┄┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄╌╌┄┘
-             *𝗖𝗢𝗡𝗩𝗘𝗥𝗧 𝗠𝗘𝗡𝗨*
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-💱 *${prefix}toimage* - _${IMG}_
+${M_E} *${prefix}toimage*   
+   ${D_E}  _${IMG}_
 
-💱 *${prefix}removebg* - _${RBG}_
+${M_E} *${prefix}removebg*   
+   ${D_E}  _${RBG}_
 
-💱 *${prefix}sticker* - -${STICKER}_
+${M_E} *${prefix}sticker*   
+   ${D_E} ${STICKER}_
 
-💱 *${prefix}emojimix* - _${EMOJIMIX}_
+${M_E} *${prefix}emojimix*   
+   ${D_E}  _${EMOJIMIX}_
 
-💱 *${prefix}tovideo* - _${TOVIDEO}_
+${M_E} *${prefix}tovideo*   
+   ${D_E}  _${TOVIDEO}_
 
-💱 *${prefix}togif* - _${GIF}_
+${M_E} *${prefix}togif*   
+   ${D_E}  _${GIF}_
 
-💱 *${prefix}tourl* - _${URL}_ `
+${M_E} *${prefix}tourl*   
+   ${D_E}  _${URL}_ 
+   
+*──────────◯*
+`
                     next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
@@ -8462,49 +8551,58 @@ back = Lang.BACK_BUTTON
 }
                   break
                   case 'elisaranimemenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🌝`, key: m.key }})
 
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
 
-                      anu = `
-┌┄┄┄┄┄┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄┄┄┄┘
-             *RANDOM ANIME*
+                      anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 
-♨⃞  ${prefix}loli
-♨⃞  ${prefix}neko
-♨⃞  ${prefix}waifu
-♨⃞  ${prefix}shinobu
-♨⃞  ${prefix}megumin
-♨⃞  ${prefix}bully
-♨⃞  ${prefix}cuddle
-♨⃞  ${prefix}cry
-♨⃞  ${prefix}hug
-♨⃞  ${prefix}awoo
-♨⃞  ${prefix}kiss
-♨⃞  ${prefix}lick
-♨⃞  ${prefix}pat
-♨⃞  ${prefix}smug
-♨⃞  ${prefix}bonk
-♨⃞  ${prefix}yeet
-♨⃞  ${prefix}blush
-♨⃞  ${prefix}smile
-♨⃞  ${prefix}wave
-♨⃞  ${prefix}highfive
-♨⃞  ${prefix}handhold
-♨⃞  ${prefix}nom
-♨⃞  ${prefix}bite
-♨⃞  ${prefix}glomp
-♨⃞  ${prefix}slap
-♨⃞  ${prefix}kill
-♨⃞  ${prefix}happy
-♨⃞  ${prefix}wink
-♨⃞  ${prefix}poke
-♨⃞  ${prefix}dance
-♨⃞  ${prefix}cringe`
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
+
+${M_E} ${prefix}loli
+${M_E} ${prefix}neko
+${M_E} ${prefix}waifu
+${M_E} ${prefix}shinobu
+${M_E} ${prefix}megumin
+${M_E} ${prefix}bully
+${M_E} ${prefix}cuddle
+${M_E} ${prefix}cry
+${M_E} ${prefix}hug
+${M_E} ${prefix}awoo
+${M_E} ${prefix}kiss
+${M_E} ${prefix}lick
+${M_E} ${prefix}pat
+${M_E} ${prefix}smug
+${M_E} ${prefix}bonk
+${M_E} ${prefix}yeet
+${M_E} ${prefix}blush
+${M_E} ${prefix}smile
+${M_E} ${prefix}wave
+${M_E} ${prefix}highfive
+${M_E} ${prefix}handhold
+${M_E} ${prefix}nom
+${M_E} ${prefix}bite
+${M_E} ${prefix}glomp
+${M_E} ${prefix}slap
+${M_E} ${prefix}kill
+${M_E} ${prefix}happy
+${M_E} ${prefix}wink
+${M_E} ${prefix}poke
+${M_E} ${prefix}dance
+${M_E} ${prefix}cringe
+
+*──────────◯*
+`
 
 footer = global.botnma
                  buttons = [
@@ -8552,6 +8650,12 @@ footer = global.botnma
 }
                   break
                   case 'elisanocategorymenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `⚙️`, key: m.key }})
                   prefix = '.'
 
@@ -8590,36 +8694,48 @@ if (global.LANG == 'EN' ) REPORT= '_report from bot owner_'
 if (global.LANG == 'SI') REPORT = '_බොට් අයිතිකරුට වාර්තාකරන්න_'
 
 
-anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄╌╌┄┄┘
-             *𝗠𝗜𝗦𝗖 𝗠𝗘𝗡𝗨*
-        
-🌋 *${prefix}speedtest* - ${SPEED}
+anu = `*◯───────[ MISC MENU ]───────◯*
 
-🌋 *${prefix}ping* - ${PING}
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-🌋 *${prefix}owner* - ${OWNER}
+${M_E} *${prefix}speedtest*   
+    ${D_E}  ${SPEED}
 
-🌋 *${prefix}donate* - ${DONA}
+${M_E} *${prefix}ping*   
+    ${D_E}  ${PING}
 
-🌋 *${prefix}menu* - ${MENU}
+${M_E} *${prefix}owner*   
+    ${D_E}  ${OWNER}
 
-🌋 *${prefix}delete* - ${DELETE}
+${M_E} *${prefix}donate*   
+    ${D_E}  ${DONA}
 
-🌋 *${prefix}quoted* - ${QUO}
+${M_E} *${prefix}menu*   
+    ${D_E}  ${MENU}
 
-🌋 *${prefix}listpc* - ${LIP}
+${M_E} *${prefix}delete*   
+    ${D_E}  ${DELETE}
 
-🌋 *${prefix}listonline* - ${LPO}
+${M_E} *${prefix}quoted*   
+    ${D_E}  ${QUO}
 
-🌋 *${prefix}report* - ${REPORT}
-                    `
+${M_E} *${prefix}listpc*   
+    ${D_E}  ${LIP}
+
+${M_E} *${prefix}listonline*   
+    ${D_E}  ${LPO}
+
+${M_E} *${prefix}report*   
+    ${D_E}  ${REPORT}
+    
+*──────────◯*
+`
                     footer = global.botnma
                  buttons = [
                     {buttonId: `elisaranimemenu`, buttonText: {displayText: back}, type: 1},
-                    {buttonId: `elisadatabasemenu`, buttonText: {displayText: next}, type: 1}
+                    {buttonId: `logomenu`, buttonText: {displayText: next}, type: 1}
                     
                 ]
                 let buttonMessage = {
@@ -8749,6 +8865,12 @@ back = Lang.BACK_BUTTON
 }
                   break
                   case 'logomenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🌸`, key: m.key }})
 
 prefix = '.'
@@ -8762,21 +8884,31 @@ var LOGODESC_3 = ''
 if (global.LANG == 'EN') LOGODESC_3 = '_Make logos on logo pack -3_'
 if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
  
-                      anu = `*LOGO LIST MENU*
+                      anu = `*◯───────[ LOGO MENU ]───────◯*
 
-🎡 *.logo -* ${LOGODESC}
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-🎡 *.logo2 -* ${LOGODESC_2}
+${M_E} *.logo   
+    ${D_E} * ${LOGODESC}
 
-🎡 *.lpgo3 -* ${LOGODESC_3}
+${M_E} *.logo2   
+    ${D_E} * ${LOGODESC_2}
 
- *_Example : .logo1 MR NIMA_*`,
+${M_E} *.lpgo3   
+    ${D_E} * ${LOGODESC_3}
+
+ *_Example : .logo1 MR NIMA_*
+ 
+ *──────────◯*
+ `,
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
 footer = global.botnma
                  buttons = [
-                    {buttonId: `elisaanonymouschatmenu`, buttonText: {displayText: back}, type: 1},
+                    {buttonId: `elisanocategorymenu`, buttonText: {displayText: back}, type: 1},
                     {buttonId: `elisasistemmenu`, buttonText: {displayText: next}, type: 1}
                     
                 ]
@@ -8820,11 +8952,23 @@ footer = global.botnma
                               }
                   break
                   case 'elisasistemmenu': {
-                      anu = `
-*𝗦𝗬𝗦𝗧𝗘𝗠 𝗠𝗘𝗡𝗨* 
-⚙️ ${prefix}mute
-⚙️ ${prefix}antiwame
-                  `
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
+                      anu = `*◯───────[ SYSTEM MENU ]───────◯*
+
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
+
+${M_E} ${prefix}mute
+${M_E} ${prefix}antiwame
+
+*──────────◯*
+`
                   footer = global.botnma
                  buttons = [
                     {buttonId: `logomenu`, buttonText: {displayText: back}, type: 1},
@@ -8865,6 +9009,12 @@ footer = global.botnma
                              */ }
                   break
                     case 'ownermenu': {  
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎭`, key: m.key }})
 
 var JOIN = ''
@@ -8889,17 +9039,28 @@ var BCALL = ''
 if (global.LANG == 'EN') BCALL= 'Send broadcast all chats'
 if (global.LANG == 'SI') BCALL= 'සියලුම චැට් සදහා බ්‍රෝඩ්කාස්ට් යැවීම'
 prefix = '.'
-anu = `
+anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 
-      *𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨*
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-🧑‍💻 *${prefix}join* - _${JOIN}_
-🧑‍💻 *${prefix}leave* - _${LEAVE}_
-🧑‍💻 *${prefix}setbotpp* - _${SETPP}_
-🧑‍💻 *${prefix}block* - _${BLOCK}_
-🧑‍💻 *${prefix}unblock* - _${UNBLOCK}_
-🧑‍💻 *${prefix}bcgroup* - _${BCGRP}_
-🧑‍💻 *${prefix}bcall* - _${BCALL}_
+${M_E} *${prefix}join*   
+    ${D_E}  _${JOIN}_
+${M_E} *${prefix}leave*   
+    ${D_E}  _${LEAVE}_
+${M_E} *${prefix}setbotpp*   
+    ${D_E}  _${SETPP}_
+${M_E} *${prefix}block*   
+    ${D_E}  _${BLOCK}_
+${M_E} *${prefix}unblock*   
+    ${D_E}  _${UNBLOCK}_
+${M_E} *${prefix}bcgroup*   
+    ${D_E}  _${BCGRP}_
+${M_E} *${prefix}bcall*   
+    ${D_E}  _${BCALL}_
+
+*──────────◯*
 `
                       next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
