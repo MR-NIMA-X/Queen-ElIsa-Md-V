@@ -20,6 +20,10 @@ const Language = require('./language')
 const Lang = Language.getString('elisabot')
 //const config = require("./config")
 
+const global.TIME_ZONE = 'Asia/Colombo'
+const global MENU_IMOJI = '👸|♥️'
+  const M_E = MENU_IMOJI.split('|')[0]
+  const D_E = MENU_IMOJI.split('|')[1]
 
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
@@ -28,117 +32,6 @@ var LOGO_MAKING = ''
 var NOT_FOUND = ''
   if (global.LANG == 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
   if (global.LANG == 'SI') NOT_FOUND = '*🚫💬 මට කිසිවක් සොයාගත නොහැකිවිය !*'
-
-const BOT_VERSION = '2.2.0'
-//rpg function\\
-   const { 
-     addInventoriDarah, 
-      cekDuluJoinAdaApaKagaDiJson, 
-      addDarah, 
-      kurangDarah, 
-     getDarah 
-   }  = require('./storage/user/darah.js')
-   const { 
-     cekInventoryAdaAtauGak, 
-      addInventori,  
-       addBesi, 
-       addEmas, 
-       addEmerald,
-       addUmpan,
-       addPotion,
-       kurangBesi, 
-       kurangEmas, 
-       kurangEmerald, 
-       kurangUmpan,
-       kurangPotion,
-       getBesi, 
-      getEmas, 
-     getEmerald,
-     getUmpan,
-    getPotion
-   } = require('./storage/user/alat_tukar.js')
-   const { 
-    addInventoriMonay, 
-    cekDuluJoinAdaApaKagaMonaynyaDiJson, 
-    addMonay, 
-    kurangMonay, 
-   getMonay 
-   } = require('./storage/user/monay.js')
-   const { 
-    addInventoriLimit, 
-    cekDuluJoinAdaApaKagaLimitnyaDiJson, 
-    addLimit, 
-    kurangLimit, 
-    getLimit 
-   } = require('./storage/user/limit.js')
-   const { 
-    cekDuluHasilBuruanNya, 
-     addInventoriBuruan, 
-     addIkan,
-      addAyam, 
-      addKelinci, 
-      addDomba, 
-      addSapi,
-      addGajah,
-      kurangIkan,
-      kurangAyam, 
-      kurangKelinci, 
-      kurangDomba, 
-      kurangSapi,
-      kurangGajah,
-      getIkan,
-      getAyam, 
-      getKelinci, 
-      getDomba,
-     getSapi,
-    getGajah
-   } = require('./storage/user/buruan.js')
-   let DarahAwal =  global.rpg.darahawal
-   const isDarah = cekDuluJoinAdaApaKagaDiJson(m.sender)   
-   const isCekDarah = getDarah(m.sender)
-   const isUmpan = getUmpan(m.sender)
-   const isPotion = getPotion(m.sender)
-   const isIkan = getIkan(m.sender)
-   const isAyam = getAyam(m.sender)
-   const isKelinci = getKelinci(m.sender)
-   const isDomba = getDomba(m.sender)
-   const isSapi = getSapi(m.sender)
-   const isGajah = getGajah(m.sender)
-   const isMonay = getMonay(m.sender)
-   const isLimit = getLimit(m.sender)
-   const isBesi = getBesi(m.sender)
-   const isEmas = getEmas(m.sender)
-   const isEmerald = getEmerald(m.sender)
-   const isInventory = cekInventoryAdaAtauGak(m.sender)
-   const isInventoriBuruan = cekDuluHasilBuruanNya(m.sender)
-   const isInventoryLimit = cekDuluJoinAdaApaKagaLimitnyaDiJson(m.sender)
-   const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
-   const ikan = ['🐟','🐠','🐡']   
-
-//rpg database\\
- let _limit = JSON.parse(fs.readFileSync('./storage/user/limit.json'));
- let _buruan = JSON.parse(fs.readFileSync('./storage/user/hasil_buruan.json'));
- let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
-
-//Database\\
-let setik = JSON.parse(fs.readFileSync('./database/setik.json'));
-let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
-let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
-let videox = JSON.parse(fs.readFileSync('./database/video.json'))
-
-
-//read database\\
-let tebaklagu = db.data.game.tebaklagu = []
-let _family100 = db.data.game.family100 = []
-let kuismath = db.data.game.math = []
-let tebakgambar = db.data.game.tebakgambar = []
-let tebakkata = db.data.game.tebakkata = []
-let caklontong = db.data.game.lontong = []
-let caklontong_desk = db.data.game.lontong_desk = []
-let tebakkalimat = db.data.game.kalimat = []
-let tebaklirik = db.data.game.lirik = []
-let tebaktebakan = db.data.game.tebakan = []
-let vote = db.data.others.vote = []
 
 module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
     try {
@@ -757,40 +650,7 @@ switch(command) {
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
              }
              break
-             case 'fancy' : {
-             if(!text) return reply('*👸💬 Need some text*\n _ex_ .fancy Queen Elisa')
-             await ElisaBotMd.sendText(m.chat,mess.wait)
-             const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/tools/styletext?text=${text}`)
-             const search = nima.result
-             let sections = []   
-  for (let i of search) {
-  const list = { title: `👸 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ғᴀɴᴄʏ ᴛᴇxᴛ 👸`,
-   rows :[
-	    {
-	     title: `${i.result}`, 
-	     rowId: `genfancy ${i.result} `   
-	    }
-	    ]
-     }
-     sections.push(list)   
-     }
-  const sendm =  ElisaBotMd.sendMessage(
-      m.chat, 
-      {
-       text: `${text} *Here is the list of Fancy Texts, click the button below to choose*\n\n${m.pushName}`,
-       footer: `${global.botnma}`,
-       title: `◯═══════════◯
-${global.botnma} Fancy Text List
-🗳️ Your text : ${text}`,
-       buttonText: "GET FANCY TEXT",
-       sections
-      }, { quoted : m })
-             }
-             break
-             case 'genfancy' : {
-             m.reply(text)
-             }
-             break
+             
              case 'mk': case 'මොකද කරන්නේ' :{
              if (global.VOICE_REPLY == 'false') return
              await ElisaBotMd.sendMessage(m.chat, { audio: {url:'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/mk.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })   
@@ -3294,8 +3154,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                               
                 const footer = global.botnma
                 const buttons = [
-                    {buttonId: `song2 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
-                    {buttonId: `audiosong2  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
+                    {buttonId: `ytmp3 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
+                    {buttonId: `audytmp3  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
@@ -3423,14 +3283,8 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`${media.title}`,
-                body:"YOUTUBE MP3",
-                mediaType:2,
-                thumbnail:buf,
-                mediaUrl:`${text}`, 
-                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
-                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, { document: { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
 
                                   }).catch((err) => m.reply(NOT_FOUND))
@@ -3460,14 +3314,8 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
                                   if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, {audio:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`${media.title}`,
-                body:"YOUTUBE MP3",
-                mediaType:2,
-                thumbnail:buf,
-                mediaUrl:`${text}`, 
-                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
-                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, { audio : { url : media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                                  await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
 
                                   }).catch((err) => m.reply(NOT_FOUND))
@@ -3502,7 +3350,7 @@ text2 = q.split(";")[1]
                                   await ElisaBotMd.sendMessage(m.chat, { document: { url : gettsong }, mimetype: 'audio/mpeg', fileName: `${akur.title}.mp3` }, { quoted: m })
                                   await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   
-                          }).catch((err) => m.reply(err))
+                          }).catch((err) => m.reply('*CAN\'T DOWNLOAD !!!*'))
                           }
                           break
                           case 'video3' :{
@@ -3863,8 +3711,8 @@ break
 ╰──────◉
 `,
                             buttons = [
-                                          { buttonId: `song2 ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
-                                          { buttonId: `audiosong2 ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
+                                          { buttonId: `seleytmp3 ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
+                                          { buttonId: `audytmp3 ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
                                       ]
                                       await ElisaBotMd.sendButtonText(m.chat, buttons, YTMASS, `𝙶𝙴𝙽𝙴𝚁𝙰𝚃𝙴𝙳 𝙱𝚈 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 ` ,m)
                                   }
@@ -3886,7 +3734,7 @@ break
                                    ElisaBotMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: upload.key.id, participant: m.quoted.sender } })
                               }
                               break*/
-                             case 'audio': case 'seleytaudio': {  
+                             case 'audytmp3': case 'seleytaudio': {  
                          // await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   let { yta } = require('./lib/y2mate')
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
@@ -6706,223 +6554,7 @@ break
                                   reply(e)
                                   }
                                   break
-                              case 'setcmd': {
-                if (!m.quoted) return reply(`Reply Message!`)
-                if (!m.quoted.fileSha256) return reply(`SHA256 Hash Missing`)
-                if (!text) return reply(`For What Command?`)
-                let hash = m.quoted.fileSha256.toString('base64')
-                if (global.db.data.sticker[hash] && global.db.data.sticker[hash].locked) return reply(`You Have No Permission To Change This Sticker Command`)
-                global.db.data.sticker[hash] = {
-                    text,
-                    mentionedJid: m.mentionedJid,
-                    creator: m.sender,
-                    at: + new Date,
-                    locked: false,
-                }
-                reply(`Done!`)
-            }
-            break
-                              case 'delcmd': {
-                let hash = m.quoted.fileSha256.toString('base64')
-                if (!hash) return reply(`No Hashes`)
-                if (global.db.data.sticker[hash] && global.db.data.sticker[hash].locked) return reply(`You Have No Permission To Delete This Sticker Command`)
-                delete global.db.data.sticker[hash]
-                reply(`Done!`)
-            }
-            break
-            case 'listcmd': {
-                let teks = `
-*Hash List*
-Info: *bold* hash is Locked
-${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index + 1}. ${value.locked ? `*${key}*` : key} : ${value.text}`).join('\n')}
-`.trim()
-                ElisaBotMd.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
-            }
-            break
-            case 'lockcmd': {
-                if (!isCreator) return replay(`${mess.owner}`)
-                if (!m.quoted) return reply(`Reply Message!`)
-                if (!m.quoted.fileSha256) return reply(`SHA256 Hash Missing`)
-                let hash = m.quoted.fileSha256.toString('base64')
-                if (!(hash in global.db.data.sticker)) return reply(`Hash Not Found In Database`)
-                global.db.data.sticker[hash].locked = !/^un/i.test(command)
-                reply('Done!')
-            }
-            break
-            case 'addmsg': {
-                if (!m.quoted) return reply(`Reply Message You Want To Save In Database`)
-                if (!text) return reply(`${Lang.EXAMPLE}\n : ${prefix + command} File Name`)
-                let msgs = global.db.data.database
-                if (text.toLowerCase() in msgs) return reply(`'${text}' Has Been Registered In The Message List`)
-                msgs[text.toLowerCase()] = quoted.fakeObj
-reply(`Successfully Added Message In Message List As '${text}'
-    
-Access With ${prefix}getmsg ${text}
-
-View List Of Messages With ${prefix}listmsg`)
-            }
-            break
-            case 'getmsg': {
-                if (!text) return reply(`${Lang.EXAMPLE}\n : ${prefix + command} file name\n\nView Message List With ${prefix}listmsg`)
-                let msgs = global.db.data.database
-                if (!(text.toLowerCase() in msgs)) return reply(`'${text}' Not Listed In The Message List`)
-                ElisaBotMd.copyNForward(m.chat, msgs[text.toLowerCase()], true)
-            }
-            break
-            case 'listmsg': {
-                let msgs = JSON.parse(fs.readFileSync('./database/database.json'))
-	        let seplit = Object.entries(global.db.data.database).map(([nama, isi]) => { return { nama, ...isi } })
-		let teks = '*💃 DATA BASE MASSAGE LIST 💃*\n\n'
-		for (let i of seplit) {
-		    teks += `💫 *Name :* ${i.nama}\n💫 *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
-	        }
-	        reply(teks)
-	    }
-	    break
-            case 'delmsg': case 'deletemsg': {
-	        let msgs = global.db.data.database
-	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' Not Listed In The Message List`)
-		delete msgs[text.toLowerCase()]
-		reply(`Delete Successfully '${text}' From The Message list`)
-            }
-	    break
-                          case 'anonymous': {
-                                  if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
-                                  this.anonymous = this.anonymous ? this.anonymous : {}
-                                  let buttons = [{
-                                                  urlButton: {
-                                                      displayText: 'REPORT BUG',
-                                                      url: 'https://wa.me/94715166712?text=hello+bro+i+found+a+bug+in+your+bot'
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: 'START CHAT',
-                                                      id: 'start'
-                                                  }
-                                              }]
-                                  ElisaBotMd.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await ElisaBotMd.getName(m.sender)} Welcome To Anonymous Chat\n\nClick The Button Below To Find A Partner\`\`\``, ElisaBotMd.user.name, m)
-                              }
-                              break
-                  case 'sendkontak': case 'sendcontact': {
-                                  if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
-                                  this.anonymous = this.anonymous ? this.anonymous : {}
-                                  let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-                                  if (!room) {
-                                      let buttons = [
-                                          { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `_You Are Not In Anonymous Session, Press The Button To Find A Partner_`)
-                                      throw false
-                                  }
-                                  let profile = await ElisaBotMd.profilePictureUrl(room.b)
-                                  let status = await ElisaBotMd.fetchStatus(room.b)
-                                  let msg = await ElisaBotMd.sendImage(room.a, profile, `Name : ${await ElisaBotMd.getName(room.b)}\nBio : ${status.status}\nUser : @${room.b.split("@")[0]}`, m, { mentions: [room.b] })
-                                  ElisaBotMd.sendContact(room.a, [room.b.split("@")[0]], msg)
-                              }
-                              break
-                              case 'keluar': case 'leaave': {
-                                  if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
-                                  this.anonymous = this.anonymous ? this.anonymous : {}
-                                  let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-                                  if (!room) {
-                                      let buttons = [
-                                          { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `_You Are Not In Anonymous Session, Press The Button To Find A Partner_`)
-                                      throw false
-                                  }
-                                  reply('Ok')
-                                  let other = room.other(m.sender)
-                                  if (other) await ElisaBotMd.sendText(other, `_Partner Has Left Anonymous Session_`, m)
-                                  delete this.anonymous[room.id]
-                                  if (command === 'leave') break
-                              }
-                              case 'mulai': case 'staart': {
-                                  if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
-                                  this.anonymous = this.anonymous ? this.anonymous : {}
-                                  if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
-                                      let buttons = [
-                                          { buttonId: 'stop', buttonText: { displayText: 'STOP' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `_You Are Still In Anonymous Session, Press The Button Below To Terminate Your Anonymous Session_`, ElisaBotMd.user.name, m)
-                                      throw false
-                                  }
-                                  let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
-                                  if (room) {
-                                      let buttons = [
-                                          { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
-                                          { buttonId: 'stop', buttonText: { displayText: 'STOP' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(room.a, buttons, `_Successfully Found Partner, Now You Can Send Messages_`, ElisaBotMd.user.name, m)
-                                      room.b = m.sender
-                                      room.state = 'CHATTING'
-                                      await ElisaBotMd.sendButtonText(room.b, buttons, `_Successfully Found Partner, Now You Can Send Messages_`, ElisaBotMd.user.name, m)
-                                  } else {
-                                      let id = + new Date
-                                      this.anonymous[id] = {
-                                          id,
-                                          a: m.sender,
-                                          b: '',
-                                          state: 'WAITING',
-                                          check: function (who = '') {
-                                              return [this.a, this.b].includes(who)
-                                          },
-                                          other: function (who = '') {
-                                              return who === this.a ? this.b : who === this.b ? this.a : ''
-                                          },
-                                      }
-                                      let buttons = [
-                                          { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `_Please Wait, Looking For A Partner_`, ElisaBotMd.user.name, m)
-                                  }
-                                  break
-                              }
-                              case 'neext': case 'lanjut': {
-                                  if (m.isGroup) return reply('This Feature Cannot Be Used In Group!')
-                                  this.anonymous = this.anonymous ? this.anonymous : {}
-                                  let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
-                                  if (!romeo) {
-                                      let buttons = [
-                                          { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `\`\`\`You Are Not In Anonymous Session, Press The Button To Find A Partner\`\`\``)
-                                      throw false
-                                  }
-                                  let other = romeo.other(m.sender)
-                                  if (other) await ElisaBotMd.sendText(other, `\`\`\`Partner Has Left Anonymous Session\`\`\``, m)
-                                  delete this.anonymous[romeo.id]
-                                  let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
-                                  if (room) {
-                                      let buttons = [
-                                          { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
-                                          { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(room.a, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, ElisaBotMd.user.name, m)
-                                      room.b = m.sender
-                                      room.state = 'CHATTING'
-                                      await ElisaBotMd.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, ElisaBotMd.user.name, m)
-                                  } else {
-                                      let id = + new Date
-                                      this.anonymous[id] = {
-                                          id,
-                                          a: m.sender,
-                                          b: '',
-                                          state: 'WAITING',
-                                          check: function (who = '') {
-                                              return [this.a, this.b].includes(who)
-                                          },
-                                          other: function (who = '') {
-                                              return who === this.a ? this.b : who === this.b ? this.a : ''
-                                          },
-                                      }
-                                      let buttons = [
-                                          { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
-                                      ]
-                                      await ElisaBotMd.sendButtonText(m.chat, buttons, `\`\`\`Please wait, looking for a partner\`\`\``, ElisaBotMd.user.name, m)
-                                  }
-                                  break
-                              }
+                              
                               case 'public': {
                                   if (!isCreator) throw mess.owner
                                   ElisaBotMd.public = true
@@ -7202,21 +6834,9 @@ ${NIMAMSG}
 │ ${prefix}report
 ╰─────────────⦁
 
-╭──❰ *𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 𝙼𝙴𝙽𝚄* ❱
-│ ${prefix}setcmd
-│ ${prefix}listcmd
-│ ${prefix}delcmd
-│ ${prefix}lockcmd
-│ ${prefix}addmsg
-│ ${prefix}listmsg
-│ ${prefix}getmsg
-│ ${prefix}delmsg
-╰─────────────⦁ 
-
 ╭────❰ *𝙻𝙾𝙶𝙾 𝙼𝙴𝙽𝚄* ❱   
 │ ${prefix}logo
 │ ${prefix}logo2
-│ ${prefix}logo3
 ╰──────────────⦁
 
 ╭───❰ 𝙾𝚆𝙽𝙴𝚁 𝙼𝙴𝙽𝚄 ❱
@@ -7371,34 +6991,16 @@ _I am alive now 😼_
                           await ElisaBotMd.sendPresenceUpdate('recording', m.chat) 
                           await ElisaBotMd.sendMessage(m.chat, { audio: {url :'https://github.com/DarkMakerofc/UPLOADS/raw/main/VOICE/alive.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
               if (global.alive === 'default') {
-              const ita = '```'
               await ElisaBotMd.sendMessage(from, { react: { text: `👋`, key: m.key }})
               
                  let buttons = [
                     {buttonId: `menu`, buttonText: {displayText: 'ᴍᴇɴᴜ'}, type: 1},
-                    {buttonId: `owner`, buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1}
+                    {buttonId: `ping`, buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1}
                     
                 ]
                 let buttonMessage = {
                     image: { url: global.alivelogo },
-                    caption:`${ita}◈ Queen Elisa Bot is Online ◈${ita}
-
-*( ᴅᴇᴘʟᴏʏ ) ▽* 
- _http://github.com/darkmakerofc_
-*( ᴏᴡɴᴇʀ ) ▽* 
-_${global.owner}_
-*( ᴘᴜʙʟɪᴄ ɢʀᴏᴜᴘ ) ▽*
-_https://chat.whatsapp.com/BbIpvkRD4qP6xKckb8cpT0_
-*( ᴠᴇʀsɪᴏɴ ) ▽*
- _${BOT_VERSION}_
-*( ʏᴏᴜᴛᴜʙᴇ ) ▽*
- _https://youtube.com/MRNIMAOFC_
-
-*[ ⏱️ ʀᴜɴ ᴛɪᴍᴇ ⏱️] ▽*
-${runtime(process.uptime())}
-
-${ita}💗 THANKS FOR USING QUEEN ELISA 💗${ita}
-`,
+                    caption:'```👸 Queen Elisa Bot is online 👸```\n\n_Queen elisa is public whatsapp user bot deploy by darkmaker_\n\n\n*🦄 Queen Elisa Public Group ✨*\n```https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N```\n*🧑‍💻 Deploy Elisa Bot*\n```nimaelisa.cf```\n\n\n```THANKS FOR USING QUEEN ELISA```' ,
                     footer: global.botnma,
                     buttons: buttons,
                     headerType: 4
@@ -7678,6 +7280,12 @@ desmsg = `
             
             break
                   case 'grpmenu': {  
+  const start = new Date().getTime()
+  await console.log('*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
+  const end = new Date().getTime()
+  const ping = '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: global.TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `📜`, key: m.key }})
 
 var GRPDES = ''
@@ -7713,33 +7321,43 @@ if (global.LANG == 'SI') DEMOTEDES = '_ගෲප් එකේ ඇඩ්මින
 prefix = '.'
 
                                 anu = `
-┌┄┄┄┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄┄┘
-             ◒ *𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨* ◒ 
-   
-     
-➀ *${prefix}grouplink* - ${GRPDES}
+*◯───────[ GROUP MENU ]───────◯*
 
-➁ *${prefix}setgrouppp* - ${GRPPP}
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-➂ *${prefix}setname* - ${SETNAME}
+${M_E} *${prefix}grouplink* 
+   ${D_E} ${GRPDES}
 
-➃ *${prefix}group* - ${GROUDES}
+${M_E} *${prefix}setgrouppp* 
+   ${D_E} ${GRPPP}
 
-➄ *${prefix}editinfo* - ${EDITINFO}
+${M_E} *${prefix}setname* 
+   ${D_E} ${SETNAME}
 
-➅ *${prefix}grupinfo* - ${GRPINFO}
+${M_E} *${prefix}group* 
+   ${D_E} ${GROUDES}
 
-➆ *${prefix}add* - ${ADDDES}
+${M_E} *${prefix}editinfo* 
+   ${D_E} ${EDITINFO}
 
-➇ *${prefix}kick* - ${KICKDES}
+${M_E} *${prefix}grupinfo* 
+   ${D_E} ${GRPINFO}
 
-➈ *${prefix}promote* - ${PROMOTEDES}
+${M_E} *${prefix}add* 
+   ${D_E} ${ADDDES}
 
-➉ *${prefix}demote* - ${DEMOTEDES}
+${M_E} *${prefix}kick* 
+   ${D_E} ${KICKDES}
 
-`,
+${M_E} *${prefix}promote* 
+   ${D_E} ${PROMOTEDES}
+
+${M_E} *${prefix}demote* 
+   ${D_E} ${DEMOTEDES}
+
+*───────────◯* `,
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
@@ -8711,7 +8329,35 @@ back = Lang.BACK_BUTTON
                     headerType: 4
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-         
+          
+                        /*message = await prepareWAMessageMedia({ image : { url: 'https://telegra.ph/file/4c48b566ce23dd180d1be.jpg' } }, { upload:   ElisaBotMd.waUploadToServer })
+                                  template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                                      templateMessage: {
+                                          hydratedTemplate: {
+                                              imageMessage: message.imageMessage,
+                                              hydratedContentText: anu ,
+                                              hydratedFooterText: global.botnma ,
+                                              hydratedButtons: [{
+                                                  urlButton: {
+                                                      displayText: '❰ ʏᴏᴜᴛᴜʙᴇ ❱' ,
+                                                      url: 'https://youtube.com/c/MRNIMAOFC'
+                                                  }
+                                              }, {
+                                                  quickReplyButton: {
+                                                      displayText: `${back}` ,
+                                                      id: 'elisadatabasemenu'
+                                                      }
+                                                  },  {
+                                                  quickReplyButton: {
+                                                      displayText: `${next}` ,
+                                                      id: 'logomenu'
+                                                      }
+                                              }]
+                                          }
+                                      }
+                                  }), { userJid: m.chat, quoted: m })
+                                    ElisaBotMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                             */
 }
                   break
                   case 'logomenu': {  
@@ -8725,8 +8371,8 @@ var LOGODESC_2 = ''
 if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -2_'
 if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 2_'
 var LOGODESC_3 = ''
-if (global.LANG == 'EN') LOGODESC_3 = '_Make logos on logo pack -3_'
-if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
+if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -3_'
+if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
  
                       anu = `*LOGO LIST MENU*
 
