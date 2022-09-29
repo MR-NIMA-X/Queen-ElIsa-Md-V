@@ -336,8 +336,9 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 // AUTO MASSAGE REPLY REACT🐣
 
      if (global.AUTO_REACT == 'true' ) {
-		const sudoo = HELPERS.split(',')
-		if (m.sender.startsWith(sudoo)){
+		//const sudoo = HELPERS.split(',')
+		const Sudooo = [HELPERS].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+		if (Sudooo){
 		await ElisaBotMd.sendMessage(from, { react: { text: `👻`, key: m.key }})
          
 		}
@@ -7552,21 +7553,21 @@ case 'command': case 'list' : case 'cmd' : {
                   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
-desmsg = `『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
-    ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 *▸ ${m.sender.split('@')[0]}*
-    ▢ 𝙽𝙰𝙼𝙴 * ▸ ${m.pushName}*
+desmsg = `    『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+ ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${m.sender.split('@')[0]}
+ ▢ 𝙽𝙰𝙼𝙴  ▸ ${m.pushName}
 
-『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
-     ▢ 𝙽𝙰𝙼𝙴 *▸ ${global.botnma}*
-     ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 *▸ ${botNumber}*
-     ▢ 𝙷𝙾𝚂𝚃 𝙾𝙽 *▸ Heroku*
-     ▢ 𝚆𝙴𝙱 *▸ Opera*
+   『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+ ▢ 𝙽𝙰𝙼𝙴 ▸ ${global.botnma}
+ ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${botNumber}
+ ▢ 𝙷𝙾𝚂𝚃 𝙾𝙽 ▸ Heroku
+ ▢ 𝚆𝙴𝙱 ▸ Opera
 
-『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』
-     ▢ 𝙿𝚁𝙴𝙵𝙸𝚇 *▸ ${prefix}*
-     ▢ 𝙽𝙾𝚆 𝚃𝙸𝙼𝙴 *▸ ${time}*
-     ▢ 𝙳𝙰𝚃𝙴 *▸ ${date}*
-     ▢ 𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴 *▸ ${ram0}*
+    『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』
+ ▢ 𝙿𝚁𝙴𝙵𝙸𝚇 ▸ ${prefix}
+ ▢ 𝙽𝙾𝚆 𝚃𝙸𝙼𝙴 ▸ ${time}
+ ▢ 𝙳𝙰𝚃𝙴 ▸ ${date}
+ ▢ 𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴 ▸ ${ram0}
 `
     
             
