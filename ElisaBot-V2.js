@@ -20,8 +20,8 @@ const Language = require('./language')
 const Lang = Language.getString('elisabot')
 //const config = require("./config")
 
-const global.TIME_ZONE = 'Asia/Colombo'
-const global MENU_IMOJI = '👸|♥️'
+const TIME_ZONE = 'Asia/Colombo'
+const MENU_IMOJI = '👸|♥️'
   const M_E = MENU_IMOJI.split('|')[0]
   const D_E = MENU_IMOJI.split('|')[1]
 
