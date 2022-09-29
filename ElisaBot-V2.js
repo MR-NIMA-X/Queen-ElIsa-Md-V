@@ -7692,8 +7692,8 @@ desmsg = `
   const start = new Date().getTime()
   await console.log('*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
   const end = new Date().getTime()
-  const ping = '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' 
-  const time = new Date().toLocaleString('HI', { timeZone: global.TIME_ZONE }).split(' ')[1]
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `📜`, key: m.key }})
 
@@ -7827,6 +7827,12 @@ case 'helpers' : {
 }
 break
                   case 'elisadownloadmenu': {  
+const start = new Date().getTime()
+  await console.log('*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
 var TIKTOK = ''
 if (global.LANG == 'EN') TIKTOK = '_Download Your Tiktok Link video_'
@@ -7875,45 +7881,46 @@ if (global.LANG == 'EN') VIDEO2  = '_The video you name will download [ none but
 if (global.LANG == 'SI') VIDEO2  = '_ඔබ නම් යෙදූ වීඩියෝව බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]_'
 
  prefix = '.'
-anu = `
-┌┄┄┄╌╌┄┄┐
-╎ ᴡᴇʟᴄᴏᴍᴇ
-└┄┄┄┄╌╌┄┘
-             ◒ 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙈𝙀𝙉𝙐 ◒
+anu = `*◯───────[ GROUP MENU ]───────◯*
 
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
 
-📍 *${prefix}tiktok* - ${TIKTOK} 
+${M_E} *${prefix}tiktok* 
+   ${D_E} ${TIKTOK} 
+${M_E} *${prefix}tiktok2*  
+   ${D_E}  ${TIKTOK} _type ( ii )_
+${M_E} *${prefix}insta*  
+   ${D_E}  ${INSTA}
+${M_E} *${prefix}ig2*  
+   ${D_E}  ${IG2}
+${M_E} *${prefix}fb*  
+   ${D_E}  ${FB}
+${M_E} *${prefix}fb2*  
+   ${D_E}  ${FB2}
+${M_E} *${prefix}ytmp3*  
+   ${D_E}  ${YTMP3}
+${M_E} *${prefix}ytmp4*  
+   ${D_E}  ${YTMP4}
+${M_E} *${prefix}getmusic*  
+   ${D_E}  ${GETMUSIC}
+${M_E} *${prefix}getvideo*  
+   ${D_E}  ${GETVIDEO}
+${M_E} *${prefix}song*  
+   ${D_E}  ${SONG}
+${M_E} *${prefix}song2*  
+   ${D_E}  ${SONG2}
+${M_E} *${prefix}video*  
+   ${D_E}  ${VIDEO}
+${M_E} *${prefix}video2*  
+   ${D_E}  ${VIDEO2}
+${M_E} *${prefix}ytv*  
+   ${D_E}  ${YTV}
+${M_E} *${prefix}yt*  
+   ${D_E}  ${YT} 
 
-📍 *${prefix}tiktok2* - ${TIKTOK} _type ( ii )_
-
-📍 *${prefix}insta* - ${INSTA}
-
-📍 *${prefix}ig2* - ${IG2}
-
-📍 *${prefix}fb* - ${FB}
-
-📍 *${prefix}fb2* - ${FB2}
-
-📍 *${prefix}ytmp3* - ${YTMP3}
-
-📍 *${prefix}ytmp4* - ${YTMP4}
-
-📍 *${prefix}getmusic* - ${GETMUSIC}
-
-📍 *${prefix}getvideo* - ${GETVIDEO}
-
-📍 *${prefix}song* - ${SONG}
-
-📍 *${prefix}song2* - ${SONG2}
-
-📍 *${prefix}video* - ${VIDEO}
-
-📍 *${prefix}video2* - ${VIDEO2}
-
-📍 *${prefix}ytv* - ${YTV}
-
-📍 *${prefix}yt* - ${YT} 
-`,
+*────────◯*`,
 
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
