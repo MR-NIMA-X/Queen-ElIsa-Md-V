@@ -7883,11 +7883,11 @@ var XNXX = ''
 if (global.LANG == 'EN') APK = '_Download Plastore apk_'
 if (global.LANG == 'SI') APK = '_Plastore Apk බාගත කිරීමට_'
 if (global.LANG == 'EN') MOD_APK = '_Mod Apk Download_'
-if (global.LANG == 'SI') MOD_APK = 'මොඩ් Apk බාගත කිරීම_'
-if (global.LANG == 'EN') TELE = 'Telegram Sticker Download_
-if (global.LANG == 'SI') TELE = '
-if (global.LANG == 'EN') XNXX = '_Xnxx Video Download ( only main Group )_
-if (global.LANG == 'SI') XNXX = '_Xnxx වීඩියෝ බාගත කිරීම ( ප්‍රදාන ශාපයේ පමණක් වලංගු විදානයකි )_
+if (global.LANG == 'SI') MOD_APK = '_මොඩ් Apk බාගත කිරීම_'
+if (global.LANG == 'EN') TELE = '_Telegram Sticker Download_'
+if (global.LANG == 'SI') TELE = '_Telegram ස්ටිකර් බාගත කිරීමට_'
+if (global.LANG == 'EN') XNXX = '_Xnxx Video Download ( only main Group )_'
+if (global.LANG == 'SI') XNXX = '_Xnxx වීඩියෝ බාගත කිරීම ( ප්‍රදාන ශාපයේ පමණක් වලංගු විදානයකි )_'
 
  prefix = '.'
 anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
