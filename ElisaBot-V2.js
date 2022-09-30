@@ -4595,6 +4595,39 @@ if (!text) return reply (MAX)
  	   	                	
   }
             break
+            case 'eglitch' : case 'eberry': case 'eneon' : case 'ecrismas' : case 'ethunder' : case 'eninja' :
+            case 'eorange' : case 'ecake' : case 'estrowberry' : case 'eflaming' : case 'eshadow' : case 'eongrass' : 
+            case 'eloveu' : case 'ecoffee' : case 'eilluminati' : {
+            
+            var GIVEE = ''
+  if (global.LANG == 'EN') GIVEE = `*👸💬 Please give me a some words* \n_ℹ️ example ${prefix + command} MR NIMA_`
+  if (global.LANG == 'SI') GIVEE = `*👸💬 කරුනාකර වචනයක් ලබාදෙන්න* \n _ℹ️ උදාහරණ ${prefix + command} MR NIMA_`
+     if(!text) return reply(GIVEE)
+     const logomaking = await ElisaBotMd.sendText(m.chat,LOGO_MAKING)
+          
+       let link =        
+       if (/eglitch/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/glitch?text='text
+       if (/eberry/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/berry?text='+text
+       if (/eneon/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/neon?text='+text
+       if (/ecrismas/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/3dchristmas?text='+text
+       if (/ethunder/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/thunder?text='+text
+       if (/eninja/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/ninja-logo?text='+text+'&text2=ELISA BOT'
+       if (/eorange/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/3d-orange-juice?text='+text
+       if (/ecake/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/chocolate-cake?text='+text
+       if (/estrowberry/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/strawberry?text='+text
+       if (/eflaming/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/flaming?text='+text
+       if (/eshadow/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/shadow-sky?text='+text
+       if (/eongrass/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/under-grass?text='+text
+       if (/eloveu/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/picture-of-love?text='+text
+       if (/ecoffee/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/coffee-cup?text='+text
+       if (/eilluminati/.test(command)) link = 'https://my-shinz.herokuapp.com/api/photooxy/illuminated-metallic?text='+text
+       
+    const img = await getBuffer(link)
+    await ElisaBotMd.sendMessage(m.chat, { image: img, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+    await ElisaBotMd.sendMessage(m.chat,{delete : logomaking.key })  
+           
+}
+break
                               case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
 case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': case 'wolflogo' :
 case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 
@@ -7121,6 +7154,7 @@ ${NIMAMSG}
 │ ${prefix}ttp
 │ ${prefix}tts
 │ ${prefix}unvoice
+│ ${prefix}fancy
 ╰─────────────⦁
   
 ╭──❰ *𝚁𝙰𝙽𝙳𝙾𝙼 𝙰𝙽𝙸𝙼𝙴* ❱
@@ -7261,8 +7295,8 @@ ${NIMAMSG}
                                   }), { userJid: m.chat, quoted: m })
                                     ElisaBotMd.send5ButImg(m.chat, template.message, { messageId: template.key.id })*/
 const templateButtons = [
-    {urlButton: {displayText: 'ɢɪᴛʜᴜʙ', url: 'https://github.com/darkmakerofc/Queen-Elisa-Md-V2'}},
-    {urlButton: {displayText: 'ʏᴛ ᴄʜᴀɴɴᴇʟ', url: `https://youtube.com/c/MRNIMAOFC` }},
+    {urlButton: {displayText: global.BUTTON1, url: global.BUTTON1_URL }},
+    {urlButton: {displayText: global.BUTTON2, url: global.BUTTON2_URL }},
     {quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
     {quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
 ]
@@ -7553,17 +7587,17 @@ case 'command': case 'list' : case 'cmd' : {
                   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
-desmsg = `    『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+desmsg = `    *『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』*
  ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${m.sender.split('@')[0]}
  ▢ 𝙽𝙰𝙼𝙴  ▸ ${m.pushName}
 
-   『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
+   *『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』*
  ▢ 𝙽𝙰𝙼𝙴 ▸ ${global.botnma}
- ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${botNumber}
+ ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${botNumber.split('@')[0]}
  ▢ 𝙷𝙾𝚂𝚃 𝙾𝙽 ▸ Heroku
  ▢ 𝚆𝙴𝙱 ▸ Opera
 
-    『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』
+    *『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』*
  ▢ 𝙿𝚁𝙴𝙵𝙸𝚇 ▸ ${prefix}
  ▢ 𝙽𝙾𝚆 𝚃𝙸𝙼𝙴 ▸ ${time}
  ▢ 𝙳𝙰𝚃𝙴 ▸ ${date}
@@ -7616,12 +7650,12 @@ desmsg = `    『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』
                                                           "rowId": `${prefix}elisanocategorymenu`
                                                           },
                                                           {
-                                                              "title": "▷ DATABASE MENU ◁",
-                                                          "description": Lang.DATABASE_CMD ,
-                                                          "rowId": `${prefix}elisadatabasemenu`
+                                                              "title": "▷ TEXT TO LOGO ◁",
+                                                          "description": Lang.LOGO_CMD ,
+                                                          "rowId": `${prefix}textlogo`
                                                           },
                                                           {
-                                                              "title": "▷ LOGO MENU ◁",
+                                                              "title": "▷ LOGO PACK MENU ◁",
                                                           "description": Lang.LOGO_CMD ,
                                                           "rowId": `${prefix}logomenu`
                                                           },
@@ -8456,6 +8490,10 @@ if (global.LANG == 'SI' ) GIF= 'ඇනිමේශන් ස්ටිකර් G
 var URL = ''
 if (global.LANG == 'EN' ) URL= 'Get url your image / video'
 if (global.LANG == 'SI' ) URL= 'ඔබගේ ජායාරූපයට හෝ වීඩියෝවට ලින්කුවක් ලබාදෙයි'
+var FANCY = ''
+if (global.LANG == 'EN' ) FANCY = 'Make fancy text'
+if (global.LANG == 'SI' ) FANCY = 'විවිද හැඩවලින් අකුරු සෑදීම [ only english ]'
+
                   anu = `*◯───────[ CONVERT MENU ]───────◯*
 
 ╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
@@ -8482,6 +8520,9 @@ ${M_E} *${prefix}togif*
 
 ${M_E} *${prefix}tourl*   
    ${D_E}  _${URL}_ 
+
+${M_E} *${prefix}fancy*   
+   ${D_E}  _${FANCY}_ 
    
 *──────────◯*
 `
@@ -8718,7 +8759,7 @@ ${M_E} *${prefix}report*
                     footer = global.botnma
                  buttons = [
                     {buttonId: `elisaranimemenu`, buttonText: {displayText: back}, type: 1},
-                    {buttonId: `logomenu`, buttonText: {displayText: next}, type: 1}
+                    {buttonId: `textlogo`, buttonText: {displayText: next}, type: 1}
                     
                 ]
                 let buttonMessage = {
@@ -8760,30 +8801,68 @@ ${M_E} *${prefix}report*
                               */
 }
                   break
-                  case 'elisadatabasemenu': {  
-                          await ElisaBotMd.sendMessage(from, { react: { text: `🗂️`, key: m.key }})
-                  prefix = '.'
+                  case 'textlogo': { 
+const start = new Date().getTime()
+  await ElisaBotMd.sendMessage(from, { react: { text: `👻`, key: m.key }})
+  const end = new Date().getTime()
+  const ping = (end - start) + ' *_ᴍs_*' 
+  const time = new Date().toLocaleString('HI', { timeZone: TIME_ZONE }).split(' ')[1]
+
+                          await ElisaBotMd.sendMessage(from, { react: { text: `⚧️️`, key: m.key }})
+prefix = '.'
+                      anu = `*◯───────[ TEXT TO LOGO MENU ]───────◯*
+
+╭⛒  *ᴏᴡɴᴇʀ* ${global.ownernma}
+├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
+╰⛒  *ᴛɪᴍᴇ* ${time}
+
+
+
+${M_E} ${prefix}eglitch
+ 
+${M_E} ${prefix}eberry
+
+${M_E} ${prefix}eneon
+ 
+${M_E} ${prefix}ecrismas
+ 
+${M_E} ${prefix}ethunder
+ 
+${M_E} ${prefix}eninja
+
+${M_E} ${prefix}eorange
+ 
+${M_E} ${prefix}ecake
+ 
+${M_E} ${prefix}estrowberry
+ 
+${M_E} ${prefix}eflaming
+ 
+${M_E} ${prefix}eshadow
+ 
+${M_E} ${prefix}eongrass
+ 
+${M_E} ${prefix}eloveu
+ 
+${M_E} ${prefix}ecoffee
+ 
+${M_E} ${prefix}eilluminati
+
+   ${D_E} ${prefix}eberry MR NIMA
+ 
+*──────────◯*
+`
 next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
-                      anu = `
-*𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗠𝗘𝗡𝗨*
-📁 ${prefix}setcmd
-📁 ${prefix}listcmd
-📁 ${prefix}delcmd
-📁 ${prefix}lockcmd
-📁 ${prefix}addmsg
-📁 ${prefix}listmsg
-📁 ${prefix}getmsg
-📁 ${prefix}delmsg
-                    `
-                    footer = global.botnma
+
+footer = global.botnma
                  buttons = [
                     {buttonId: `elisanocategorymenu`, buttonText: {displayText: back}, type: 1},
-                    {buttonId: `elisaanonymouschatmenu`, buttonText: {displayText: next}, type: 1}
+                    {buttonId: `logomenu`, buttonText: {displayText: next}, type: 1}
                     
                 ]
                 let buttonMessage = {
-                    image: { url: 'https://telegra.ph/file/15c3205613be1d0bd1f1b.jpg' },
+                    image: { url: 'https://telegra.ph/file/43fb12ef3bb693973d756.jpg' },
                     caption:anu ,
                     footer: footer,
                     buttons: buttons,
@@ -8873,14 +8952,14 @@ if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකා�
 ├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
-${M_E} *.logo   
-    ${D_E} * ${LOGODESC}
+${M_E} *.logo*   
+    ${D_E}  ${LOGODESC}
 
-${M_E} *.logo2   
-    ${D_E} * ${LOGODESC_2}
+${M_E} *.logo2*   
+    ${D_E}  ${LOGODESC_2}
 
-${M_E} *.lpgo3   
-    ${D_E} * ${LOGODESC_3}
+${M_E} *.logo3*
+    ${D_E}  ${LOGODESC_3}
 
  *_Example : .logo1 MR NIMA_*
  
