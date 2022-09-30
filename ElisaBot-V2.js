@@ -4605,8 +4605,8 @@ if (!text) return reply (MAX)
      if(!text) return reply(GIVEE)
      const logomaking = await ElisaBotMd.sendText(m.chat,LOGO_MAKING)
           
-       let link =        
-       if (/eglitch/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/glitch?text='text
+       let link      
+       if (/eglitch/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/glitch?text='+text
        if (/eberry/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/berry?text='+text
        if (/eneon/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/neon?text='+text
        if (/ecrismas/.test(command)) link = 'https://my-shinz.herokuapp.com/api/textpro/3dchristmas?text='+text
