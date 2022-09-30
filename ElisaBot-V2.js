@@ -1149,8 +1149,8 @@ if (q.includes('--help')) return reply(examkosong)
   break*/
   
   case 'ehi' :  {
-  const buffer = await getBuffer('https://telegra.ph/file/87a81ac808feb9375a1c0.jpg')
-  const link = 'https://telegra.ph/file/87a81ac808feb9375a1c0.jpg'
+  const buffer = await getBuffer('https://telegra.ph/file/05e005dbcc969e4d8b3b0.jpg')
+  const link = 'http://instagram.com/mr_nima_._._x'
   
 await ElisaBotMd.sendMessage(from, { react: { text: `💉`, key: m.key }})
 AGAINTRY = ` ╔══════❨ ❄ ❩══════╗
@@ -5310,7 +5310,7 @@ if (!text && !text.includes('|')) return reply (MAX)
 			},
 			{
 			"title": "pron hub style ",
-			"rowId": `pronhub2 ${text}`
+			"rowId": `pornhub2 ${text}`
 			},
 			{
 			"title": "grafiti style ",
@@ -8816,37 +8816,21 @@ prefix = '.'
 ├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
-
-
-${M_E} ${prefix}eglitch
- 
-${M_E} ${prefix}eberry
-
-${M_E} ${prefix}eneon
- 
-${M_E} ${prefix}ecrismas
- 
-${M_E} ${prefix}ethunder
- 
-${M_E} ${prefix}eninja
-
-${M_E} ${prefix}eorange
- 
-${M_E} ${prefix}ecake
- 
-${M_E} ${prefix}estrowberry
- 
-${M_E} ${prefix}eflaming
- 
-${M_E} ${prefix}eshadow
- 
-${M_E} ${prefix}eongrass
- 
-${M_E} ${prefix}eloveu
- 
-${M_E} ${prefix}ecoffee
- 
-${M_E} ${prefix}eilluminati
+${M_E} *${prefix}eglitch*
+${M_E} *${prefix}eberry*
+${M_E} *${prefix}eneon*
+${M_E} *${prefix}ecrismas*
+${M_E} *${prefix}ethunder*
+${M_E} *${prefix}eninja*
+${M_E} *${prefix}eorange*
+${M_E} *${prefix}ecake*
+${M_E} *${prefix}estrowberry*
+${M_E} *${prefix}eflaming*
+${M_E} *${prefix}eshadow*
+${M_E} *${prefix}eongrass*
+${M_E} *${prefix}eloveu*
+${M_E} *${prefix}ecoffee*
+${M_E} *${prefix}eilluminati*
 
    ${D_E} ${prefix}eberry MR NIMA
  
