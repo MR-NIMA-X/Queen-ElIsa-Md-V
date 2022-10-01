@@ -33,6 +33,12 @@ var LOGO_MAKING = ''
 var NOT_FOUND = ''
   if (global.LANG == 'EN') NOT_FOUND = '*🚫💬 I CAN\'T FIND ANYTHING !*'
   if (global.LANG == 'SI') NOT_FOUND = '*🚫💬 මට කිසිවක් සොයාගත නොහැකිවිය !*'
+var FILE_DOWNLOAD = ''
+var FILE_UPLOAD = ''
+   if (global.LANG == 'EN') FILE_DOWNLOAD = '*📥 DOWNLOADING YOUR FILE...*'
+   if (global.LANG == 'EN') FILE_UPLOAD =  '*📤 UPLOADING YOUR FILE...*'
+   if (global.LANG == 'SI') FILE_DOWNLOAD = '*📥 ඔබගේ ගොනුව බාගතකරමින් පවති...*'
+   if (global.LANG == 'SI') FILE_UPLOAD = '*📤 ඔබගේ ගොනුව එවමින් පවතී...*'
 
 const BOT_VERSION = '2.2.0'
 //rpg function\\
@@ -1084,18 +1090,64 @@ break
       }
  }
  break
+ case 'hunting' : {
+ 
+ 
+   let coww = [1,0,2,3,1,0,2,1,0,1,2,0,1]
+   let tigeer = [1,0,2,0,1,0,2,1,0,1,0,0,1]
+   let rabbii = [1,0,2,6,1,0,2,1,2,1,2,0,1]
+   let froggg = [1,6,2,3,1,0,2,4,0,1,2,9,1]
+      var cow = coww[Math.floor(Math.random() * coww.length)]  
+      var tiger = tigeer[Math.floor(Math.random() * tigeer.length)] 
+      var rabit = rabbii[Math.floor(Math.random() * rabbii.length)]  
+      var frog = froggg[Math.floor(Math.random() * froggg.length)]   
+      
+setTimeout( () => {
+  let caption = `*[ 🧜‍♂️ HUNT RESULT 🧜‍♂️]*
+*🦬 Cows* : ${cow}
+*🐅 Tigers* : ${tiger}
+*🐇 Rabits* : ${rabit}
+*🐸 Frogs* : ${frog}`
+  let buttons = [
+      {
+       buttonId: `${prefix + command}`, 
+       buttonText: {
+        displayText: '🧜‍♂ Hunt Again 🧜‍♂️'
+      }, type: 1},
+    ]
+    let buttonMessage = {
+      image: { url: 'https://telegra.ph/file/84266b9c31cc804698d7a.jpg' },
+      caption: caption,
+      footer: pushname,
+      buttons: buttons,
+      headerType: 4
+     }
+     ElisaBotMd.sendMessage(from, buttonMessage, { quoted: m })
+   
+   }, 7000)  
+  setTimeout( () => {
+  reply(`*@${m.sender.split("@")[0]} Started Hunting 🧜‍♂*`)     
+  }, 1500)
+ }
+break
 case 'mining': case 'mine':{
-if (q.includes('--help')) return reply(examkosong) 
+//if (q.includes('--help')) return reply(examkosong) 
   if (!isInventory){ addInventori(m.sender) }
   if (isCekDarah < 1) return reply(`You're Tired!, Try To Heal Using Potions`) 
   let besi = [1,2,5,0,3,0,1,1,4,1,5,0,0]
   let emas = [0,1,2,3,0,0,0,1,1,0,0,2]
   let emerald = [0,0,1,0,0,1,0,2,1,0,0,1]
+  let gemmm = [5,0,1,2,0,1,0,2,1,3,0,1]
   var besinya = besi[Math.floor(Math.random() * besi.length)]  
   var emasnya = emas[Math.floor(Math.random() * emas.length)]  
   var emeraldnya = emerald[Math.floor(Math.random() * emerald.length)]  
+  var jems = gemmm[Math.floor(Math.random() * gemmm.length)]  
   setTimeout( () => {
-  let caption = `[ MINING RESULT ]\n*Iron* : ${besinya}\n*Gold* : ${emasnya}\n*Emerald* : ${emeraldnya}`
+  let caption = `*[ ⛏️ MINING RESULT ⛏️]*
+*Iron* : ${besinya}
+*Gold* : ${emasnya}
+*Emerald* : ${emeraldnya}
+*Jem* : ${jems}`
   let buttons = [
       {
        buttonId: `${prefix + command}`, 
@@ -1149,8 +1201,8 @@ if (q.includes('--help')) return reply(examkosong)
   break*/
   
   case 'ehi' :  {
-  const buffer = await getBuffer('https://telegra.ph/file/05e005dbcc969e4d8b3b0.jpg')
-  const link = 'http://instagram.com/mr_nima_._._x'
+  const buffer = await getBuffer('https://telegra.ph/file/21440bd3801d3f280316e.jpg')
+  const link = 'http://youtube.com/c/MRNIMAOFC'
   
 await ElisaBotMd.sendMessage(from, { react: { text: `💉`, key: m.key }})
 AGAINTRY = ` ╔══════❨ ❄ ❩══════╗
@@ -5425,7 +5477,7 @@ break
 /*case 'tiktok4':{
 //https://cakrayp.herokuapp.com/api/tiktok/video?url=https://www.tiktok.com/@imalka_venroy/video/7132747469271616794?is_from_webapp=1&sender_device=mobile&sender_web_id=7135844111252964866&apikey=cakrayp24Q6
 }*/
-case 'tiktok': {
+case 'nowmtiktok': case 'nowm' : {
 const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
   // //if 
    if (!text) throw '*Enter a Link Query!*'            
@@ -5445,41 +5497,53 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
        ElisaBotMd.sendText(m.chat, '*SORRY CAN\'T DOWNLOAD ❗*')})
 }
 break
-/*case 'tiktok' : {
-    if (!text) throw '*Enter a Link Query!*'          
-    const tknima = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
-    
-const msg = `👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 👸
+case 'tiktok': {
+if (!text) throw '*Enter a Link Query!*'  
+ let bocil = require('@bochilteam/scraper')    
+   if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
+   bocil.tiktokdlv3(`${text}`).then(async (video) => {           
+const imga = video.author.avatar
+const anu = `*✨👸 QUEEN ELISA TIKTOK DOWNLOADER 👸✨*
 
-⦁ ᴀᴜᴛʜᴏʀ : ${tknima.author}
+*🕵 AUTHOR* : ${video.author.nickname}
 
-⦁ ᴅᴇᴛᴀɪʟs : ${tknima.desc}
-
-`
-//⦁ ᴏʀɪɢɪɴᴀʟ sᴏɴɢ : ${tknima.links[4].s}
-
-const wmvideo = tknima.links[3].a
-const nowmvideo = tknima.links[0].a
-const img = tknima.cover
-        
-	            // footer = global.botnma
-                 var buttons = [
-                    {buttonId: `directkk ${nowmvideo}`, buttonText: {displayText: 'NO WM'}, type: 1},
-                    {buttonId: `directkk ${wmvideo}`, buttonText: {displayText: 'WITH WM'}, type: 1}
-                    
+*ℹ️ DESC* : ${video.description}
+`                      
+                     footer = global.botnma
+                 buttons = [
+                    {buttonId: `nowm`, buttonText: {displayText: 'NO WM'}, type: 1},
+                    {buttonId: `tiktokwm`, buttonText: {displayText: 'WITH WM'}, type: 1},
+                    {buttonId: `tikyokmp3`, buttonText: {displayText: 'AUDIO'}, type: 1}
+               
                 ]
                 let buttonMessage = {
-                    image: { url: img },
-                    caption: msg ,
-                    footer: global.botnma,
+                    image: { url: imga },
+                    caption: anu,
+                    footer: footer,
                     buttons: buttons,
                     headerType: 4
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+         }).catch((err) => {
+       ElisaBotMd.sendText(m.chat, NOT_FOUND)})
 
 }
-break*/
+break
+case 'tiktokwm' : {
+if (!text) return reply('Need tiktok url')
+const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VIDEO ...*')
+await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json').then(async (thub) => { 
+buf = await getBuffer(thub.TIKTOK_THUB)
+     await ElisaBotMd.sendMessage(m.chat,{delete : down.key })
+     const up = await ElisaBotMd.sendText(m.chat, '*📤 UPLOADING YOUR TIKTOK VIDEO ...*')
+     await ElisaBotMd.sendMessage(m.chat, { video: { url: `https://api.akuari.my.id/downloader/tiktokwithwm?link=${text}` }, jpegThumbnail:buf,caption: `${global.cap}\n`}, { quoted: m })
+     //await ElisaBotMd.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, caption: `${global.cap}` }, { quoted: m })   
+     await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
+     }).catch((err) => {
+       ElisaBotMd.sendText(m.chat, NOT_FOUND)})
 
+}
+break
 case 'findsticker' : case 'searchsticker' : {
  if (!text) return reply('*👸💬 Please give me sticker pack name*')
  await fetchJson(`https://api.akuari.my.id/search/stickertelegram?query=${text}`)
@@ -6584,6 +6648,28 @@ break
             
             }
             break 
+            case 'mediafire2' :{
+            if(!text && !text.includes('mediafire.com')) return reply('*Please Give me a mediafire link*')
+            const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
+            const nima = await fetchJson(`https://cakrayp.herokuapp.com/api/downloader/mediafire?url=${text}&apikey=cakrayp24Q6`)
+            if(nima.status == '200'){
+            const msize = nima.result.filesize
+            const murl = nima.result.downloads
+            const mname = nima.result.filename
+            const mmeme = nima.result.mimetype
+            const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
+            if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 150mb_\n\nfile size - *'+msize+'*')
+            const upload = await ElisaBotMd.sendText(m.chat,FILE_UPLOAD)
+            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })
+            const me = await ElisaBotMd.sendMessage(m.chat, { document : { url : murl }, fileName : mname, mimetype: mmeme }, { quoted : m }).catch ((err) => reply('*Can\'t Download your Mediafire Link ❗*'))
+            await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })            
+            await ElisaBotMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
+          
+            }else{
+            m.reply(NOT_FOUND)
+            }
+            }
+            break
                   
                               
                           case 'ringtone': {
