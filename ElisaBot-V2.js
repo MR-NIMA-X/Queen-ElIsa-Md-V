@@ -3132,7 +3132,7 @@ break
                               }
                             break
                               case 'directmp3' : {
-                              await ElisaBotMd.sendText(m.chat, `\n*🔄 Please wait ${m.pushName}...*\n`, m, )
+                              await ElisaBotMd.sendText(m.chat, mess.wait , m, )
                               await ElisaBotMd.sendMessage(m.chat, { audio: { url: text } , mimetype: 'audio/mpeg' }, { quoted: m })
                                
                               }
@@ -3727,6 +3727,19 @@ audio ${dl_url4}
                           })
                           }
                           break
+                          case 'getvideo' : {
+                          if(!text) return m.reply('need text')
+                          let yts = require("yt-search")
+                          const search = await yts(text)
+                          let boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(search.all[0].url)
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['360p'].download()
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                          }).catch((err) => m.reply(NOT_FOUND))
+                      
+                          }
+                          break
                           case 'yt2' : {
                           if (!text) return m.reply('Please Give me a youtube link')
                           await ElisaBotMd.sendText(m.chat,mess.wait)
@@ -3826,7 +3839,7 @@ break
 case 'directaudiodown' : {
 
        const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
-       const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+     //  const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
        buf = await getBuffer(thub.SF_THUB)
        const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP, m, )
        await ElisaBotMd.sendMessage(m.chat,{delete : down.key })  
@@ -5503,7 +5516,8 @@ if (!text) throw '*Enter a Link Query!*'
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    bocil.tiktokdlv3(`${text}`).then(async (video) => {           
 const imga = video.author.avatar
-const anu = `*✨👸 QUEEN ELISA TIKTOK DOWNLOADER 👸✨*
+const musiccc = video.music
+const anu = `*✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
 *🕵 AUTHOR* : ${video.author.nickname}
 
@@ -5511,13 +5525,13 @@ const anu = `*✨👸 QUEEN ELISA TIKTOK DOWNLOADER 👸✨*
 `                      
                      footer = global.botnma
                  buttons = [
-                    {buttonId: `nowm`, buttonText: {displayText: 'NO WM'}, type: 1},
-                    {buttonId: `tiktokwm`, buttonText: {displayText: 'WITH WM'}, type: 1},
-                    {buttonId: `tikyokmp3`, buttonText: {displayText: 'AUDIO'}, type: 1}
+                    {buttonId: `nowm ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
+                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
+                    {buttonId: `directmp3 ${musiccc}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
-                    image: { url: imga },
+                    image: { url: 'https://telegra.ph/file/069d0640963b888ab6c4e.jpg' },
                     caption: anu,
                     footer: footer,
                     buttons: buttons,
@@ -6657,7 +6671,7 @@ break
             const murl = nima.result.downloads
             const mname = nima.result.filename
             const mmeme = nima.result.mimetype
-            const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
+          //  const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
             if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 150mb_\n\nfile size - *'+msize+'*')
             const upload = await ElisaBotMd.sendText(m.chat,FILE_UPLOAD)
             await ElisaBotMd.sendMessage(m.chat, { delete: down.key })
@@ -6666,6 +6680,7 @@ break
             await ElisaBotMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
           
             }else{
+            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })
             m.reply(NOT_FOUND)
             }
             }
