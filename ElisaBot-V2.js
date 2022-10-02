@@ -463,14 +463,14 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 				  
 				  if (!isInventory){ addInventori(m.sender) }
 				  addEmerald(m.chat,'1')
-				  const wish = getEmerald(m.sender)
-				  if(wish = '100') {
+				  //const wish = await 
+				 /* if(`${getEmerald(m.sender)}` = '100') {
 				  await ElisaBotMd.sendMessage(m.chat, { image: { url: `https://telegra.ph/file/c74509f7dc358a938dce3.jpg` },  caption: `*🥳 CONGRATULATIONS 🥳*
 
 *🥰 YOUR LEVEL IS UP*
 
 *YOUR NEW LEVEL IS _SUPER USER_*`}, { quoted: m })
-				  }
+				  }*/
 				  }
 			
 				  
