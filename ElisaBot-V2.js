@@ -754,7 +754,28 @@ In ${clockString(new Date - user.afkTime)}
         }
 switch(command) {
 
+             case 'databasetest' : {
+              let teksehmazeh = `_[ 👩🏻‍💼INFO USER👨🏻‍💼 ]_\n\n`
+     teksehmazeh += `*❤️Your Blood* : ${getDarah(m.sender)}\n`
+     teksehmazeh += `*◻️️Your Iron* : ${getBesi(m.sender)}\n`
+     teksehmazeh += `*🌟Your Gold* : ${getEmas(m.sender)}\n`
+     teksehmazeh += `*💎Your Emerald* : ${getEmerald(m.sender)}\n`
+     teksehmazeh += `*⏺️Your Limit* : ${getLimit(m.sender)}\n`
+     reply(teksehmazeh)
+             }
+             break
+             case 'location' : {
+             const hasm = await getBuffer('https://telegra.ph/file/7b0f6b5e397dfb909ec1f.jpg')
+var button = [
+		{ quickReplyButton: { displayText: `Inventori`, id: `${prefix}inventori` } },
+		{ quickReplyButton: { displayText: `Owner`, id: `${prefix}owner` } }
+		]
+        var hg = `「 DEATH 」`
+        ElisaBotMd.sendMessage(from, { caption: hg, location: { jpegThumbnail: hasm }, templateButtons: button, footer: `ʀᴘɢ ɢᴀᴍᴇ ʙʏ ᴢɪᴍʙᴏᴛ`, mentions: [sender] })
 
+
+             }
+             break
              case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
@@ -5511,13 +5532,14 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
 }
 break
 case 'tiktok': {
-if (!text) throw '*Enter a Link Query!*'  
+if (!text) throw '*Enter a Link Query!*'
+await ElisaBotMd.sendMessage(from, { react: { text: `🪄`, key: m.key }})
  let bocil = require('@bochilteam/scraper')    
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    bocil.tiktokdlv3(`${text}`).then(async (video) => {           
 const imga = video.author.avatar
 const musiccc = video.music
-const anu = `*✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
+const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
 *🕵 AUTHOR* : ${video.author.nickname}
 
@@ -5549,8 +5571,9 @@ const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VI
 await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json').then(async (thub) => { 
 buf = await getBuffer(thub.TIKTOK_THUB)
      await ElisaBotMd.sendMessage(m.chat,{delete : down.key })
+     const viddd = await getBuffer(`https://api.akuari.my.id/downloader/tiktokwithwm?link=${text}`)
      const up = await ElisaBotMd.sendText(m.chat, '*📤 UPLOADING YOUR TIKTOK VIDEO ...*')
-     await ElisaBotMd.sendMessage(m.chat, { video: { url: `https://api.akuari.my.id/downloader/tiktokwithwm?link=${text}` }, jpegThumbnail:buf,caption: `${global.cap}\n`}, { quoted: m })
+     await ElisaBotMd.sendMessage(m.chat, { video: viddd , jpegThumbnail:buf,caption: `${global.cap}\n`}, { quoted: m })
      //await ElisaBotMd.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, caption: `${global.cap}` }, { quoted: m })   
      await ElisaBotMd.sendMessage(m.chat,{delete : up.key })  
      }).catch((err) => {
@@ -6628,7 +6651,7 @@ break
                                   ElisaBotMd.sendMessage(m.chat, { video: { url: anu.result }, caption: `Download From ${text}` }, { quoted: m })
                               }
                               break
-                              case 'mediafire' : {  
+                              case 'mediafire2' : {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
       
       if (!text) return reply('❗ Need mediafire link')
@@ -6662,7 +6685,7 @@ break
             
             }
             break 
-            case 'mediafire2' :{
+            case 'mediafire' :{
             if(!text && !text.includes('mediafire.com')) return reply('*Please Give me a mediafire link*')
             const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
             const nima = await fetchJson(`https://cakrayp.herokuapp.com/api/downloader/mediafire?url=${text}&apikey=cakrayp24Q6`)
@@ -7688,21 +7711,22 @@ case 'command': case 'list' : case 'cmd' : {
                   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
                   
  
-desmsg = `    *『 𝚄𝚂𝙴𝚁 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』*
- ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${m.sender.split('@')[0]}
- ▢ 𝙽𝙰𝙼𝙴  ▸ ${m.pushName}
-
-   *『 𝙱𝙾𝚃 𝙳𝙴𝚃𝙰𝙸𝙻𝚂 』*
- ▢ 𝙽𝙰𝙼𝙴 ▸ ${global.botnma}
- ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 ▸ ${botNumber.split('@')[0]}
- ▢ 𝙷𝙾𝚂𝚃 𝙾𝙽 ▸ Heroku
- ▢ 𝚆𝙴𝙱 ▸ Opera
-
-    *『 𝙰𝙱𝙾𝚄𝚃 𝚂𝚈𝚂𝚃𝙴𝙼 』*
- ▢ 𝙿𝚁𝙴𝙵𝙸𝚇 ▸ ${prefix}
- ▢ 𝙽𝙾𝚆 𝚃𝙸𝙼𝙴 ▸ ${time}
- ▢ 𝙳𝙰𝚃𝙴 ▸ ${date}
- ▢ 𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴 ▸ ${ram0}
+desmsg = `╭╌┄┄『 *USER DETAILS* 』
+┊ ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 :  ${m.sender.split('@')[0]}
+┊ ▢ 𝙽𝙰𝙼𝙴 :  ${m.pushName}
+╰ ┄┬┄┄『 *BOT DETAILS* 』
+╭┄ ┴◯
+┊ ▢  𝙽𝙰𝙼𝙴 : ${global.botnma}
+┊ ▢  𝙽𝚄𝙼𝙱𝙴𝚁 : ${botNumber.split('@')[0]}
+┊ ▢  𝙷𝙾𝚂𝚃 𝙾𝙽 : heroku 
+┊ ▢  𝚆𝙴𝙱 : opera
+╰┄┬┄╌╌『 *ABOUT SYSTEM* 』
+╭┄┴┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄◯
+┊ ▢  𝙿𝚁𝙴𝙵𝙸𝚇 : ${prefix}
+┊ ▢  𝚃𝙸𝙼𝙴 : ${time}
+┊ ▢  𝙳𝙰𝚃𝙴 : ${date}
+┊ ▢  𝚁𝙰𝙼 𝚄𝚂𝙰𝙶𝙴 : ${ram0}
+╰┄┄┄┄┄┄┄┄┄┄◯
 `
     
             
