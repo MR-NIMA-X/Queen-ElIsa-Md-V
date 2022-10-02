@@ -1128,6 +1128,7 @@ break
  }
  break
  case 'hunting' : {
+ const hasm = await getBuffer('https://telegra.ph/file/e7a76ec84ddce1a8ce93b.jpg')
  //addInventoriBuruan
  if (!isInventoriBuruan){ addDuluHasilBuruanNya(m.sender) }
    let coww = [1,0,2,3,1,0,2,1,0,1,2,0,1]
@@ -1167,10 +1168,10 @@ setTimeout( () => {
      }
      ElisaBotMd.sendMessage(from, buttonMessage, { quoted: m })
    */
-   const hasm = await getBuffer('https://telegra.ph/file/e7a76ec84ddce1a8ce93b.jpg')
-var button = [	
+   var button = [	
 		{ quickReplyButton: { displayText: `🏹 𝗛𝗨𝗡𝗧 𝗔𝗚𝗔𝗜𝗡 🏹`, id: `${prefix}hunting` } }
 		]
+		
         ElisaBotMd.sendMessage(from, { caption: caption , location: { jpegThumbnail: hasm }, templateButtons: button, footer: `${botnma}`, mentions: [m.sender] })
 
 
