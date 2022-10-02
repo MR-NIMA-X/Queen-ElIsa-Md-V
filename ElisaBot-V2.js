@@ -1129,7 +1129,7 @@ break
  break
  case 'hunting' : {
  //addInventoriBuruan
- if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
+ if (!isInventoriBuruan){ addDuluHasilBuruanNya(m.sender) }
    let coww = [1,0,2,3,1,0,2,1,0,1,2,0,1]
    let tigeer = [1,0,2,0,1,0,2,1,0,1,0,0,1]
    let rabbii = [1,0,2,6,1,0,2,1,2,1,2,0,1]
@@ -1151,7 +1151,7 @@ setTimeout( () => {
 *🐸 Frogs* : ${frog}
 *🦆 Ducks* : ${duckk}
 *🐓 Chickens* : ${chiken}`
-  let buttons = [
+  /*let buttons = [
       {
        buttonId: `${prefix + command}`, 
        buttonText: {
@@ -1166,12 +1166,19 @@ setTimeout( () => {
       headerType: 4
      }
      ElisaBotMd.sendMessage(from, buttonMessage, { quoted: m })
-   
+   */
+   const hasm = await getBuffer('https://telegra.ph/file/e7a76ec84ddce1a8ce93b.jpg')
+var button = [	
+		{ quickReplyButton: { displayText: `🏹 𝗛𝗨𝗡𝗧 𝗔𝗚𝗔𝗜𝗡 🏹`, id: `${prefix}hunting` } }
+		]
+        ElisaBotMd.sendMessage(from, { caption: caption , location: { jpegThumbnail: hasm }, templateButtons: button, footer: `${botnma}`, mentions: [m.sender] })
+
+
    }, 7000)  
   setTimeout( () => {
   reply(`*@${m.sender.split("@")[0]} Started Hunting 🧜‍♂*`)     
   }, 1500)
-      addIkan(m.sender,Cow)
+      addIkan(m.sender,cow)
       addAyam(m.sender,tiger)
       addKelinci(m.sender,rabit)
       addDomba(m.sender,frog)
