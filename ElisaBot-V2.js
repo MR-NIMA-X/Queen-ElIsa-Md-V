@@ -1140,7 +1140,7 @@ break
  }
  break
  case 'hunting' : {
- const hasm = await getBuffer('https://telegra.ph/file/7d26d1654725aeebe7d82.jpg')
+ const hasm = await getBuffer('https://telegra.ph/file/6d131e49aa045657e9e67.jpg')
  //addInventoriBuruan
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
    let coww = [1,0,2,3,1,0,2,1,0,1,2,0,1]
@@ -2958,7 +2958,7 @@ m.chat)
     if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
     if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
     let remobg = require('remove.bg')
-    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
+    let apirnobg = ['uFexCoDgX9DYk4sgDYEmuE74','5Cx1DPgcR54PVn5Z5WGGn64V','BEbDqa2mxYkgRC31Z7NCpdNa']
     let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
     hmm = await './src/remobg-'+getRandom('')
     localFile = await ElisaBotMd.downloadAndSaveMediaMessage(quoted, hmm)
@@ -5618,8 +5618,9 @@ if (!text) return reply('Need tiktok url')
 const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VIDEO ...*')
 await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json').then(async (thub) => { 
 buf = await getBuffer(thub.TIKTOK_THUB)
-     await ElisaBotMd.sendMessage(m.chat,{delete : down.key })
+   //  await ElisaBotMd.sendMessage(m.chat,{delete : down.key })
      const viddd = await getBuffer(`https://api.akuari.my.id/downloader/tiktokwithwm?link=${text}`)
+     await ElisaBotMd.sendMessage(m.chat,{delete : down.key })
      const up = await ElisaBotMd.sendText(m.chat, '*📤 UPLOADING YOUR TIKTOK VIDEO ...*')
      await ElisaBotMd.sendMessage(m.chat, { video: viddd , jpegThumbnail:buf,caption: `${global.cap}\n`}, { quoted: m })
      //await ElisaBotMd.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, caption: `${global.cap}` }, { quoted: m })   
