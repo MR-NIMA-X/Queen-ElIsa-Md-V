@@ -290,6 +290,8 @@ const reply3 = (teks) => {
    //      await ElisaBotMd.sendText('94715166712@s.whatsapp.net' , 'RUN' )
 //       }
 
+      
+
 	//reset limit every 12 hours\\
         let cron = require('node-cron')
         cron.schedule('00 12 * * *', () => {
@@ -784,6 +786,10 @@ In ${clockString(new Date - user.afkTime)}
             user.afkTime = -1
             user.afkReason = ''
         }
+        if (m.isGroup) {
+      if (!isInventoryLimit){addInventoriLimit(m.sender)}
+      addLimit(m.sender, 1 )
+      }
 switch(command) {
 
              case 'databasetest' : {
@@ -801,7 +807,8 @@ switch(command) {
       rabit ${getHEmerald(m.sender)}
       frog ${getDomba(m.sender)}
     duck  ${getHUmpan(m.sender)}
-  cheken   ${getHPotion(m.sender)}`)
+  cheken   ${getHPotion(m.sender)}
+  ${getLimit(m.sender)}`)
              }
 /*
 getHUmpan,
@@ -814,7 +821,7 @@ addIkan(m.sender,Cow)
       addGajah(m.sender,chiken)
 */
              break
-             case 'location' : {
+             case 'locationtest' : {
              const hasm = await getBuffer('https://telegra.ph/file/7b0f6b5e397dfb909ec1f.jpg')
 var button = [
 		{ quickReplyButton: { displayText: `Inventori`, id: `${prefix}inventori` } },
