@@ -6,7 +6,7 @@
   let duck_sAwal = global.rpg.duck_swal
   let chicken_aAwal = global.rpg.chiken_awal
   const addHhunting = (sender) => {
-        const obj = {id: sender, cow_s: cow_sAwal, tige_r: tige_rAwal, rabbi_t: rabbi_tAwa, duck_s: duck_sAwal, chicke_n: chicken_aAwal}
+        const obj = {id: sender, besi: cow_sAwal, gold: tige_rAwal, emerald: rabbi_tAwa, umpan: duck_sAwal, potion: chicken_aAwal}
          _inventoryOrang.push(obj)
         fs.writeFileSync('./storage/user/hun_ing.json', JSON.stringify(_inventoryOrang))
    }
