@@ -796,7 +796,7 @@ switch(command) {
      `
      
      reply(`${teksehmazeh}
-     cow ${getGHBesi(m.sender)}
+     cow ${getHBesi(m.sender)}
      tiger  ${getHEmas(m.sender)}
       rabit ${getHEmerald(m.sender)}
       frog ${getDomba(m.sender)}
