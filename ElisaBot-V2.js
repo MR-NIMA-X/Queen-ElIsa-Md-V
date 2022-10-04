@@ -42,6 +42,25 @@ var FILE_UPLOAD = ''
 
 const BOT_VERSION = '2.2.0'
 //rpg function\\
+const { 
+     cekHUNTInventoryAdaAtauGak, 
+      addHhunting,  
+       addHBesi, 
+       addHEmas, 
+       addHEmerald,
+       addHUmpan,
+       addHPotion,
+       kurangHBesi, 
+       kurangHEmas, 
+       kurangHEmerald, 
+       kurangHUmpan,
+       kurangHPotion,
+       getHBesi, 
+      getHEmas, 
+     getHEmerald,
+     getHUmpan,
+    getHPotion
+   } = require('./storage/user/hun_ing.js')
    const { 
      addInventoriDarah, 
       cekDuluJoinAdaApaKagaDiJson, 
@@ -124,6 +143,7 @@ const BOT_VERSION = '2.2.0'
    const isInventoriBuruan = cekDuluHasilBuruanNya(m.sender)
    const isInventoryLimit = cekDuluJoinAdaApaKagaLimitnyaDiJson(m.sender)
    const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
+   const isHunt = cekHUNTInventoryAdaAtauGak(m.sender)
    const ikan = ['🐟','🐠','🐡']   
 
 //rpg database\\
@@ -459,7 +479,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 				  }
 				  }	
 				  
-				  if(m.isGroup) { 
+				/*  if(m.isGroup) { 
 				  
 				  if (!isInventory){ addInventori(m.sender) }
 				  addEmerald(m.chat,'1')
@@ -470,8 +490,8 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 *🥰 YOUR LEVEL IS UP*
 
 *YOUR NEW LEVEL IS _SUPER USER_*`}, { quoted: m })
-				  }*/
 				  }
+				  }*/
 			
 				  
 
@@ -776,14 +796,16 @@ switch(command) {
      `
      
      reply(`${teksehmazeh}
-     cow ${getIkan(m.sender)}
-     tiger  ${getAyam(m.sender)}
-      rabit ${getKelinci(m.sender)}
+     cow ${getGHBesi(m.sender)}
+     tiger  ${getHEmas(m.sender)}
+      rabit ${getHEmerald(m.sender)}
       frog ${getDomba(m.sender)}
-    duck  ${getSapi(m.sender)}
-  cheken   ${getGajah(m.sender)}`)
+    duck  ${getHUmpan(m.sender)}
+  cheken   ${getHPotion(m.sender)}`)
              }
 /*
+getHUmpan,
+    getHPotion
 addIkan(m.sender,Cow)
       addAyam(m.sender,tiger)
       addKelinci(m.sender,rabit)
@@ -1140,6 +1162,7 @@ break
  }
  break
  case 'hunting' : {
+ if(!isHunt){ addHhunting(m.sender) }
  const hasm = await getBuffer('https://telegra.ph/file/6d131e49aa045657e9e67.jpg')
  //addInventoriBuruan
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
@@ -1191,12 +1214,11 @@ setTimeout( () => {
   setTimeout( () => {
   reply(`*@${m.sender.split("@")[0]} Started Hunting 🧜‍♂*`)     
   }, 1500)
-      addIkan(m.sender,cow)
-      addAyam(m.sender,tiger)
-      addKelinci(m.sender,rabit)
-      addDomba(m.sender,frog)
-      addSapi(m.sender,duckk)
-      addGajah(m.sender,chiken)
+      addHBesi(m.sender, cow)
+       addHEmas(m.sender, tiger) 
+       addHEmerald(m.sender, rabit)
+       addHUmpan(m.sender, duckk)
+       addHPotion(m.sender, chiken )
  }
 break
 case 'mining': case 'mine':{
