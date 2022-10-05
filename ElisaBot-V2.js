@@ -3896,22 +3896,16 @@ audio ${dl_url4}
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           let yts = require("yt-search")
                           const search = await yts(text)
-                          const buf = await getBuffer(search.all[0].thumbnail)
+                          //const buf = await getBuffer(search.all[0].thumbnail)
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['128kbs'].download()
-                          await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`${search.all[0].title}`,
-                body:"YOUTUBE MP3",
-                mediaType:2,
-                thumbnail:buf,
-                mediaUrl:`${text}`, 
-                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                          await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`, {quoted:m})
                // await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
-                                  }).catch((err) => m.reply(NOT_FOUND))
+                                  }).catch((err) => m.reply(err))
                       
                           }
                           break
