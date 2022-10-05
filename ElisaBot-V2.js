@@ -3900,7 +3900,7 @@ audio ${dl_url4}
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
-                          const dl_url = await nima.video['128kbs'].download()
+                          const dl_url = await nima.audio['128kbs'].download()
                           await ElisaBotMd.sendMessage(m.chat, { document: { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
                            await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
