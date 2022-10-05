@@ -3893,7 +3893,8 @@ audio ${dl_url4}
                           break
                           case 'song3' : {
                           if(!text) return m.reply('need text')
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: doc.key }})
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          buf = await getBuffer(search.all[0].thumbnail)
                           let yts = require("yt-search")
                           const search = await yts(text)
                           let boltc = require('@bochilteam/scraper')
@@ -5694,9 +5695,9 @@ const imga = video.author.avatar
 //const musiccc = video.music
 const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
-*🕵 AUTHOR* : ${cyber.author}
+*🕵 AUTHOR* : ${video.author}
 
-*ℹ️ DESC* : ${cyber.desc}
+*ℹ️ DESC* : ${video.desc}
 `                      
                      footer = global.botnma
                  buttons = [
@@ -5714,7 +5715,7 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
          }).catch((err) => {
-       ElisaBotMd.sendText(m.chat, NOT_FOUND)})
+       ElisaBotMd.sendText(m.chat, err)})
 
 }
 break
