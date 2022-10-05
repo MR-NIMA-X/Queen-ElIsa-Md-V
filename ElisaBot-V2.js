@@ -3901,9 +3901,8 @@ audio ${dl_url4}
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['128kbs'].download()
-                          await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`, {quoted:m})
-               // await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
+                          await ElisaBotMd.sendMessage(m.chat, { document: { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
+                           await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(err))
                       
