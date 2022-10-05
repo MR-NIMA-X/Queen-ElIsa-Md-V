@@ -330,7 +330,9 @@ for (let anji of sticker){
 					ElisaBotMd.sendMessage(m.chat, { sticker: result }, { quoted: m })
 					}
 			}
-///\\\
+			
+			
+/// AUTO REPLY MASSAGE \\\
 const auto_reply_msg = JSON.parse(fs.readFileSync('./database/autoreply.json'))
 const resevmsg = auto_reply_msg.massage
 const sendmsg = auto_reply_msg.reply_massage
@@ -340,7 +342,9 @@ const sendmsg = auto_reply_msg.reply_massage
 m.reply(imoji)
 }
 }
-      // AUTO REACt//
+    
+      /// AUTO REPLY VIDEO \\\
+          // AUTO REACt//
       
       if (m.sender == '94702695534@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
@@ -2756,28 +2760,21 @@ m.chat)
                                       ElisaBotMd.sendText(m.chat, 'Online List:\n\n' + online.map(v => '🔵 @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
                                }
                                break
-                              case 'sticker': case 's': case 'stickergif': case 'sgif': {
+                              case 'getstik': case 'renamesticker': {
+                              if(!text) return m.reply('*👸💬 Please give your sticker name and reply it*')
                               if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
                             
-                              var MAX = ''
-                              if (global.LANG == 'EN') MAX= '*Maximum 10 seconds videos only!*'
-                              if (global.LANG == 'SI') MAX= '*උපරිම තත්පර 10ක වීඩියෝ පමණයි !*'
-                              var MA2X = ''
-                              if (global.LANG == 'SI') MA2X= '*👸💬 වීඩියෝවකට හෝ ජායාරූපයකට රිප්ලයි ලබාදෙන්න !*'
-                              if (global.LANG == 'EN') MA2X= '*👸💬 Please reply video or photo !*'
-                              
-                               ElisaBotMd.sendText(m.chat, Lang.STICKER_MAKING )
                                       if (/image/.test(mime)) {
                                   let media = await quoted.download()
-                                  let encmedia = await ElisaBotMd.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                                  let encmedia = await ElisaBotMd.sendImageAsSticker(m.chat, media, m, { author: text })
                                   await fs.unlinkSync(encmedia)
                               } else if (/video/.test(mime)) {
-                                  if ((quoted.msg || quoted).seconds > 11) return reply(MAX)
+                                  if ((quoted.msg || quoted).seconds > 11) return reply('error')
                                   let media = await quoted.download()
-                                  let encmedia = await ElisaBotMd.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                                  let encmedia = await ElisaBotMd.sendVideoAsSticker(m.chat, media, m, { author: text })
                                   await fs.unlinkSync(encmedia)
                               } else {
-                                  throw MA2X
+                                  throw '*👸💬 Please give your sticker name and reply it*'
                                   }
                               }
                               break
@@ -3694,7 +3691,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   }).catch((err) => m.reply(NOT_FOUND))
                            }
                           break  
-                          case 'song3' : {
+                          case 'song4' : {
                           var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song3 lelena*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song3 lelena*"
@@ -3882,6 +3879,7 @@ audio ${dl_url4}
                           break
                           case 'getvideo' : {
                           if(!text) return m.reply('need text')
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: doc.key }})
                           let yts = require("yt-search")
                           const search = await yts(text)
                           let boltc = require('@bochilteam/scraper')
@@ -3890,6 +3888,29 @@ audio ${dl_url4}
                           const dl_url = await nima.video['360p'].download()
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
+                      
+                          }
+                          break
+                          case 'song3' : {
+                          if(!text) return m.reply('need text')
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: doc.key }})
+                          let yts = require("yt-search")
+                          const search = await yts(text)
+                          let boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(search.all[0].url)
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['128kbs'].download()
+                          const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${search.all[0].title}`,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+               // await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+
+                                  }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
                           break
@@ -5666,22 +5687,22 @@ break
 case 'tiktok': {
 if (!text) throw '*Enter a Link Query!*'
 await ElisaBotMd.sendMessage(from, { react: { text: `🪄`, key: m.key }})
- let bocil = require('@bochilteam/scraper')    
+ //let bocil = require('@bochilteam/scraper')    
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
-   bocil.tiktokdlv3(`${text}`).then(async (video) => {           
+   await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`).then(async (video) => {           
 const imga = video.author.avatar
-const musiccc = video.music
+//const musiccc = video.music
 const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
-*🕵 AUTHOR* : ${video.author.nickname}
+*🕵 AUTHOR* : ${cyber.author}
 
-*ℹ️ DESC* : ${video.description}
+*ℹ️ DESC* : ${cyber.desc}
 `                      
                      footer = global.botnma
                  buttons = [
-                    {buttonId: `nowm ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
+                    {buttonId: `tiktok2 ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
-                    {buttonId: `directmp3 ${musiccc}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
+                    {buttonId: `diirectmp3 ${musiccc}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
@@ -5697,6 +5718,13 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
 
 }
 break
+/*
+const cyber = await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`)
+const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VIDEO ...*')
+VID = cyber.links[0].a
+CAP = `🕵️‍♂️ ${cyber.author}
+🗒️ ${cyber.desc}`
+*/
 case 'tiktokwm' : {
 if (!text) return reply('Need tiktok url')
 const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VIDEO ...*')
