@@ -3879,8 +3879,8 @@ audio ${dl_url4}
                           break
                           case 'getvideo' : {
                           if(!text) return m.reply('need text')
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: doc.key }})
-                          let yts = require("yt-search")
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          const yts = require("yt-search")
                           const search = await yts(text)
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
@@ -3893,16 +3893,16 @@ audio ${dl_url4}
                           break
                           case 'song3' : {
                           if(!text) return m.reply('need text')
-                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
-                          let yts = require("yt-search")
+                         // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          const yts = require("yt-search")
                           const search = await yts(text)
                           //const buf = await getBuffer(search.all[0].thumbnail)
-                          let boltc = require('@bochilteam/scraper')
+                          const boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
-                          const dl_url = await nima.audio['128kbs'].download()
+                          const dl_url = await nima.audio['128kbps'].download()
                           await ElisaBotMd.sendMessage(m.chat, { document: { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
-                           await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
+                           //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(err))
                       
