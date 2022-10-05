@@ -3900,7 +3900,7 @@ audio ${dl_url4}
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['128kbs'].download()
-                          const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                          await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${search.all[0].title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`${search.all[0].title}`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
@@ -3908,7 +3908,7 @@ audio ${dl_url4}
                 mediaUrl:`${text}`, 
                 sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                // await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
-                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(NOT_FOUND))
                       
@@ -5702,7 +5702,7 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
                  buttons = [
                     {buttonId: `tiktok2 ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
-                    {buttonId: `diirectmp3 ${musiccc}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
+                    {buttonId: `diirectmp3`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
