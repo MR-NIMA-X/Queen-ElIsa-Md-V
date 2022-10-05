@@ -3894,9 +3894,9 @@ audio ${dl_url4}
                           case 'song3' : {
                           if(!text) return m.reply('need text')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
-                          buf = await getBuffer(search.all[0].thumbnail)
                           let yts = require("yt-search")
                           const search = await yts(text)
+                          const buf = await getBuffer(search.all[0].thumbnail)
                           let boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
