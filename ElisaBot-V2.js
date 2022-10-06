@@ -152,7 +152,7 @@ const {
  let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
 
 //Database\\
-let sticker = JSON.parse(fs.readFileSync('./database/sticker.json'));
+//let sticker = JSON.parse(fs.readFileSync('./database/sticker.json'));
 //let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
 ///let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
 //let videox = JSON.parse(fs.readFileSync('./database/video.json'))
@@ -874,7 +874,7 @@ addIkan(m.sender,Cow)
       addGajah(m.sender,chiken)
 */
              break
-             case 'locationtest' : {
+             /*case 'locationtest' : {
              const hasm = await getBuffer('https://telegra.ph/file/7b0f6b5e397dfb909ec1f.jpg')
 var button = [
 		{ quickReplyButton: { displayText: `Inventori`, id: `${prefix}inventori` } },
@@ -885,7 +885,7 @@ var button = [
 
 
              }
-             break
+             break*/
              case 'spotify' : {
              const down = await ElisaBotMd.sendText(m.chat, `*📥 Downloading Your Song...*`, m, )
              await fetchJson(`https://api.zekais.com/spotifydl?url=${text}&apikey=BRkP6EOB`)
@@ -3309,7 +3309,7 @@ break
                                   
                                   }
                                   break
-                          case 'img2' :{
+                          case 'img' :{
                           await ElisaBotMd.sendMessage(from, { react: { text: `🦄`, key: m.key }})
                        
                           if (!text) return reply ('*👸💬 Please Give me a some words*\nExample - _.img2 car_')
@@ -3330,14 +3330,14 @@ break
                           await ElisaBotMd.sendMessage(m.chat, { image: { url: img3 }})
                           await ElisaBotMd.sendMessage(m.chat, { image: { url: img4 }})
                           await ElisaBotMd.sendMessage(m.chat, { image: { url: img5 }})
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img6 }})
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img7 }})
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img8 }})
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img9 }})
-                          await ElisaBotMd.sendMessage(m.chat, { image: { url: img10 }})
+                          //await ElisaBotMd.sendMessage(m.chat, { image: { url: img6 }})
+                         // await ElisaBotMd.sendMessage(m.chat, { image: { url: img7 }})
+                          //await ElisaBotMd.sendMessage(m.chat, { image: { url: img8 }})
+                          //await ElisaBotMd.sendMessage(m.chat, { image: { url: img9 }})
+                         // await ElisaBotMd.sendMessage(m.chat, { image: { url: img10 }})
                             
                           }
-                          case 'gimage': case 'img': {  
+                          case 'gimage': case 'img2': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔍`, key: m.key }})
                           if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} ml nana`
                           let gis = require('g-i-s')
@@ -3499,7 +3499,9 @@ await ElisaBotMd.sendMessage(from, { react: { text: `🎦`, key: m.key }})
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt rosa male natuwe katu*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song rosa male natuwe katu*"
-
+const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
+const audidd = rash.audcmd
+const docidd = rash.doccmd
                               await ElisaBotMd.sendMessage(from, { react: { text: `🎵`, key: m.key }})
                                   if (!text) return reply(GIVEME)
                                   await ElisaBotMd.sendText(m.chat, mess.wait, m, )
@@ -3512,8 +3514,8 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                               
                 const footer = global.botnma
                 const buttons = [
-                    {buttonId: `song2 ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
-                    {buttonId: `audiosong2  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
+                    {buttonId: `${docidd} ${search.all[0].url}`, buttonText: {displayText: '📁 DOCUMENT 📁'}, type: 1},
+                    {buttonId: `${audidd}  ${search.all[0].url}`, buttonText: {displayText: '🎧 AUDIO 🎧'}, type: 1}
                     
                 ]
             const buttonMessage = {
@@ -3541,6 +3543,11 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
                              }
                              break
                               case 'video': { 
+const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
+const 360pid = rash.360pcmd
+const 480pid = rash.480pcmd
+const 720pid = rash.720pcmd
+
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n *Example - .video how to make queen elisa bot*"
@@ -3556,9 +3563,9 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 if (search.all[0].type == 'channel') {
 
                 const buttons = [
-                    {buttonId: `ytmp4 ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[1].thumbnail },
@@ -3583,11 +3590,15 @@ if (search.all[0].type == 'channel') {
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
                  
 } else if (search.all[0].type == 'video') {
+const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
+const 360pid = rash.360pcmd
+const 480pid = rash.480pcmd
+const 720pid = rash.720pcmd
                 let nima = search.all           
                 const buttons = [
-                    {buttonId: `ytmp4 ${search.all[0].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `vid2  ${search.all[0].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `vid2 ${search.all[0].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[0].thumbnail },
@@ -3768,6 +3779,7 @@ text2 = q.split(";")[1]
                           const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
                           const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[0]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
+                          if (nima.mp4.size.split('MB')[0] >= 110) return m.reply('*FILE SIZE IS BIG !!!*')
                           return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
                          
                           }
@@ -3873,13 +3885,17 @@ text2 = q.split(";")[1]
 240 ${dl_url2}
 720 ${dl_url3}
 audio ${dl_url4}
-                          `)
+    
+                          
+                                                
+${jsonformat(nima)}`)
                           })
                           }
                           break
                           case 'getvideo' : {
                           if(!text) return m.reply('need text')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          await ElisaBotMd.sendText(m.chat,mess.wait)
                           const yts = require("yt-search")
                           const search = await yts(text)
                           let boltc = require('@bochilteam/scraper')
@@ -3891,10 +3907,36 @@ audio ${dl_url4}
                       
                           }
                           break
+                          case '480getvideo' : {
+                          if(!text) return m.reply('need text')
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          await ElisaBotMd.sendText(m.chat,mess.wait)
+                          let boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(args[0])
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['480p'].download()
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                          }).catch((err) => m.reply(NOT_FOUND))
+                      
+                          }
+                          break
+                          case '720getvideo' : {
+                          if(!text) return m.reply('need text')
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          await ElisaBotMd.sendText(m.chat,mess.wait)
+                          let boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(args[0])
+                          .then(async(nima) => {
+                          const dl_url = await nima.video['720p'].download()
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                          }).catch((err) => m.reply(NOT_FOUND))
+                      
+                          }
+                          break
                           case 'song3' : {
                           if(!text) return m.reply('need text')
                          // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
-                         await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
+                          const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
                           const yts = require("yt-search")
                           const search = await yts(text)
                           //const buf = await getBuffer(search.all[0].thumbnail)
@@ -3902,8 +3944,31 @@ audio ${dl_url4}
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.audio['128kbps'].download()
-                          await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
+                          await ElisaBotMd.sendMessage(m.chat,{delete : down.key }) 
+                          const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
                           await ElisaBotMd.sendMessage(m.chat, { document: { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
+                          await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
+                           //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
+
+                                  }).catch((err) => m.reply(err))
+                      
+                          }
+                          break
+                          case 'audsong3' : {
+                          if(!text) return m.reply('need text')
+                         // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
+                          const yts = require("yt-search")
+                          const search = await yts(text)
+                          //const buf = await getBuffer(search.all[0].thumbnail)
+                          const boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(search.all[0].url)
+                          .then(async(nima) => {
+                          const dl_url = await nima.audio['128kbps'].download()
+                          await ElisaBotMd.sendMessage(m.chat,{delete : down.key }) 
+                          const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
+                          await ElisaBotMd.sendMessage(m.chat, { audio : { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
+                          await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
                            //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(err))
@@ -4100,6 +4165,9 @@ break
                                   }
                                   break
                                   case 'audioselecttypebutton': {  
+                                  const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
+const audidd = rash.audcmd
+const docidd = rash.doccmd
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
 
                               
@@ -4114,8 +4182,8 @@ break
 ╰──────◉
 `,
                             buttons = [
-                                          { buttonId: `song2 ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
-                                          { buttonId: `audiosong2 ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
+                                          { buttonId: `${docidd} ${text}`, buttonText: { displayText: '📁 DOCUMENT 📁' }, type: 1 },
+                                          { buttonId: `${audidd} ${text}`, buttonText: { displayText: '🎧 AUDIO 🎧' }, type: 1 }
                                       ]
                                       await ElisaBotMd.sendButtonText(m.chat, buttons, YTMASS, `𝙶𝙴𝙽𝙴𝚁𝙰𝚃𝙴𝙳 𝙱𝚈 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 ` ,m)
                                   }
