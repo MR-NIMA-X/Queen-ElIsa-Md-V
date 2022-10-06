@@ -3757,7 +3757,7 @@ text2 = q.split(";")[1]
                           const sdsize = vid.result.downloads.tubemp3_biz[0].size
                           const hdsize = vid.result.downloads.tubemp3_biz[1].size
                           await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
-                          if (text2 == 'hd'){
+                          if (text.split(";")[1] == 'hd'){
                           if (hdsize.split('MB')[0] >= 110) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR VIDEO BIGGER THAN 100mb_\n\nfile size')
                           const video = vid.result.downloads.tubemp3_biz[1].url
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
@@ -3776,7 +3776,7 @@ text2 = q.split(";")[1]
                           if (text.includes('https://youtu')){
                          // if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
                           const quality = args[1] ? args[1] : '360'
-                          const load = await ElisaBotMd.sendText(m.chat, `📥 Downloading ${m.pushName} your video...*`, m, )
+                          const load = await ElisaBotMd.sendText(m.chat, `*📥 Downloading ${m.pushName} your video...*`, m, )
                           const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[0]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           if (nima.mp4.size.split('MB')[0] >= 110) return m.reply('*FILE SIZE IS BIG !!!*')
@@ -3908,7 +3908,7 @@ ${jsonformat(nima)}`)
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['360p'].download()
-                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: global.cap }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
@@ -3923,9 +3923,9 @@ ${jsonformat(nima)}`)
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['480p'].download()
-                          const size = nima.video['480p'].fileSize()
-                          if(size >= 110000) return m.reply('*FILE SIZE IS SO BIG !!!*')
-                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                        //  const size = nima.video['480p'].fileSize()
+                          //if(size >= 110000) return m.reply('*FILE SIZE IS SO BIG !!!*')
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: global.cap }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
@@ -3942,7 +3942,7 @@ ${jsonformat(nima)}`)
                           .then(async(nima) => {
                           const dl_url = await nima.video['720p'].download()
                        //   if(nima.video.720p.fileSize >= 110000) return m.reply('*FILE SIZE IS SO BIG !!!*')
-                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: global.cap }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
@@ -4156,6 +4156,10 @@ break
                               }
                               break
                               case 'selecttypebutton': {  
+const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
+const sdpid = rash.sddlid
+const hdmidpid = rash.sdmiddlid
+const hdpid = rash.hddlid
                           await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
 
                               
@@ -4170,9 +4174,9 @@ break
 ╰──────◉
 `,
                             buttons = [
-                                          { buttonId: `ytmp4 ${text}`, buttonText: { displayText: '360p' }, type: 1 },
-                                          { buttonId: `ytmp4 ${text} 480p`, buttonText: { displayText: '480p' }, type: 1 },
-                                          { buttonId: `ytmp4 ${text}`, buttonText: { displayText: '720p' }, type: 1 }
+                                          { buttonId: `${sdpid} ${text}`, buttonText: { displayText: '360p' }, type: 1 },
+                                          { buttonId: `${hdmidpid} ${text} 480p`, buttonText: { displayText: '480p' }, type: 1 },
+                                          { buttonId: `${hdpid} ${text}`, buttonText: { displayText: '720p' }, type: 1 }
                                       
                                       ]
                                       await ElisaBotMd.sendButtonText(m.chat, buttons, YTMASS, `𝙶𝙴𝙽𝙴𝚁𝙰𝚃𝙴𝙳 𝙱𝚈 𝙴𝙻𝙸𝚂𝙰 𝙱𝙾𝚃 ` ,m)
