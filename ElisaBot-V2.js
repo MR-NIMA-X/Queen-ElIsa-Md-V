@@ -2778,7 +2778,7 @@ m.chat)
                                   }
                               }
                               break
-                              case 'sticker2': case 'st': case 'stickergif2': case 'sgif2': {
+                              case 'sticker': case 'st': case 'stickergif2': case 'sgif2': {
                               if (!quoted) return reply(`👸💬 Reply Video/Image With Caption ${prefix + command}`)
                             
                               var MAX = ''
@@ -3923,6 +3923,8 @@ ${jsonformat(nima)}`)
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['480p'].download()
+                          const size = nima.video['480p'].fileSize()
+                          if(size >= 110000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
@@ -3939,6 +3941,7 @@ ${jsonformat(nima)}`)
                           
                           .then(async(nima) => {
                           const dl_url = await nima.video['720p'].download()
+                       //   if(nima.video.720p.fileSize >= 110000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
