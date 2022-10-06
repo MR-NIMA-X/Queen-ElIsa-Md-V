@@ -323,7 +323,7 @@ const reply3 = (teks) => {
 	   
 	   
 /// AUTO STICKER COSTEM SEND \\\
-
+/*
 for (let anji of sticker){
 				if (budy === anji){
 					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
@@ -342,7 +342,7 @@ const sendmsg = auto_reply_msg.reply_massage
 m.reply(imoji)
 }
 }
-    
+    */
       /// AUTO REPLY VIDEO \\\
           // AUTO REACt//
       
