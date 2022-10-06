@@ -3544,9 +3544,9 @@ const docidd = rash.doccmd
                              break
                               case 'video': { 
 const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
-const 360pid = rash.360pcmd
-const 480pid = rash.480pcmd
-const 720pid = rash.720pcmd
+const sdpid = rash.sddlid
+const hdmidpid = rash.sdmiddlid
+const hdpid = rash.hddlid
 
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
@@ -3563,9 +3563,9 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 if (search.all[0].type == 'channel') {
 
                 const buttons = [
-                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${sdpid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${hdmidpid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${hdpid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[1].thumbnail },
@@ -3591,14 +3591,14 @@ if (search.all[0].type == 'channel') {
                  
 } else if (search.all[0].type == 'video') {
 const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
-const 360pid = rash.360pcmd
-const 480pid = rash.480pcmd
-const 720pid = rash.720pcmd
+const sdpid = rash.sddlid
+const hdmidpid = rash.sdmiddlid
+const hdpid = rash.hddlid
                 let nima = search.all           
                 const buttons = [
-                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${sdpid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${hdmidpid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${hdpid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[0].thumbnail },
