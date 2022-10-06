@@ -323,7 +323,7 @@ const reply3 = (teks) => {
 	   
 	   
 /// AUTO STICKER COSTEM SEND \\\
-
+/*
 for (let anji of sticker){
 				if (budy === anji){
 					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
@@ -342,7 +342,7 @@ const sendmsg = auto_reply_msg.reply_massage
 m.reply(imoji)
 }
 }
-    
+    */
       /// AUTO REPLY VIDEO \\\
           // AUTO REACt//
       
@@ -3544,9 +3544,9 @@ const docidd = rash.doccmd
                              break
                               case 'video': { 
 const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
-const 360pid = rash.360pcmd
-const 480pid = rash.480pcmd
-const 720pid = rash.720pcmd
+const sdpid = rash.sddlid
+const hdmidpid = rash.sdmiddlid
+const hdpid = rash.hddlid
 
 var GIVEME = ''
 if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට වීඩියෝවක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt how to make queen elisa bot*"
@@ -3563,9 +3563,9 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a video name.```\n 
 if (search.all[0].type == 'channel') {
 
                 const buttons = [
-                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${sdpid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${hdmidpid} ${search.all[1].url} 480`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${hdpid} ${search.all[1].url} 720`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[1].thumbnail },
@@ -3591,14 +3591,14 @@ if (search.all[0].type == 'channel') {
                  
 } else if (search.all[0].type == 'video') {
 const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
-const 360pid = rash.360pcmd
-const 480pid = rash.480pcmd
-const 720pid = rash.720pcmd
+const sdpid = rash.sddlid
+const hdmidpid = rash.sdmiddlid
+const hdpid = rash.hddlid
                 let nima = search.all           
                 const buttons = [
-                    {buttonId: `${360pid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `${480pid}  ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `${720pid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${sdpid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
+                    {buttonId: `${hdmidpid} ${search.all[1].url} 480`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${hdpid} ${search.all[1].url} 720`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[0].thumbnail },
@@ -3892,6 +3892,12 @@ ${jsonformat(nima)}`)
                           })
                           }
                           break
+                          case 'ytdl5' : {
+                          const ytdl = require('ytdl-core')
+                          const nima = await ytdl(text)
+                          reply(jsonformat(nima))
+                          }
+                          break
                           case 'getvideo' : {
                           if(!text) return m.reply('need text')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
@@ -3911,8 +3917,10 @@ ${jsonformat(nima)}`)
                           if(!text) return m.reply('need text')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           await ElisaBotMd.sendText(m.chat,mess.wait)
+                          const yts = require("yt-search")
+                          const search = await yts(text.split("480")[0])
                           let boltc = require('@bochilteam/scraper')
-                          await boltc.youtubedlv2(args[0])
+                          await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['480p'].download()
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
@@ -3921,11 +3929,14 @@ ${jsonformat(nima)}`)
                           }
                           break
                           case '720getvideo' : {
-                          if(!text) return m.reply('need text')
+                         if(!text) return m.reply('need text')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           await ElisaBotMd.sendText(m.chat,mess.wait)
+                          const yts = require("yt-search")
+                          const search = await yts(`${args[0]}`)
                           let boltc = require('@bochilteam/scraper')
-                          await boltc.youtubedlv2(args[0])
+                          await boltc.youtubedlv2(search.all[0].url)
+                          
                           .then(async(nima) => {
                           const dl_url = await nima.video['720p'].download()
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: search.all[0].title }, { quoted: m })
