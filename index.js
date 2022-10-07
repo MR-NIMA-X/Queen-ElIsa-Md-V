@@ -78,8 +78,8 @@ async function startElisaBotMd() {
         try {
         mek = chatUpdate.messages[0]
         //if (!global.BLOCKCHAT == 'false'){
-        const abc = global.BLOCKCHAT.split(',')                       
-        //  if(mek.chat = abc ) return 
+       // const abc = global.BLOCKCHAT.split(',')                       
+         // if(mek.chat.startsWith(abc)) return 
        // }
        // console.log(mek)
         if (!mek.message) return
