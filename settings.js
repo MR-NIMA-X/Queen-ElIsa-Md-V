@@ -70,7 +70,7 @@ global.HEROKU = {
 }
 global.VOICE_REPLY = process.env.VOICE_REPLY || 'true'
 global.owner= [process.env.OWNER_NUMBER] || ['94715166712'] // Owner number , (අයිතිකරුගේ නම්බර් එක )
-global.alivelogo = process.env.ALIVE_LOGO || `https://telegra.ph/file/1a2dee71baa975091620d.jpg`
+global.alivelogo = process.env.ALIVE_LOGO || `https://telegra.ph/file/b3f17c16eedf99731a52d.jpg`
 global.alive = process.env.ALIVE_MESSAGE
 global.cap = process.env.CAPTION
 global.AUTO_BIO = process.env.AUTO_BIO || 'on'
@@ -79,8 +79,8 @@ global.AUTO_REACT = process.env.AUTO_REACT || 'true'
 global.ANTI_BADWORD = process.env.ANTI_BADWORD || 'true'
 global.botnma = process.env.BOT_NAME || 'ＱＵＥＥＮ ＥＬＩＳＡ Ｖ2' 
 global.ownernma = process.env.OWNER_NAME || 'ＭＲ.ＮＩＭＡ' 
-global.packname = process.env.STICKER_PACK_NAME || 'ඉදලා ගිය උන්ට පින් පිනිස #bye' 
-global.author = process.env.STICKER_AUTHOR_NAME || 'ස්ටිකර් හැදුවේ Mr.Nima' 
+global.packname = process.env.STICKER_PACK_NAME || '𝐄𝐋𝐈𝐒𝐀 𝐁𝐎𝐓' 
+global.author = process.env.STICKER_AUTHOR_NAME || '© ᴍʀ ɴɪᴍᴀ ᴏғᴄ [ ᴅᴀʀᴋ ᴍᴀᴋᴇʀ ]' 
 global.antilink = process.env.ANTI_LINK || 'true'
 global.WELCOME_MSG = process.env.WELCOME_MSG
 global.GOODBYE_MSG = process.env.GOODBYE_MSG
@@ -100,6 +100,10 @@ global.SONG_DOWN = process.env.SONG_DOWNLOAD || ' '
 global.SONG_UP = process.env.SONG_UPLOAD || ' '
 global.NUMBER_212_BLOCK = process.env.NUMBER_212_BLOCK || 'true'
 global.BLOCKCHAT = '120363020593759568,120363024393591085'
+global.KICK_ALL_LINK = process.env.KICK_ALL_LINK || 'false'
+global.MENU_IMOJI = process.env.MENU_IMOJI || '👸|ℹ️'
+global.TIME_ZONE = process.env.TIME_ZONE 
+global.REMOVE_BG_API = process.env.REMOVE_BG_API
 
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
