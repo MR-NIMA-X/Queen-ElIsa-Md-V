@@ -378,14 +378,14 @@ m.reply(imoji)
         }
 
         
-                
+/*                
                         
-/*//? ALL LINK REMOVE \\\
+//? ALL LINK REMOVE \\\
     if(global.ALL_LINK_KICK == 'true' && m.isGroup && !isAdmins && !iscreator) {
         if (budy.match('http://')) {
         await ElisaBotMd.sendText(m.chat,` 
       *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
-`)
+`,m,)
         await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
        
         }else{
@@ -398,7 +398,8 @@ m.reply(imoji)
         }
         }
         }
-*/        
+        
+  if (global.ANTI_BAD == 'true' && !m.isGroup && !isAdmins && !iscreator){
  for (any in bad){
          if (budy.toLowerCase().includes(bad[any])){
          if (!isBotAdmins) return 
@@ -406,7 +407,7 @@ m.reply(imoji)
          await ElisaBotMd.sendMessage(from, { react: { text: `🤬`, key: m.key }})
          await ElisaBotMd.sendText(m.chat,'*Bad word detect !*')
          await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
-         }}}       
+         }}}*/
         
          //212 BLOCK \\
        if (m.sender.startsWith("212") && !m.isGroup && global.NUMBER_212_BLOCK == 'true') {
