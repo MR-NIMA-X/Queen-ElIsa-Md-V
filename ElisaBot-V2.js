@@ -19,12 +19,12 @@ const nimadl = require('xfarr-api')
 const Language = require('./language')
 const Lang = Language.getString('elisabot')
 //const config = require("./config")
-const TIME_ZONE = 'Asia/Colombo'
-const MENU_IMOJI = '👸|♥️'
+const TIME_ZONE = global.TIME_ZONE
+const MENU_IMOJI = global.MENU_IMOJI
   const M_E = MENU_IMOJI.split('|')[0]
   const D_E = MENU_IMOJI.split('|')[1]
 const HELPERS = '94716338723,94711421243,94719574492'
-global.ALL_LINK_KICK = 'false'
+global.ALL_LINK_KICK = global.ALL_LINK_KICK 
 
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
@@ -40,7 +40,7 @@ var FILE_UPLOAD = ''
    if (global.LANG == 'SI') FILE_DOWNLOAD = '*📥 ඔබගේ ගොනුව බාගතකරමින් පවති...*'
    if (global.LANG == 'SI') FILE_UPLOAD = '*📤 ඔබගේ ගොනුව එවමින් පවතී...*'
 
-const BOT_VERSION = '2.2.0'
+const BOT_VERSION = '2.3.0'
 //rpg function\\
 const { 
      cekHUNTInventoryAdaAtauGak, 
@@ -152,7 +152,7 @@ const {
  let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
 
 //Database\\
-//let sticker = JSON.parse(fs.readFileSync('./database/sticker.json'));
+let sticker = JSON.parse(fs.readFileSync('./database/sticker.json'));
 //let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
 ///let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
 //let videox = JSON.parse(fs.readFileSync('./database/video.json'))
@@ -323,7 +323,7 @@ const reply3 = (teks) => {
 	   
 	   
 /// AUTO STICKER COSTEM SEND \\\
-/*
+
 for (let anji of sticker){
 				if (budy === anji){
 					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
@@ -342,7 +342,7 @@ const sendmsg = auto_reply_msg.reply_massage
 m.reply(imoji)
 }
 }
-    */
+    
       /// AUTO REPLY VIDEO \\\
           // AUTO REACt//
       
@@ -381,7 +381,7 @@ m.reply(imoji)
                 
                         
 //? ALL LINK REMOVE \\\
-/*        if(global.ALL_LINK_KICK == 'true' && m.isGroup && !isAdmins && !iscreator) {
+    if(global.ALL_LINK_KICK == 'true' && m.isGroup && !isAdmins && !iscreator) {
         if (budy.match('http://')) {
         await ElisaBotMd.sendText(m.chat,` 
       *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
@@ -407,7 +407,7 @@ m.reply(imoji)
          await ElisaBotMd.sendText(m.chat,'*Bad word detect !*')
          await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
          }}}       
-        */
+        
          //212 BLOCK \\
        if (m.sender.startsWith("212") && !m.isGroup && global.NUMBER_212_BLOCK == 'true') {
 ElisaBotMd.sendMessage(from, { react: { text: `📛`, key: m.key }})
@@ -7957,7 +7957,6 @@ const sendListMsg = require('@adiwajshing/baileys')
 desmsg = `╭╌┄┄『 *USER DETAILS* 』
 ┊ ▢ 𝙽𝚄𝙼𝙱𝙴𝚁 :  ${m.sender.split('@')[0]}
 ┊ ▢ 𝙽𝙰𝙼𝙴 :  ${m.pushName}
-┊ ▢ 𝙻𝙴𝚅𝙴𝙻 : ${wish}
 ╰ ┄┬┄┄┄◯
 ╭┄ ┴┄『 *BOT DETAILS* 』
 ┊ ▢  𝙽𝙰𝙼𝙴 : ${global.botnma}
@@ -8074,35 +8073,35 @@ desmsg = `╭╌┄┄『 *USER DETAILS* 』
                           await ElisaBotMd.sendMessage(from, { react: { text: `📜`, key: m.key }})
 
 var GRPDES = ''
-if (global.LANG == 'EN') GRPDES = '_Get Group link_'
-if (global.LANG == 'SI') GRPDES = '_ඔබ සිටින සමූහයේ ලින්කුව ගැනීමට_'
+if (global.LANG == 'EN') GRPDES = '```Get Group link```'
+if (global.LANG == 'SI') GRPDES = '```ඔබ සිටින සමූහයේ ලින්කුව ගැනීමට```'
 var GRPPP = ''
-if (global.LANG == 'EN') GRPPP = '_Change Group Profile photo_'
-if (global.LANG == 'SI') GRPPP = '_සමූහයේ ප්‍රොෆයිල් චායාරූපය වෙනස් කරයි_'
+if (global.LANG == 'EN') GRPPP = '```Change Group Profile photo [ reply photo ]```'
+if (global.LANG == 'SI') GRPPP = '```සමූහයේ ප්‍රොෆයිල් චායාරූපය වෙනස් කරයි [ ජායාරූපයකට රිප්ලයි ලබාදෙන්න ]```'
 var SETNAME = ''
-if (global.LANG == 'EN') SETNAME = '_Change Group Name_'
-if (global.LANG == 'SI') SETNAME = '_සමූහයේ නම වෙනස් කරයි_'
+if (global.LANG == 'EN') SETNAME = '```Change Group Name```'
+if (global.LANG == 'SI') SETNAME = '```සමූහයේ නම වෙනස් කරයි```'
 var GROUDES = ''
-if (global.LANG == 'EN') GROUDES = '_Change send massage type (only admin/allparticipate)_'
-if (global.LANG == 'SI') GROUDES = '_සමූහයේ මැස්ස්සේජ් යවන ආකාරය වෙනස් කරයි ( ඇඩ්මින්ලට පමණක් / සියලු දෙනාට )_'
+if (global.LANG == 'EN') GROUDES = '```Change send massage type (only admin/allparticipate)```'
+if (global.LANG == 'SI') GROUDES = '```සමූහයේ මැස්ස්සේජ් යවන ආකාරය වෙනස් කරයි ( ඇඩ්මින්ලට පමණක් / සියලු දෙනාට )```'
 var EDITINFO = ''
-if (global.LANG == 'EN') EDITINFO = '_Change Group Edit info_'
-if (global.LANG == 'SI') EDITINFO = '_සමූහයේ එඩිට් ඉන්ෆො වෙනස් කරයි_'
+if (global.LANG == 'EN') EDITINFO = '```Change Group Edit info```'
+if (global.LANG == 'SI') EDITINFO = '```සමූහයේ එඩිට් ඉන්ෆො වෙනස් කරයි```'
 var GRPINFO = ''
-if (global.LANG == 'EN') GRPINFO ='_Send Group details_'
-if (global.LANG == 'SI') GRPINFO = '_සමූහයේ තොරතුරු ලබාගැනීමට_'
+if (global.LANG == 'EN') GRPINFO ='```Send Group details```'
+if (global.LANG == 'SI') GRPINFO = '```සමූහයේ තොරතුරු ලබාගැනීමට```'
 var ADDDES =''
-if (global.LANG == 'EN') ADDDES = '_Add new member_'
-if (global.LANG == 'SI') ADDDES = '_සමූහයට අයෙකු එකතු කිරීමට_'
+if (global.LANG == 'EN') ADDDES = '```Add new member```'
+if (global.LANG == 'SI') ADDDES = '```සමූහයට අයෙකු එකතු කිරීමට```'
 var KICKDES = ''
-if (global.LANG == 'EN') KICKDES = '_Remove member from group_'
-if (global.LANG == 'SI') KICKDES = '_සමූහයේ අයෙකු ඉවත් කිරීමට_'
+if (global.LANG == 'EN') KICKDES = '```Remove member from group```'
+if (global.LANG == 'SI') KICKDES = '```සමූහයේ අයෙකු ඉවත් කිරීමට```'
 var PROMOTEDES = ''
-if (global.LANG == 'EN') PROMOTEDES = '_give admin on group_'
-if (global.LANG == 'SI') PROMOTEDES = '_සමූහයේ ඇඩ්මින් තනතුර ලබාදීම_'
+if (global.LANG == 'EN') PROMOTEDES = '```give admin on group```'
+if (global.LANG == 'SI') PROMOTEDES = '```සමූහයේ ඇඩ්මින් තනතුර ලබාදීම```'
 var DEMOTEDES = ''
-if (global.LANG == 'EN') DEMOTEDES = '_Demote From group admin_'
-if (global.LANG == 'SI') DEMOTEDES = '_ගෲප් එකේ ඇඩ්මින් වරයෙකුගේ ඇඩ්මින් ඉවත්කිරීමට_'
+if (global.LANG == 'EN') DEMOTEDES = '```Demote From group admin```'
+if (global.LANG == 'SI') DEMOTEDES = '```ගෲප් එකේ ඇඩ්මින් වරයෙකුගේ ඇඩ්මින් ඉවත්කිරීමට```'
 prefix = '.'
 
                                 anu = `
@@ -8114,31 +8113,22 @@ prefix = '.'
 
 ${M_E} *${prefix}grouplink* 
    ${D_E} ${GRPDES}
-
 ${M_E} *${prefix}setgrouppp* 
    ${D_E} ${GRPPP}
-
 ${M_E} *${prefix}setname* 
    ${D_E} ${SETNAME}
-
 ${M_E} *${prefix}group* 
    ${D_E} ${GROUDES}
-
 ${M_E} *${prefix}editinfo* 
    ${D_E} ${EDITINFO}
-
 ${M_E} *${prefix}grupinfo* 
    ${D_E} ${GRPINFO}
-
 ${M_E} *${prefix}add* 
    ${D_E} ${ADDDES}
-
 ${M_E} *${prefix}kick* 
    ${D_E} ${KICKDES}
-
 ${M_E} *${prefix}promote* 
    ${D_E} ${PROMOTEDES}
-
 ${M_E} *${prefix}demote* 
    ${D_E} ${DEMOTEDES}
 
@@ -8211,62 +8201,62 @@ const start = new Date().getTime()
 
 await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
 var TIKTOK = ''
-if (global.LANG == 'EN') TIKTOK = '_Download Your Tiktok Link video_'
-if (global.LANG == 'SI') TIKTOK = '_ඔබගේ ටික්ටොක් වීඩියෝ ලින්කුව බාගතකරයි_'
+if (global.LANG == 'EN') TIKTOK = '```Download Your Tiktok Link video```'
+if (global.LANG == 'SI') TIKTOK = '```ඔබගේ ටික්ටොක් වීඩියෝ ලින්කුව බාගතකරයි```'
 var INSTA = ''
-if (global.LANG == 'EN') INSTA = '_Download your instagram link Video_'
-if (global.LANG == 'SI') INSTA = '_ඔබගේ ඉන්ස්ටාග්‍රෑම් වීඩියෝ ලින්ක් බාගත කරයි_'
+if (global.LANG == 'EN') INSTA = '```Download your instagram link Video```'
+if (global.LANG == 'SI') INSTA = '```ඔබගේ ඉන්ස්ටාග්‍රෑම් වීඩියෝ ලින්ක් බාගත කරයි```'
 var IG2 = ''
-if (global.LANG == 'EN') IG2 = '_Download your instagram link Video type ( ii )_'
-if (global.LANG == 'SI') IG2 = '_ඔබගේ ඉන්ස්ටාග්‍රෑම් වීඩියෝ ලින්ක් බාගත කරයි ආකාරය ( ii )_'
+if (global.LANG == 'EN') IG2 = '```Download your instagram link Video type ( ii )```'
+if (global.LANG == 'SI') IG2 = '```ඔබගේ ඉන්ස්ටාග්‍රෑම් වීඩියෝ ලින්ක් බාගත කරයි ආකාරය ( ii )```'
 var YTMP3 = ''
-if (global.LANG == 'EN') YTMP3 = '_Download your youtube link song_'
-if (global.LANG == 'SI') YTMP3 = '_ඔබගේ යූටියුබ් ලින්කුවේ සින්දුව බාගත කරයි_'
+if (global.LANG == 'EN') YTMP3 = '```Download your youtube link song```'
+if (global.LANG == 'SI') YTMP3 = '```ඔබගේ යූටියුබ් ලින්කුවේ සින්දුව බාගත කරයි```'
 var YTMP4 = ''
-if (global.LANG == 'EN') YTMP4  = '_Download your youtube link video_'
-if (global.LANG == 'SI') YTMP4  = '_ඔබගේ යූටියුබ් ලින්කුවේ වීඩියෝව බාගත කරය_'
+if (global.LANG == 'EN') YTMP4  = '```Download your youtube link video```'
+if (global.LANG == 'SI') YTMP4  = '```ඔබගේ යූටියුබ් ලින්කුවේ වීඩියෝව බාගත කරය```'
 var GETMUSIC = ''
-if (global.LANG == 'EN') GETMUSIC = '_Get your song_'
-if (global.LANG == 'SI') GETMUSIC  = '_ඔබගේ සින්දුව එවයි_'
+if (global.LANG == 'EN') GETMUSIC = '```Get your song```'
+if (global.LANG == 'SI') GETMUSIC  = '```ඔබගේ සින්දුව එවයි```'
 var GETVIDEO = ''
-if (global.LANG == 'EN') GETVIDEO  = '_get your video_'
- if (global.LANG == 'SI') GETVIDEO  = '_ඔබගේ විඩියෝව එවයි_'
+if (global.LANG == 'EN') GETVIDEO  = '```get your video```'
+ if (global.LANG == 'SI') GETVIDEO  = '```ඔබගේ විඩියෝව එවයි```'
 var SONG = ''
 var YTV = ''
-if (global.LANG == 'EN') YTV = '_Download videos [ 144p / 240p / 360p / 480p / 720p / 1080p ] Qualitys_ Can not Download up to 100mb videos ❗'
-if (global.LANG == 'SI') YTV = '_වීඩියෝ බාගතකිරීම [ 144p / 240p / 360p / 480p / 720p / 1080p ]_ 100mb වඩා වීඩීයෝ බාගතකළ නොහැක ❗'
-if (global.LANG == 'EN') SONG  = '_The song you name will download_'
-if (global.LANG == 'SI') SONG  = '_ඔබ නම් යෙදූ ගීතය බාගත කරයි_'
+if (global.LANG == 'EN') YTV = '```Download videos [ 144p / 240p / 360p / 480p / 720p / 1080p ] Qualitys``` Can not Download up to 100mb videos ❗'
+if (global.LANG == 'SI') YTV = '```වීඩියෝ බාගතකිරීම [ 144p / 240p / 360p / 480p / 720p / 1080p ]``` 100mb වඩා වීඩීයෝ බාගතකළ නොහැක ❗'
+if (global.LANG == 'EN') SONG  = '```The song you name will download```'
+if (global.LANG == 'SI') SONG  = '```ඔබ නම් යෙදූ ගීතය බාගත කරයි```'
 var VIDEO = ''
-if (global.LANG == 'EN') VIDEO = '_The video you name will download_'
-if (global.LANG == 'SI') VIDEO  = '_ඔබ නම් යෙදූ ගීතය බාගත කරයි_'
+if (global.LANG == 'EN') VIDEO = '```The video you name will download```'
+if (global.LANG == 'SI') VIDEO  = '```ඔබ නම් යෙදූ ගීතය බාගත කරයි```'
 var YT = ''
-if (global.LANG == 'EN') YT  = '_Your song or video will be searched on YouTube and downloaded_'
-if (global.LANG == 'SI') YT  = '_ඔබගේ සින්දුව හෝ වීඩියෝව යූටියුබ් හී සර්ච් කර බාගත කරයි_'
+if (global.LANG == 'EN') YT  = '```Your song or video will be searched on YouTube and downloaded```'
+if (global.LANG == 'SI') YT  = '```ඔබගේ සින්දුව හෝ වීඩියෝව යූටියුබ් හී සර්ච් කර බාගත කරයි```'
 var FB  = ''
-if (global.LANG == 'EN') FB  =' _Download your facebook video link_'
-if (global.LANG == 'SI') FB  = '_ඔබගේ ෆේස් බූක් වීඩියෝ ලින්කුව බාගත කරයි_'
+if (global.LANG == 'EN') FB  =' ```Download your facebook video link```'
+if (global.LANG == 'SI') FB  = '```ඔබගේ ෆේස් බූක් වීඩියෝ ලින්කුව බාගත කරයි```'
 var FB2 = '' 
-if (global.LANG == 'EN') FB2  = '_Download your facebook video link type ( ii )_'
-if (global.LANG == 'SI') FB2  = '_ඔබගේ ෆේස් බූක් වීඩියෝ ලින්කුව බාගත කරය ආකාරය ( ii )_'
+if (global.LANG == 'EN') FB2  = '```Download your facebook video link type ( ii )```'
+if (global.LANG == 'SI') FB2  = '```ඔබගේ ෆේස් බූක් වීඩියෝ ලින්කුව බාගත කරය ආකාරය ( ii )```'
 var SONG2 = ''
 var VIDEO2 = ''
-if (global.LANG == 'EN') SONG2  = '_The song you name will download [ none button ]_'
-if (global.LANG == 'SI') SONG2  = '_ඔබ නම් යෙදූ ගීතය බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]_'
-if (global.LANG == 'EN') VIDEO2  = '_The video you name will download [ none button ]_'
-if (global.LANG == 'SI') VIDEO2  = '_ඔබ නම් යෙදූ වීඩියෝව බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]_'
+if (global.LANG == 'EN') SONG2  = '```The song you name will download [ none button ]```'
+if (global.LANG == 'SI') SONG2  = '```ඔබ නම් යෙදූ ගීතය බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]```'
+if (global.LANG == 'EN') VIDEO2  = '```The video you name will download [ none button ]```'
+if (global.LANG == 'SI') VIDEO2  = '```ඔබ නම් යෙදූ වීඩියෝව බාගත කරයි [ බටන් මැස්ස්සේජ් නොමැතිව ]```'
 var APK = ''
 var MOD_APK = ''
 var TELE = ''
 var XNXX = ''
-if (global.LANG == 'EN') APK = '_Download Plastore apk_'
-if (global.LANG == 'SI') APK = '_Plastore Apk බාගත කිරීමට_'
-if (global.LANG == 'EN') MOD_APK = '_Mod Apk Download_'
-if (global.LANG == 'SI') MOD_APK = '_මොඩ් Apk බාගත කිරීම_'
-if (global.LANG == 'EN') TELE = '_Telegram Sticker Download_'
-if (global.LANG == 'SI') TELE = '_Telegram ස්ටිකර් බාගත කිරීමට_'
-if (global.LANG == 'EN') XNXX = '_Xnxx Video Download ( only main Group )_'
-if (global.LANG == 'SI') XNXX = '_Xnxx වීඩියෝ බාගත කිරීම ( ප්‍රදාන ශාපයේ පමණක් වලංගු විදානයකි )_'
+if (global.LANG == 'EN') APK = '```Download Plastore apk```'
+if (global.LANG == 'SI') APK = '```Plastore Apk බාගත කිරීමට```'
+if (global.LANG == 'EN') MOD_APK = '```Mod Apk Download```'
+if (global.LANG == 'SI') MOD_APK = '```මොඩ් Apk බාගත කිරීම```'
+if (global.LANG == 'EN') TELE = '```Telegram Sticker Download```'
+if (global.LANG == 'SI') TELE = '```Telegram ස්ටිකර් බාගත කිරීමට```'
+if (global.LANG == 'EN') XNXX = '```Xnxx Video Download ( only main Group )```'
+if (global.LANG == 'SI') XNXX = '```Xnxx වීඩියෝ බාගත කිරීම ( ප්‍රදාන ශාපයේ පමණක් වලංගු විදානයකි )```'
 
  prefix = '.'
 anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
@@ -8276,62 +8266,43 @@ anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
 ${M_E} *${prefix}tiktok* 
-   ${D_E} ${TIKTOK} 
-   
+   ${D_E} ${TIKTOK}    
 ${M_E} *${prefix}tiktok2*  
-   ${D_E}  ${TIKTOK} _type ( ii )_
-   
+   ${D_E}  ${TIKTOK} _type ( ii )_   
 ${M_E} *${prefix}insta*  
-   ${D_E}  ${INSTA}
-   
+   ${D_E}  ${INSTA}   
 ${M_E} *${prefix}ig2*  
-   ${D_E}  ${IG2}
-   
+   ${D_E}  ${IG2}   
 ${M_E} *${prefix}fb*  
-   ${D_E}  ${FB}
-   
+   ${D_E}  ${FB}   
 ${M_E} *${prefix}fb2*  
-   ${D_E}  ${FB2}
-   
+   ${D_E}  ${FB2}   
 ${M_E} *${prefix}ytmp3*  
-   ${D_E}  ${YTMP3}
-   
+   ${D_E}  ${YTMP3}   
 ${M_E} *${prefix}ytmp4*  
-   ${D_E}  ${YTMP4}
-   
+   ${D_E}  ${YTMP4}   
 ${M_E} *${prefix}getmusic*  
-   ${D_E}  ${GETMUSIC}
-   
+   ${D_E}  ${GETMUSIC}   
 ${M_E} *${prefix}getvideo*  
-   ${D_E}  ${GETVIDEO}
-   
+   ${D_E}  ${GETVIDEO}   
 ${M_E} *${prefix}song*  
-   ${D_E}  ${SONG}
-   
+   ${D_E}  ${SONG}   
 ${M_E} *${prefix}song2*  
-   ${D_E}  ${SONG2}
-   
+   ${D_E}  ${SONG2}   
 ${M_E} *${prefix}video*  
-   ${D_E}  ${VIDEO}
-   
+   ${D_E}  ${VIDEO}   
 ${M_E} *${prefix}video2*  
-   ${D_E}  ${VIDEO2}
-   
+   ${D_E}  ${VIDEO2}   
 ${M_E} *${prefix}ytv*  
-   ${D_E}  ${YTV}
-   
+   ${D_E}  ${YTV}   
 ${M_E} *${prefix}yt*  
-   ${D_E}  ${YT} 
-   
+   ${D_E}  ${YT}    
 ${M_E} *${prefix}apk*  
-   ${D_E}  ${APK} 
-   
+   ${D_E}  ${APK}    
 ${M_E} *${prefix}modapk*  
-   ${D_E}  ${MOD_APK} 
-   
+   ${D_E}  ${MOD_APK}    
 ${M_E} *${prefix}stelegram*  
-   ${D_E}  ${TELE} 
-   
+   ${D_E}  ${TELE}    
 ${M_E} *${prefix}xnxxsh*  
    ${D_E}  ${XNXX} 
 
@@ -8390,26 +8361,26 @@ const start = new Date().getTime()
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔍`, key: m.key }})
 var PLAY = ''
-if (global.LANG == 'EN') PLAY = '_Search youtube and download_'
-if (global.LANG == 'SI') PLAY = '_යූටියුබ් හි සර්ච් කර Download කරයි_'
+if (global.LANG == 'EN') PLAY = '```Search youtube and download```'
+if (global.LANG == 'SI') PLAY = '```යූටියුබ් හි සර්ච් කර Download කරයි```'
 var YTS = ''
-if (global.LANG == 'EN') YTS = '_search your text on youtube_'
-if (global.LANG == 'SI') YTS =  '_ඔබගේ වචනය යූටියුබ් හී සොයයි_'
+if (global.LANG == 'EN') YTS = '```search your text on youtube```'
+if (global.LANG == 'SI') YTS =  '```ඔබගේ වචනය යූටියුබ් හී සොයයි```'
 var GOOGLE = ''
-if (global.LANG == 'EN') GOOGLE = '_search your word on google_'
-if (global.LANG == 'SI') GOOGLE = '_ඔබගේ වචනය ගූහල් හී සොයයි_'
+if (global.LANG == 'EN') GOOGLE = '```search your word on google```'
+if (global.LANG == 'SI') GOOGLE = '```ඔබගේ වචනය ගූහල් හී සොයයි```'
 var IMG = ''
-if (global.LANG == 'EN') IMG = '_search google image_'
-if (global.LANG == 'SI') IMG = '_ගූගල්හී ජායාරූප සොයයි_'
+if (global.LANG == 'EN') IMG = '```search google image```'
+if (global.LANG == 'SI') IMG = '```ගූගල්හී ජායාරූප සොයයි```'
 var PINSA = ''
-if (global.LANG == 'EN') PINSA = '_search image from pinterest_'
-if (global.LANG == 'SI') PINSA = '_pinterest හී ජාඅයාරූප සොයයි_'
+if (global.LANG == 'EN') PINSA = '```search image from pinterest```'
+if (global.LANG == 'SI') PINSA = '```pinterest හී ජාඅයාරූප සොයයි```'
 var WALLPAPER  = ''
-if (global.LANG == 'EN') WALLPAPER = '_search wallpapers_'
-if (global.LANG == 'SI') WALLPAPER = '_වෝල්පේපර්ස් සොයයි_'
+if (global.LANG == 'EN') WALLPAPER = '```search wallpapers```'
+if (global.LANG == 'SI') WALLPAPER = '```වෝල්පේපර්ස් සොයයි```'
 var WIKI = ''
-if (global.LANG == 'EN') WIKI = '_search on wikipidia_'
-if (global.LANG == 'SI') WIKI = '_විකිපීඩියා හී සර්ච් කරයි_'
+if (global.LANG == 'EN') WIKI = '```search on wikipidia```'
+if (global.LANG == 'SI') WIKI = '```විකිපීඩියා හී සර්ච් කරයි```'
 prefix = '.'
                                   anu = `*◯───────[ SEARCH MENU ]───────◯*
 
@@ -8419,28 +8390,21 @@ prefix = '.'
 
 ${M_E} *${prefix}play*   
    ${D_E}  ${PLAY}
-
 ${M_E} *${prefix}yts*   
    ${D_E}  ${YTS}
-
 ${M_E} *${prefix}google*   
    ${D_E}  ${GOOGLE}
-
 ${M_E} *${prefix}img*   
    ${D_E}  ${IMG}
-
 ${M_E} *${prefix}pinterest*   
    ${D_E}  ${PINSA}
-
 ${M_E} *${prefix}wallpaper*   
    ${D_E}  ${WALLPAPER}
-
 ${M_E} *${prefix}wikimedia*   
    ${D_E}  ${WIKI}
-
 ${M_E} *${prefix}ytsearch*   
    ${D_E}  ${YTS}
-   
+      
 *──────────◯*
 `
  next = Lang.NEXT_BUTTON
@@ -8500,11 +8464,11 @@ const start = new Date().getTime()
 
                           await ElisaBotMd.sendMessage(from, { react: { text: `🗳️`, key: m.key }})
 var COFFY = ''
-if (global.LANG == 'EN') COFFY = '_Send random coffee image_'
-if (global.LANG == 'SI') COFFY = '_අහබු ලෙස coffee ජායාරූප එවයි._'
+if (global.LANG == 'EN') COFFY = '```Send random coffee image```'
+if (global.LANG == 'SI') COFFY = '```අහබු ලෙස coffee ජායාරූප එවයි.```'
 var COUPP = ''
-if (global.LANG == 'EN') COUPP = '_send copple profile photo randomly_'
-if (global.LANG == 'SI') COUPP = '_අහබු ලෙස copple profile photo එවයි_'
+if (global.LANG == 'EN') COUPP = '```send copple profile photo randomly```'
+if (global.LANG == 'SI') COUPP = '_අහබු ලෙස copple profile photo එවයි```'
 prefix = '.'
                       anu = `*◯───────[ RANDOM MENU ]───────◯*
 
@@ -8514,7 +8478,6 @@ prefix = '.'
 
 ${M_E} *${prefix}coffee*   
    ${D_E}  ${COFFY}
-
 ${M_E} *${prefix}couplepp*   
    ${D_E}  ${COUPP}
    
@@ -8579,14 +8542,14 @@ const start = new Date().getTime()
                           await ElisaBotMd.sendMessage(from, { react: { text: `🤪`, key: m.key }})
                       
 var COPLE = ''
-if (global.LANG == 'EN') COPLE = '_Choose two members from the group._'
-if (global.LANG == 'SI') COPLE = '_ගෲප් එකේ සිටින දෙදෙනෙකු තෝරයි._'
+if (global.LANG == 'EN') COPLE = '```Choose two members from the group.```'
+if (global.LANG == 'SI') COPLE = '```ගෲප් එකේ සිටින දෙදෙනෙකු තෝරයි.```'
 var MYSOLO = ''
-if (global.LANG == 'EN') MYSOLO = '_Choose your soulmate_.' 
-if (global.LANG == 'SI') MYSOLO ='_ඔබගේ ආත්මීය මිතුරා තෝරයි_.'
+if (global.LANG == 'EN') MYSOLO = '```Choose your soulmate```.' 
+if (global.LANG == 'SI') MYSOLO ='```ඔබගේ ආත්මීය මිතුරා තෝරයි```.'
 var MATH = ''
-if (global.LANG == 'EN') MATH = '_Counting with Bot_.'
-if (global.LANG == 'SI') MATH = '_බොට් සමග ගණන් සෑදීමට._'
+if (global.LANG == 'EN') MATH = '```Counting with Bot_.'
+if (global.LANG == 'SI') MATH = '```බොට් සමග ගණන් සෑදීමට.```'
 prefix = '.'
 anu = `*◯───────[ FUN MENU ]───────◯*
 
@@ -8596,10 +8559,8 @@ anu = `*◯───────[ FUN MENU ]───────◯*
 
 ${M_E} *${prefix}couple*   
    ${D_E}  ${COPLE}
-
 ${M_E} *${prefix}mysoulmate*   
    ${D_E}  ${MYSOLO}
-
 ${M_E} *${prefix}math*   
    ${D_E}  ${MATH}
    
@@ -8663,8 +8624,8 @@ const start = new Date().getTime()
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎙️`, key: m.key }})
                   
 var VOICEDESC = ''
-if (global.LANG == 'EN') VOICEDESC= '*💬 About Voice changer cmd*\n _When you reply to one of your voice messages and use the following command, the corresponding voice has been changed._'
-if (global.LANG == 'SI') VOICEDESC= '*💬 වොයිස් විධාන පිලිබද* \n _ඔබගේ වොයිස් මැස්ස්සේජ් එකක් සදහා රිප්ලයි කර පහත කමාන්ඩ් බාවිතකරවිට ඒවාට අදාල voice වෙනස් වී ලැබෙයි_'
+if (global.LANG == 'EN') VOICEDESC= '*💬 About Voice changer cmd*\n ```When you reply to one of your voice messages and use the following command, the corresponding voice has been changed.```'
+if (global.LANG == 'SI') VOICEDESC= '*💬 වොයිස් විධාන පිලිබද* \n ```ඔබගේ වොයිස් මැස්ස්සේජ් එකක් සදහා රිප්ලයි කර පහත කමාන්ඩ් බාවිතකරවිට ඒවාට අදාල voice වෙනස් වී ලැබෙයි```'
 prefix = '.'
                       anu = `*◯───────[ VOICE MENU ]───────◯*
 
@@ -8838,29 +8799,29 @@ const start = new Date().getTime()
                           await ElisaBotMd.sendMessage(from, { react: { text: `🛠️`, key: m.key }})
                   prefix = '.'
 var IMG = ''
-if (global.LANG == 'EN' ) IMG= 'Sticker convert to photo.'
-if (global.LANG == 'SI' ) IMG= 'ස්ටිකර් 1ක් ෆොටෝ 1ක් බවට හැරවීම.'
+if (global.LANG == 'EN' ) IMG= '```Sticker convert to photo.```'
+if (global.LANG == 'SI' ) IMG= '```ස්ටිකර් 1ක් ෆොටෝ 1ක් බවට හැරවීම.```'
 var RBG = ''
-if (global.LANG == 'EN' ) RBG= 'Remove photo background.'
-if (global.LANG == 'SI' ) RBG= 'ජායාරූප වල පසුබිම ඉවත්කරයි'
+if (global.LANG == 'EN' ) RBG= '```Remove photo background.```'
+if (global.LANG == 'SI' ) RBG= '```ජායාරූප වල පසුබිම ඉවත්කරයි```'
 var STICKER = ''
-if (global.LANG == 'EN' ) STICKER= 'image / small video convert to sticker'
-if (global.LANG == 'SI' ) STICKER= 'ජායාරූපයක් හෝ කුඩා වීඩීයෝවක් ස්ටිකර් බවට පත්කිරීම'
+if (global.LANG == 'EN' ) STICKER= '```image / small video convert to sticker```'
+if (global.LANG == 'SI' ) STICKER= '```ජායාරූපයක් හෝ කුඩා වීඩීයෝවක් ස්ටිකර් බවට පත්කිරීම```'
 var EMOJIMIX = ''
-if (global.LANG == 'EN' ) EMOJIMIX= 'Mix 2 imoji and make sticker'
-if (global.LANG == 'SI' ) EMOJIMIX= 'ඉමෝජි 2ක් එකතු කර ස්ටිකර් සාදයි'
+if (global.LANG == 'EN' ) EMOJIMIX= '```Mix 2 imoji and make sticker```'
+if (global.LANG == 'SI' ) EMOJIMIX= '```ඉමෝජි 2ක් එකතු කර ස්ටිකර් සාදයි```'
 var TOVIDEO = ''
-if (global.LANG == 'EN' ) TOVIDEO= 'Animation sticker convert to video'
-if (global.LANG == 'SI' ) TOVIDEO= 'ඇනිමේශන් ස්ටිකර් වීඩියෝ බවට හැරවීම'
+if (global.LANG == 'EN' ) TOVIDEO= '```Animation sticker convert to video```'
+if (global.LANG == 'SI' ) TOVIDEO= '```ඇනිමේශන් ස්ටිකර් වීඩියෝ බවට හැරවීම```'
 var GIF = ''
-if (global.LANG == 'EN' ) GIF= 'Animation Sticker Convert to Gif'
-if (global.LANG == 'SI' ) GIF= 'ඇනිමේශන් ස්ටිකර් GIF බවට පත්කිරීම'
+if (global.LANG == 'EN' ) GIF= '```Animation Sticker Convert to Gif```'
+if (global.LANG == 'SI' ) GIF= '```ඇනිමේශන් ස්ටිකර් GIF බවට පත්කිරීම```'
 var URL = ''
-if (global.LANG == 'EN' ) URL= 'Get url your image / video'
-if (global.LANG == 'SI' ) URL= 'ඔබගේ ජායාරූපයට හෝ වීඩියෝවට ලින්කුවක් ලබාදෙයි'
+if (global.LANG == 'EN' ) URL= '```Get url your image / video```'
+if (global.LANG == 'SI' ) URL= '```ඔබගේ ජායාරූපයට හෝ වීඩියෝවට ලින්කුවක් ලබාදෙයි```'
 var FANCY = ''
-if (global.LANG == 'EN' ) FANCY = 'Make fancy text'
-if (global.LANG == 'SI' ) FANCY = 'විවිද හැඩවලින් අකුරු සෑදීම [ only english ]'
+if (global.LANG == 'EN' ) FANCY = '```Make fancy text```'
+if (global.LANG == 'SI' ) FANCY = '```විවිද හැඩවලින් අකුරු සෑදීම [ only english ]```'
 
                   anu = `*◯───────[ CONVERT MENU ]───────◯*
 
@@ -8869,28 +8830,21 @@ if (global.LANG == 'SI' ) FANCY = 'විවිද හැඩවලින් අ�
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
 ${M_E} *${prefix}toimage*   
-   ${D_E}  _${IMG}_
-
+   ${D_E}  ${IMG}
 ${M_E} *${prefix}removebg*   
-   ${D_E}  _${RBG}_
-
+   ${D_E}  ${RBG}
 ${M_E} *${prefix}sticker*   
-   ${D_E} ${STICKER}_
-
+   ${D_E} ${STICKER}
 ${M_E} *${prefix}emojimix*   
-   ${D_E}  _${EMOJIMIX}_
-
+   ${D_E}  ${EMOJIMIX}
 ${M_E} *${prefix}tovideo*   
-   ${D_E}  _${TOVIDEO}_
-
+   ${D_E}  ${TOVIDEO}
 ${M_E} *${prefix}togif*   
-   ${D_E}  _${GIF}_
-
+   ${D_E}  ${GIF}
 ${M_E} *${prefix}tourl*   
-   ${D_E}  _${URL}_ 
-
+   ${D_E}  ${URL} 
 ${M_E} *${prefix}fancy*   
-   ${D_E}  _${FANCY}_ 
+   ${D_E}  ${FANCY} 
    
 *──────────◯*
 `
@@ -9055,35 +9009,35 @@ next = Lang.NEXT_BUTTON
 back = Lang.BACK_BUTTON
 
 var SPEED = ''
-if (global.LANG == 'EN' ) SPEED = '_Test Bot Speed_'
-if (global.LANG == 'SI') SPEED = '_බොට්ගේ වේගය මැනීමට_'
+if (global.LANG == 'EN' ) SPEED = '```Test Bot Speed```'
+if (global.LANG == 'SI') SPEED = '```බොට්ගේ වේගය මැනීමට```'
 var PING = ''
-if (global.LANG == 'EN' ) PING= '_Test Bot ping._'
-if (global.LANG == 'SI') PING= '_බොට්ගේ පින්ග් පරීක්ශාකිරීමට_'
+if (global.LANG == 'EN' ) PING= '```Test Bot ping.```'
+if (global.LANG == 'SI') PING= '```බොට්ගේ පින්ග් පරීක්ශාකිරීමට```'
 var OWNER = ''
-if (global.LANG == 'EN' ) OWNER = '_Send Bot Owner Contact_'
-if (global.LANG == 'SI') OWNER = '_බොට් අයිතිකරුගේ නම්බර් එක එවයි_'
+if (global.LANG == 'EN' ) OWNER = '```Send Bot Owner Contact```'
+if (global.LANG == 'SI') OWNER = '```බොට් අයිතිකරුගේ නම්බර් එක එවයි```'
 var DONA = ''
-if (global.LANG == 'EN' ) DONA = '_Donate fro bot_'
-if (global.LANG == 'SI') DONA = '_බොට් සදහා ආදාරයක් කිරීමට_'
+if (global.LANG == 'EN' ) DONA = '```Donate fro bot```'
+if (global.LANG == 'SI') DONA = '```බොට් සදහා ආදාරයක් කිරීමට```'
 var MENU = ''
-if (global.LANG == 'EN' ) MENU = '_Send Bot Menu_'
-if (global.LANG == 'SI') MENU= '_බොට් මෙනුව එවයි_'
+if (global.LANG == 'EN' ) MENU = '```Send Bot Menu```'
+if (global.LANG == 'SI') MENU= '```බොට් මෙනුව එවයි```'
 var DELETE = ''
-if (global.LANG == 'EN' ) DELETE= '_Delete massage if bot send_'
-if (global.LANG == 'SI') DELETE= '_බොට් යැවූ මැස්ස්සේජ් මකාදමයි_'
+if (global.LANG == 'EN' ) DELETE= '```Delete massage if bot send```'
+if (global.LANG == 'SI') DELETE= '```බොට් යැවූ මැස්ස්සේජ් මකාදමයි```'
 var QUO = ''
-if (global.LANG == 'EN' ) QUO = '_Send Quoted Massage_'
-if (global.LANG == 'SI') QUO = '_ඔබ විමසූ පනිවුඩය රිප්ලයි කර ඇති මැස්ස්සේජ් එක එවයි_'
+if (global.LANG == 'EN' ) QUO = '```Send Quoted Massage```'
+if (global.LANG == 'SI') QUO = '```ඔබ විමසූ පනිවුඩය රිප්ලයි කර ඇති මැස්ස්සේජ් එක එවයි```'
 var LIP = ''
-if (global.LANG == 'EN' ) LIP = '_Send personal massage list_'
-if (global.LANG == 'SI') LIP= 'ඉන්බොක්ස් ඇති චැට් පෙන්වයි_'
+if (global.LANG == 'EN' ) LIP = '```Send personal massage list```'
+if (global.LANG == 'SI') LIP= '```ඉන්බොක්ස් ඇති චැට් පෙන්වයි```'
 var LPO = ''
-if (global.LANG == 'EN' ) LPO= '_Show online List_'
-if (global.LANG == 'SI') LPO= 'ඔන්ලයින් සිටින අය පෙන්වයි_'
+if (global.LANG == 'EN' ) LPO= '```Show online List```'
+if (global.LANG == 'SI') LPO= '```ඔන්ලයින් සිටින අය පෙන්වයි```'
 var REPORT = ''
-if (global.LANG == 'EN' ) REPORT= '_report from bot owner_'
-if (global.LANG == 'SI') REPORT = '_බොට් අයිතිකරුට වාර්තාකරන්න_'
+if (global.LANG == 'EN' ) REPORT= '```report from bot owner```'
+if (global.LANG == 'SI') REPORT = '```බොට් අයිතිකරුට වාර්තාකරන්න```'
 
 
 anu = `*◯───────[ MISC MENU ]───────◯*
@@ -9094,31 +9048,22 @@ anu = `*◯───────[ MISC MENU ]───────◯*
 
 ${M_E} *${prefix}speedtest*   
     ${D_E}  ${SPEED}
-
 ${M_E} *${prefix}ping*   
     ${D_E}  ${PING}
-
 ${M_E} *${prefix}owner*   
     ${D_E}  ${OWNER}
-
 ${M_E} *${prefix}donate*   
     ${D_E}  ${DONA}
-
 ${M_E} *${prefix}menu*   
     ${D_E}  ${MENU}
-
 ${M_E} *${prefix}delete*   
     ${D_E}  ${DELETE}
-
 ${M_E} *${prefix}quoted*   
     ${D_E}  ${QUO}
-
 ${M_E} *${prefix}listpc*   
     ${D_E}  ${LIP}
-
 ${M_E} *${prefix}listonline*   
     ${D_E}  ${LPO}
-
 ${M_E} *${prefix}report*   
     ${D_E}  ${REPORT}
     
@@ -9289,14 +9234,14 @@ const start = new Date().getTime()
 
 prefix = '.'
 var LOGODESC = ''
-if (global.LANG == 'EN') LOGODESC = '_Make logos on logo pack -1_'
-if (global.LANG == 'SI') LOGODESC = '_ලෝගෝ සෑදීම ආකාරය - 1_'
+if (global.LANG == 'EN') LOGODESC = '```Make logos on logo pack -1```'
+if (global.LANG == 'SI') LOGODESC = '```ලෝගෝ සෑදීම ආකාරය - 1```'
 var LOGODESC_2 = ''
-if (global.LANG == 'EN') LOGODESC_2 = '_Make logos on logo pack -2_'
-if (global.LANG == 'SI') LOGODESC_2 = '_ලෝගෝ සෑදීම ආකාරය - 2_'
+if (global.LANG == 'EN') LOGODESC_2 = '```Make logos on logo pack -2```'
+if (global.LANG == 'SI') LOGODESC_2 = '```ලෝගෝ සෑදීම ආකාරය - 2```'
 var LOGODESC_3 = ''
-if (global.LANG == 'EN') LOGODESC_3 = '_Make logos on logo pack -3_'
-if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකාරය - 3_'
+if (global.LANG == 'EN') LOGODESC_3 = '```Make logos on logo pack -3```'
+if (global.LANG == 'SI') LOGODESC_3 = '```ලෝගෝ සෑදීම ආකාරය - 3```'
  
                       anu = `*◯───────[ LOGO MENU ]───────◯*
 
@@ -9306,10 +9251,8 @@ if (global.LANG == 'SI') LOGODESC_3 = '_ලෝගෝ සෑදීම ආකා�
 
 ${M_E} *.logo*   
     ${D_E}  ${LOGODESC}
-
 ${M_E} *.logo2*   
     ${D_E}  ${LOGODESC_2}
-
 ${M_E} *.logo3*
     ${D_E}  ${LOGODESC_3}
 
@@ -9432,26 +9375,26 @@ const start = new Date().getTime()
                           await ElisaBotMd.sendMessage(from, { react: { text: `🎭`, key: m.key }})
 
 var JOIN = ''
-if (global.LANG == 'EN') JOIN= 'Join yousing invite link'
-if (global.LANG == 'SI') JOIN= 'ගෲප් ලින්ක් බාවිතාකරමින් ඒයට join වීමට'
+if (global.LANG == 'EN') JOIN= '```Join yousing invite link```'
+if (global.LANG == 'SI') JOIN= '```ගෲප් ලින්ක් බාවිතාකරමින් ඒයට join වීමට```'
 var LEAVE = ''
-if (global.LANG == 'EN') LEAVE= 'Leave from group'
-if (global.LANG == 'SI') LEAVE= 'ගෲප් එකකින් බොට්ව ඉවත් කිරීමට'
+if (global.LANG == 'EN') LEAVE= '```Leave from group```'
+if (global.LANG == 'SI') LEAVE= '```ගෲප් එකකින් බොට්ව ඉවත් කිරීමට```'
 var SETPP = ''
-if (global.LANG == 'EN') SETPP= 'Change bit profile photo'
-if (global.LANG == 'SI') SETPP= 'බොට්ගේ ෆ්‍රොෆයිල් ජායාරූපය වෙනස් කිරීම'
+if (global.LANG == 'EN') SETPP= '```Change bit profile photo```'
+if (global.LANG == 'SI') SETPP= '```බොට්ගේ ෆ්‍රොෆයිල් ජායාරූපය වෙනස් කිරීම```'
 var BLOCK = ''
-if (global.LANG == 'EN') BLOCK= 'Block user'
-if (global.LANG == 'SI') BLOCK= 'අයෙකු අවහිර කිරීමට'
+if (global.LANG == 'EN') BLOCK= '```Block user```'
+if (global.LANG == 'SI') BLOCK= '```අයෙකු අවහිර කිරීමට```'
 var UNBLOCK = ''
-if (global.LANG == 'EN') UNBLOCK= 'unblock user'
-if (global.LANG == 'SI') UNBLOCK= 'අවහිර කර අයෙකුගේ අවහිරතාවය ඉවත් කිරීම'
+if (global.LANG == 'EN') UNBLOCK= '```unblock user```'
+if (global.LANG == 'SI') UNBLOCK= '```අවහිර කර අයෙකුගේ අවහිරතාවය ඉවත් කිරීම```'
 var BCGRP = ''
-if (global.LANG == 'EN') BCGRP= 'send broadcast All groups'
-if (global.LANG == 'SI') BCGRP= 'සමූහ වලට පමනක් බ්‍රෝඩ්කාස්ට් යැවීමට'
+if (global.LANG == 'EN') BCGRP= '```send broadcast All groups```'
+if (global.LANG == 'SI') BCGRP= '```සමූහ වලට පමනක් බ්‍රෝඩ්කාස්ට් යැවීමට```'
 var BCALL = ''
-if (global.LANG == 'EN') BCALL= 'Send broadcast all chats'
-if (global.LANG == 'SI') BCALL= 'සියලුම චැට් සදහා බ්‍රෝඩ්කාස්ට් යැවීම'
+if (global.LANG == 'EN') BCALL= '```Send broadcast all chats```'
+if (global.LANG == 'SI') BCALL= '```සියලුම චැට් සදහා බ්‍රෝඩ්කාස්ට් යැවීම```'
 prefix = '.'
 anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 
@@ -9460,19 +9403,19 @@ anu = `*◯───────[ DOWNLOAD MENU ]───────◯*
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
 ${M_E} *${prefix}join*   
-    ${D_E}  _${JOIN}_
+    ${D_E}  ${JOIN}
 ${M_E} *${prefix}leave*   
-    ${D_E}  _${LEAVE}_
+    ${D_E}  ${LEAVE}
 ${M_E} *${prefix}setbotpp*   
-    ${D_E}  _${SETPP}_
+    ${D_E}  ${SETPP}
 ${M_E} *${prefix}block*   
-    ${D_E}  _${BLOCK}_
+    ${D_E}  ${BLOCK}
 ${M_E} *${prefix}unblock*   
-    ${D_E}  _${UNBLOCK}_
+    ${D_E}  ${UNBLOCK}
 ${M_E} *${prefix}bcgroup*   
-    ${D_E}  _${BCGRP}_
+    ${D_E}  ${BCGRP}
 ${M_E} *${prefix}bcall*   
-    ${D_E}  _${BCALL}_
+    ${D_E}  ${BCALL}
 
 *──────────◯*
 `
