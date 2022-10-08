@@ -380,7 +380,7 @@ m.reply(imoji)
         
                 
                         
-//? ALL LINK REMOVE \\\
+/*//? ALL LINK REMOVE \\\
     if(global.ALL_LINK_KICK == 'true' && m.isGroup && !isAdmins && !iscreator) {
         if (budy.match('http://')) {
         await ElisaBotMd.sendText(m.chat,` 
@@ -398,7 +398,7 @@ m.reply(imoji)
         }
         }
         }
-        
+*/        
  for (any in bad){
          if (budy.toLowerCase().includes(bad[any])){
          if (!isBotAdmins) return 
