@@ -4112,20 +4112,20 @@ case 'directaudiodown' : {
 break
                           case 'ytmp3': case 'ytaudio': {  
                           //await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
-                                  let { yta } = require('./lib/y2mate')
-                                  if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} https://Subscribe.com/watch?v=PtF6Tccag%27 320kbps`
+                                  
+                                  if (!text && !text.includes("https://youtu") return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp3 https://youtube.com/watch?v=WoWlWb6vbzA```')
                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
                                  //const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
-                                  let quality = args[1] ? args[1] : '128kbps'
-                                  await yta(text, quality)
+                                  await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${text}`)
                                   .then(async (media) => { 
                                   buf = await getBuffer(media.thumb)
-                                  if (media.filesize >= 150000) return reply('❗ Audio size is too big '+util.format(media))
+                                  if (song_size.split("MB")[0] >= 120) return m.reply('*FILE SIZE IS BIG !!!*')
+                                  //reply('❗ Audio size is too big '+util.format(media))
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                  // 
-                                  ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`🐣 ᴛɪᴛʟᴇ - ${media.title}\n🎧 sɪᴢᴇ - ${media.filesize}`,
+                                  ElisaBotMd.sendMessage(m.chat, {document:{ url: media.mp3 }, mimetype:"audio/mpeg", fileName: `${media.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`🐣 ᴛɪᴛʟᴇ - ${media.Title}\n`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
                 thumbnail:buf,
