@@ -58,9 +58,7 @@
     "util": "^0.12.4",
     "yargs": "^17.2.1",
     "xfarr-api": "^1.0.2",
-    "yt-search": "^2.10.2",
-    "onx-api" : "^0.9.5",
-    "ytdl-core" : "^4.11.2"
+    "yt-search": "^2.10.2"
   },
   "directories": {
     "lib": "lib",
