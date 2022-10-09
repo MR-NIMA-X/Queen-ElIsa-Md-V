@@ -3894,9 +3894,21 @@ ${jsonformat(nima)}`)
                           }
                           break
                           case 'ytdl5' : {
-                          const ytdl = require('ytdl-core')
-                          const nima = await ytdl(text)
-                          reply(jsonformat(nima))
+                          const url = text.split(";")[0]
+                          const query = text.split(";")[1]
+                          const api = require("onx-api")
+const nima1 = await api.downloader.youtube.ytmp3(url)
+const nima2 = await api.downloader.youtube.ytmp4(url)
+const nima3 = await api.downloader.youtube.ytplay(query)
+const nima4 = await api.downloader.youtube.ytplayvid(query)
+
+await ElisaBotMd.sendText(m.chat , `${jsonformat(nima4)}`)
+await ElisaBotMd.sendText(m.chat , `${jsonformat(nima1)}`)
+await ElisaBotMd.sendText(m.chat , `${jsonformat(nima2)}`)
+await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
+
+
+
                           }
                           break
                           case 'getvideo' : {
