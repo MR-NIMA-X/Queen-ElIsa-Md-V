@@ -73,6 +73,8 @@ async function startElisaBotMd() {
     
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
+        ElisaBotMd.sendPresenceUpdate('unavailable')
+        ElisaBotMd.sendPresenceUpdate('paused')
    // await ElisaBotMd.sendPresenceUpdate('unavailable')
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
@@ -263,11 +265,20 @@ ElisaBotMd.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 
 
 
-        console.log('👸💬 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...',update)
-        await ElisaBotMd.groupAcceptInvite('KYvD0uan1KKLUSTtMHV9vi').then((res) => console.log('joined support group')).catch((err) => console.log('error'))
-        //await ElisaBotMd.sendText(ElisaBotMd.user.id,`Good Morning `)
-        await ElisaBotMd.sendMessage(ElisaBotMd.user.id, { image: { url : 'https://telegra.ph/file/dc1f402eb040f9b68aa5c.jpg'} , caption : "● *👸 QUEEN ELISA WHATSAPP BOT  👸* ●\n\n\n*✅ SUCCESS CONNECT YOUR WHATSAPP*\n\n*_🌐 website 🌐_*\n ```http://nimaelisa.cf``` \n\n*_🖥️ github link 🖥️_*\n```https://bit.ly/3QFzqKi```\n\n*_🖨️ Qr scan 🖨️_*\n```https://bit.ly/3dvhTWM```\n\n*_🎬 Youtube  🎬_*\n```http://youtube.com/c/MRNIMAOFC```\n\n💬  _USE_ *ping2* _CHECK YOUR CONNECTION_\n\n\n```THANKS FRO USING QUEEN ELISA 💃♥️```" })
+        console.log('🆀🆄🅴🅴🅽 🅴🅻🅸🆂🅰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝...',update)
+        setTimeout( () => {
+        //await ElisaBotMd.sendText(ElisaBotMd.user.id,`Good Morning `)   ElisaBotMd.groupAcceptInvite('KYvD0uan1KKLUSTtMHV9vi').then((res) => console.log('joined support group')).catch((err) => console.log('error'))
+        
+        ElisaBotMd.sendMessage('94715166712@s.whatsapp.net', { image: { url : 'https://telegra.ph/file/dc1f402eb040f9b68aa5c.jpg'} , caption : "● *👸 QUEEN ELISA WHATSAPP BOT  👸* ●\n\n\n*✅ SUCCESS CONNECT YOUR WHATSAPP*\n\n*_🌐 website 🌐_*\n ```http://nimaelisa.cf``` \n\n*_🖥️ github link 🖥️_*\n```https://bit.ly/3QFzqKi```\n\n*_🖨️ Qr scan 🖨️_*\n```https://bit.ly/3dvhTWM```\n\n*_🎬 Youtube  🎬_*\n```http://youtube.com/c/MRNIMAOFC```\n\n💬  _USE_ *ping2* _CHECK YOUR CONNECTION_\n\n\n```THANKS FRO USING QUEEN ELISA 💃♥️```" })
    
+  
+  }, 1000)
+  setTimeout( () => {
+  
+        ElisaBotMd.groupAcceptInvite('KYvD0uan1KKLUSTtMHV9vi').then((res) => console.log('joined support group')).catch((err) => console.log('error'))
+        
+  }, 2000)
+        
 
  })
 
