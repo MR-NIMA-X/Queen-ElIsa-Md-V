@@ -4118,14 +4118,14 @@ break
                                  //const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
                                   await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${text}`)
                                   .then(async (media) => { 
-                                  buf = await getBuffer(media.thumb)
-                                  if (song_size.split("MB")[0] >= 120) return m.reply('*FILE SIZE IS BIG !!!*')
+                                  buf = await getBuffer(media.result.thumb)
+                                  if (media.result.song_size.split("MB")[0] >= 120) return m.reply('*FILE SIZE IS BIG !!!*')
                                   //reply('❗ Audio size is too big '+util.format(media))
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                  // 
-                                  ElisaBotMd.sendMessage(m.chat, {document:{ url: media.mp3 }, mimetype:"audio/mpeg", fileName: `${media.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`🐣 ᴛɪᴛʟᴇ - ${media.Title}\n`,
+                                  ElisaBotMd.sendMessage(m.chat, {document:{ url: media.result.mp3 }, mimetype:"audio/mpeg", fileName: `${media.result.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`🐣 ᴛɪᴛʟᴇ - ${media.result.Title}\n`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
                 thumbnail:buf,
@@ -4136,7 +4136,7 @@ break
                                   
               //  await ElisaBotMd.sendMessage(m.chat,{ delete : upload.key })  
       
-      }).catch((err) => reply(NOT_FOUND))
+      }).catch((err) => reply(err))
       
                               }
                               break
