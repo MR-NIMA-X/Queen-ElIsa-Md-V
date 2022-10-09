@@ -4113,7 +4113,7 @@ break
                           case 'ytmp3': case 'ytaudio': {  
                           //await ElisaBotMd.sendMessage(from, { react: { text: `🔄`, key: m.key }})
                                   
-                                  if (!text && !text.includes("https://youtu") return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp3 https://youtube.com/watch?v=WoWlWb6vbzA```')
+                                  if (!text && !text.includes("https://youtu")) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp3 https://youtube.com/watch?v=WoWlWb6vbzA```')
                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
                                  //const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
                                   await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${text}`)
