@@ -4124,7 +4124,7 @@ break
                                   //ElisaBotMd.sendImage(m.chat, media.thumb, `🟡 𝗧𝗜𝗧𝗟𝗘 : ${media.title}\n🎀 𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 : ${media.filesizeF}\n📡 𝗨𝗥𝗟 : ${isUrl(text)}\n📜 𝗘𝗫𝗧 : MP3\n📑 𝗥𝗘𝗦𝗢𝗟𝗨𝗧𝗜𝗢𝗡 : ${args[1] || '256kbps'}`, m)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `⬆️`, key: m.key }})
                                  // 
-                                  ElisaBotMd.sendMessage(m.chat, {document:{ url: media.result.mp3 }, mimetype:"audio/mpeg", fileName: `${media.result.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                                  await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.result.mp3 }, mimetype:"audio/mpeg", fileName: `${media.result.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:`🐣 ᴛɪᴛʟᴇ - ${media.result.Title}\n`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
