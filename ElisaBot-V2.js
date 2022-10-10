@@ -4286,11 +4286,13 @@ const docidd = rash.doccmd
                               await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                               await ElisaBotMd.sendText(m.chat,mess.wait)
                               const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
-                              buf = await getBuffer(thub.YT_THUB)
+                              const buf = await getBuffer(thub.YT_THUB)
                               const boltc = require('@bochilteam/scraper')
-                              const search = args[0]
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
                               const qulity = args[1] || '360p'
-                              await boltc.youtubedlv2(search)
+                              await boltc.youtubedlv2(search.all[0].url)
                               .then(async(nima) => {
                               if(qulity = '144p'){
                               
