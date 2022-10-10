@@ -4291,7 +4291,7 @@ const docidd = rash.doccmd
                               const search = args[0]
                               const qulity = args[1] || '360p'
                               await boltc.youtubedlv2(search)
-                              then(async(nima) => {
+                              .then(async(nima) => {
                               if(qulity = '144p'){
                               
                           const dl_url = await nima.video['144p'].download()
