@@ -3469,12 +3469,12 @@ const sections = [
     {
 	title: "ＱＵＥＥＮ  ＥＬＩＳＡ Ｖ2",
 	rows: [
-	    {title: "144P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 144p`, description: `${search.all[0].title}`},
-	    {title: "240P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 240p`, description: `${search.all[0].title}`},
-	    {title: "360P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 360p`, description: `${search.all[0].title}`},
-	    {title: "480P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 480p`, description: `${search.all[0].title}`},
-	    {title: "720P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 720p`, description: `${search.all[0].title}`},
-	    {title: "1080P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `vid2 ${search.all[0].url} 1080p`, description: `${search.all[0].title}`}
+	    {title: "144P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 144`, description: `${search.all[0].title}`},
+	    {title: "240P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 240`, description: `${search.all[0].title}`},
+	    {title: "360P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 360`, description: `${search.all[0].title}`},
+	    {title: "480P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 480`, description: `${search.all[0].title}`},
+	    {title: "720P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 720`, description: `${search.all[0].title}`},
+	    {title: "1080P 𝚀𝚞𝚊𝚕𝚒𝚝𝚢", rowId: `video2 ${search.all[0].url} 1080`, description: `${search.all[0].title}`}
 	
 	]
     },
@@ -3644,17 +3644,15 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   yts(text).then(async (search) => {  
                                   
                                   let nima = search.all
-                                  let { yta } = require('./lib/y2mate')
-                                  let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(search.all[0].url , quality)
-                                  buf = await getBuffer(media.thumb)
+                                  let media = await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${search.all[0].url}`)
+                                  buf = await getBuffer(media.result.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   //const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
-                                  if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`${media.title}`,
+                                  if (media.result.song_size >= 120000) return reply('*FILE SIZE IS BIG !!!*')
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: media.result.mp3 }, mimetype:"audio/mpeg", fileName: `${media.result.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${media.result.Title}`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
                 thumbnail:buf,
@@ -3674,24 +3672,22 @@ if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *
 await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
 
                           //await ElisaBotMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})
-                                  if (!text) return reply (GIVEME)
+                                   if (!text) return reply (GIVEME)
                                   let yts = require("yt-search")
                                   //const load = await ElisaBotMd.sendText(m.chat, `\n*📥 Downloading ${m.pushName} your song...*\n` )
                                   const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
                                   yts(text).then(async (search) => {  
                                   
                                   let nima = search.all
-                                  let { yta } = require('./lib/y2mate')
-                                  let quality = args[1] ? args[1] : '128kbps'
-                                  let media = await yta(search.all[0].url , quality)
-                                  buf = await getBuffer(media.thumb)
+                                  let media = await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${search.all[0].url}`)
+                                  buf = await getBuffer(media.result.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   //const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
                                   const up = await ElisaBotMd.sendText(m.chat, global.SONG_UP, m, )
                                   
-                                  if (media.filesize >= 120000) return reply('❗ Audio size is too big '+util.format(media))
-                                  const doc = await ElisaBotMd.sendMessage(m.chat, {audio:{ url: media.dl_link }, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:`${media.title}`,
+                                  if (media.result.song_size >= 120000) return reply('*FILE SIZE IS BIG !!!*')
+                                  const doc = await ElisaBotMd.sendMessage(m.chat, {audio:{ url: media.result.mp3 }, mimetype:"audio/mpeg", fileName: `${media.result.Title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${media.result.Title}`,
                 body:"YOUTUBE MP3",
                 mediaType:2,
                 thumbnail:buf,
@@ -3773,6 +3769,8 @@ text2 = q.split(";")[1]
                           }     
                           break 
                           case 'video2' :{
+                          const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                          buf = await getBuffer(thub.YT_THUB)
                           if (!text) return reply('*👸💬 Need video name or url*')
                           if (text.includes('https://youtu')){
                          // if (!text.includes('-')) return reply('*👸💬 Please give me a correct type*\n_example .video2 https://youtube.com/watch?v=on3sJ8OlH8M - 360p')
@@ -3781,7 +3779,7 @@ text2 = q.split(";")[1]
                           const nima = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${args[0]}&type=${quality}`)
                           const upload = await ElisaBotMd.sendText(m.chat, `*📤 Uploading ${m.pushName} your video...*`, m, )
                           if (nima.mp4.size.split('MB')[0] >= 110) return m.reply('*FILE SIZE IS BIG !!!*')
-                          return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}\n${nima.title}` }, { quoted: m })
+                          return await ElisaBotMd.sendMessage(m.chat, { video: { url: nima.mp4.download }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: `${global.cap}` }, { quoted: m })
                          
                           }
                     m.reply(mess.wait)
@@ -3921,7 +3919,7 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
                           const dl_url = await nima.video['360p'].download()
-                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: global.cap }, { quoted: m })
+                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: `${global.cap}\n${await nima.video['360p'].}` }, { quoted: m })
                           }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
@@ -4282,6 +4280,7 @@ const docidd = rash.doccmd
                               case 'ytmp4': case 'ytvideo': {  
                               await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                               const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              buf = await getBuffer(thub.YT_THUB)
 
                                   let { ytv } = require('./lib/y2mate')
                                   if (!text) return reply( `${Lang.EXAMPLE}\n ${prefix + command} https://youtube.com/watch?v=on3sJ8OlH8M`)
