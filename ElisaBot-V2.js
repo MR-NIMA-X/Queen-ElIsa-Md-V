@@ -4285,54 +4285,90 @@ const docidd = rash.doccmd
                               case 'ytmp4' : {
                               await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                               await ElisaBotMd.sendText(m.chat,mess.wait)
+                              const qulity = args[1] || '360p'
+                              /*const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
+                              */
+                              if(qulity = '144p'){
                               const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
                               const buf = await getBuffer(thub.YT_THUB)
                               const boltc = require('@bochilteam/scraper')
                               //const search = args[0]
                               const yts = require("yt-search")
                               const search = await yts(`${args[0]}`)
-                              const qulity = args[1] || '360p'
-                              await boltc.youtubedlv2(search.all[0].url)
-                              .then(async(nima) => {
-                              if(qulity = '144p'){
-                              
+                              const nima = await boltc.youtubedlv2(search.all[0].url) 
                           const dl_url = await nima.video['144p'].download()
                           const size = nima.video['144p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           
                               }else if(qulity = '240p'){
-                              
+                              const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
                           const dl_url = await nima.video['240p'].download()
                           const size = nima.video['240p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           
                               }else if(qulity = '360p'){
-                              
+                              const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
                           const dl_url = await nima.video['360p'].download()
                           const size = nima.video['360p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           
-                              }else if(qulity = '480p'){
-                              
+                              }else if(qulity = '480'){
+                              const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
                           const dl_url = await nima.video['480p'].download()
                           const size = nima.video['480p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           
                               
-                              }else if(qulity = '720p'){
-                              
+                              }else if(qulity = '720'){
+                              const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
                            const dl_url = await nima.video['720p'].download()
                           const size = nima.video['720p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
                           await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           
                               
-                              }else if (qulity = '1080p'){
-                              
+                              }else if (qulity = '1080'){
+                              const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
+                              const boltc = require('@bochilteam/scraper')
+                              //const search = args[0]
+                              const yts = require("yt-search")
+                              const search = await yts(`${args[0]}`)
+                              const nima = await boltc.youtubedlv2(search.all[0].url)
                           const dl_url = await nima.video['1080p'].download()
                           const size = nima.video['1080p'].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
@@ -4340,7 +4376,6 @@ const docidd = rash.doccmd
                           
                               }
                               
-                              })
                               
                               }
                               break
