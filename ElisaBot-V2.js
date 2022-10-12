@@ -2495,6 +2495,27 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                                }
                               }
                               break
+                              case 'mute':   {
+                                  if (!m.isGroup) throw mess.group
+                                  if (!isBotAdmins) throw mess.botAdmin
+                                  if (!isAdmins) throw mess.admin
+                                  
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🔐`, key: m.key }})
+                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'announcement')
+                                  const sendmsg = await ElisaBotMd.sendText(m.chat,Lang.G_MUTE)
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🔇`, key: sendmsg.key }})
+                                  
+                                 }
+                              case 'unmute':{
+                                  if (!m.isGroup) throw mess.group
+                                  if (!isBotAdmins) throw mess.botAdmin
+                                  if (!isAdmins) throw mess.admin
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🔓`, key: m.key }})
+                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'announcement')
+                                  const sendmsg = await ElisaBotMd.sendText(m.chat,Lang.G_MUTE)
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🔊`, key: sendmsg.key }})
+                                  
+                               }
                               case 'editinfo': {
                                   if (!m.isGroup) throw mess.group
                                   if (!isBotAdmins) throw mess.botAdmin
@@ -2502,7 +2523,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                                if (args[0] === 'open'){
                                   await ElisaBotMd.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(Lang.G_INFOON)).catch((err) => reply(jsonformat(err)))
                                } else if (args[0] === 'close'){
-                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'locked').then((res) => reply(Lang.G_INFOOFF)).catch((err) => reply(jsonformat(err)))
+                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'locked').then((res) => reply(Lang.G_UNMUTE)).catch((err) => reply(jsonformat(err)))
                                } else {
                                let buttons = [
                                           { buttonId: 'editinfo open', buttonText: { displayText: 'OPEN' }, type: 1 },
@@ -2557,7 +2578,7 @@ case 'xxxxantilink': {
                                   }
                                }
                                break
-                                case 'mute': {
+                                case 'botmute': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
