@@ -25,7 +25,7 @@ const MENU_IMOJI = global.MENU_IMOJI
   const D_E = MENU_IMOJI.split('|')[1]
 const HELPERS = '94716338723,94711421243,94719574492'
 global.ALL_LINK_KICK = global.ALL_LINK_KICK 
-const SEX_DL = global.SEX_VIDEO_DOWNLOAD 
+const SEX_DL = global.SEX_VIDEO_DOWNLOAD
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
@@ -373,10 +373,14 @@ m.reply(imoji)
         await ElisaBotMd.sendText(m.chat,` 
       *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
 `)
-        await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+       // await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+       await ElisaBotMd.sendMessage(m.chat, { delete: m.key })
         }
         }
 
+  if (global.DEL_RASH == 'true'){
+  if (m.sender == '94702695534@s.whatsapp.net') await ElisaBotMd.sendMessage(m.chat, { delete: m.key })
+  }
         
 /*                
                         
@@ -845,7 +849,11 @@ In ${clockString(new Date - user.afkTime)}
       addLimit(m.sender, 1 )
       }
 switch(command) {
-
+  case 'delrash' :{
+  global.DEL_RASH = text
+  reply('Done !')
+  }
+  break
              case 'databasetest' : {
               let teksehmazeh = `_[ 👩🏻‍💼INFO USER👨🏻‍💼 ]_\n\n`
      teksehmazeh += `*❤️Your Blood* : ${getDarah(m.sender)}\n`
@@ -4319,7 +4327,7 @@ const docidd = rash.doccmd
                          // const search = await yts(args[0])
                           const dltext = args[0]
                           let boltc = require('@bochilteam/scraper')
-                          await boltc.youtubedlv2(dltextl)
+                          await boltc.youtubedlv2(dltext)
                           .then(async(nima) => {
                           const dl_url = await nima.video[quality].download()
                           const size = nima.video[quality].fileSize
