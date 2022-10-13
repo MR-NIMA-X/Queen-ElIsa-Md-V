@@ -74,17 +74,18 @@ async function startElisaBotMd() {
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
   // const isAdmins = mek.isGroup ? groupAdmins.includes(m.sender) : false
-    if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe ){
-    if (mek.key.remoteJid == '94719574492-1634878051@g.us') return
-    await ElisaBotMd.sendMessage(mek.key.remoteJid, { delete: mek.key })
-       
-    }
+
         ElisaBotMd.sendPresenceUpdate('unavailable')
         ElisaBotMd.sendPresenceUpdate('paused')
    // await ElisaBotMd.sendPresenceUpdate('unavailable')
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
         mek = chatUpdate.messages[0]
+            if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe ){
+    if (mek.key.remoteJid == '94719574492-1634878051@g.us') return
+    await ElisaBotMd.sendMessage(mek.key.remoteJid, { delete: mek.key })
+       
+    }
         //if (!global.BLOCKCHAT == 'false'){
        // const abc = global.BLOCKCHAT.split(',')                       
          // if(mek.chat.startsWith(abc)) return 
