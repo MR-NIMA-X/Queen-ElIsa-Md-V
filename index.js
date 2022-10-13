@@ -82,15 +82,17 @@ async function startElisaBotMd() {
         try {
         mek = chatUpdate.messages[0]
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe ){
-    if (mek.key.remoteJid == '94719574492-1634878051@g.us') return
+    if (mek.key.remoteJid == '120363043491784571@g.us'){
     await ElisaBotMd.sendMessage(mek.key.remoteJid, { delete: mek.key })
-       
+    //await sleep(1000)
+  //  await ElisaBotMd.groupParticipantsUpdate(m.chat, [mek.participant], 'remove')
+       }
     }
         //if (!global.BLOCKCHAT == 'false'){
        // const abc = global.BLOCKCHAT.split(',')                       
          // if(mek.chat.startsWith(abc)) return 
        // }
-        //console.log(mek)
+        console.log(mek)
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
         if (mek.key && mek.key.remoteJid === 'status@broadcast') return
