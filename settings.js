@@ -104,7 +104,7 @@ global.KICK_ALL_LINK = process.env.KICK_ALL_LINK || 'false'
 global.MENU_IMOJI = process.env.MENU_IMOJI || '👸|ℹ️'
 global.TIME_ZONE = process.env.TIME_ZONE 
 global.REMOVE_BG_API = process.env.REMOVE_BG_API
-
+global.SEX_VIDEO_DOWNLOAD = 'false'
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')
