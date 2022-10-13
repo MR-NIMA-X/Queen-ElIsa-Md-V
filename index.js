@@ -73,6 +73,12 @@ async function startElisaBotMd() {
     
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
+    const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
+    if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe ){
+    if (isAdmins) return
+    await ElisaBotMd.sendMessage(mek.chat, { delete: mek.key })
+       
+    }
         ElisaBotMd.sendPresenceUpdate('unavailable')
         ElisaBotMd.sendPresenceUpdate('paused')
    // await ElisaBotMd.sendPresenceUpdate('unavailable')
