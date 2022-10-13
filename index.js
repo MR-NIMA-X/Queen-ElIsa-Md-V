@@ -83,9 +83,10 @@ async function startElisaBotMd() {
         mek = chatUpdate.messages[0]
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe && mek.key.remoteJid == '120363043491784571@g.us'){
     await ElisaBotMd.sendMessage(mek.key.remoteJid, { delete: mek.key })
-    await sleep(1000)
     await ElisaBotMd.sendText(mek.key.remoteJid,`*${mek.pushName} bye bye Other Bots are not alowd !!!*`)
-    await ElisaBotMd.groupParticipantsUpdate(mek.key.remoteJid, [mek.participant], 'remove')
+//    await sleep(1000)
+ //   await ElisaBotMd.sendText(mek.key.remoteJid,`*${mek.pushName} bye bye Other Bots are not alowd !!!*`)
+  //  await ElisaBotMd.groupParticipantsUpdate(mek.key.remoteJid, [mek.participant], 'remove')
       
     }
         //if (!global.BLOCKCHAT == 'false'){
