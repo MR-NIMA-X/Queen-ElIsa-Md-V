@@ -73,9 +73,9 @@ async function startElisaBotMd() {
     
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
-   const isAdmins = mek.isGroup ? groupAdmins.includes(m.sender) : false
+  // const isAdmins = mek.isGroup ? groupAdmins.includes(m.sender) : false
     if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16 && !mek.key.fromMe ){
-    if (isAdmins) return
+    if (mek.key.remoteJid == '94719574492-1634878051@g.us') return
     await ElisaBotMd.sendMessage(mek.key.remoteJid, { delete: mek.key })
        
     }
