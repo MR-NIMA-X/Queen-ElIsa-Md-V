@@ -70,7 +70,11 @@ async function startElisaBotMd() {
     store.bind(ElisaBotMd.ev)
     
     // anticall auto block
-    
+//messages.delete    
+ElisaBotMd.ev.on('messages.delete', async (delm) => {
+
+console.log(delm)
+})
 
     ElisaBotMd.ev.on('messages.upsert', async chatUpdate => {
   // const isAdmins = mek.isGroup ? groupAdmins.includes(m.sender) : false
@@ -93,7 +97,7 @@ async function startElisaBotMd() {
        // const abc = global.BLOCKCHAT.split(',')                       
          // if(mek.chat.startsWith(abc)) return 
        // }
-        //console.log(mek)
+        console.log(mek)
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
         if (mek.key && mek.key.remoteJid === 'status@broadcast') return
