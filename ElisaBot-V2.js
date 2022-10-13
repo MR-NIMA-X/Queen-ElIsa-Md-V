@@ -25,7 +25,7 @@ const MENU_IMOJI = global.MENU_IMOJI
   const D_E = MENU_IMOJI.split('|')[1]
 const HELPERS = '94716338723,94711421243,94719574492'
 global.ALL_LINK_KICK = global.ALL_LINK_KICK 
-
+const SEX_DL = global.SEX_VIDEO_DOWNLOAD 
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
@@ -1885,7 +1885,20 @@ ${ehinima.XX_XX}
                                           await ElisaBotMd.sendListMsg(m.chat, `${nimamsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
  }
                               break	
+case 'delx' : {
+let { chat, fromMe, id } = m.quoted;
 
+const key = {
+    remoteJid: m.chat,
+    fromMe: false,
+    id: m.quoted.id,
+    participant: m.quoted.sender
+}
+
+await ElisaBotMd.sendMessage(m.chat, { delete: key })
+
+}
+break
                               case 'delttc': case 'delttt': {
                               this.game = this.game ? this.game : {}
                               try {
@@ -2495,7 +2508,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                                }
                               }
                               break
-                              case 'mute':   {
+                              case 'mute':{
                                   if (!m.isGroup) throw mess.group
                                   if (!isBotAdmins) throw mess.botAdmin
                                   if (!isAdmins) throw mess.admin
@@ -2506,16 +2519,18 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔇`, key: sendmsg.key }})
                                   
                                  }
+                                 break
                               case 'unmute':{
                                   if (!m.isGroup) throw mess.group
                                   if (!isBotAdmins) throw mess.botAdmin
                                   if (!isAdmins) throw mess.admin
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔓`, key: m.key }})
                                   await ElisaBotMd.groupSettingUpdate(m.chat, 'announcement')
-                                  const sendmsg = await ElisaBotMd.sendText(m.chat,Lang.G_MUTE)
+                                  const sendmsg = await ElisaBotMd.sendText(m.chat,Lang.G_UNMUTE)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔊`, key: sendmsg.key }})
                                   
                                }
+                               break
                               case 'editinfo': {
                                   if (!m.isGroup) throw mess.group
                                   if (!isBotAdmins) throw mess.botAdmin
@@ -3197,7 +3212,8 @@ https://tinyurl.com/SEX-GROUP-NO-CHILDS`)
                               }
                               break
                               case 'xvideo': {
-                                  if (m.isGroup) throw  '*CAN\T DOWNLOAD ON GROUPS*'
+                                 // if (m.isGroup) throw  '*CAN\T DOWNLOAD ON GROUPS*'
+                                 if (SEX_DL == 'true' ){
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔞`, key: m.key }})
                                   if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} step sister`
                                   
@@ -3209,11 +3225,14 @@ https://tinyurl.com/SEX-GROUP-NO-CHILDS`)
                                       teks += `🔵 No : ${no++}\n*👽 title :* ${i.title}\n*🗳️ Info :* ${i.info}\n*☞ url :* ${i.link}\n\n─────────────────\n\n`
                                   }
                                   ElisaBotMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/1d4a15912ba140214fa37.jpg' },  caption: teks }, { quoted: m })
+                                  }else {
+                                  m.reply('*18+ DOWNLOAD IS DESABLE BY OWNER*')
+                                  }
                               }
                               break
                               case 'downxvid' : {
-                              if (m.isGroup) throw '*CAN\T DOWNLOAD ON GROUPS*'
-                                  
+                            //  if (m.isGroup) throw '*CAN\T DOWNLOAD ON GROUPS*'
+                                  if(SEX_DL == 'true' ){
 
       // if (!isUrl(text) && !text.includes('https://www.xvideos.com/')) return reply ( '*👸💬 Please give me a correct link*\n'+'```example : .downxvid https://www.xvideos.com/video31785617/milf_jessryan_hot_video_clip_pussy_play_time```')
      //  const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xvideo/detail?url=${text}`)
@@ -3237,6 +3256,9 @@ https://tinyurl.com/SEX-GROUP-NO-CHILDS`)
    
 └───────────❍` })
                                await ElisaBotMd.sendMessage(m.chat, { video: { url: video }, caption: `${m.pushName} *XVIDEO DOWNLOADED*` }, { quoted: m })
+                               }else {
+                                  m.reply('*18+ DOWNLOAD IS DESABLE BY OWNER*')
+                                  }
                                
 
 }
@@ -4288,19 +4310,22 @@ const docidd = rash.doccmd
                                   }
                                   break
                                   case 'ytmp4' : {
-                          if(!text) return m.reply('need text')
+                          if(!text) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp4 https://youtube.com/watch?v=WoWlWb6vbzA```')
+                          if (!text.includes('https://youtu')) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp4 https://youtube.com/watch?v=WoWlWb6vbzA```')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           await ElisaBotMd.sendText(m.chat,mess.wait)
                           let quality = args[1] ? args[1] : '360p'
-                          const yts = require("yt-search")
-                          const search = await yts(args[0])
+                          //const yts = require("yt-search")
+                         // const search = await yts(args[0])
+                          const dltext = args[0]
                           let boltc = require('@bochilteam/scraper')
-                          await boltc.youtubedlv2(search.all[0].url)
+                          await boltc.youtubedlv2(dltextl)
                           .then(async(nima) => {
                           const dl_url = await nima.video[quality].download()
                           const size = nima.video[quality].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
-                          await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
+                          ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', fileName: `${nima.title}.mp4`, caption: global.cap }, { quoted: m })
+                         // await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           //await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: `${global.cap}` }, { quoted: m })
                           }).catch((err) => m.reply(err))
                       
@@ -4366,7 +4391,7 @@ const docidd = rash.doccmd
       
                               }
                               break
-                              case 'ytmp4' : {
+                              case '22ytmp4' : {
                               await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: m.key }})
                               await ElisaBotMd.sendText(m.chat,mess.wait)
                               const qulity = args[1]
