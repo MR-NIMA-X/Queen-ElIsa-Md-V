@@ -373,7 +373,7 @@ m.reply(imoji)
         await ElisaBotMd.sendText(m.chat,` 
       *『  ʟ ɪ ɴ ᴋ   ᴅ ᴇ ᴛ ᴇ ᴄ ᴛ ᴇ ᴅ  』*
 `)
-       // await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+       await ElisaBotMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
        await ElisaBotMd.sendMessage(m.chat, { delete: m.key })
         }
         }
@@ -910,7 +910,7 @@ var button = [
              case 'fancy' : {
              if(!text) return reply('*👸💬 Need some text*\n _ex_ .fancy Queen Elisa')
              await ElisaBotMd.sendText(m.chat,mess.wait)
-             const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/tools/styletext?text=${text}`)
+             const nima = await fetchJson(`https://queen-elisa-api-1-2-3.herokuapp.com/api/tools/styletext?text=${text}`)
              const search = nima.result
              let sections = []   
   for (let i of search) {
@@ -1196,7 +1196,7 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
 buf = await getBuffer(thub.TIKTOK_THUB)
 const cyber = await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`)
 const down = await ElisaBotMd.sendText(m.chat, '*📥 DOWNLOADING YOUR TIKTOK VIDEO ...*')
-VID = cyber.links[0].a
+VID = cyber.result.withoutWaterMarkVideo
 CAP = `🕵️‍♂️ ${cyber.author}
 🗒️ ${cyber.desc}`
 const up = await ElisaBotMd.sendText(m.chat, '*📤 UPLOADING YOUR TIKTOK VIDEO ...*')
@@ -1893,7 +1893,10 @@ ${ehinima.XX_XX}
                                           await ElisaBotMd.sendListMsg(m.chat, `${nimamsg}`, `${global.botnma}`, `${global.ownernma}`, `ALL MENU`, sections, m)
  }
                               break	
-case 'delx' : {
+case 'delx' : case 'delm' : case 'deletemassage' :{
+if (!m.quoted) return m.reply('*👸💬 Reply massage*')
+if (!m.isGroup) return m.reply('*👸💬 Only Can be use groups*')
+if (!isAdmins) return m.reply('*👸💬 Sorry This is Admin only command*')
 let { chat, fromMe, id } = m.quoted;
 
 const key = {
@@ -2533,7 +2536,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
                                   if (!isBotAdmins) throw mess.botAdmin
                                   if (!isAdmins) throw mess.admin
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔓`, key: m.key }})
-                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'announcement')
+                                  await ElisaBotMd.groupSettingUpdate(m.chat, 'not_announcement')
                                   const sendmsg = await ElisaBotMd.sendText(m.chat,Lang.G_UNMUTE)
                                   await ElisaBotMd.sendMessage(from, { react: { text: `🔊`, key: sendmsg.key }})
                                   
@@ -3701,7 +3704,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `⌛`, key: m.key }})
                                   yts(text).then(async (search) => {  
                                   
                                   let nima = search.all
-                                  let media = await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${search.all[0].url}`)
+                                  let media = await fetchJson(`https://queen-elisa-api-1-2-3.herokuapp.com/api/dowloader/yt?url=${search.all[0].url}`)
                                   buf = await getBuffer(media.result.thumb)
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                                   //const up = await ElisaBotMd.sendText(m.chat, `\n*📤 Uploading ${m.pushName} your song...*\n` )
@@ -4214,7 +4217,7 @@ break
                                   if (!text && text.includes("https://youtu")) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp3 https://youtube.com/watch?v=WoWlWb6vbzA```')
                                  const load = await ElisaBotMd.sendText(m.chat, `\n*🔄 Preparing ${m.pushName} your song...*\n`, m, )
                                  //const load = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN, m, )
-                                  await fetchJson(`https://test-apiyaa.herokuapp.com/api/dowloader/yt?url=${text}`)
+                                  await fetchJson(`https://queen-elisa-api-1-2-3.herokuapp.com/api/dowloader/yt?url=${text}`)
                                   .then(async (media) => { 
                                   buf = await getBuffer(media.result.thumb)
                                   if (media.result.song_size.split("MB")[0] >= 120) return m.reply('*FILE SIZE IS BIG !!!*')
@@ -4318,6 +4321,8 @@ const docidd = rash.doccmd
                                   }
                                   break
                                   case 'ytmp4' : {
+                                  const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
+                              const buf = await getBuffer(thub.YT_THUB)
                           if(!text) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp4 https://youtube.com/watch?v=WoWlWb6vbzA```')
                           if (!text.includes('https://youtu')) return m.reply('*👸💬 Need youtube url* \n'+'```ℹ️ Example .ytmp4 https://youtube.com/watch?v=WoWlWb6vbzA```')
                           await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
@@ -4332,8 +4337,9 @@ const docidd = rash.doccmd
                           const dl_url = await nima.video[quality].download()
                           const size = nima.video[quality].fileSize
                           if(size >= 120000) return m.reply('*FILE SIZE IS SO BIG !!!*')
-                          ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', fileName: `${nima.title}.mp4`, caption: global.cap }, { quoted: m })
-                         // await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
+                          const viddd = await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', fileName: `${nima.title}.mp4`,jpegThumbnail:buf, caption: global.cap }, { quoted: m })
+                          await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: viddd.key }})
+                          // await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           //await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: `${global.cap}` }, { quoted: m })
                           }).catch((err) => m.reply(err))
                       
@@ -5998,13 +6004,102 @@ const thub = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/J
        ElisaBotMd.sendText(m.chat, '*SORRY CAN\'T DOWNLOAD ❗*')})
 }
 break
-case 'tiktok': {
+/*
+case 'tiktokwm' : {
+   
+await BixbyMD.sendMessage(from, { text: `📨 ${pushname} *Downloading Your tiktok Please wait...*` }, )    
+ cyber = await getBuffer(`https://api.akuari.my.id/downloader/tiktokwithwm?link=${text}`)
+     
+await BixbyMD.sendMessage(from, { text: `📤 ${pushname} *Uploading Your tiktok Please wait...*` }, )
+await BixbyMD.sendMessage(m.chat, { video: cyber, caption: `\n${global.caption}` }, { quoted: m })
+ BixbyMD.sendMessage(from, { react: { text: `☑️`, key: m.key }})
+      .catch((err) => {
+                    reply(`_Site Error_ 😓`)
+                })                       
+
+
+}
+break
+
+case 'tiktoknwm' : {
+   
+await BixbyMD.sendMessage(from, { text: ` ${pushname} *Downloading your tiktok Please wait*` },)    
+const cyber = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
+
+VIDWM =  cyber.result.withoutWaterMarkVideo
+
+
+CAP = `📥 CYBER-X TIKTOK DOWNLOADER 📥
+ 
+AUTHOR - ${cyber.result.author}
+
+DESC - ${cyber.result.desc}
+
+DURATION - ${cyber.result.duration}`
+
+
+await BixbyMD.sendMessage(from, { text: ` ${pushname} *Uploading your tiktok Please Wait...* ` }, )
+await BixbyMD.sendMessage(m.chat, { video: { url: VIDWM }, caption: CAP }, { quoted: m })
+ BixbyMD.sendMessage(from, { react: { text: `☑️`, key: m.key }})
+           .catch((err) => {
+                    reply(`Video Quality Error 🥷💬`)
+                })                  
+
+
+}
+break
+
+case 'tiktokau' : {
+   
+await BixbyMD.sendMessage(from, { text: ` ${pushname} *Downloading your tiktok Please Wait*` }, )    
+const cyber = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
+
+WUF =  cyber.result.music
+
+await BixbyMD.sendMessage(from, { text: ` ${pushname} *Uploading your tiktok Please Wait..*` }, )
+await BixbyMD.sendMessage(m.chat, { audio: { url: WUF }, mimetype: 'audio/mpeg', fileName: `cyber-xtiktok.mp3` }, { quoted: m })
+ BixbyMD.sendMessage(from, { react: { text: `☑️`, key: m.key }})
+                .catch((err) => {
+                    reply(`*Video Quality Error* `)
+                })             
+
+
+}
+break
+
+case 'tiktok':{
+
+  if (!text) return reply(`🥷💭  *Add a tiktok Link* `)
+ BixbyMD.sendMessage(from, { react: { text: `🔄`, key: m.key }})
+const cyber = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
+
+              let buttons = [
+                    {buttonId: `tiktoknwm ${text}`, buttonText: {displayText: 'WITHOUT WATERMARK'}, type: 1},
+                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: 'WITH WATERMARK'}, type: 1},
+                    {buttonId: `tiktokau ${text}`, buttonText: {displayText: 'AUDIO ONLY'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url : cyber.result.cover },
+                    caption: `CYBER-X WHATSAPP BOT TIKTOK DOWNLOADER\n\nLINK - ${text} \nAUTHOR - ${cyber.result.author}\nDESC - ${cyber.result.desc}\nDURATION -${cyber.result.duration} Sec\n`,
+                    footer: `${global.footer}`,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                BixbyMD.sendMessage(m.chat, buttonMessage, { quoted: m })
+                .catch((err) => {
+                    reply(`*Video Quality Error* `)
+                })             
+
+            }
+            break
+*/
+case 'tiktok4': {
 if (!text) throw '*Enter a Link Query!*'
 await ElisaBotMd.sendMessage(from, { react: { text: `🪄`, key: m.key }})
  //let bocil = require('@bochilteam/scraper')    
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`).then(async (video) => {           
-const imga = video.author.avatar
+const imga = video.author
 //const musiccc = video.music
 const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
@@ -6016,7 +6111,7 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
                  buttons = [
                     {buttonId: `tiktok2 ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
-                    {buttonId: `diirectmp3`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
+                    {buttonId: `diirectmp3 ${nima.result.music}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
@@ -6357,11 +6452,11 @@ if (global.LANG == 'SI') NimaLang = '*👸💬 කනගාටුයි පර�
                               
 //if (!quoted) return reply(MAX)
 if (!text) return reply (MDAX) 
-text1 = q.split(";")[0]
-text2 = q.split(";")[1]
+text1 = text.split(";")[0]
+text2 = text.split(";")[1]
 //const wokwol = await ElisaBotMd.serializeM(await m.getQuotedObj())
 //if (!wokwol.quoted)                       
- const nima = await fetchJson(`https://my-shinz.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
+ const nima = await fetchJson(`https://queen-elisa-api-1-2-3.herokuapp.com/api/info/translate?text=${text1}&lang=${text2}`)
  if (nima.stetus === 'false') return reply(NimaLang)
  const msg = nima.result
  //await ElisaBotMd.sendText(m.chat,`${MAX}`)
@@ -7802,6 +7897,7 @@ ${NIMAMSG}
 │ ${prefix}kick
 │ ${prefix}promote
 │ ${prefix}demote
+│ ${prefix}delm
 ╰────────────⦁
 
 ╭──❰ *𝙼𝙸𝚂𝙲 𝙼𝙴𝙽𝚄* ❱
@@ -8334,6 +8430,10 @@ if (global.LANG == 'SI') PROMOTEDES = '```සමූහයේ ඇඩ්මින�
 var DEMOTEDES = ''
 if (global.LANG == 'EN') DEMOTEDES = '```Demote From group admin```'
 if (global.LANG == 'SI') DEMOTEDES = '```ගෲප් එකේ ඇඩ්මින් වරයෙකුගේ ඇඩ්මින් ඉවත්කිරීමට```'
+var DELX = ''
+if (global.LANG == 'EN') DELX = '```Delete massage for everyone```'
+if (global.LANG == 'SI') DELX = '```පනිවිඩයක් සියලු දෙනාගෙන් මකාදැමීමට [ delete for everyone ]```'
+
 prefix = '.'
 
                                 anu = `
