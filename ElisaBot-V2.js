@@ -321,10 +321,13 @@ const reply3 = (teks) => {
         	if (m.chat === '120363043491784571@g.us') {
 				  return
 				  }
-	  /* 	if (m.chat === '94719574492-1634878051@g.us') {
+	  	if (m.chat === '94719574492-1634878051@g.us') {
                  return
-		}*/
-				  
+		}
+		if (m.chat === '120363052773472047@g.us') {
+                 return
+		}
+				  //120363052773472047@g.us
         //Public & Self\\
         if (!ElisaBotMd.public) {
             if (!m.key.fromMe) return
@@ -2135,7 +2138,7 @@ const templateMessage = {
     headerType: 4
 }
      
-     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakeee })
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
      }
   
 break 
