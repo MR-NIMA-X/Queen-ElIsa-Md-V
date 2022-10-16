@@ -9129,7 +9129,7 @@ var MYSOLO = ''
 if (global.LANG == 'EN') MYSOLO = '```Choose your soulmate```.' 
 if (global.LANG == 'SI') MYSOLO ='```ඔබගේ ආත්මීය මිතුරා තෝරයි```.'
 var MATH = ''
-if (global.LANG == 'EN') MATH = '```Counting with Bot_.'
+if (global.LANG == 'EN') MATH = '```Counting with Bot```.'
 if (global.LANG == 'SI') MATH = '```බොට් සමග ගණන් සෑදීමට.```'
 prefix = '.'
 anu = `*◯───────[ FUN MENU ]───────◯*
