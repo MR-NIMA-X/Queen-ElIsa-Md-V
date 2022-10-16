@@ -3391,18 +3391,17 @@ https://tinyurl.com/SEX-GROUP-NO-CHILDS`)
                                   }
                               }
                               break
-                              case 'xnxx' : {
+                            /*  case 'xnxx' : {
                               if(!SEX_DL == 'true') return m.reply('*18+ DOWNLOAD IS DESABLE BY OWNER*')
                               if(!text) return m.reply('*👸💬 Please Give me a xnxx video title !*\n'+'```.xnxx mia kalifa```')
-                              const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xnxx/search?query=${text}`)
-                              if(nima.stetus = 200 ){
-                              const surl = nima.
-                              }else {
-                              m.reply(NOT_FOUND)
-                              }
+                              const nima = await fetchJson(`https://nimaxxx.herokuapp.com/api/srhx?q=${text}`)
+                              const url = nima.result.link
+                              const title = nima.result.title
+                              const dlnima = await fetchJson(`https://nimaxxx.herokuapp.com/api/dlx?url=${text}`)
+                              const dl_url =
                               
                               }
-                              break
+                              break*/
                               case 'downxvid' : {
                             //  if (m.isGroup) throw '*CAN\T DOWNLOAD ON GROUPS*'
                                   if(SEX_DL == 'true' ){
