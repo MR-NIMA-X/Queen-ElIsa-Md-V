@@ -187,7 +187,7 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
     	const nimanumber2 = "94715166712"
         const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isSudo = global.SUDO.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isBlock = global.BLOCK_CHAT.map(v => v.replace(/[^0-9]/g, '') + '@g.us').includes(m.chat)
+       // const isBlock = global.BLOCK_CHAT.map(v => v.replace(/[^0-9]/g, '') + '@g.us').includes(m.chat)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
         const itsMe = m.sender == botNumber ? true : false
         const isXnxxGrp = m.chat == "120363043146209271@g.us" ? true : false 
@@ -2291,6 +2291,11 @@ await ElisaBotMd.readMessages([key])
                           let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		                  await ElisaBotMd.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(global.ADD_MASSAGE)).catch((err) => reply(jsonformat(err)))
  }
+                      break
+                      case 'invite' : {
+                      reply('wait')
+                      await ElisaBotMd.groupParticipantsUpdate(m.chat, [users], 'invite')
+                      }
                       break
                       case 'promote': {
                           if (!m.isGroup) return reply( mess.group)
@@ -6293,7 +6298,7 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
 
 *ℹ️ DESC* : ${video.result.desc}
 
-*⏱️ DURATION :* ${cyber.result.duration} seconds
+*⏱️ DURATION :* ${video.result.duration} seconds
 `                      
                      footer = global.botnma
                  buttons = [
@@ -10481,7 +10486,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
        await ElisaBotMd.sendMessage(m.chat, { text : `${err}` })
-       m.reply(jsonformat(err))
+       m.reply(err)
     }
 }
 
