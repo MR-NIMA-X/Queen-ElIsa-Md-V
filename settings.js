@@ -55,7 +55,7 @@ global.limitawal = {
 
 //global api
 global.fbapi = process.env.EXTRA_API || 'dd79-1aeb-21a3'
-global.LANG = 'EN'
+global.LANG = process.env.LANGUAGE || 'EN'
 global.BOT_LANGUAGE = "EN"
 global.APIs = {
 	zenz: 'https://zenzapi.xyz', 
@@ -104,9 +104,9 @@ global.KICK_ALL_LINK = process.env.KICK_ALL_LINK || 'false'
 global.MENU_IMOJI = process.env.MENU_IMOJI || '👸|ℹ️'
 global.TIME_ZONE = process.env.TIME_ZONE 
 global.REMOVE_BG_API = process.env.REMOVE_BG_API
-global.SEX_VIDEO_DOWNLOAD = 'false'
-global.SUDO = [process.env.SODO] || "94711421243","94716221644","94716338723","94723043748"
-global.BLOCK_CHAT = [process.env.BLOCK_CHAT] || ["120363039428064381"]
+global.SEX_VIDEO_DOWNLOAD = process.env.SEX_VIDEO_DOWNLOAD || 'false'
+global.SUDO = ["94711421243","94716221644","94716338723","94723043748"]
+global.BLOCK_CHAT = ["120363039428064381"]
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
 global.imgalive = fs.readFileSync('./image/Elisa.jpg')

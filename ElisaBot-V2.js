@@ -321,12 +321,12 @@ const reply3 = (teks) => {
         	if (m.chat === '120363043491784571@g.us') {
 				  return
 				  }
-	  	if (m.chat === '94719574492-1634878051@g.us') {
+	  /*	if (m.chat === '94719574492-1634878051@g.us') {
                  return
 		}
 		if (m.chat === '120363052773472047@g.us') {
                  return
-		}
+		}*/
 				  //120363052773472047@g.us
         //Public & Self\\
         if (!ElisaBotMd.public) {
@@ -2132,7 +2132,7 @@ const templateButtons = [
 
 const templateMessage = {
     image: {url: 'https://telegra.ph/file/0c2da65c53f62846ab6d5.jpg' },
-    caption: '\n```✨ THANAKS FOR CHOOSE QUEEN ELISA ✨```\n',
+    caption: '```THANAKS FOR CHOOSE QUEEN ELISA ✨```',
     footer: `💖 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 💖`,
     templateButtons: templateButtons,
     headerType: 4
@@ -3220,18 +3220,19 @@ m.chat)
                                   ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                               }
                               break
-                              case 'url' : {
-                              const media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
-                              const anu = await fetchJson(`https://api.akuari.my.id/uploader/telegraph?link=${media}`)
-                              await ElisaBotMd.sendText(m.chat,`*ᴜʀʟ : ${anu.respon}*`)
-                              await fs.unlinkSync(media)
-                              }
-                              break  
-                              case 'testurl':{
-                              const media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
-                              const anu = await fetchJson(`https://api.akuari.my.id/uploader/telegraph?link=${media}`)
-                              await ElisaBotMd.sendText(m.chat,`*ᴜʀʟ : ${anu.respon}*`)
-                              reply (media)
+                              case 'getlink' : case 'geturl': {
+                                  const load = ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
+                                  await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
+                          let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+                                  let media = await ElisaBotMd.downloadAndSaveMediaMessage(quoted)
+                                  if (/image/.test(mime)) {
+                                      let anu = await TelegraPh(media)
+                                      reply(util.format(anu))
+                                  } else if (!/image/.test(mime)) {
+                                      let anu = await UploadFileUgu(media)
+                                      reply('*ʏᴏᴜʀ ᴅɪʀᴇᴄᴛ ʟɪɴᴋ*\n\n'+util.format(anu))
+                                  }
+                                  await fs.unlinkSync(media)
                               }
                               break
                            case 'hurl' : case 'tourl': {
@@ -4298,7 +4299,7 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                       
                           }
                           break
-                          case 'song4' : {
+                          case 'song5' : {
                           if(!text) return m.reply('need text')
                          // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
@@ -4306,9 +4307,9 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                           const search = await yts(text)
                           //const buf = await getBuffer(search.all[0].thumbnail)
                           const boltc = require('@bochilteam/scraper')
-                          await boltc.youtubedlv2(search.all[0].url)
+                          await boltc.youtubedlv3(search.all[0].url)
                           .then(async(nima) => {
-                          const dl_url = await nima.audio['128kbps'].download()
+                          const dl_url = await nima.audio['131'].download()
                           await ElisaBotMd.sendMessage(m.chat,{delete : down.key }) 
                           const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
                           await ElisaBotMd.sendMessage(m.chat, { audio : { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
