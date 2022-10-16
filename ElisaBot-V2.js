@@ -2295,6 +2295,7 @@ await ElisaBotMd.readMessages([key])
                       break
                       case 'invite' : {
                       reply('wait')
+                      let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
                       await ElisaBotMd.groupParticipantsUpdate(m.chat, [users], 'invite')
                       }
                       break
