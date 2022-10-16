@@ -4103,7 +4103,7 @@ ${jsonformat(nima)}`)
                           break
                           case 'bolchidl' : {
                           let boltc = require('@bochilteam/scraper')
-                          const nima = await boltc.youtubedlv(`${text}`)
+                          const nima = await boltc.youtubedl(`${text}`)
                           const nima1 = await boltc.youtubedlv2(`${text}`)
                           const nima2 = await boltc.youtubedl3(`${text}`)
                           reply(`${jsonformat(nima)}
