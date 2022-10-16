@@ -26,7 +26,7 @@ const MENU_IMOJI = global.MENU_IMOJI
 const HELPERS = '94716338723,94711421243,94719574492'
 global.ALL_LINK_KICK = global.ALL_LINK_KICK 
 const SEX_DL = global.SEX_VIDEO_DOWNLOAD
-global.SUDO = ["94711421243","94716221644","94716338723","94723043748"]
+//global.SUDO = ["94711421243","94716221644","94716338723","94723043748"]
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
@@ -3391,6 +3391,18 @@ https://tinyurl.com/SEX-GROUP-NO-CHILDS`)
                                   }
                               }
                               break
+                              case 'xnxx' : {
+                              if(!SEX_DL == 'true') return m.reply('*18+ DOWNLOAD IS DESABLE BY OWNER*')
+                              if(!text) return m.reply('*👸💬 Please Give me a xnxx video title !*\n'+'```.xnxx mia kalifa```')
+                              const nima = await fetchJson(`http://kocakz.herokuapp.com/api/media/xnxx/search?query=${text}`)
+                              if(nima.stetus = 200 ){
+                              const surl = nima.
+                              }else {
+                              m.reply(NOT_FOUND)
+                              }
+                              
+                              }
+                              break
                               case 'downxvid' : {
                             //  if (m.isGroup) throw '*CAN\T DOWNLOAD ON GROUPS*'
                                   if(SEX_DL == 'true' ){
@@ -4352,7 +4364,7 @@ await ElisaBotMd.sendMessage(m.chat, buttonMessage)
                           case 'tiktokjson' : {
                           let bocil = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
-   bocil.tiktokdlv3(`${text}`).then(async (video) => {  
+   boltc.youtubedlv3(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
      })  
                           }
@@ -4360,7 +4372,7 @@ await ElisaBotMd.sendMessage(m.chat, buttonMessage)
                           case 'tiktokjson2' : {
                           let bocil = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
-   bocil.tiktokdlv2(`${text}`).then(async (video) => {  
+   boltc.youtubedl(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
      })  
                           }
@@ -4368,7 +4380,7 @@ await ElisaBotMd.sendMessage(m.chat, buttonMessage)
                           case 'tiktokjson3' : {
                           let bocil = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
-   bocil.tiktokdl(`${text}`).then(async (video) => {  
+   boltc.youtubedlv2(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
      })  
                           }
