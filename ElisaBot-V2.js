@@ -26,7 +26,7 @@ const MENU_IMOJI = global.MENU_IMOJI
 const HELPERS = '94716338723,94711421243,94719574492'
 global.ALL_LINK_KICK = global.ALL_LINK_KICK 
 const SEX_DL = global.SEX_VIDEO_DOWNLOAD
-global.SUDO = ["94711421243","94716221644","94716338723"]
+global.SUDO = ["94711421243","94716221644","94716338723","94723043748"]
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
@@ -533,7 +533,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 
      
 				  
-				  if (!m.isGroup && global.INBOX_BLOCK == 'on') {  
+				  if (!m.isGroup && global.INBOX_BLOCK == 'on' && !isSudo) {  
 				  if (!isCreator) {
 				  await ElisaBotMd.sendText (m.chat, global.INBOX_BLOCK_MSG )
 				  await sleep(8000)
@@ -897,8 +897,54 @@ message: {
 }
 }
 } 
+const flokasi = {
+key : {
+ participant : '0@s.whatsapp.net'
+},
+message: {
+locationMessage: {
+name: `srilanka,rathnapura`,
+jpegThumbnail: log0
+}
+}
+}
+//FAKEREPLY DOCUMENT
+const fdocs = {
+key : {
+ participant : '0@s.whatsapp.net'
+},
+message: {
+documentMessage: {
+title: `${global.botnma}`, 
+jpegThumbnail: log0
+}
+}
+}
+//FAKEREPLY VIDEO
+const fvideo = {
+key: { 
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? 
+{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
+},
+message: { 
+"videoMessage": { 
+"title": `${global.botnma}`,
+"h": `${global.ownernma}`,
+'seconds': '30', 
+'caption': `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
+'jpegThumbnail': log0
+}
+}
+}
 await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: ftoko })  
-  
+await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: fgclink })  
+await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: flokasi })  
+ await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: fdocs })  
+ await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: fvideo })  
+ if (isSudo) {
+ reply('hello sudoo ' )
+ }
   }
   break
              case 'databasetest' : {
@@ -4120,7 +4166,7 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                           const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
                           const yts = require("yt-search")
                           const search = await yts(text)
-                          //const buf = await getBuffer(search.all[0].thumbnail)
+                          const buf = await getBuffer(search.all[0].thumbnail)
                           const boltc = require('@bochilteam/scraper')
                           await boltc.youtubedlv2(search.all[0].url)
                           .then(async(nima) => {
@@ -4143,7 +4189,7 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                       
                           }
                           break
-                          case 'audsong3' : {
+                          case 'song4' : {
                           if(!text) return m.reply('need text')
                          // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
                           const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
@@ -4158,6 +4204,35 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                           const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
                           await ElisaBotMd.sendMessage(m.chat, { audio : { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
                           await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
+                           //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
+
+                                  }).catch((err) => m.reply(err))
+                      
+                          }
+                          break
+                          case 'audiosong3' : {
+                          if(!text) return m.reply('need text')
+                         // await ElisaBotMd.sendMessage(from, { react: { text: `📥`, key: m.key }})
+                          const down = await ElisaBotMd.sendText(m.chat,global.SONG_DOWN,m,)
+                          const yts = require("yt-search")
+                          const search = await yts(text)
+                          const buf = await getBuffer(search.all[0].thumbnail)
+                          const boltc = require('@bochilteam/scraper')
+                          await boltc.youtubedlv2(search.all[0].url)
+                          .then(async(nima) => {
+                          const dl_url = await nima.audio['128kbps'].download()
+                          await ElisaBotMd.sendMessage(m.chat,{delete : down.key }) 
+                          const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
+                          const doc = await ElisaBotMd.sendMessage(m.chat, {audio :{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${nima.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${nima.title}`,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+//await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
                            //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(err))
@@ -6160,7 +6235,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `🪄`, key: m.key }})
  //let bocil = require('@bochilteam/scraper')    
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    await fetchJson(`https://api.sdbots.tk/tiktok?url=${text}`).then(async (video) => {           
-const imga = video.author
+//const imga = video.author
 //const musiccc = video.music
 const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 👸✨*
 
@@ -8118,7 +8193,7 @@ _I am alive now 😼_
 *║📆* *${thisDay}*, *${day}*                                           
 *║⌚* *${moment.tz(TIME_ZONE).format('HH:mm:ss')}*                                                    
 *╚═══════════════════╝*
-*┃Owner 🎩:* _${global.ownername}_
+*┃Owner 🎩:* _${global.ownernma}_
 *┃Version 🧚:* _1.0.1_
 *┃Runtime ⏳:* _${runtime(process.uptime())}_
 *┃Group ✅ :* _${global.group1}_
