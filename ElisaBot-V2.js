@@ -198,6 +198,7 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
 	    const from = mek.key.remoteJid
 	    const type = Object.keys(mek.message)[0]        
 	    const content = JSON.stringify(mek.message)
+	    const llog0 = await getBuffer('https://telegra.ph/file/c020c561957a1824371af.jpg')
 
         //group\\
         const groupMetadata = m.isGroup ? await ElisaBotMd.groupMetadata(m.chat).catch(e => {}) : ''
@@ -264,7 +265,7 @@ message: {
 "h": `${global.ownernma}`,
 'seconds': '30', 
 'caption': `${global.ownernma}`,
-'jpegThumbnail': log0
+'jpegThumbnail': llog0
 }
 }
 }
