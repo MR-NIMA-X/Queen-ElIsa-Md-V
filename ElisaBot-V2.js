@@ -580,7 +580,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
 
      
 				  
-				  if (!m.isGroup && global.INBOX_BLOCK == 'on' && !isSudo) {  
+				  if (!m.isGroup && global.INBOX_BLOCK == 'on') {  
 				  if (!isCreator) {
 				  await ElisaBotMd.sendText (m.chat, global.INBOX_BLOCK_MSG )
 				  await sleep(8000)
