@@ -3807,8 +3807,8 @@ const hdpid = rash.hddlid
                 let nima = search.all           
                 const buttons = [
                     {buttonId: `${sdpid} ${search.all[1].url}`, buttonText: {displayText: '360p'}, type: 1},
-                    {buttonId: `${hdmidpid} ${search.all[1].url} 480`, buttonText: {displayText: '480p'}, type: 1},
-                    {buttonId: `${hdpid} ${search.all[1].url} 720`, buttonText: {displayText: '720p'}, type: 1}
+                    {buttonId: `${hdmidpid} ${search.all[1].url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+                    {buttonId: `${hdpid} ${search.all[1].url} 720p`, buttonText: {displayText: '720p'}, type: 1}
                 ]
             const buttonMessage = {
                     image: { url: search.all[0].thumbnail },
@@ -4098,6 +4098,22 @@ audio ${dl_url4}
                                                 
 ${jsonformat(nima)}`)
                           })
+                          }
+                          break
+                          case 'bolchidl' : {
+                          let boltc = require('@bochilteam/scraper')
+                          const nima = await boltc.youtubedlv(`${text}`)
+                          const nima1 = await boltc.youtubedlv2(`${text}`)
+                          const nima2 = await boltc.youtubedl3(`${text}`)
+                          reply(`${jsonformat(nima)}
+▷▷▷
+
+${jsonformat(nima1)}
+
+▷▷▷▷
+
+${jsonformat(nima2)}
+`)
                           }
                           break
                           case 'bolchiyt' : {
@@ -6305,7 +6321,7 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
                  buttons = [
                     {buttonId: `tiktok2 ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
-                    {buttonId: `diirectmp3 ${video.result.music}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
+                    {buttonId: `directmp3 ${video.result.music}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
