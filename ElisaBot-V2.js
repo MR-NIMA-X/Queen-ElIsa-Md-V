@@ -186,7 +186,7 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
     	const nimanumber = "94719574492"
     	const nimanumber2 = "94715166712"
         const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isSudo = global.SUDO.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isSudo = [global.SUDO].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
        // const isBlock = global.BLOCK_CHAT.map(v => v.replace(/[^0-9]/g, '') + '@g.us').includes(m.chat)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
         const itsMe = m.sender == botNumber ? true : false
