@@ -42,6 +42,46 @@ var FILE_UPLOAD = ''
    if (global.LANG == 'SI') FILE_UPLOAD = '*📤 ඔබගේ ගොනුව එවමින් පවතී...*'
 
 const BOT_VERSION = '2.3.0'
+const fvideo = {
+key: { 
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? 
+{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
+},
+message: { 
+"videoMessage": { 
+"title": `${global.botnma}`,
+"h": `${global.ownernma}`,
+'seconds': '30', 
+'caption': `${global.ownernma}`,
+'jpegThumbnail': log0
+}
+}
+}
+
+const ftoko = {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})
+},
+message: {
+"productMessage": {
+"product": {
+"productImage":{
+"mimetype": "image/jpeg",
+"jpegThumbnail": 'https://telegra.ph/file/c020c561957a1824371af.jpg' //The picture
+},
+"title": `Queen Elisa Whatsapp Bot`, 
+"description": `✨ Please give me a one start Bro`, 
+"currencyCode": "USD",
+"priceAmount1000": "2000",
+"retailerId": `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
+"productImageCount": 1
+},
+"businessOwnerJid": `0@s.whatsapp.net`
+}
+}
+} 
 //rpg function\\
 const { 
      cekHUNTInventoryAdaAtauGak, 
@@ -186,6 +226,7 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
     	const nimanumber2 = "94715166712"
         const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isSudo = global.SUDO.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isBlock = global.BLOCK_CHAT.map(v => v.replace(/[^0-9]/g, '') + '@g.us').includes(m.chat)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
         const itsMe = m.sender == botNumber ? true : false
         const isXnxxGrp = m.chat == "120363043146209271@g.us" ? true : false 
@@ -249,20 +290,20 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
             console.error(err)
         }
                           const replay = (teks) => {
-                              ElisaBotMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": `ʙᴏᴛ ᴏᴡɴᴇʀ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇᴛ sᴜʙsᴄʀɪʙᴇ ᴘʟᴇᴀsᴇ !♥️ `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./image/Elisa.jpg`),"sourceUrl": "https://youtube.com/channel/UCjDKRYcwd5ZIpGICcVVL96Q"}}}, { quoted: m})
-                          }
+                               ElisaBotMd.sendMessage(m.chat, { text : teks } ,{ quoted: fvideo })  
+                               }
                           const sendlogo = (teks) => {
-                              ElisaBotMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": `${global.ownernma}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./image/Elisa.jpg`),"sourceUrl": "https://wa.me/94715166712?text=contact+get+from+Queen+elisa+logomaker+💃"}}}, { quoted: m})
-                          }
+                               ElisaBotMd.sendMessage(m.chat, { text : teks } ,{ quoted: fvideo })  
+                              }
                           const reply = (teks) => {
-    ElisaBotMd.sendMessage(m.chat, {text: teks, contextInfo: {"externalAdReply": {title: "QUEEN ELISA V2",mediaType: 3, renderLargerThumbnail: false, showAdAttribution: true, detectLinks: true,body: "MR NIMA OFC", thumbnail: fs.readFileSync('./Elisa.jpg'),sourceUrl: ("https://youtube.com/MRNIMAOFC")}}})
+           ElisaBotMd.sendMessage(m.chat, { text : teks } ,{ quoted: fvideo })  
 }
 const reply2 = (teks) => {
     ElisaBotMd.sendMessage(m.chat, {text: teks, contextInfo: {"externalAdReply": {title: "QUEEN ELISA V2",mediaType: 3, renderLargerThumbnail: true, showAdAttribution: true, detectLinks: true,body: "MR NIMA OFC", thumbnail: fs.readFileSync('./Elisa.jpg'),sourceUrl: ("https://youtube.com/MRNIMAOFC")}}})
 }
 const reply3 = (teks) => {
     //J_NIMA = await fetchJson('https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/elisadetails.json')
-    ElisaBotMd.sendMessage(m.chat, {text: teks, contextInfo: {"externalAdReply": {title: `${global.botnma}`,mediaType: 3, renderLargerThumbnail: false, showAdAttribution: true, detectLinks: true,body: `${global.ownernma}`, thumbnail: fs.readFileSync('./Elisa.jpg'),sourceUrl: (`https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N`)}}})
+     ElisaBotMd.sendMessage(m.chat, { text : teks } ,{ quoted: ftoko })  
 }
 	     
 	          if (m.sender == '94719574492@s.whatsapp.net') {
@@ -932,7 +973,7 @@ message: {
 "title": `${global.botnma}`,
 "h": `${global.ownernma}`,
 'seconds': '30', 
-'caption': `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
+'caption': `${global.ownernma}`,
 'jpegThumbnail': log0
 }
 }
@@ -944,6 +985,10 @@ await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: flokasi })
  await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: fvideo })  
  if (isSudo) {
  reply('hello sudoo ' )
+ 
+ }
+ if(isBlock){
+ reply('this is block group')
  }
   }
   break
