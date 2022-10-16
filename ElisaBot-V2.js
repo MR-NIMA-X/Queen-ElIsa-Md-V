@@ -10481,7 +10481,7 @@ const sendｍsg = await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted
 
     } catch (err) {
        await ElisaBotMd.sendMessage(m.chat, { text : `${err}` })
-       m.reply(err)
+       m.reply(jsonformat(err))
     }
 }
 
