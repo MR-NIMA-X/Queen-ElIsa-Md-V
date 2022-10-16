@@ -105,7 +105,7 @@ global.MENU_IMOJI = process.env.MENU_IMOJI || '👸|ℹ️'
 global.TIME_ZONE = process.env.TIME_ZONE 
 global.REMOVE_BG_API = process.env.REMOVE_BG_API
 global.SEX_VIDEO_DOWNLOAD = 'false'
-global.SUDO = [process.env.SODO] || ["94711421243","94716221644","94716338723","94723043748"]
+global.SUDO = [process.env.SODO] || "94711421243","94716221644","94716338723","94723043748"
 global.BLOCK_CHAT = [process.env.BLOCK_CHAT] || ["120363039428064381"]
 
 global.thumb = fs.readFileSync('./image/Elisa.jpg')
