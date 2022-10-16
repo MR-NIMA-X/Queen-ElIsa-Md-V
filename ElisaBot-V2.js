@@ -2117,8 +2117,30 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
 © ǫᴜᴇᴇɴ ᴇʟɪsᴀ ᴘᴜʙʟɪᴄ ᴇʟᴅɪᴛɪᴏɴ` }, { quoted: m })
                               }   // https://i.ibb.co/MhqzZj8/Darkmekcersilverownerfrofilepgoto.jpg
                               break
+                              case 'git' : {
+
+const templateButtons = [
+    {index: 1, urlButton: {displayText: `ᴡᴇʙ sɪᴛᴇ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
+    {index: 1, urlButton: {displayText: `ɢɪᴛʜᴜʙ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
+    {index: 1, urlButton: {displayText: `ᴘᴜʙʟɪᴄ ɢʀᴏᴜᴘ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
+
+
+    ]
+
+const templateMessage = {
+    image: {url: 'https://telegra.ph/file/0c2da65c53f62846ab6d5.jpg' },
+    caption: '\n```✨ THANAKS FOR CHOOSE QUEEN ELISA ✨```\n',
+    footer: `💖 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 💖`,
+    templateButtons: templateButtons,
+    headerType: 4
+}
+     
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakeee })
+     }
+  
+break 
                           case 'sc': case 'script': case 'git': {
-                                  reply3(`┌──────────────▢⃝
+                                  reply(`┌──────────────▢⃝
 │        *[ 🧚 ᴇʟɪsᴀ ʙᴏᴛ ᴍᴅ 🧚 ]*
 │
 │ *🖥️ ɢɪᴛ :* https://github.com/DarkMakerofc/Queen-Elisa-Md-V2
