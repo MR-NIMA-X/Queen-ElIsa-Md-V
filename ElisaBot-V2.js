@@ -4323,7 +4323,7 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                       
                           }
                           break
-                          case 'yt2' : {
+                         /* case 'yt2' : {
                           if (!text) return m.reply('Please Give me a youtube link')
                           await ElisaBotMd.sendText(m.chat,mess.wait)
                           let boltc = require('@bochilteam/scraper')
@@ -4359,9 +4359,9 @@ const buttonMessage = {
 await ElisaBotMd.sendMessage(m.chat, buttonMessage)
 })
                           }
-                          break
+                          break*/
                           case 'tiktokjson' : {
-                          let bocil = require('@bochilteam/scraper')    
+                          let boltc = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    boltc.youtubedlv3(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
@@ -4369,7 +4369,7 @@ await ElisaBotMd.sendMessage(m.chat, buttonMessage)
                           }
                           break
                           case 'tiktokjson2' : {
-                          let bocil = require('@bochilteam/scraper')    
+                          let boltc = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    boltc.youtubedl(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
@@ -4377,7 +4377,7 @@ await ElisaBotMd.sendMessage(m.chat, buttonMessage)
                           }
                           break
                           case 'tiktokjson3' : {
-                          let bocil = require('@bochilteam/scraper')    
+                          let boltc = require('@bochilteam/scraper')    
  //  if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
    boltc.youtubedlv2(`${text}`).then(async (video) => {  
    reply(`${jsonformat(video)}`)
