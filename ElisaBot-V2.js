@@ -42,46 +42,7 @@ var FILE_UPLOAD = ''
    if (global.LANG == 'SI') FILE_UPLOAD = '*📤 ඔබගේ ගොනුව එවමින් පවතී...*'
 
 const BOT_VERSION = '2.3.0'
-const fvideo = {
-key: { 
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
-},
-message: { 
-"videoMessage": { 
-"title": `${global.botnma}`,
-"h": `${global.ownernma}`,
-'seconds': '30', 
-'caption': `${global.ownernma}`,
-'jpegThumbnail': log0
-}
-}
-}
 
-const ftoko = {
-key: {
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})
-},
-message: {
-"productMessage": {
-"product": {
-"productImage":{
-"mimetype": "image/jpeg",
-"jpegThumbnail": 'https://telegra.ph/file/c020c561957a1824371af.jpg' //The picture
-},
-"title": `Queen Elisa Whatsapp Bot`, 
-"description": `✨ Please give me a one start Bro`, 
-"currencyCode": "USD",
-"priceAmount1000": "2000",
-"retailerId": `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
-"productImageCount": 1
-},
-"businessOwnerJid": `0@s.whatsapp.net`
-}
-}
-} 
 //rpg function\\
 const { 
      cekHUNTInventoryAdaAtauGak, 
@@ -289,6 +250,50 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
         } catch (err) {
             console.error(err)
         }
+// FAKE REPLYSSSS
+
+const fvideo = {
+key: { 
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? 
+{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
+},
+message: { 
+"videoMessage": { 
+"title": `${global.botnma}`,
+"h": `${global.ownernma}`,
+'seconds': '30', 
+'caption': `${global.ownernma}`,
+'jpegThumbnail': log0
+}
+}
+}
+
+const ftoko = {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})
+},
+message: {
+"productMessage": {
+"product": {
+"productImage":{
+"mimetype": "image/jpeg",
+"jpegThumbnail": 'https://telegra.ph/file/c020c561957a1824371af.jpg' //The picture
+},
+"title": `Queen Elisa Whatsapp Bot`, 
+"description": `✨ Please give me a one start Bro`, 
+"currencyCode": "USD",
+"priceAmount1000": "2000",
+"retailerId": `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
+"productImageCount": 1
+},
+"businessOwnerJid": `0@s.whatsapp.net`
+}
+}
+} 
+
+
                           const replay = (teks) => {
                                ElisaBotMd.sendMessage(m.chat, { text : teks } ,{ quoted: fvideo })  
                                }
