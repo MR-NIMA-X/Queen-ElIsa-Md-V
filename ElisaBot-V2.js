@@ -26,6 +26,7 @@ const MENU_IMOJI = global.MENU_IMOJI
 const HELPERS = '94716338723,94711421243,94719574492'
 global.ALL_LINK_KICK = global.ALL_LINK_KICK 
 const SEX_DL = global.SEX_VIDEO_DOWNLOAD
+global.SUDO = ["94711421243","94716221644","94716338723"]
 var LOGO_MAKING = ''
   if (global.LANG == 'EN') LOGO_MAKING = '*🌈 Take a moment to createing your textlogo...*'
   if (global.LANG == 'SI') LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
@@ -184,6 +185,7 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
     	const nimanumber = "94719574492"
     	const nimanumber2 = "94715166712"
         const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isSudo = global.SUDO.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
         const itsMe = m.sender == botNumber ? true : false
         const isXnxxGrp = m.chat == "120363043146209271@g.us" ? true : false 
@@ -852,6 +854,51 @@ switch(command) {
   case 'delrash' :{
   global.DEL_RASH = text
   reply('Done !')
+  }
+  break
+  case 'faketest' : {
+  const log0 = await getBuffer('https://telegra.ph/file/c020c561957a1824371af.jpg')
+  const fgclink = {
+"key": {
+"fromMe": false,
+"participant": "0@s.whatsapp.net",
+"remoteJid": "0@s.whatsapp.net"
+},
+"message": {
+"groupInviteMessage": {
+"groupJid": "94719574492-1634878051@g.us",
+"inviteCode": `${global.ownernma}`,
+"groupName": `${global.botnma}`, 
+"caption":`ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`, 
+'jpegThumbnail': log0
+}
+}
+}
+const ftoko = {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})
+},
+message: {
+"productMessage": {
+"product": {
+"productImage":{
+"mimetype": "image/jpeg",
+"jpegThumbnail": log0 //The picture
+},
+"title": `${global.ownernma}`, 
+"description": `${global.botnma}`, 
+"currencyCode": "USD",
+"priceAmount1000": "2000",
+"retailerId": `ᴍͥ ʀ ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ɴ ɪͣ ᴍͫ ᴀ ⁴⁹²`,
+"productImageCount": 1
+},
+"businessOwnerJid": `0@s.whatsapp.net`
+}
+}
+} 
+await ElisaBotMd.sendMessage(m.chat, { text : `hello` } ,{ quoted: ftoko })  
+  
   }
   break
              case 'databasetest' : {
@@ -3082,7 +3129,7 @@ m.chat)
     if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
     let remobg = require('remove.bg')
     let apirnobg = ['uFexCoDgX9DYk4sgDYEmuE74','5Cx1DPgcR54PVn5Z5WGGn64V','BEbDqa2mxYkgRC31Z7NCpdNa']
-    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
+    let apinobg = global.REMOVE_BG_API || apirnobg[Math.floor(Math.random() * apirnobg.length)]
     hmm = await './src/remobg-'+getRandom('')
     localFile = await ElisaBotMd.downloadAndSaveMediaMessage(quoted, hmm)
     outputFile = await './src/hremo-'+getRandom('.png')
@@ -4080,8 +4127,16 @@ await ElisaBotMd.sendText(m.chat , `${jsonformat(nima3)}`)
                           const dl_url = await nima.audio['128kbps'].download()
                           await ElisaBotMd.sendMessage(m.chat,{delete : down.key }) 
                           const up = await ElisaBotMd.sendText(m.chat,global.SONG_UP,m,)
-                          await ElisaBotMd.sendMessage(m.chat, { document: { url : dl_url }, mimetype: 'audio/mpeg', fileName: `${search.all[0].title}.mp3` }, { quoted: m })
-                          await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
+                          const doc = await ElisaBotMd.sendMessage(m.chat, {document:{ url: dl_url }, mimetype:"audio/mpeg", fileName: `${nima.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:`${nima.title}`,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                await ElisaBotMd.sendMessage(m.chat, { delete: up.key })
+                                  await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: doc.key }})
+//await ElisaBotMd.sendMessage(m.chat,{delete : up.key }) 
                            //await ElisaBotMd.sendMessage(from, { react: { text: `🎶`, key: m.key }})
 
                                   }).catch((err) => m.reply(err))
@@ -4347,7 +4402,7 @@ const docidd = rash.doccmd
                           await ElisaBotMd.sendMessage(from, { react: { text: `📽️`, key: viddd.key }})
                           // await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4',jpegThumbnail:buf, caption: global.cap }, { quoted: m })
                           //await ElisaBotMd.sendMessage(m.chat, { video: { url: dl_url }, mimetype: 'video/mp4', caption: `${global.cap}` }, { quoted: m })
-                          }).catch((err) => m.reply(err))
+                          }).catch((err) => m.reply(NOT_FOUND))
                       
                           }
                           break
@@ -6100,7 +6155,7 @@ const cyber = await fetchJson(`https://api.sdbots.tk//tiktok?url=${text}`)
             break
 */
 case 'tiktok': {
-if (!text) throw '*Enter a Link Query!*'
+if (!text) throw '*👸💬 Please give me tiktok link.*'
 await ElisaBotMd.sendMessage(from, { react: { text: `🪄`, key: m.key }})
  //let bocil = require('@bochilteam/scraper')    
    if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
@@ -6112,12 +6167,14 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
 *🕵 AUTHOR* : ${video.result.author}
 
 *ℹ️ DESC* : ${video.result.desc}
+
+*⏱️ DURATION :* ${cyber.result.duration} seconds
 `                      
                      footer = global.botnma
                  buttons = [
                     {buttonId: `tiktok2 ${text}`, buttonText: {displayText: '𝗡𝗢 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '𝗪𝗜𝗧𝗛 𝗪𝗔𝗧𝗘𝗥𝗠𝗔𝗥𝗞'}, type: 1},
-                    {buttonId: `diirectmp3 ${nima.result.music}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
+                    {buttonId: `diirectmp3 ${video.result.music}`, buttonText: {displayText: '𝗔𝗨𝗗𝗜𝗢'}, type: 1}
                
                 ]
                 let buttonMessage = {
@@ -6129,7 +6186,9 @@ const anu = `   *✨👸 𝙴𝙻𝙸𝚂𝙰 𝚃𝙸𝙺𝚃𝙾𝙺 𝙳𝙾�
                 }
                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
          }).catch((err) => {
-       ElisaBotMd.sendText(m.chat, err)})
+         reply(err)
+       //ElisaBotMd.sendText(m.chat, err)
+       })
 
 }
 break
@@ -10214,7 +10273,7 @@ ${anu.PUBLIC_GROUP_RULES}
 
 `
 const templateButtons = [
-    {index: 1, urlButton: {displayText: 'ᴊᴏɪɴ ɴᴏᴡ', url: 'https://chat.whatsapp.com/JlIOrWU08K19dFrHkOGI5N'}},
+    {index: 1, urlButton: {displayText: 'ᴊᴏɪɴ ɴᴏᴡ', url: 'https://chat.whatsapp.com/BbIpvkRD4qP6xKckb8cpT0'}},
     {index: 2, urlButton: {displayText: 'sᴜʙsᴄʀɪʙᴇ', url: 'https://youtube.com/c/MRNIMAOFC'}}
     
     ]
