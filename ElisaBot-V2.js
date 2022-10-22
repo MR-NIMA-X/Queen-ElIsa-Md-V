@@ -2217,7 +2217,7 @@ await ElisaBotMd.readMessages([key])
  const ping = (end - start) + ' *_ᴍs_*' 
 // const runtime = 
  const ramusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
- m.reply('```🧬 Bot Stetus 🧬 ```\n\n'+'*⚙️ Ping :* ```'+ping+'```\n*♾️ Run Time :*```'+runtime(process.uptime())+'``` \n*♾️ Ram Usage*```'+ramusage+'```\n')
+ m.reply('```🧬 Bot Stetus 🧬 ```\n\n'+'*⚙️ Ping :* ```'+ping+'```\n*⏳ Run Time :* ```'+runtime(process.uptime())+'``` \n*📶 Ram Usage :*``` '+ramusage+'```\n')
  }
  break
                     case 'mathquiz': case 'math': {
@@ -2837,13 +2837,14 @@ case 'xxxxantilink': {
                               }
                               break
                               case 'clear' : {
-                              if(!isCreator) return
-const lastMsgInChat = await getLastMessageInChat(m.chat) // implement this on your end
 await ElisaBotMd.chatModify({
-  delete: true,
-  lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
-},
-m.chat)
+			clear: {
+				messages: [{
+					id: m.key,
+					fromMe: true
+				}]
+			}
+		}, m.chat)
                               }
                               break
                               case 'bctext' :{
