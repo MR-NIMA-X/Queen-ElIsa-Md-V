@@ -7492,12 +7492,12 @@ break
           const down = await ElisaBotMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')
           
             await fetchJson(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`).then(async (anu) => {  
-            if (anu.stetus = 'false') return m.reply(NOT_FOUND)
+           // if (anu.stetus = 'false') return m.reply(NOT_FOUND)
             mname = anu.result.nama
             msize = anu.result.size
             murl = anu.result.link
             mmeme = anu.result.mime
-            cpmsg = `┌───[💃 *𝙴𝚕𝚒𝚜𝚊 𝙱𝚘𝚝* 💃]───●
+           /* cpmsg = `┌───[💃 *𝙴𝚕𝚒𝚜𝚊 𝙱𝚘𝚝* 💃]───●
 │
 │        🧚‍♀ 𝙼𝚎𝚍𝚒𝚊𝚏𝚒𝚛𝚎 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 🧚
 ‍│
@@ -7507,7 +7507,7 @@ break
 │⦁ *Mime* : ${murl}
 │⦁ *Link* : ${mmeme}
 │
-└───────●`
+└───────●`*/
            if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
            const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
@@ -7518,7 +7518,7 @@ break
             })
             }
             break 
-            case 'mediafire' :{
+            /*case 'mediafire' :{
             if(!text && !text.includes('mediafire.com')) return reply('*Please Give me a mediafire link*')
             const down = await ElisaBotMd.sendText(m.chat,FILE_DOWNLOAD)
             const nima = await fetchJson(`https://cakrayp.herokuapp.com/api/downloader/mediafire?url=${text}&apikey=cakrayp24Q6`)
@@ -7541,7 +7541,11 @@ break
             }
             }
             break
-                  
+                  */
+                  case 'mediafire' : {
+                  const nima = await fetchJson(`https://bsbt-api-rest.herokuapp.com/api/mediafire?url=${text}`)
+                  }
+                 break
                               
                           case 'ringtone': {
                           if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} black rover`
