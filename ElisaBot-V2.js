@@ -2123,8 +2123,8 @@ sᴀɴᴜᴡᴀ - ғʀᴏ ʜᴇʟᴘ
                               case 'git' : {
 
 const templateButtons = [
-    {index: 1, urlButton: {displayText: `ᴡᴇʙ sɪᴛᴇ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
-    {index: 1, urlButton: {displayText: `ɢɪᴛʜᴜʙ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
+    {index: 1, urlButton: {displayText: `ᴡᴇʙ sɪᴛᴇ`, url: `http://queenelisa.42web.io/`}},
+    {index: 1, urlButton: {displayText: `ɢɪᴛʜᴜʙ`, url: `httpshttps://github.com/DarkMakerofc/Queen-Elisa-MD-V2`}},
     {index: 1, urlButton: {displayText: `ᴘᴜʙʟɪᴄ ɢʀᴏᴜᴘ`, url: `https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK`}},
 
 
@@ -2204,11 +2204,22 @@ await ElisaBotMd.readMessages([key])
                           
                               case 'ping' : case 'ping2' : {
                               const start = new Date().getTime()
-  await ElisaBotMd.sendText(m.chat, '*♲ ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
+  await ElisaBotMd.sendText(m.chat, '*📡  ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')
   const end = new Date().getTime()
-  await ElisaBotMd.sendText(m.chat, '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' )
+  const poonn = await ElisaBotMd.sendText(m.chat, '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' )
+  await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: poonn.key }})
   }
   break
+  case 'botstetus' : {
+ const start = new Date().getTime()
+ await ElisaBotMd.sendMessage(from, { react: { text: `⚧️`, key: poonn.key }})
+ const end = new Date().getTime()
+ const ping = (end - start) + ' *_ᴍs_*' 
+ const runtime = `${runtime(process.uptime())}`
+ const ramusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+ m.reply('```🧬 Bot Stetus 🧬 ```\n\n'+'*⚙️ Ping :* ```'+ping+'```\n*♾️ Run Time :*```'+runtime+'``` \n*♾️ Ram Usage*```'+ramusage+'```\n')
+ }
+ break
                     case 'mathquiz': case 'math': {
                                   if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
                                   let { genMath, modes } = require('./src/math')
@@ -2260,7 +2271,7 @@ await ElisaBotMd.readMessages([key])
                                   if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return reply( 'Link Invalid!')
                                   replay(mess.wait)
                                   let result = args[0].split('https://chat.whatsapp.com/')[1]
-                                  await ElisaBotMd.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+                                  await ElisaBotMd.groupAcceptInvite(result).then((res) => reply(jsonformat('*✅ JOINED *'))).catch((err) => reply(jsonformat('*CAN`T JOIN NOW !!!*')))
                               }
                               break
                               case 'jidchat' :{
@@ -3220,7 +3231,7 @@ m.chat)
                                   ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                               }
                               break
-                              case 'getlink' : case 'geturl': {
+                             /* case 'getlink' : case 'geturl': {
                                   const load = ElisaBotMd.sendText(m.chat, Lang.CONVER_TING )
                                   await  ElisaBotMd.sendMessage(m.chat, { delete: load.key })
                           let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -3251,7 +3262,7 @@ m.chat)
                                   }
                                   await fs.unlinkSync(media)
                               }
-                              break
+                              break*/
     case 'imagenobg': case 'removebg': case 'remove-bg': {
     if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`
     if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`
@@ -3745,7 +3756,7 @@ await ElisaBotMd.sendMessage(from, { react: { text: `🎦`, key: m.key }})
 
                               case 'song' : {
 var GIVEME = ''
-if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .yt rosa male natuwe katu*"
+if (global.LANG == 'SI') GIVEME = "```👸💬 කරුනාකර මට ගීතයක නමක් ලබාදෙන්න.```\n*උදාහරණ - .song rosa male natuwe katu*"
 if (global.LANG == 'EN') GIVEME ="```👸💬 Please give me a song name.```\n *Example - .song rosa male natuwe katu*"
 const rash = await fetchJson(`https://github.com/Mrnimama/Mr-nima-/raw/main/SongVideo.jsons/songdl.json`)
 const audidd = rash.audcmd
@@ -7479,11 +7490,11 @@ break
       
           const down = await ElisaBotMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')
           
-            const  anu = await axios.get(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`)
-            mname = anu.data.result[0].nama
-            msize = anu.data.result[0].size
-            murl = anu.data.result[0].link
-            mmeme = anu.data.result[0].mime
+            await fetchJson(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`).then(async (search) => {  
+            mname = anu.data.result.nama
+            msize = anu.data.result.size
+            murl = anu.data.result.link
+            mmeme = anu.data.result.mime
             cpmsg = `┌───[💃 *𝙴𝚕𝚒𝚜𝚊 𝙱𝚘𝚝* 💃]───●
 │
 │        🧚‍♀ 𝙼𝚎𝚍𝚒𝚊𝚏𝚒𝚛𝚎 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 🧚
@@ -7495,14 +7506,14 @@ break
 │⦁ *Link* : ${mmeme}
 │
 └───────●`
-           if (msize.split('MB')[0] >= 120) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
+           if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
            const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
            //await ElisaBotMd.sendMessage(m.chat,{ image : {url : 'https://telegra.ph/file/851f33abf303ebb8208a2.jpg' }, caption : cpmsg },{ quoted : m })
            const me = await ElisaBotMd.sendMessage(m.chat, { document : { url : murl }, fileName : mname, mimetype: mmeme }, { quoted : m }).catch ((err) => reply('*Can\'t Download your Mediafire Link ❗*'))
            await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })            
            await ElisaBotMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
-            
+            })
             }
             break 
             case 'mediafire' :{
@@ -7897,54 +7908,7 @@ View List Of Messages With ${prefix}listmsg`)
                                   reply('𝗯𝗼𝘁 𝗻𝗼𝘄 𝘄𝗼𝗿𝗸𝗶𝗻𝗴 𝗮𝘀 𝗽𝗿𝗶𝘃𝗮𝘁𝗲')
                               }
                               break
-                              /*case 'ping': case 'botstatus': case 'statusbot': {  
-                          await ElisaBotMd.sendMessage(from, { react: { text: `⚙️`, key: m.key }})
-                                  const used = process.memoryUsage()
-                                  const cpus = os.cpus().map(cpu => {
-                                      cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-                                      return cpu
-                                  })
-                                  const cpu = cpus.reduce((last, cpu, _, { length }) => {
-                                      last.total += cpu.total
-                                      last.speed += cpu.speed / length
-                                      last.times.user += cpu.times.user
-                                      last.times.nice += cpu.times.nice
-                                      last.times.sys += cpu.times.sys
-                                      last.times.idle += cpu.times.idle
-                                      last.times.irq += cpu.times.irq
-                                      return last
-                                  }, {
-                                      speed: 0,
-                                      total: 0,
-                                      times: {
-                                          user: 0,
-                                          nice: 0,
-                                          sys: 0,
-                                          idle: 0,
-                                          irq: 0
-                                  }
-                                  })
-                                  let timestamp = speed()
-                                  let latensi = speed() - timestamp
-                                  neww = performance.now()
-                                  oldd = performance.now()
-                                  respon = `
-                  Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
-                  
-                  Info Server
-                  RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-                  
-                  NodeJS Memory Usaage
-                  ${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
-                  
-                  ${cpus[0] ? `_Total CPU Usage_
-                  ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
-                  _CPU Core(s) Usage (${cpus.length} Core CPU)_
-                  ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
-                                  `.trim()
-                                  reply3(respon)
-                              }
-                              break*/
+                             
                               case 'owner': case 'creator': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `👤`, key: m.key }})
                               ElisaBotMd.sendContact(m.chat, global.owner, m)
