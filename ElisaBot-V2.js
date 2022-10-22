@@ -7508,7 +7508,7 @@ break
 │⦁ *Link* : ${mmeme}
 │
 └───────●`*/
-           if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
+          // if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
            const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
            //await ElisaBotMd.sendMessage(m.chat,{ image : {url : 'https://telegra.ph/file/851f33abf303ebb8208a2.jpg' }, caption : cpmsg },{ quoted : m })
@@ -7543,8 +7543,18 @@ break
             break
                   */
                   case 'mediafire' : {
-                  const nima = await fetchJson(`https://bsbt-api-rest.herokuapp.com/api/mediafire?url=${text}`)
-                  }
+                  const { mediafireDl } = require('./lib/mediafire.js')
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 150) return reply('*File Over Limit* '+util.format(baby1))
+const result4 = `*MEDIAFIRE DOWNLOADER*
+				
+*Name* : ${baby1[0].nama}
+*Size* : ${baby1[0].size}
+*Mime* : ${baby1[0].mime}
+*Link* : ${baby1[0].link}`
+reply(`${result4}`)
+ElisaBotMd.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+}
                  break
                               
                           case 'ringtone': {
