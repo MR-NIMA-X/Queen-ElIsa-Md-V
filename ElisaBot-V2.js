@@ -407,8 +407,20 @@ m.reply(imoji)
       if (m.sender == '94764440407@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🤍`, key: m.key }})
       }
+      if (m.sender == '94716221644@s.whatsapp.net') {
+      await ElisaBotMd.sendMessage(from, { react: { text: `⚕️`, key: m.key }})
+      }
       if (m.sender == '94701629707@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🐋`, key: m.key }})
+      }
+      if (m.sender == '94716338723@s.whatsapp.net') {
+      await ElisaBotMd.sendMessage(from, { react: { text: `🧜‍♂`, key: m.key }})
+      }
+      if (m.sender == '94711421243@s.whatsapp.net') {
+      await ElisaBotMd.sendMessage(from, { react: { text: `⚜️`, key: m.key }})
+      }
+      if (m.sender == '94715166712@s.whatsapp.net') {
+      await ElisaBotMd.sendMessage(from, { react: { text: `🗿`, key: m.key }})
       }
 	
 	  //antilink\\
@@ -567,11 +579,11 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
          
 				 
          }
-         const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json'))
+        /* const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json'))
          for (any in blockk ){
          if (m.chat === any) return
          reply('Block chat')
-         }
+         }*/
          
 ///  ANTI BAD WORDS
          if (global.ANTI_BADWORD == 'true' && m.isGroup && !isAdmins && !isCreator) {
