@@ -2215,9 +2215,9 @@ await ElisaBotMd.readMessages([key])
  await ElisaBotMd.sendMessage(from, { react: { text: `⚧️`, key: m.key }})
  const end = new Date().getTime()
  const ping = (end - start) + ' *_ᴍs_*' 
- const runtime = `${runtime(process.uptime())}`
+// const runtime = 
  const ramusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
- m.reply('```🧬 Bot Stetus 🧬 ```\n\n'+'*⚙️ Ping :* ```'+ping+'```\n*♾️ Run Time :*```'+runtime+'``` \n*♾️ Ram Usage*```'+ramusage+'```\n')
+ m.reply('```🧬 Bot Stetus 🧬 ```\n\n'+'*⚙️ Ping :* ```'+ping+'```\n*♾️ Run Time :*```'+runtime(process.uptime())+'``` \n*♾️ Ram Usage*```'+ramusage+'```\n')
  }
  break
                     case 'mathquiz': case 'math': {
@@ -7485,13 +7485,13 @@ break
                               case 'mediafire2' : {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
       
-      if (!text) return reply('❗ Need mediafire link')
+      if (!text) return reply('*👸💬 Please Give Me A mediafire Link*\n```'+'.mediafire https://www.mediafire.com/view/mdn9ja4wcmy7dtd/QueenElisaBot.jpg/file```')
       if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`The link you provided is invalid`)
       
           const down = await ElisaBotMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')
           
             await fetchJson(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`).then(async (anu) => {  
-            if (!anu.stetus) return m.reply(NOT_FOUND)
+            if (anu.stetus = 'false') return m.reply(NOT_FOUND)
             mname = anu.result.nama
             msize = anu.result.size
             murl = anu.result.link
