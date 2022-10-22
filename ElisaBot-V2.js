@@ -2212,7 +2212,7 @@ await ElisaBotMd.readMessages([key])
   break
   case 'botstetus' : {
  const start = new Date().getTime()
- await ElisaBotMd.sendMessage(from, { react: { text: `⚧️`, key: poonn.key }})
+ await ElisaBotMd.sendMessage(from, { react: { text: `⚧️`, key: m.key }})
  const end = new Date().getTime()
  const ping = (end - start) + ' *_ᴍs_*' 
  const runtime = `${runtime(process.uptime())}`
@@ -7490,11 +7490,12 @@ break
       
           const down = await ElisaBotMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')
           
-            await fetchJson(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`).then(async (search) => {  
-            mname = anu.data.result.nama
-            msize = anu.data.result.size
-            murl = anu.data.result.link
-            mmeme = anu.data.result.mime
+            await fetchJson(`https://sanuw-api.herokuapp.com/docs/download/mediafire?url=${text}&apikey=sanuwa`).then(async (anu) => {  
+            if (!anu.stetus) return m.reply(NOT_FOUND)
+            mname = anu.result.nama
+            msize = anu.result.size
+            murl = anu.result.link
+            mmeme = anu.result.mime
             cpmsg = `┌───[💃 *𝙴𝚕𝚒𝚜𝚊 𝙱𝚘𝚝* 💃]───●
 │
 │        🧚‍♀ 𝙼𝚎𝚍𝚒𝚊𝚏𝚒𝚛𝚎 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 🧚
