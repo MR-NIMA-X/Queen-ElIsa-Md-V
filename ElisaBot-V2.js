@@ -567,18 +567,23 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
          
 				 
          }
-         
+         const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json')
+         for (any in blockk ){
+         if (m.chat == any) return
+         }
 ///  ANTI BAD WORDS
          if (global.ANTI_BADWORD == 'true' && m.isGroup && !isAdmins && !isCreator) {
          
-         const bad = await fetchJson(`https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/BADWORD.json`)
+         const bad = JSON.parse(fs.readFileSync('./database/BAD_WORD.json')
+         //await fetchJson(`https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/BADWORD.json`)
          for (any in bad){
          if (budy.toLowerCase().includes(bad[any])){
          if (!isBotAdmins) return 
         // if (isCreator) return
-         await ElisaBotMd.sendMessage(from, { react: { text: `🤬`, key: m.key }})
-         await ElisaBotMd.sendText(m.chat,'*Bad word detect !*')
-         await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
+         //await ElisaBotMd.sendMessage(from, { react: { text: `🤬`, key: m.key }})
+         await ElisaBotMd.sendMessage(m.chat, { delete: m.key })
+         await ElisaBotMd.sendText(m.chat,`*${m.sender.split("@")[0]} Bot Owner is Activated Anti Bad Words*`)
+         //await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
          }}}
 
      
@@ -2427,6 +2432,10 @@ await ElisaBotMd.readMessages([key])
                if (!text) return replay(`.setalive hello \n  i am alive now \n how can i help you`)
           global.alive = text
           reply('*✅ ALIVE MASSAGE HAS CHANGE*\n '+'```'+global.alive+ '```')
+            }
+            break
+            case 'setbadwords' : {
+            global.ANTI_BADWORD = text
             }
             break
             case 'setlang': {
@@ -7511,8 +7520,6 @@ break
           // if (msize.split('MB')[0] >= 150) return reply('*CAN\'T UPLODE YOUR FILE* \n_YOUR FILE BIGGER THAN 120mb_\n\nfile size - *'+msize+'*')
            await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
            const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
-           //await ElisaBotMd.sendMessage(m.chat,{ image : {url : 'https://telegra.ph/file/851f33abf303ebb8208a2.jpg' }, caption : cpmsg },{ quoted : m })
-           const me = await ElisaBotMd.sendMessage(m.chat, { document : { url : murl }, fileName : mname, mimetype: mmeme }, { quoted : m }).catch ((err) => reply('*Can\'t Download your Mediafire Link ❗*'))
            await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })            
            await ElisaBotMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
             })
@@ -7544,16 +7551,23 @@ break
                   */
                   case 'mediafire' : {
                   const { mediafireDl } = require('./lib/mediafire.js')
-const baby1 = await mediafireDl(text)
+await mediafireDl(text).then(async (baby1) => {  
 if (baby1[0].size.split('MB')[0] >= 150) return reply('*File Over Limit* '+util.format(baby1))
+await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
+const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
+        
 const result4 = `*MEDIAFIRE DOWNLOADER*
 				
 *Name* : ${baby1[0].nama}
 *Size* : ${baby1[0].size}
 *Mime* : ${baby1[0].mime}
 *Link* : ${baby1[0].link}`
-reply(`${result4}`)
-ElisaBotMd.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+//reply(`${result4}`)
+const me = await ElisaBotMd.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+await ElisaBotMd.sendMessage(m.chat, { delete: upload.key })     
+await ElisaBotMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
+}).catch ((err) => reply(NOT_FOUND))
+ 
 }
                  break
                               
