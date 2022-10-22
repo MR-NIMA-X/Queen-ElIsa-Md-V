@@ -569,8 +569,10 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
          }
          const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json'))
          for (any in blockk ){
-         if (m.chat == any) return
+         if (m.chat === any) return
+         reply('Block chat')
          }
+         
 ///  ANTI BAD WORDS
          if (global.ANTI_BADWORD == 'true' && m.isGroup && !isAdmins && !isCreator) {
          
@@ -582,7 +584,7 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
         // if (isCreator) return
          //await ElisaBotMd.sendMessage(from, { react: { text: `🤬`, key: m.key }})
          await ElisaBotMd.sendMessage(m.chat, { delete: m.key })
-         await ElisaBotMd.sendText(m.chat,`*${m.sender.split("@")[0]} Bot Owner is Activated Anti Bad Words*`)
+         await ElisaBotMd.sendText(m.chat,`*@${m.sender.split("@")[0]} Bot Owner is Activated Anti Bad Words*`)
          //await ElisaBotMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')
          }}}
 
@@ -7553,6 +7555,7 @@ break
                   const { mediafireDl } = require('./lib/mediafire.js')
 await mediafireDl(text).then(async (baby1) => {  
 if (baby1[0].size.split('MB')[0] >= 150) return reply('*File Over Limit* '+util.format(baby1))
+const down = await ElisaBotMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')
 await ElisaBotMd.sendMessage(m.chat, { delete: down.key })            
 const upload = await ElisaBotMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')
         
