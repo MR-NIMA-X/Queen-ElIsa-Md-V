@@ -567,14 +567,14 @@ ElisaBotMd.updateBlockStatus(m.sender,'block')
          
 				 
          }
-         const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json')
+         const blockk = JSON.parse(fs.readFileSync('./database/Desable_chats.json'))
          for (any in blockk ){
          if (m.chat == any) return
          }
 ///  ANTI BAD WORDS
          if (global.ANTI_BADWORD == 'true' && m.isGroup && !isAdmins && !isCreator) {
          
-         const bad = JSON.parse(fs.readFileSync('./database/BAD_WORD.json')
+         const bad = JSON.parse(fs.readFileSync('./database/BAD_WORD.json'))
          //await fetchJson(`https://github.com/DarkMakerofc/UPLOADS/raw/main/JSON/BADWORD.json`)
          for (any in bad){
          if (budy.toLowerCase().includes(bad[any])){
