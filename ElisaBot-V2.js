@@ -1422,7 +1422,7 @@ const templateMessage = {
       m.chat, 
       {
        text: NEWSSS,
-       footer: global.botnma+'\n get on helakuru.com ,
+       footer: global.botnma+'\n get on helakuru.com' ,
        title: "*⫷👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂 👸⫸*",
        buttonText: "GET NEWS",
        sections
