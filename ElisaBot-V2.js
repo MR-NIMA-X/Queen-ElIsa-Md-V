@@ -1356,6 +1356,43 @@ ${nima.lyrics}
 await ElisaBotMd.sendText(m.chat, msg )
   }
    break
+  /* case 'news2' : {
+   
+   
+   }
+   break*/
+   case 'news2' : {
+   const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
+       
+   const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+   const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+
+const title = helnews.news.helakuru.title
+const news = helnews.news.helakuru.description
+const img = helnews.news.helakuru.thumb
+const url = helnews.news.helakuru.url
+const date = helnews.news.helakuru.data
+
+const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_*${news}\n`
+const templateButtons = [
+    {index: 1, urlButton: {displayText: `ɴᴇᴡs ᴜʀʟ`, url: url }},
+
+
+    ]
+
+const templateMessage = {
+    image: {url: img },
+    caption: '  ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n'+cap,
+    footer: global.botnma+'\n ᴛʜᴀɴᴋs ᴛᴏ sɪsᴜʟʏᴀ',
+    templateButtons: templateButtons,
+    headerType: 4
+}
+     
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakeee })
+     await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
+           
+   }
+   break
    case 'hnews' : {
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
