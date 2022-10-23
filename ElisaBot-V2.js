@@ -1388,7 +1388,7 @@ const templateMessage = {
     headerType: 4
 }
      
-     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakeee })
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
      await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
            
    }
