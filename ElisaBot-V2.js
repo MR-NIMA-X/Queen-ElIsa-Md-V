@@ -1190,15 +1190,16 @@ if (global.LANG == 'EN') P_LINK = */
        case 'getapk' : {
             if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
-                await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
+                const getname = await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
+                const name = nima.hasil[0].title || text
                 //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
-                const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
+                //const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
                 .then(async (nima) => {  
                 
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${nima.respon.id}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
+                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${name}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
            
                          }
             break
@@ -1439,7 +1440,7 @@ const templateMessage = {
    const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
 
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
-   const latest_news = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
+   const helnews = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
          
 const title = helnews.news.helakuru.title
 const news = helnews.news.helakuru.description
