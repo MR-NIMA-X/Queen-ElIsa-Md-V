@@ -1332,6 +1332,7 @@ if (q.includes('--help')) return reply(examkosong)
   }
   break*/
   case 'news' : {
+       const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, ) 
        const news = await fetchJson(`https://api.sdbots.tk/hirunews`)
        const cap = `*👸 Queen Elisa News 👸*
        
@@ -1457,7 +1458,7 @@ const templateMessage = {
 
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const helnews = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
-   reply(jsonformat(helnews))        
+ //  reply(jsonformat(helnews))        
 
 const title = helnews.news_from_id.helakuru.title
 const news = helnews.news_from_id.helakuru.description
