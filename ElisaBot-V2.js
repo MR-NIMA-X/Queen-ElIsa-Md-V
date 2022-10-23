@@ -1192,7 +1192,7 @@ if (global.LANG == 'EN') P_LINK = */
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
                 await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
                 //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
-                const name = text.split("https://play.google.com/store/apps/details?id=")[1]
+                const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
                 .then(async (nima) => {  
                 
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
@@ -1373,7 +1373,7 @@ const img = helnews.news.helakuru.thumb
 const url = helnews.news.helakuru.url
 const date = helnews.news.helakuru.data
 
-const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_*${news}\n`
+const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
 const templateButtons = [
     {index: 1, urlButton: {displayText: `ɴᴇᴡs ᴜʀʟ`, url: url }},
 
@@ -1382,7 +1382,7 @@ const templateButtons = [
 
 const templateMessage = {
     image: {url: img },
-    caption: '  ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n'+cap,
+    caption: '     ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n\n'+cap,
     footer: global.botnma+'\n ᴛʜᴀɴᴋs ᴛᴏ sɪsᴜʟʏᴀ',
     templateButtons: templateButtons,
     headerType: 4
@@ -1393,23 +1393,78 @@ const templateMessage = {
            
    }
    break
-   case 'hnews' : {
+   case 'helakurunews' : case 'findnews' : {
+   const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
+
+   var NEWSSS = ''
+  if (global.LANG == 'EN') NEWSSS = '```👸💬 Click And Get Your news```'
+  if (global.LANG == 'SI') NEWSS = '```👸💬 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
+
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-   reply(jsonformat(all_news))
+  // reply(jsonformat(all_news))
+   
+   
+   let sections = []   
+  for (let i of all_news) {
+  const list = {title: `ǫᴜᴇᴇɴ ᴇʟɪsᴀ ɴᴇᴡs `,
+  rows: [
+	    {
+	     title: `${i.title}`, 
+	     rowId: `getnews ${i.news_id}`
+	    }, 
+	    ]
+     }
+     sections.push(list)   
+     }
+  const sendm =  ElisaBotMd.sendMessage(
+      m.chat, 
+      {
+       text: NEWSSS,
+       footer: global.botnma ,
+       title: "*⫷👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂 👸⫸*",
+       buttonText: "GET NEWS",
+       sections
+      }, { quoted : m })    
    
    //all
   /* const all_news = await esana_scrape({ fetch: 'all' , passcode: 'your_passcode'}) // Enter Your Passcode or Contact Admin (+94766239744)
    reply(latest_news)*/
+   await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
+  
    
    }
    break
    case 'getnews' : {
+   const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
+
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
-  const latest_news = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
-  reply(jsonformat(latest_news))
-//scrape all esana news
- 
+   const latest_news = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
+         
+const title = helnews.news.helakuru.title
+const news = helnews.news.helakuru.description
+const img = helnews.news.helakuru.thumb
+const url = helnews.news.helakuru.url
+const date = helnews.news.helakuru.data
+
+const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
+const templateButtons = [
+    {index: 1, urlButton: {displayText: `ɴᴇᴡs ᴜʀʟ`, url: url }},
+
+
+    ]
+
+const templateMessage = {
+    image: {url: img },
+    caption: '     ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n\n'+cap,
+    footer: global.botnma+'\n ᴛʜᴀɴᴋs ᴛᴏ sɪsᴜʟʏᴀ',
+    templateButtons: templateButtons,
+    headerType: 4
+}
+     
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
+     await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
+           
    
    }
    break
@@ -8267,6 +8322,9 @@ ${NIMAMSG}
 │ ${prefix}xnxxsh
 │ ${prefix}xvideo
 │ ${prefix}about
+│ ${prefix}news
+│ ${prefix}news2
+│ ${prefix}findnews
 ╰─────────────⦁`
 
                                   /*template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
