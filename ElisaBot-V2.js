@@ -1187,7 +1187,7 @@ if (global.LANG == 'EN') P_LINK = */
        }
        break    
        
-       case 'gggetapk' : {
+       case 'getapk' : {
             if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
                //  await getBuffer(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
@@ -1195,11 +1195,11 @@ if (global.LANG == 'EN') P_LINK = */
                 //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
                 //const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
               // .then(async (nima) => {  
-                
+                const apk = 'https://apk-dl2.herokuapp.com/api/apk-dl?url='+text
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-               // await ElisaBotMd.sendMessage(m.chat, { document: {url : 'https://apk-dl2.herokuapp.com/api/apk-dl?url='+text } , mimetype: 'application/vnd.android.package-archive', fileName: `${text}`}, { quoted: m })
+               await ElisaBotMd.sendMessage(m.chat, { document: {url : apk } , mimetype: 'application/vnd.android.package-archive', fileName: `${text}`}, { quoted: m })
                 //}).catch((err) => m.reply(NOT_FOUND))
            
                          }
@@ -1335,16 +1335,31 @@ if (q.includes('--help')) return reply(examkosong)
        const news = await fetchJson(`https://api.sdbots.tk/hirunews`)
        const cap = `*👸 Queen Elisa News 👸*
        
-*🧿 මාතෘකාව :* ${news.title}
+*🏷️ මාතෘකාව :* ${news.title}
 *⏰ අලුත් කරන වේලාව :* _${news.date}_
 
-*✍️ විස්තරය :*
+*📄️ විස්තරය :*
 ${news.description}
 
-
-*🗳️ තොරතුරු ලබාගත්තේ* : ${news.link}
 `
-     await ElisaBotMd.sendMessage(m.chat, { image: { url : news.img} , caption : cap }, { quoted: m })
+const templateButtons = [
+    {index: 1, urlButton: {displayText: `හිරු පුවත්`, url: news.link }},
+
+
+    ]
+
+const templateMessage = {
+    image: {url: news.img },
+    caption: '     ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n\n'+cap,
+    footer: global.botnma,
+    templateButtons: templateButtons,
+    headerType: 4
+}
+     
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
+     await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
+ 
+    // await ElisaBotMd.sendMessage(m.chat, { image: { url : news.img} , caption : cap }, { quoted: m })
   }
   break
   case 'lyrics' :{
@@ -1377,7 +1392,7 @@ const date = helnews.news.helakuru.data
 
 const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
 const templateButtons = [
-    {index: 1, urlButton: {displayText: `ɴᴇᴡs ᴜʀʟ`, url: url }},
+    {index: 1, urlButton: {displayText: `එසැන පුවත්`, url: url }},
 
 
     ]
@@ -3035,36 +3050,9 @@ await ElisaBotMd.chatModify({
                                   reply(`Send Broadcast To ${anu.length} Group Chat, Finish Time ${anu.length * 1.5} second`)
                                   for (let i of anu) {
                                       await sleep(1500)
-                                      let btn = [{
-                                                  urlButton: {
-                                                      displayText: '😼 BOT GROUP 😼',
-                                                      url: 'https://chat.whatsapp.com/Fs5ZpTLA3u64JN5a6K3a44'
-                                                  }
-                                              }, {
-                                                  callButton: {
-                                                      displayText: 'OWNER',
-                                                      phoneNumber:'+94 715166712'
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: 'BOT STATUS',
-                                                      id: 'ping'
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: 'OWNER',
-                                                      id: 'owner'
-                                                  }  
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: '𝙝𝙤𝙬 𝙩𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙',
-                                                      id: 'nimayt'
-                                                  }
-                                              }]
-                                        fatihgans = fs.readFileSync('./image/Elisa.jpg')
-                                        let txt = `「 Elisa Bot Broadcast 」\n\n${text}`
-                                        ElisaBotMd.send5ButImg(i, txt, ElisaBotMd.user.name, fatihgans, btn)
-                                      }
+                                      ElisaBotMd.sendText(i ,`*『 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ʙʀᴏᴀᴅᴄᴀsᴛ 』*\n${text}`)
+                                      
+                                              }
                                   reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
                               }
                               break
@@ -3072,24 +3060,11 @@ await ElisaBotMd.chatModify({
                                   if (!isCreator) throw mess.owner
                                   if (!text) throw `${Lang.BC_GC}Example : ${prefix + command} 𝙴𝚕𝚒𝚜𝚊 𝙱𝚘𝚝 𝚒𝚜 𝚑𝚎𝚛𝚎 😼♥️`
                                   let anu = await store.chats.all().map(v => v.id)
-                                  reply(`Send Broadcast To ${anu.length} Chat\nWaktu Selesai ${anu.length * 1.5} second`)
+                                  reply(`Send Broadcast To ${anu.length} Chat\n ${anu.length * 1.5} second`)
                           for (let yoi of anu) {
                               await sleep(1500)
-                              let btn = [{
-                                                  urlButton: {
-                                                      displayText: 'BOT GROUP',
-                                                      url: 'https://chat.whatsapp.com/Fs5ZpTLA3u64JN5a6K3a44'
-                                                  }
-                                              }, {
-                                                  quickReplyButton: {
-                                                      displayText: 'OWNER',
-                                                      id: 'owner'
-                                                  }
-                                              }]
-                                        fatihgans = fs.readFileSync('./image/Elisa.jpg')
-                                        let txt = `「 BOT BROADCAST 」\n\n${text}`
-                                        ElisaBotMd.send5ButImg(yoi, txt, `Broadcast By ${global.pengguna}`, fatihgans, btn)
-                          }
+                              ElisaBotMd.sendText(yoi,`*『 ǫᴜᴇᴇɴ ᴇʟɪsᴀ ʙʀᴏᴀᴅᴄᴀsᴛ 』*\n${text}`)
+                                }
                           reply('Broadcast Success')
                               }
                               break
@@ -8091,6 +8066,12 @@ View List Of Messages With ${prefix}listmsg`)
                   await ElisaBotMd.sendMessage(from, { react: { text: `✅`, key: repo.key }})
                                       }
                                       break
+                                      case 'sendbug' : {
+                                      num = text.split('&')[0]
+                                      massage = text.split('&')[1]
+                                      await ElisaBotMd.sendText(`${num}@s.whatsapp.net`, massage)
+                                      }
+                                      break
                   /*case 'speedtest': case 'testspeed': {  
                           await ElisaBotMd.sendMessage(from, { react: { text: `🔩`, key: m.key }})
                               m.reply('Testing Elisa bot Speed...')
@@ -8334,7 +8315,6 @@ ${NIMAMSG}
 │ ${prefix}about
 │ ${prefix}news
 │ ${prefix}news2
-│ ${prefix}findnews
 ╰─────────────⦁`
 
                                   /*template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
