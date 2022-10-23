@@ -389,7 +389,7 @@ const auto_reply_msg = JSON.parse(fs.readFileSync('./database/autoreply.json'))
 const resevmsg = auto_reply_msg.massage
 const sendmsg = auto_reply_msg.reply_massage
          for (any in resevmsg){
-         if (budy.toLowerCase().includes(resevmsg[any])) {
+         if (budy.toLowerCase().startsWith(resevmsg[any])) {
          imoji = sendmsg[any]
 m.reply(imoji)
 }
@@ -1190,14 +1190,15 @@ if (global.LANG == 'EN') P_LINK = */
        case 'getapk' : {
             if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
-                await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader2?package=${text}`)
+                await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
+                //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
+                const name = text.split("https://play.google.com/store/apps/details?id=")[1]
                 .then(async (nima) => {  
-                //const file = nima.apkdownload
-              //  await sleep(6000)
+                
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima.respon.download } , mimetype: 'application/vnd.android.package-archive', fileName: `${nima.respon.id}`}, { quoted: m })}).catch((err) => m.reply('😪 sᴏʀʀʏ ᴄᴀɴ\'ᴛ ᴅᴏᴡɴʟᴏᴀᴅ ᴛʜɪs ᴀᴘᴋ'))
+                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${nima.respon.id}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
            
                          }
             break
@@ -1354,6 +1355,26 @@ ${nima.lyrics}
 `
 await ElisaBotMd.sendText(m.chat, msg )
   }
+   break
+   case 'hnews' : {
+   const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+   const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+   reply(all_news)
+   
+   //all
+  /* const all_news = await esana_scrape({ fetch: 'all' , passcode: 'your_passcode'}) // Enter Your Passcode or Contact Admin (+94766239744)
+   reply(latest_news)*/
+   
+   }
+   break
+   case 'getnews' : {
+   const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+ const latest_news = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'}} ) // example {id: '93782'}
+reply(latest_news)
+//scrape all esana news
+ 
+   
+   }
    break
   case 'tiktok2' : {
    
