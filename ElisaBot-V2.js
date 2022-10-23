@@ -1425,6 +1425,7 @@ const templateMessage = {
    reply(i.news_id)
    let sections = []   
   for (let i of all_news) {
+  reply(i.news_id)
   const list = {title: `ǫᴜᴇᴇɴ ᴇʟɪsᴀ ɴᴇᴡs `,
   rows: [
 	    {
