@@ -1463,9 +1463,9 @@ const templateMessage = {
     templateButtons: templateButtons,
     headerType: 4
 }
-     
-    const newsmsg =  await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
-     await ElisaBotMd.sendMessage(m.chat,{delete : load.key })  
+     await ElisaBotMd.sendMessage(m.chat,{delete : load.key }) 
+     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })
+      
            
    
    }
