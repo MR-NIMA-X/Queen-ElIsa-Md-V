@@ -1187,19 +1187,20 @@ if (global.LANG == 'EN') P_LINK = */
        }
        break    
        
-       case 'getapk' : {
+       case 'gggetapk' : {
             if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
-                 await getBuffer(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
+               //  await getBuffer(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
               //  const name = nima.hasil[0].title || text
                 //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
                 //const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
-               .then(async (nima) => {  
+              // .then(async (nima) => {  
                 
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-                await ElisaBotMd.sendMessage(m.chat, { document: nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${text}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
+               // await ElisaBotMd.sendMessage(m.chat, { document: {url : 'https://apk-dl2.herokuapp.com/api/apk-dl?url='+text } , mimetype: 'application/vnd.android.package-archive', fileName: `${text}`}, { quoted: m })
+                //}).catch((err) => m.reply(NOT_FOUND))
            
                          }
             break
