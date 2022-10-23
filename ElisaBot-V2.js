@@ -1441,8 +1441,9 @@ const templateMessage = {
    const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
 
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
-   const helnews = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
+   const helnews = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
 reply(jsonformat(helnews))        
+
 const title = helnews.news_from_id.helakuru.title
 const news = helnews.news_from_id.helakuru.description
 const img = helnews.news_from_id.helakuru.thumb
@@ -1452,9 +1453,7 @@ const date = helnews.news_from_id.helakuru.data
 const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
 const templateButtons = [
     {index: 1, urlButton: {displayText: `ɴᴇᴡs ᴜʀʟ`, url: url }},
-
-
-    ]
+]
 
 const templateMessage = {
     image: {url: img },
