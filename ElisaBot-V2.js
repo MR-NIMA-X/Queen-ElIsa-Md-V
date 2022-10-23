@@ -1190,8 +1190,8 @@ if (global.LANG == 'EN') P_LINK = */
        case 'getapk' : {
             if (!text.includes('https://play.google.com/')) return reply('*👸💬 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
            await ElisaBotMd.sendMessage(from, { text: `*📥 Downloading Playstore apk...*` }, { quoted: m })
-                const getname = await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
-                const name = nima.hasil[0].title || text
+                 await fetchJson(`https://apk-dl2.herokuapp.com/api/apk-dl?url=${text}`)
+              //  const name = nima.hasil[0].title || text
                 //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
                 //const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
                 .then(async (nima) => {  
@@ -1199,7 +1199,7 @@ if (global.LANG == 'EN') P_LINK = */
                 await ElisaBotMd.sendMessage(from, { text: `*📤 Uploading playstore apk...*` }, { quoted: m })
                 //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
                 //const buffer = await getBuffer(nima.respon.download)
-                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${name}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
+                await ElisaBotMd.sendMessage(m.chat, { document: { url : nima } , mimetype: 'application/vnd.android.package-archive', fileName: `${text}`}, { quoted: m })}).catch((err) => m.reply(NOT_FOUND))
            
                          }
             break
@@ -1399,7 +1399,7 @@ const templateMessage = {
 
    var NEWSSS = ''
   if (global.LANG == 'EN') NEWSSS = '```👸💬 Click And Get Your news```'
-  if (global.LANG == 'SI') NEWSS = '```👸💬 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
+  if (global.LANG == 'SI') NEWSSS = '```👸💬 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
 
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
@@ -1422,7 +1422,7 @@ const templateMessage = {
       m.chat, 
       {
        text: NEWSSS,
-       footer: global.botnma ,
+       footer: global.botnma+'\n get on helakuru.com ,
        title: "*⫷👸 𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂 👸⫸*",
        buttonText: "GET NEWS",
        sections
@@ -1442,11 +1442,11 @@ const templateMessage = {
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const helnews = await esana_scrape_from_id( { id: text , passcode: 'uakdmin_sr_2064'})
          
-const title = helnews.news.helakuru.title
-const news = helnews.news.helakuru.description
-const img = helnews.news.helakuru.thumb
-const url = helnews.news.helakuru.url
-const date = helnews.news.helakuru.data
+const title = helnews.news_from_id.helakuru.title
+const news = helnews.news_from_id.helakuru.description
+const img = helnews.news_from_id.helakuru.thumb
+const url = helnews.news_from_id.helakuru.url
+const date = helnews.news_from_id.helakuru.data
 
 const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
 const templateButtons = [
