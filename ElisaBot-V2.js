@@ -1422,7 +1422,7 @@ const templateMessage = {
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
   // reply(jsonformat(all_news))
    
-   
+   reply(i.news_id)
    let sections = []   
   for (let i of all_news) {
   const list = {title: `ǫᴜᴇᴇɴ ᴇʟɪsᴀ ɴᴇᴡs `,
