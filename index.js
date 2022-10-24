@@ -16,7 +16,7 @@ const path = require('path')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson,await , sleep } = require('./lib/myfunc')
-        
+const sendnews = true        
   
 
 var low
@@ -56,9 +56,9 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-
+if(sendnews) setInterval(async () => {
 const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
-const latest_news =  esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'})
+const latest_news = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'})
 
 const newid = latest_news.news.helakuru.news_id
 
@@ -85,14 +85,14 @@ const templateMessage = {
     headerType: 4
 }
      
-      ElisaBotMd.sendMessage('120363039428064381@g.us', templateMessage, { quoted: m })
-      ElisaBotMd.sendMessage('120363039428064381@g.us',{delete : load.key })  
+      await ElisaBotMd.sendMessage('120363039428064381@g.us', templateMessage, { quoted: m })
+      await ElisaBotMd.sendMessage('120363039428064381@g.us',{delete : load.key })  
      global.global.newss_id = newid 
 
 } else {
 return
 }
-
+},30 * 1000)
 
 async function startElisaBotMd() {
     const ElisaBotMd = DarkMakerincConnect({
