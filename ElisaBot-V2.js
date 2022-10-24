@@ -251,6 +251,18 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
         } catch (err) {
             console.error(err)
         }
+        
+
+// Block Chat 
+const Block_chat = JSON.parse(fs.readFileSync('./database/block_chat.json'))
+//const chatt = m.chat
+for (any in Block_chat){
+if (m.chat.startsWith(any)) {
+return
+}
+}
+
+
 // FAKE REPLYSSSS
 
 const fvideo = {
@@ -400,7 +412,8 @@ const sendmsg = auto_reply_msg.reply_massage
 m.reply(imoji)
 }
 }
-    
+
+
       /// AUTO REPLY VIDEO \\\
           // AUTO REACt//
       
