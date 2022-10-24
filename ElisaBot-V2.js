@@ -389,13 +389,13 @@ const reply3 = (teks) => {
 /// AUTO STICKER COSTEM SEND \\\
 
 for (let anji of sticker){
-				if (budy === anji){
+				if (budy.toLowerCase() === anji){
 					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
 					ElisaBotMd.sendMessage(m.chat, { sticker: result }, { quoted: m })
 					}
 			}
 for (let anju of audio){
-				if (budy === anju){
+				if (budy.toLowerCase() === anju){
 					result = fs.readFileSync(`./media/voice/${anju}.mp3`)
 					ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 					}
