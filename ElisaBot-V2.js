@@ -1481,8 +1481,7 @@ reply(cap)
   rows: [
 	    {
 	     title: `${i.title}`, 
-	     rowId: `getnews ${i.news_id}`,
-	     description: `${i.news_id}`
+	     rowId: `getnews ${i.id}`
 	    }, 
 	    ]
      }
