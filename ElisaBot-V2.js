@@ -1432,6 +1432,17 @@ const templateMessage = {
            
    }
    break
+   case 'newsjson' : {
+   const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+   const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+   const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+   const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
+reply(jsonformat(all_news))
+reply(jsonformat(helnews))
+reply(jsonformat(helnew_s))
+   
+   }
+ break
    case 'helakurunews' : case 'findnews' : {
    const load = await ElisaBotMd.sendText(m.chat, mess.wait , m, )
 
@@ -1441,7 +1452,9 @@ const templateMessage = {
 
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-  // reply(jsonformat(all_news))
+   
+  
+      // reply(jsonformat(all_news))
    
   // reply(i.news_id)
    let sections = []   
