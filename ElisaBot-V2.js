@@ -1435,12 +1435,10 @@ const templateMessage = {
    case 'newsjson' : {
    const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-   const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-   const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
+  // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+ //  const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
   const cap = `
   ${jsonformat(all_news)}
-  ${jsonformat(helnews)}
-  ${jsonformat(helnew_s)}
   `
 reply(cap)
 //reply(jsonformat(helnews))
