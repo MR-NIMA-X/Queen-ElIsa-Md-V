@@ -1437,9 +1437,28 @@ const templateMessage = {
    const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
    const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
    const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
-reply(jsonformat(all_news))
-reply(jsonformat(helnews))
-reply(jsonformat(helnew_s))
+  const cap = `
+  ${jsonformat(all_news)}
+  ${jsonformat(helnews)}
+  ${jsonformat(helnew_s)}
+  `
+reply(cap)
+//reply(jsonformat(helnews))
+//reply(jsonformat(helnew_s))
+   
+   }
+ break
+ case 'newsjson2' : {
+   const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+   //const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+  // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+   const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
+  const cap = `
+  ${jsonformat(helnew_s)}
+  `
+reply(cap)
+//reply(jsonformat(helnews))
+//reply(jsonformat(helnew_s))
    
    }
  break
@@ -2503,6 +2522,7 @@ await ElisaBotMd.readMessages([key])
                                   if (!isBotAdmins) return reply( mess.botAdmin)
                                   if (!isAdmins) return reply( mess.admin)
                            let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+                           if(users === "94715166712@s.whatsapp.net") return reply('*👸💬 Can`t Remove Nima*')
 		                  await ElisaBotMd.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(global.KICK_MASSAGE)).catch((err) => reply(jsonformat(err)))
  } 
                       break
