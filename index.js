@@ -85,8 +85,8 @@ const templateMessage = {
     headerType: 4
 }
      
-     await ElisaBotMd.sendMessage('120363039428064381@g.us', templateMessage, { quoted: m })
-     await ElisaBotMd.sendMessage('120363039428064381@g.us',{delete : load.key })  
+      ElisaBotMd.sendMessage('120363039428064381@g.us', templateMessage, { quoted: m })
+      ElisaBotMd.sendMessage('120363039428064381@g.us',{delete : load.key })  
      global.global.newss_id = newid 
 
 } else {
