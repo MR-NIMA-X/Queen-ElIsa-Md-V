@@ -15,7 +15,7 @@ const FileType = require('file-type')
 const path = require('path')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
-const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
+const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson,await , sleep } = require('./lib/myfunc')
         
   
 
@@ -57,6 +57,42 @@ if (global.db) setInterval(async () => {
   }, 30 * 1000)
 
 
+const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
+const latest_news = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+
+const newid = latest_news.news.helakuru.news_id
+
+if (global.newss_id === newid ){
+
+const title = helnews.news.helakuru.title
+const news = helnews.news.helakuru.description
+const img = helnews.news.helakuru.thumb
+const url = helnews.news.helakuru.url
+const date = helnews.news.helakuru.data
+
+const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
+const templateButtons = [
+    {index: 1, urlButton: {displayText: `එසැන පුවත්`, url: url }},
+
+
+    ]
+
+const templateMessage = {
+    image: {url: img },
+    caption: '     ⫷ 👸 *𝚀𝚄𝙴𝙴𝙽 𝙴𝙻𝙸𝚂𝙰 𝙽𝙴𝚆𝚂* 👸 ⫸\n\n'+cap,
+    footer: global.botnma,
+    templateButtons: templateButtons,
+    headerType: 4
+}
+     
+     await ElisaBotMd.sendMessage('120363039428064381@g.us', templateMessage, { quoted: m })
+     await ElisaBotMd.sendMessage('120363039428064381@g.us',{delete : load.key })  
+     global.global.newss_id = newid 
+
+} else {
+return
+}
+
 
 async function startElisaBotMd() {
     const ElisaBotMd = DarkMakerincConnect({
@@ -97,6 +133,7 @@ async function startElisaBotMd() {
   //GROUP UPDATE\\
     ElisaBotMd.ev.on('group-participants.update', async (anu) => {
         if (anu.id == '120363043491784571@g.us') return
+        if (anu.id == '120363052773472047@g.us') return
         if (global.SEND_WELCOME == 'false') return
         console.log(anu)
         try {
