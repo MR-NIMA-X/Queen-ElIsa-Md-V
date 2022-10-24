@@ -64,11 +64,11 @@ const newid = latest_news.news.helakuru.news_id
 
 if (global.newss_id === newid ){
 
-const title = helnews.news.helakuru.title
-const news = helnews.news.helakuru.description
-const img = helnews.news.helakuru.thumb
-const url = helnews.news.helakuru.url
-const date = helnews.news.helakuru.data
+const title = latest_news.news.helakuru.title
+const news = latest_news.news.helakuru.description
+const img = latest_news.news.helakuru.thumb
+const url = latest_news.news.helakuru.url
+const date = latest_news.news.helakuru.data
 
 const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
 const templateButtons = [
