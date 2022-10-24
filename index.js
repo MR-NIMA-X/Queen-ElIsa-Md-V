@@ -56,7 +56,7 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-if(sendnews = 'true') setInterval(async () => {
+/*if(sendnews = 'true') setInterval(async () => {
 const {esana_scrape, esana_latest_news_id, esana_scrape_from_id} = require("esana-node-api").esana_news;
 const latest_news = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'})
 
@@ -93,7 +93,7 @@ const templateMessage = {
 return
 }
 },30 * 1000)
-
+*/
 async function startElisaBotMd() {
     const ElisaBotMd = DarkMakerincConnect({
         logger: pino({ level: 'silent' }),
