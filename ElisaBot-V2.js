@@ -155,7 +155,7 @@ const {
 
 //Database\\
 let sticker = JSON.parse(fs.readFileSync('./database/sticker.json'));
-//let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
+let audio = JSON.parse(fs.readFileSync('./database/voice.json'));
 ///let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
 //let videox = JSON.parse(fs.readFileSync('./database/video.json'))
 
@@ -380,6 +380,12 @@ for (let anji of sticker){
 				if (budy === anji){
 					result = fs.readFileSync(`./Media/sticker/${anji}.webp`)
 					ElisaBotMd.sendMessage(m.chat, { sticker: result }, { quoted: m })
+					}
+			}
+for (let anju of audio){
+				if (budy === anju){
+					result = fs.readFileSync(`./media/voice/${anju}.mp3`)
+					ElisaBotMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 					}
 			}
 			
