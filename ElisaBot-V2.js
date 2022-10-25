@@ -974,9 +974,243 @@ const yuki = JSON.parse(fs.readFileSync('./database/Anime/yuki.json'))
 
 switch(command) {
 case 'akira' : {
- var img = akira[Math.floor(Math.random() * akira.length)]  
- ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: `${global.cap}` }, { quoted: m })
-}
+    var img = akira[Math.floor(Math.random() * akira.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+   
+case 'ana' : {
+   var img = ana[Math.floor(Math.random() * ana.length)]  
+   ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+   }
+break
+
+
+case 'asuna' : {
+    var img = asuna[Math.floor(Math.random() * asuna.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'ayuzawa' : {
+    var img = ayuzawa[Math.floor(Math.random() * ayuzawa.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'boruto' : {
+    var img = boruto[Math.floor(Math.random() * boruto.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'elaina' : {
+    var img = elaina[Math.floor(Math.random() * elaina.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'emilia' : {
+    var img = emilia[Math.floor(Math.random() * emilia.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'erza' : {
+    var img = erza[Math.floor(Math.random() * erza.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'gremory' : {
+    var img = gremory[Math.floor(Math.random() * gremory.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'inori' : {
+    var img = inori[Math.floor(Math.random() * inori.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'kaga' : {
+    var img = kaga[Math.floor(Math.random() * kaga.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'kaori' : {
+    var img = kaori[Math.floor(Math.random() * kaori.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'kurumi' : {
+    var img = kurumi[Math.floor(Math.random() * kurumi.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'loli' : {
+    var img = loli[Math.floor(Math.random() * loli.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'madara' : {
+    var img = madara[Math.floor(Math.random() * madara.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'mikasa' : {
+    var img = mikasa[Math.floor(Math.random() * mikasa.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'miku' : {
+    var img = miku[Math.floor(Math.random() * miku.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'naturo' : {
+    var img = naturo[Math.floor(Math.random() * naturo.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'nezuko' : {
+    var img = nezuko[Math.floor(Math.random() * nezuko.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+case 'rize' : {
+    var img = rize[Math.floor(Math.random() * rize.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'sakura' : {
+    var img = sakura[Math.floor(Math.random() * sakura.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'sasuke' : {
+    var img = sasuke[Math.floor(Math.random() * sasuke.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'shina' : {
+    var img = shina[Math.floor(Math.random() * shina.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'shinka' : {
+    var img = shinka[Math.floor(Math.random() * shinka.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'shota' : {
+    var img = shota[Math.floor(Math.random() * shota.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'waifu' : {
+    var img = waifu[Math.floor(Math.random() * waifu.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
+break
+
+
+case 'yuki-' : {
+    var img = yuki-[Math.floor(Math.random() * yuki-.length)]  
+        
+          ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
+     
+     }
 break
   case 'delrash' :{
   global.DEL_RASH = text
@@ -9702,11 +9936,33 @@ back = Lang.BACK_BUTTON
 ├⛒  *ʀᴇsᴘᴏɴ sᴘᴇᴇᴅ* ${ping}
 ╰⛒  *ᴛɪᴍᴇ* ${time}
 
-${M_E} ${prefix}loli
-${M_E} ${prefix}neko
-${M_E} ${prefix}waifu
-${M_E} ${prefix}shinobu
-${M_E} ${prefix}megumin
+${M_E} ${prefix}akira  
+${M_E} ${prefix}ana
+${M_E} ${prefix}asuna 
+${M_E} ${prefix}ayuzawa 
+${M_E} ${prefix}boruto
+${M_E} ${prefix}elaina 
+${M_E} ${prefix}emilia 
+${M_E} ${prefix}erza  
+${M_E} ${prefix}gremory  
+${M_E} ${prefix}inori  
+${M_E} ${prefix}kaga  
+${M_E} ${prefix}kaori  
+${M_E} ${prefix}kurumi  
+${M_E} ${prefix}loli  
+${M_E} ${prefix}madara  
+${M_E} ${prefix}mikasa  
+${M_E} ${prefix}miku  
+${M_E} ${prefix}naruto  
+${M_E} ${prefix}nezuko  
+${M_E} ${prefix}rize  
+${M_E} ${prefix}sakura  
+${M_E} ${prefix}sasuke  
+${M_E} ${prefix}shina  
+${M_E} ${prefix}shinka  
+${M_E} ${prefix}shota  
+${M_E} ${prefix}waifu  
+${M_E} ${prefix}yuki  
 ${M_E} ${prefix}bully
 ${M_E} ${prefix}cuddle
 ${M_E} ${prefix}cry
