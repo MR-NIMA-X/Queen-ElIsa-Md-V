@@ -1206,7 +1206,7 @@ break
 
 
 case 'yuki-' : {
-    var img = yuki-[Math.floor(Math.random() * yuki-.length)]  
+    var img = yuki[Math.floor(Math.random() * yuki.length)]  
         
           ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: global.cap }, { quoted: m })
      
