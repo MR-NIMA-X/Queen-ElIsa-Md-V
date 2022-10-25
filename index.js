@@ -18,22 +18,6 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson,await , sleep } = require('./lib/myfunc')
 const sendnews = 'true'     
   
-require('./config')
-const { default: akameConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
-const pino = require('pino')
-const { Boom } = require('@hapi/boom')
-const fs = require('fs')
-const yargs = require('yargs/yargs')
-const chalk = require('chalk')
-const FileType = require('file-type')
-const path = require('path')
-const _ = require('lodash')
-const axios = require('axios')
-const PhoneNumber = require('awesome-phonenumber')
-const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
-const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
-
 var low
 try {
   low = require('lowdb')
