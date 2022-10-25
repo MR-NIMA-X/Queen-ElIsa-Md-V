@@ -8537,11 +8537,33 @@ ${NIMAMSG}
 ╰─────────────⦁
   
 ╭──❰ *𝚁𝙰𝙽𝙳𝙾𝙼 𝙰𝙽𝙸𝙼𝙴* ❱
-│ ${prefix}loli
-│ ${prefix}neko
-│ ${prefix}waifu
-│ ${prefix}shinobu
-│ ${prefix}megumin
+│ ${prefix}akira  
+│ ${prefix}ana
+│ ${prefix}asuna 
+│ ${prefix}ayuzawa 
+│ ${prefix}boruto
+│ ${prefix}elaina 
+│ ${prefix}emilia 
+│ ${prefix}erza  
+│ ${prefix}gremory  
+│ ${prefix}inori  
+│ ${prefix}kaga  
+│ ${prefix}kaori  
+│ ${prefix}kurumi  
+│ ${prefix}loli  
+│ ${prefix}madara  
+│ ${prefix}mikasa  
+│ ${prefix}miku  
+│ ${prefix}naruto  
+│ ${prefix}nezuko  
+│ ${prefix}rize  
+│ ${prefix}sakura  
+│ ${prefix}sasuke  
+│ ${prefix}shina  
+│ ${prefix}shinka  
+│ ${prefix}shota  
+│ ${prefix}waifu  
+│ ${prefix}yuki  
 │ ${prefix}bully
 │ ${prefix}cuddle
 │ ${prefix}cry
@@ -8679,10 +8701,9 @@ ${NIMAMSG}
                                   }), { userJid: m.chat, quoted: m })
                                     ElisaBotMd.send5ButImg(m.chat, template.message, { messageId: template.key.id })*/
 const templateButtons = [
-    {urlButton: {displayText: global.BUTTON1, url: global.BUTTON1_URL }},
-    {urlButton: {displayText: global.BUTTON2, url: global.BUTTON2_URL }},
     {quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
     {quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
+    {quickReplyButton: {displayText: 'sᴛᴇᴛᴜs', id: 'stetus'}},
 ]
 
 const templateMessage = {
