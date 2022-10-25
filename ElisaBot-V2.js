@@ -940,7 +940,44 @@ In ${clockString(new Date - user.afkTime)}
       if (!isInventoryLimit){addInventoriLimit(m.sender)}
       addLimit(m.sender, 1 )
       }
+      
+///  ANIME RANDOM
+const akira = JSON.parse(fs.readFileSync('./database/Anime/akira.json'))
+const ana = JSON.parse(fs.readFileSync('./database/Anime/ana.json'))
+const asuna = JSON.parse(fs.readFileSync('./database/Anime/asuna.json'))
+const ayuzawa = JSON.parse(fs.readFileSync('./database/Anime/ayuzawa.json'))
+const boruto = JSON.parse(fs.readFileSync('./database/Anime/boruto.json'))
+const elaina = JSON.parse(fs.readFileSync('./database/Anime/elaina.json'))
+const emilia = JSON.parse(fs.readFileSync('./database/Anime/emilia.json'))
+const erza = JSON.parse(fs.readFileSync('./database/Anime/erza.json'))
+const gremory = JSON.parse(fs.readFileSync('./database/Anime/gremory.json'))
+const inori = JSON.parse(fs.readFileSync('./database/Anime/inori.json'))
+const kaga = JSON.parse(fs.readFileSync('./database/Anime/kaga.json'))
+const kaori = JSON.parse(fs.readFileSync('./database/Anime/kaori.json'))
+const kurumi = JSON.parse(fs.readFileSync('./database/Anime/kurumj.json'))
+const loli = JSON.parse(fs.readFileSync('./database/Anime/loli.json'))
+const madara = JSON.parse(fs.readFileSync('./database/Anime/madara.json'))
+const mikasa = JSON.parse(fs.readFileSync('./database/Anime/mikasa.json'))
+const miku = JSON.parse(fs.readFileSync('./database/Anime/miku.json'))
+const naruto = JSON.parse(fs.readFileSync('./database/Anime/naeuto.json'))
+const nezuko = JSON.parse(fs.readFileSync('./database/Anime/nezuko.json'))
+const rize = JSON.parse(fs.readFileSync('./database/Anime/rize.json'))
+const sakura = JSON.parse(fs.readFileSync('./database/Anime/sakura.json'))
+const sasuke = JSON.parse(fs.readFileSync('./database/Anime/sasuke.json'))
+const shina = JSON.parse(fs.readFileSync('./database/Anime/shina.json'))
+const shinka = JSON.parse(fs.readFileSync('./database/Anime/shinka.json'))
+const shota = JSON.parse(fs.readFileSync('./database/Anime/shota.json'))
+const waifu = JSON.parse(fs.readFileSync('./database/Anime/waifu.json'))
+const yuki = JSON.parse(fs.readFileSync('./database/Anime/yuki.json'))
+
+
+
 switch(command) {
+case 'akira' : {
+ var img = akira[Math.floor(Math.random() * akira.length)]  
+ ElisaBotMd.sendMessage(m.chat, { image: { url: img }, caption: `${global.cap}` }, { quoted: m })
+}
+break
   case 'delrash' :{
   global.DEL_RASH = text
   reply('Done !')
@@ -5142,11 +5179,6 @@ const docidd = rash.doccmd
                               case 'sendme' : {
                               if (!isNima) throw ('*This is only main owner command ☺*️')
                               ElisaBotMd.sendText(m.chat,text)
-                              }
-                              break
-                              case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
-                                  m.reply('Searcing Anime 🐣')
-                                  ElisaBotMd.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: global.cap + command }, { quoted: m })
                               }
                               break
                           case 'couplepp': case 'ppcouple': {  
