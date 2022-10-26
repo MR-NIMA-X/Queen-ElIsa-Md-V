@@ -1236,7 +1236,7 @@ case 'cecan':
                     buttons: buttons,
                     headerType: 4
                 }
-                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: fdoc })
+                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 case 'cyberspace':
@@ -1257,7 +1257,7 @@ case 'cyberspace':
                     buttons: buttons,
                     headerType: 4
                 }
-                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: fdoc })
+                ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
   case 'delrash' :{
@@ -8546,7 +8546,7 @@ ${NIMAMSG}
 │ ${prefix}coffee
 │ ${prefix}couplepp
 ╰─────────────⦁
- //Asupan
+
 ╭──❰ *𝙵𝚄𝙽 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂* ❱
 │ ${prefix}couple
 │ ${prefix}mysoulmate
@@ -8759,15 +8759,23 @@ ${NIMAMSG}
                                                       }
                                                   
                                               }]
-                                          }
+{buttonId: `command`, buttonText: {displayText: '☰ ʟɪsᴛ ᴍᴇɴᴜ ☰'}, type: 1},
+{buttonId: `owner`, buttonText: {displayText: '🧑‍💻 ᴏᴡɴᴇʀ 🧑‍💻️'}, type: 1},
+{buttonId: `elisaallmenu`, buttonText: {displayText: '⚙ ᴀʟʟ ᴍᴇɴᴜ ️⚙️'}, type: 1}
+            
+  {quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
+    {quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
+    {quickReplyButton: {displayText: 'sᴛᴇᴛᴜs', id: 'stetus'}},
+                                        }
                                       }
                                   }), { userJid: m.chat, quoted: m })
                                     ElisaBotMd.send5ButImg(m.chat, template.message, { messageId: template.key.id })*/
 const templateButtons = [
-    {quickReplyButton: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ', id: 'list'}},
-    {quickReplyButton: {displayText: 'ᴏᴡɴᴇʀ', id: 'owner'}},
-    {quickReplyButton: {displayText: 'sᴛᴇᴛᴜs', id: 'stetus'}},
-]
+  {buttonId: `list`, buttonText: {displayText: 'ʟɪsᴛ ᴍᴇɴᴜ'}, type: 1},
+  {buttonId: `owner`, buttonText: {displayText: 'ᴏᴡɴᴇʀ‍️'}, type: 1},
+  {buttonId: `stetus`, buttonText: {displayText: 'sᴛᴇᴛᴜs'}, type: 1}
+
+    ]
 
 const templateMessage = {
     text: MENUMSG,
