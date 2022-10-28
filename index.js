@@ -18,6 +18,7 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson,await , sleep } = require('./lib/myfunc')
 const sendnews = 'true'     
   
+
 var low
 try {
   low = require('lowdb')
@@ -35,34 +36,20 @@ const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
-    new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
-      new mongoDB(opts['db']) :
-      new JSONFile(`src/database.json`)
+   new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
+    new mongoDB(opts['db']) :
+      new JSONFile(`database/database.json`)
 )
-global.DATABASE = global.db // Backwards Compatibility
-global.loadDatabase = async function loadDatabase() {
-  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
-  if (global.db.data !== null) return
-  global.db.READ = true
-  await global.db.read()
-  global.db.READ = false
-  global.db.data = {
+global.db.data = {
     users: {},
-    group: {},
     chats: {},
     database: {},
     game: {},
     settings: {},
-    donate: {},
     others: {},
     sticker: {},
-    anonymous: {},
     ...(global.db.data || {})
-  }
-  global.db.chain = _.chain(global.db.data)
 }
-loadDatabase()
-
 
 // save database every 30seconds
 if (global.db) setInterval(async () => {
@@ -300,6 +287,12 @@ ElisaBotMd.sendContact = async (jid, kon, quoted = '', opts = {}) => {
     ElisaBotMd.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect } = update	    
         if (connection === 'close') {
+        const shouldReconnect = (lastDisconnect.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
+            console.log('connection closed due to ', lastDisconnect.error, ', reconnecting ', shouldReconnect)
+            // reconnect if not logged out
+            if(shouldReconnect) {
+                startElisaBotMd()
+            }
         let reason = new Boom(lastDisconnect?.error)?.output.statusCode
             if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); ElisaBotMd.logout(); }
             else if (reason === DisconnectReason.connectionClosed) { console.log("💃 Connection closed, reconnecting...."); startElisaBotMd(); }
