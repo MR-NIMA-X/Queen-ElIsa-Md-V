@@ -8780,15 +8780,9 @@ const templateButtons = [
 const templateMessage = {
     text: MENUMSG,
     footer: global.botnma,
-    templateButtons: templateButtons,
-   contextInfo:{ externalAdReply:{
-    title:`${global.ownernma}`,
-    body:`ǫᴜᴇᴇɴ ᴇʟɪsᴀ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ`,
-    thumbnail: 'https://telegra.ph/file/348467f5557c3b1e15f37.jpg',
-    mediaType:2,
-    mediaUrl: `${global.myweb}`,
-    sourceUrl: `https://youtube.com/MRNIMAOFC`
-}}
+    buttons: templateButtons,
+    headerType: 4
+   
 }
      
      await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: m })   
