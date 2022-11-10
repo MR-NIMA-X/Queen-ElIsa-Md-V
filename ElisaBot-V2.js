@@ -447,6 +447,10 @@ m.reply(imoji)
       
       if (m.sender == '94702695534@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `🙂️`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `️🥀`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+      
       }
       if (m.sender == '94713742435@s.whatsapp.net') {
       await ElisaBotMd.sendMessage(from, { react: { text: `🖤`, key: m.key }})
