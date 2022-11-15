@@ -8810,7 +8810,7 @@ const templateButtons = [
 
 let buttonMessage = {
                     image: { url: result },
-                    caption: cap ,
+                    caption: MENUMSG ,
                     footer: global.botnma,
                     buttons: templateButtons,
                     headerType: 4
