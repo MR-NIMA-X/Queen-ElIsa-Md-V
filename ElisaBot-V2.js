@@ -445,11 +445,11 @@ m.reply(imoji)
       /// AUTO REPLY VIDEO \\\
           // AUTO REACt//
       
-      if (m.sender == '94702695534@s.whatsapp.net') {
-      await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
-      await ElisaBotMd.sendMessage(from, { react: { text: `🙂️`, key: m.key }})
-      await ElisaBotMd.sendMessage(from, { react: { text: `️🥀`, key: m.key }})
-      await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+      if (m.sender == '94706258885@s.whatsapp.net') {
+    //  await ElisaBotMd.sendMessage(from, { react: { text: `♥️`, key: m.key }})
+      //await ElisaBotMd.sendMessage(from, { react: { text: `🙂️`, key: m.key }})
+     // await ElisaBotMd.sendMessage(from, { react: { text: `️🥀`, key: m.key }})
+      await ElisaBotMd.sendMessage(from, { react: { text: `💟️`, key: m.key }})
       
       }
       if (m.sender == '94713742435@s.whatsapp.net') {
@@ -8513,7 +8513,8 @@ case 'menu': case 'panel':{
   await ElisaBotMd.sendMessage(from, { react: { text: `📃`, key: m.key }})
   const end = new Date().getTime()
   const ping = end - start
-  
+  const anu = ['https://telegra.ph/file/b91dbaab278c1fe440de6.jpg','https://telegra.ph/file/a7954b940ac9acddf285a.jpg','https://telegra.ph/file/6576c2b80ddd95740f302.jpg','https://telegra.ph/file/48e575fbd6978f77ac796.jpg','https://telegra.ph/file/57221b23abeb4e16a9ffd.jpg','https://telegra.ph/file/ddae7eba259b9686bb761.jpg']
+  const result = anu[Math.floor(Math.random() * anu.length)]   
   ram0 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
   
            const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -8807,15 +8808,17 @@ const templateButtons = [
 
     ]
 
-const templateMessage = {
-    text: MENUMSG,
-    footer: global.botnma,
-    buttons: templateButtons,
-    headerType: 4
-   
-}
+let buttonMessage = {
+                    image: { url: result },
+                    caption: cap ,
+                    footer: global.botnma,
+                    buttons: templateButtons,
+                    headerType: 4
+                }
+               await ElisaBotMd.sendMessage(m.chat, buttonMessage, { quoted: fakestatus })
+          
      
-     await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakestatus })   
+     //await ElisaBotMd.sendMessage(m.chat, templateMessage, { quoted: fakestatus })   
 
                               }
                               break
